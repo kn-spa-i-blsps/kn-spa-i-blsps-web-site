@@ -22,6 +22,56 @@ const members = [
         socials: [
             { platform: "github", url: "https://github.com/jankowalski" }
         ] // Jan nie ma LinkedIn, więc nic się nie wyświetli
+    },
+    { 
+        id: "jan-kkkkkkowalski", 
+        name: "Jan Kowalski", 
+        role: "Dev", 
+        img: "https://i.pravatar.cc/150?u=10",
+        bio: "Koduję w nocy, śpię w dzień.",
+        socials: [
+            { platform: "github", url: "https://github.com/jankowalski" }
+        ] // Jan nie ma LinkedIn, więc nic się nie wyświetli
+    },
+    { 
+        id: "jan-kkkkkowalski", 
+        name: "Jan Kowalski", 
+        role: "Dev", 
+        img: "https://i.pravatar.cc/150?u=10",
+        bio: "Koduję w nocy, śpię w dzień.",
+        socials: [
+            { platform: "github", url: "https://github.com/jankowalski" }
+        ] // Jan nie ma LinkedIn, więc nic się nie wyświetli
+    },
+    { 
+        id: "jan-kkkkowalski", 
+        name: "Jan Kowalski", 
+        role: "Dev", 
+        img: "https://i.pravatar.cc/150?u=10",
+        bio: "Koduję w nocy, śpię w dzień.",
+        socials: [
+            { platform: "github", url: "https://github.com/jankowalski" }
+        ] // Jan nie ma LinkedIn, więc nic się nie wyświetli
+    },
+    { 
+        id: "jan-kkkowalski", 
+        name: "Jan Kowalski", 
+        role: "Dev", 
+        img: "https://i.pravatar.cc/150?u=10",
+        bio: "Koduję w nocy, śpię w dzień.",
+        socials: [
+            { platform: "github", url: "https://github.com/jankowalski" }
+        ] // Jan nie ma LinkedIn, więc nic się nie wyświetli
+    },
+    { 
+        id: "jan-kkowalski", 
+        name: "Jan Kowalski", 
+        role: "Dev", 
+        img: "https://i.pravatar.cc/150?u=10",
+        bio: "Koduję w nocy, śpię w dzień.",
+        socials: [
+            { platform: "github", url: "https://github.com/jankowalski" }
+        ] // Jan nie ma LinkedIn, więc nic się nie wyświetli
     }
 ];
 
