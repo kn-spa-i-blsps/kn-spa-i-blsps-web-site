@@ -1,84 +1,27 @@
 // data.js
 const members = [
     { 
-        id: "jan-kowalski", 
-        name: "Jan Kowalski", 
-        role: "Prezes", 
-        img: "https://i.pravatar.cc/150?u=1",
-        bio: "Pasjonat robotyki i systemów wbudowanych. W kole od 2022 roku. <b>Lider projektu</b> autonomicznego drona.",
-        links: { github: "https://github.com", linkedin: "#" }
-    },
-    { 
-        id: "anna-nowak", 
-        name: "Anna Nowak", 
-        role: "Wiceprezes", 
-        img: "https://i.pravatar.cc/150?u=2",
-        bio: "Specjalistka od analizy danych i uczenia maszynowego. Koordynuje warsztaty z Pythona.",
-        links: { github: "#", linkedin: "#" }
-    },
-    { 
-        id: "michal-wisniewski", 
-        name: "Michał Wiśniewski", 
-        role: "Tech Lead", 
-        img: "https://i.pravatar.cc/150?u=3",
-        bio: "Fullstack Developer. Odpowiada za infrastrukturę serwerową naszych projektów.",
-        links: { github: "#", linkedin: "#" }
-    },
-    { 
-        id: "katarzyna-zajac", 
-        name: "Katarzyna Zając", 
-        role: "Social Media", 
-        img: "https://i.pravatar.cc/150?u=4",
-        bio: "Dba o to, aby o naszych sukcesach usłyszał cały świat (a przynajmniej cała uczelnia).",
-        links: { github: "#", linkedin: "#" }
-    },
-    { 
-        id: "marek-poczta", 
-        name: "Marek Poczta", 
-        role: "Elektronik", 
-        img: "https://i.pravatar.cc/150?u=5",
-        bio: "Magik od lutownicy. Żaden układ scalony nie ma przed nim tajemnic.",
-        links: { github: "#", linkedin: "#" }
-    },
-    { 
-        id: "julia-kwiatkowska", 
-        name: "Julia Kwiatkowska", 
-        role: "UX/UI Designer", 
-        img: "https://i.pravatar.cc/150?u=9",
-        bio: "Projektuje interfejsy, które są nie tylko ładne, ale i użyteczne.",
-        links: { github: "#", linkedin: "#" }
-    },
-    { 
-        id: "tomasz-kot", 
-        name: "Tomasz Kot", 
-        role: "Embedded Dev", 
-        img: "https://i.pravatar.cc/150?u=12",
-        bio: "Programuje mikrokontrolery w C++. Fan optymalizacji kodu.",
-        links: { github: "#", linkedin: "#" }
-    },
-    { 
         id: "ola-sokol", 
         name: "Aleksandra Sokół", 
         role: "PR Manager", 
         img: "https://i.pravatar.cc/150?u=15",
-        bio: "Organizatorka konferencji i spotkań z partnerami biznesowymi.",
-        links: { github: "#", linkedin: "#" }
+        bio: "Organizatorka konferencji i spotkań z partnerami biznesowymi. <br><br> Zapraszam do kontaktu w sprawach networkingowych!Organizatorka konferencji i spotkań z partnerami biznesowymi. <br><br> Zapraszam do kontaktu w sprawach networkingowych!Organizatorka konferencji i spotkań z partnerami biznesowymi. <br><br> Zapraszam do kontaktu w sprawach networkingowych!Organizatorka konferencji i spotkań z partnerami biznesowymi. <br><br> Zapraszam do kontaktu w sprawach networkingowych!Organizatorka konferencji i spotkań z partnerami biznesowymi. <br><br> Zapraszam do kontaktu w sprawach networkingowych!Organizatorka konferencji i spotkań z partnerami biznesowymi. <br><br> Zapraszam do kontaktu w sprawach networkingowych!Organizatorka konferencji i spotkań z partnerami biznesowymi. <br><br> Zapraszam do kontaktu w sprawach networkingowych!Organizatorka konferencji i spotkań z partnerami biznesowymi. <br><br> Zapraszam do kontaktu w sprawach networkingowych!Organizatorka konferencji i spotkań z partnerami biznesowymi. <br><br> Zapraszam do kontaktu w sprawach networkingowych!Organizatorka konferencji i spotkań z partnerami biznesowymi. <br><br> Zapraszam do kontaktu w sprawach networkingowych!Organizatorka konferencji i spotkań z partnerami biznesowymi. <br><br> Zapraszam do kontaktu w sprawach networkingowych!",
+        // Tablica linków - dodajesz tylko te, które chcesz
+        socials: [
+            { platform: "linkedin", url: "https://linkedin.com/in/olasokol" },
+            { platform: "website", url: "https://olasokol.pl" },
+            { platform: "instagram", url: "https://instagram.com/olasokol" }
+        ]
     },
     { 
-        id: "piotr-nowicki", 
-        name: "Piotr Nowicki", 
-        role: "Data Scientist", 
-        img: "https://i.pravatar.cc/150?u=20",
-        bio: "Przeszukuje bazy danych w poszukiwaniu sensu i ciekawych statystyk.",
-        links: { github: "#", linkedin: "#" }
-    },
-    { 
-        id: "monika-mroz", 
-        name: "Monika Mróz", 
-        role: "Testerka", 
-        img: "https://i.pravatar.cc/150?u=30",
-        bio: "Znajdzie błąd tam, gdzie nikt inny go nie szukał. Perfekcjonistka.",
-        links: { github: "#", linkedin: "#" }
+        id: "jan-kowalski", 
+        name: "Jan Kowalski", 
+        role: "Dev", 
+        img: "https://i.pravatar.cc/150?u=10",
+        bio: "Koduję w nocy, śpię w dzień.",
+        socials: [
+            { platform: "github", url: "https://github.com/jankowalski" }
+        ] // Jan nie ma LinkedIn, więc nic się nie wyświetli
     }
 ];
 
