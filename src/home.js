@@ -3,6 +3,15 @@
 /**
  * 1. RENDEROWANIE PROJEKTÓW NA STRONIE GŁÓWNEJ
  */
+
+let currentLang = localStorage.getItem('siteLang') || 'pl';
+
+function toggleLanguage() {
+    currentLang = currentLang === 'pl' ? 'en' : 'pl';
+    localStorage.setItem('siteLang', currentLang);
+    location.reload(); 
+}
+
 function renderHomeProjects() {
     const container = document.getElementById('projects-container');
     if (!container) return;
@@ -10,14 +19,14 @@ function renderHomeProjects() {
 
     projects.forEach((proj, index) => {
         // Dynamiczna ścieżka do zdjęcia głównego projektu
-        const mainImgPath = `gallery/projects/${proj.id}/main.jpg`;
+        const mainImgPath = `gallery/projects/${t(proj.id)}/main.jpg`;
 
         container.innerHTML += `
-            <a href="project.html?id=${proj.id}" class="tech-card overflow-hidden group flex flex-col h-full shadow-sm">
+            <a href="project.html?id=${t(proj.id)}" class="tech-card overflow-hidden group flex flex-col h-full shadow-sm">
                 <div class="relative h-40 overflow-hidden border-b border-slate-100">
                     <img src="${mainImgPath}" 
                          class="w-full h-full object-cover transition duration-700 group-hover:scale-110"
-                         onerror="handleHomeProjectImageError(this, '${proj.id}', '${proj.image}')">
+                         onerror="handleHomeProjectImageError(this, '${t(proj.id)}', '${t(proj.image)}')">
                     <div class="absolute top-2 left-2 bg-[#038DAE] px-2 py-1 text-[9px] text-white font-bold border border-[#038DAE]/30 shadow-lg">
                         IMG_REF_0${index + 1}
                     </div>
@@ -25,15 +34,15 @@ function renderHomeProjects() {
 
                 <div class="p-5 flex flex-col flex-grow">
                     <div class="flex justify-between items-start mb-4">
-                        <span class="text-[9px] font-bold text-slate-400 tracking-widest uppercase italic">SYS_LOG: ${proj.id}</span>
+                        <span class="text-[9px] font-bold text-slate-400 tracking-widest uppercase italic">SYS_LOG: ${t(proj.id)}</span>
                     </div>
                     
                     <h3 class="text-md font-bold text-[#012A4F] mb-2 uppercase group-hover:text-[#038DAE] transition">
-                        ${proj.title}
+                        ${t(proj.title)}
                     </h3>
                     
                     <p class="text-[11px] text-slate-500 leading-relaxed mb-6 flex-grow">
-                        ${proj.shortDesc}
+                        ${t(proj.shortDesc)}
                     </p>
                     
                     <div class="text-[10px] font-bold text-[#038DAE]/70 group-hover:text-[#038DAE] flex items-center gap-2 uppercase tracking-tighter">
@@ -81,13 +90,13 @@ function renderHomeTeam() {
     });
 
     const membersHTML = sortedMembers.map(person => {
-        const primarySrc = `gallery/members/${person.id}.jpg`;
-        const secondarySrc = `gallery/members/${person.id}.jpeg`;
+        const primarySrc = `gallery/members/${t(person.id)}.jpg`;
+        const secondarySrc = `gallery/members/${t(person.id)}.jpeg`;
         const fallbackSrc = person.img || "gallery/members/default.jpg";
 
         const customBadges = (person.customTags || []).map(tag => `
             <span class="text-[8px] px-1.5 py-0.5 border border-[#038DAE]/20 bg-[#038DAE]/5 text-[#038DAE] uppercase font-bold tracking-tighter">
-                ${tag}
+                ${t(tag)}
             </span>
         `).join('');
 
@@ -101,13 +110,13 @@ function renderHomeTeam() {
         }).join('');
 
         return `
-            <a href="member.html?user=${person.id}" class="min-w-[240px] tech-card p-4 snap-center group transition-transform duration-300 shadow-sm hover:shadow-md bg-white">
-                <div class="relative mb-4 overflow-hidden bg-slate-100 aspect-[4/5]">
+            <a href="member.html?user=${t(person.id)}" class="min-w-[240px] tech-card p-4 snap-center group transition-transform duration-300 shadow-sm hover:shadow-md bg-white">
+                <div class="relative mb-4 overflow-hidden bg-slate-100 aspect-[3/4]">
                     <img src="${primarySrc}" loading="lazy" class="w-full h-full object-cover"
                         onerror="handleImageError(this, '${secondarySrc}', '${fallbackSrc}')">
                 </div>
-                <h3 class="text-sm font-bold text-[#012A4F] uppercase tracking-tight group-hover:text-[#038DAE] transition-colors">${person.name}</h3>
-                <p class="text-[9px] text-[#038DAE] font-bold mt-1 tracking-widest uppercase italic mb-3">${person.role}</p>
+                <h3 class="text-sm font-bold text-[#012A4F] uppercase tracking-tight group-hover:text-[#038DAE] transition-colors">${t(person.name)}</h3>
+                <p class="text-[9px] text-[#038DAE] font-bold mt-1 tracking-widest uppercase italic mb-3">${t(person.role)}</p>
                 <div class="flex flex-wrap gap-1 mt-auto border-t border-slate-100 pt-3">${customBadges}${projectBadges}</div>
             </a>
         `;

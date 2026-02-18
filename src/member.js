@@ -29,7 +29,7 @@ async function renderProfile() {
             bioHTML = `<p class="text-red-500 font-bold uppercase text-[10px] italic">[ FAILED_TO_LOAD_BIO_STREAM ]</p>`;
         }
     } else {
-        bioHTML = user.bio ? `<p>${user.bio}</p>` : "<p class='italic opacity-50'>Registry entry empty.</p>";
+        bioHTML = user.bio ? `<p>${t(user.bio)}</p>` : "<p class='italic opacity-50'>Registry entry empty.</p>";
     }
 
     // --- TAGI PROJEKTÓW (Powiększone i kolorowane) ---
@@ -50,8 +50,8 @@ async function renderProfile() {
     }).join('');
 
     const customBadges = (user.customTags || []).map(tag => `
-        <span class="text-[10px] px-3 py-1 border border-white/20 text-white/60 uppercase font-bold tracking-widest bg-white/5">
-            ${tag}
+        <span class="text-[10px] px-3 py-1 border border-[#038DAE]/30 text-[#038DAE] uppercase font-bold tracking-widest bg-[#038DAE]/5 whitespace-nowrap">
+            ${t(tag)}
         </span>
     `).join('');
 
@@ -82,9 +82,9 @@ async function renderProfile() {
                 <div class="w-64 flex-shrink-0 mx-auto lg:mx-0">
                     <div class="img-container mb-8 shadow-2xl transform -rotate-1 group">
                         <div class="overflow-hidden h-80">
-                            <img src="gallery/members/${user.id}.jpg" 
+                            <img src="gallery/members/${t(user.id)}.jpg" 
                                  class="w-full h-full object-cover img-content"
-                                 onerror="handleMemberImageError(this, '${user.id}')">
+                                 onerror="handleMemberImageError(this, '${t(user.id)}')">
                         </div>
                     </div>
 
@@ -94,8 +94,8 @@ async function renderProfile() {
                             <span class="text-[10px] text-[#038DAE] uppercase font-black tracking-[0.3em]">Unit_Active</span>
                         </div>
                         <div class="flex flex-wrap gap-2">
-                            ${projectBadges}
                             ${customBadges}
+                            ${projectBadges}
                         </div>
                     </div>
                 </div>
@@ -103,15 +103,15 @@ async function renderProfile() {
                 <div class="flex-grow">
                     <header class="mb-10 relative">
                         <div class="text-[#038DAE] text-[11px] font-bold tracking-[0.6em] mb-4 opacity-80 uppercase">
-                            Registry_Archive // ID_${user.id}
+                            Registry_Archive // ID_${t(user.id)}
                         </div>
                         <h1 class="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter leading-[0.8] italic mb-8">
-                            ${user.name}
+                            ${t(user.name)}
                         </h1>
                         <div class="flex items-center gap-6">
                             <div class="h-[3px] w-16 bg-[#038DAE]"></div>
                             <div class="text-[#038DAE] text-sm md:text-xl font-black uppercase tracking-[0.4em]">
-                                ${user.role}
+                                ${t(user.role)}
                             </div>
                         </div>
                     </header>
@@ -136,9 +136,9 @@ async function renderProfile() {
                     <div>> DATA_REF: ${Math.random().toString(36).substr(2, 9).toUpperCase()}</div>
                 </div>
                 
-                <img src="gallery/logo.png" 
+                <img src="gallery/logo3.png" 
                     class="h-10 md:h-12 w-auto object-contain" 
-                    style="filter: brightness(1.2) contrast(1.1) drop-shadow(0 0 5px rgba(3, 141, 174, 0.4));">
+                    style="filter: brightness(1.2) contrast(1.1) drop-shadow(0 0 5px rgba(3, 141, 174, 1));">
             </div>
         </div>
     `;

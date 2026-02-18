@@ -29,17 +29,17 @@ document.addEventListener('DOMContentLoaded', () => {
 function renderHeader(project) {
     const headerContainer = document.getElementById('project-header');
     const fullTitleHTML = project.fullTitle 
-        ? `<div class="text-white/70 text-sm md:text-xl font-light tracking-wide mt-4 border-l-2 border-[#038DAE] pl-6 italic leading-relaxed">${project.fullTitle}</div>` 
+        ? `<div class="text-white/70 text-sm md:text-xl font-light tracking-wide mt-4 border-l-2 border-[#038DAE] pl-6 italic leading-relaxed">${t(project.fullTitle)}</div>` 
         : '';
 
     headerContainer.innerHTML = `
         <div class="flex flex-col gap-2 w-full">
             <div class="flex items-center gap-3 mb-2">
                 <span class="text-[#038DAE] text-[10px] font-bold tracking-[0.4em] uppercase">Node_ID:</span>
-                <span class="text-white/40 text-[10px] font-bold tracking-[0.4em] uppercase">${project.id}</span>
+                <span class="text-white/40 text-[10px] font-bold tracking-[0.4em] uppercase">${t(project.id)}</span>
             </div>
             <h1 class="text-5xl md:text-8xl font-black text-white uppercase tracking-tighter leading-[0.85] italic">
-                ${project.title}
+                ${t(project.title)}
             </h1>
             ${fullTitleHTML}
         </div>
@@ -58,10 +58,10 @@ function renderGallery(project) {
             <h2 class="text-xl font-bold uppercase tracking-tighter text-[#012A4F]">Visual_Output</h2>
         </div>
         <div id="main-photo-box" class="relative group mb-6 h-[500px] overflow-hidden data-block cursor-pointer bg-slate-100" onclick="openLightbox(0)">
-            <img id="main-img-element" src="gallery/projects/${project.id}/main.jpg" 
+            <img id="main-img-element" src="gallery/projects/${t(project.id)}/main.jpg" 
                  class="w-full h-full object-cover transition duration-700 opacity-0" 
                  onload="this.style.opacity='1'"
-                 onerror="handleMainImageError(this, '${project.id}', '${project.image}')">
+                 onerror="handleMainImageError(this, '${t(project.id)}', '${t(project.image)}')">
             <div class="absolute inset-0 bg-gradient-to-t from-[#012A4F]/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
             <div class="absolute bottom-4 left-4 bg-[#038DAE] text-white text-[9px] px-2 py-1 font-bold tracking-widest">PRIMARY_FEED</div>
         </div>
@@ -71,7 +71,7 @@ function renderGallery(project) {
         </button>
     `;
 
-    allProjectImages[0] = `gallery/projects/${project.id}/main.jpg`;
+    allProjectImages[0] = `gallery/projects/${t(project.id)}/main.jpg`;
     const grid = document.getElementById('gallery-grid');
     const expandBtn = document.getElementById('btn-expand-gallery');
     const extensions = ['jpg', 'jpeg', 'png'];
@@ -96,7 +96,7 @@ function checkExtension(projId, num, extIdx, extensions, grid, expandBtn) {
         const isOverLimit = (allProjectImages.length - 1) > GALLERY_LIMIT;
         const item = document.createElement('div');
         item.className = `gallery-item ${isOverLimit ? 'gallery-item-extra hidden' : ''} relative h-36 overflow-hidden data-block group cursor-pointer bg-white`;
-        item.innerHTML = `<img src="${path}" onclick="openLightbox(${newIndex})" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 grayscale group-hover:grayscale-0">`;
+        item.innerHTML = `<img src="${path}" onclick="openLightbox(${newIndex})" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">`;
         grid.appendChild(item);
         if (isOverLimit && expandBtn) expandBtn.classList.remove('hidden');
     };
@@ -108,7 +108,7 @@ function checkExtension(projId, num, extIdx, extensions, grid, expandBtn) {
  * OPIS I SPECYFIKACJA
  */
 function renderDescription(project) {
-    let contentHTML = `<div class="text-[#012A4F]/80 text-sm leading-relaxed mb-12 font-medium">${project.fullDesc}</div>`;
+    let contentHTML = `<div class="text-[#012A4F]/80 text-sm leading-relaxed mb-12 font-medium">${t(project.fullDesc)}</div>`;
     if (project.spec) {
         contentHTML += `
             <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#038DAE]/20 border border-[#038DAE]/20 shadow-sm">
@@ -136,15 +136,15 @@ function renderTeamSection(project) {
 
         // Startujemy od JPG, resztę sprawdzi handleMemberImageError
         return `
-            <a href="member.html?user=${person.id}" class="flex items-center gap-4 p-4 data-block hover:border-[#038DAE] transition-all group mb-4">
-                <div class="w-12 h-12 flex-shrink-0 overflow-hidden bg-slate-100 border border-slate-200">
-                    <img src="gallery/members/${person.id}.jpg" 
+            <a href="member.html?user=${t(person.id)}" class="flex items-center gap-4 p-4 data-block hover:border-[#038DAE] transition-all group mb-4">
+                <div class="w-12 h-16 flex-shrink-0 overflow-hidden bg-slate-100 border border-slate-200">
+                    <img src="gallery/members/${t(person.id)}.jpg" 
                          class="w-full h-full object-cover group-hover:scale-110 transition duration-500" 
-                         onerror="handleMemberImageError(this, '${person.id}')">
+                         onerror="handleMemberImageError(this, '${t(person.id)}')">
                 </div>
                 <div>
-                    <p class="text-[12px] font-bold text-[#012A4F] uppercase group-hover:text-[#038DAE] transition-colors">${person.name}</p>
-                    <p class="text-[9px] text-[#038DAE] uppercase tracking-widest font-bold mt-0.5">${person.role}</p>
+                    <p class="text-[14px] font-bold text-[#012A4F] uppercase group-hover:text-[#038DAE] transition-colors">${t(person.name)}</p>
+                    <p class="text-[11px] text-[#038DAE] uppercase tracking-widest font-bold mt-0.5">${t(person.role)}</p>
                 </div>
             </a>`;
     }).join('');

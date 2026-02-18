@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Koło Naukowe SPA i BLPSP</title>
-    <link rel="icon" type="image/png" href="gallery/logo.png">
+    <link rel="icon" type="image/png" href="gallery/logo3.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
@@ -35,23 +35,18 @@
         .status-blink { animation: blink 1.5s infinite; }
         @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
 
-        .gallery-fade { transition: opacity 1s ease-in-out; }
-
-        /* Wymuszenie użycia karty graficznej dla płynniejszego scrollu */
         #team-scroll-container {
-            -webkit-overflow-scrolling: touch; /* Płynność na iOS */
+            -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
             backface-visibility: hidden;
         }
 
         #team-scroll-container a {
-            /* Przenosi renderowanie karty na osobny procesor graficzny */
             transform: translateZ(0); 
             will-change: transform;
         }
 
         #team-scroll-container img {
-            /* Zapobiega migotaniu i lagom podczas skalowania */
             backface-visibility: hidden;
             -webkit-perspective: 1000;
             perspective: 1000;
@@ -65,7 +60,7 @@
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-6 group">
                 <div class="h-12 w-auto"> 
-                    <img src="gallery/logo.svg" alt="Logo" class="h-full w-auto object-contain transition-transform group-hover:scale-105">
+                    <img src="gallery/logo3.png" alt="Logo" class="h-full w-auto object-contain transition-transform group-hover:scale-105">
                 </div>
                 <div class="hidden lg:flex flex-col border-l border-slate-200 pl-6">
                     <div class="flex items-center gap-2">
@@ -75,14 +70,20 @@
                 </div>
             </a>
 
-            <div class="flex items-center gap-8 text-[11px] font-bold tracking-[0.2em]">
+            <div class="flex items-center gap-4 md:gap-8 text-[11px] font-bold tracking-[0.2em]">
                 <div class="hidden md:flex items-center gap-8">
-                    <a href="#projects" class="text-[#012A4F] hover:text-[#038DAE] transition uppercase">PROJEKTY</a>
-                    <a href="team.html" class="text-[#012A4F] hover:text-[#038DAE] transition uppercase">ZESPÓŁ</a>
+                    <a href="#projects" class="t-translate text-[#012A4F] hover:text-[#038DAE] transition uppercase" data-pl="PROJEKTY" data-en="PROJECTS">PROJEKTY</a>
+                    <a href="team.html" class="t-translate text-[#012A4F] hover:text-[#038DAE] transition uppercase" data-pl="ZESPÓŁ" data-en="TEAM">ZESPÓŁ</a>
                 </div>
-                <a href="#kontakt" class="border border-[#038DAE] text-[#038DAE] px-5 py-2 hover:bg-[#038DAE] hover:text-white transition duration-300 font-bold uppercase">
+
+                <a href="#kontakt" class="t-translate border border-[#038DAE] text-[#038DAE] px-5 py-2 hover:bg-[#038DAE] hover:text-white transition duration-300 font-bold uppercase" data-pl="KONTAKT" data-en="CONTACT">
                     KONTAKT
                 </a>
+
+                <button onclick="toggleLanguage()" class="flex items-center gap-2 px-3 py-2 border border-slate-200 hover:border-[#038DAE] transition-all bg-slate-50 group/lang">
+                    <span id="lang-flag" class="text-base leading-none group-hover/lang:scale-110 transition-transform">🇵🇱</span>
+                    <span id="lang-label" class="text-[9px] text-slate-400 group-hover/lang:text-[#038DAE]">PL</span>
+                </button>
             </div>
         </div>
     </nav>
@@ -109,26 +110,40 @@
                         Core_Research_Module
                     </div>
 
-                    <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-8 leading-[0.8] text-white uppercase italic">
-                        HARD<span class="text-[#038DAE]">WARE</span><br>OPTIM<br>IZED
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-8 leading-[0.85] text-white uppercase italic">
+                        <span class="t-translate" 
+                            data-pl="TECHNO<br>LOGIA" 
+                            data-en="ADVANCED<br>TECH">
+                            TECHNO<br>LOGIA
+                        </span>
+                        <br>
+                        <span class="text-[#038DAE] text-4xl md:text-6xl lg:text-6xl block mt-2">
+                            <span class="t-translate" 
+                                data-pl="OD OCEANÓW<br>PO STRATOSFERĘ" 
+                                data-en="FROM OCEANS<br>TO STRATOSPHERE">
+                                OD OCEANÓW<br>PO STRATOSFERĘ
+                            </span>
+                        </span>
                     </h1>
 
                     <div class="relative p-6 border border-[#038DAE]/30 bg-[#012A4F]/50 backdrop-blur-sm">
                         <div class="absolute -top-[1px] -left-[1px] w-4 h-4 border-t-2 border-l-2 border-[#038DAE]"></div>
                         <div class="absolute -bottom-[1px] -right-[1px] w-4 h-4 border-b-2 border-r-2 border-[#038DAE]"></div>
                         
-                        <p class="text-slate-300 text-sm leading-relaxed font-light">
+                        <p class="t-translate text-slate-300 text-sm leading-relaxed font-light" 
+                           data-pl="Implementacja systemów wbudowanych niskiego poziomu. Optymalizacja procesów hardware'owych w środowisku rozproszonym."
+                           data-en="Low-level embedded systems implementation. Hardware process optimization in a distributed environment.">
                             Implementacja systemów wbudowanych niskiego poziomu. Optymalizacja procesów hardware'owych w środowisku rozproszonym.
                         </p>
                     </div>
 
                     <div class="mt-8 flex gap-6 font-mono">
                         <div class="text-[#038DAE]">
-                            <span class="text-[9px] block uppercase opacity-50">Freq:</span>
+                            <span class="t-translate text-[9px] block uppercase opacity-50" data-pl="Częstotliwość:" data-en="Freq:">Częstotliwość:</span>
                             <span class="text-lg font-bold">2.4 GHz</span>
                         </div>
                         <div class="text-[#038DAE]">
-                            <span class="text-[9px] block uppercase opacity-50">Latency:</span>
+                            <span class="t-translate text-[9px] block uppercase opacity-50" data-pl="Opóźnienie:" data-en="Latency:">Opóźnienie:</span>
                             <span class="text-lg font-bold">0.02 ms</span>
                         </div>
                     </div>
@@ -142,7 +157,7 @@
                     </div>
                     
                     <div id="hero-gallery" class="relative z-10 w-full h-[500px] border-2 border-[#038DAE] shadow-[0_0_30px_rgba(3,141,174,0.2)] overflow-hidden bg-black cursor-pointer">
-                        <div class="absolute bottom-4 left-4 z-30 bg-[#038DAE] text-white text-[9px] px-2 py-1 font-bold">
+                        <div class="absolute bottom-4 left-4 z-30 bg-[#038DAE] text-white text-[9px] px-2 py-1 font-bold uppercase">
                             LIVE_PREVIEW_SIGNAL
                         </div>
                     </div>
@@ -161,7 +176,9 @@
     <section id="projects" class="py-24 max-w-7xl mx-auto px-6 border-x border-slate-200">
         <div class="max-w-7xl mx-auto px-6">
             <div class="mb-16">
-                <h2 class="text-2xl font-bold uppercase tracking-tighter flex items-center gap-4 text-[#012A4F]">
+                <h2 class="t-translate text-2xl font-bold uppercase tracking-tighter flex items-center gap-4 text-[#012A4F]"
+                    data-pl="<span class='text-[#038DAE]'>[01]</span> Aktywne Operacje"
+                    data-en="<span class='text-[#038DAE]'>[01]</span> Active Operations">
                     <span class="text-[#038DAE]">[01]</span> Aktywne Operacje
                 </h2>
             </div>
@@ -171,10 +188,12 @@
 
     <section id="team" class="py-24 max-w-7xl mx-auto px-6 border-x border-slate-200">
         <div class="flex justify-between items-end mb-12">
-            <h2 class="text-2xl font-bold uppercase tracking-tighter flex items-center gap-4 text-[#012A4F]">
-                <span class="text-[#038DAE]">[02]</span> <a href="team.html" class="hover:text-[#038DAE] transition">Jednostki</a>
+            <h2 class="t-translate text-2xl font-bold uppercase tracking-tighter flex items-center gap-4 text-[#012A4F]"
+                data-pl="<span class='text-[#038DAE]'>[02]</span> Jednostki"
+                data-en="<span class='text-[#038DAE]'>[02]</span> Units">
+                <span class="text-[#038DAE]">[02]</span> Jednostki
             </h2>
-            <span class="text-[10px] text-slate-400 uppercase tracking-widest">Przewijaj w poziomie &gt;&gt;</span>
+            <span class="t-translate text-[10px] text-slate-400 uppercase tracking-widest" data-pl="Przewijaj w poziomie >>" data-en="Scroll horizontally >>">Przewijaj w poziomie &gt;&gt;</span>
         </div>
         <div id="team-scroll-container" class="flex gap-6 overflow-x-auto pb-8 custom-scroll snap-x"></div>
     </section>
@@ -188,7 +207,9 @@
                 <div class="relative">
                     <div class="absolute -left-4 top-0 bottom-0 w-[1px] bg-[#038DAE]/30 hidden md:block"></div>
                     <span class="text-[#038DAE] font-mono text-[10px] tracking-[0.5em] uppercase mb-4 block">TERMINAL_END_POINT:</span>
-                    <h2 class="text-5xl md:text-7xl font-black text-white uppercase leading-none tracking-tighter italic">
+                    <h2 class="t-translate text-5xl md:text-7xl font-black text-white uppercase leading-none tracking-tighter italic"
+                        data-pl="GOTOWY NA <br> <span class='text-[#038DAE]'>WDROŻENIE?</span>"
+                        data-en="READY FOR <br> <span class='text-[#038DAE]'>DEPLOYMENT?</span>">
                         GOTOWY NA <br> <span class="text-[#038DAE]">WDROŻENIE?</span>
                     </h2>
                 </div>
@@ -208,7 +229,7 @@
                                 <div class="w-2 h-2 bg-[#038DAE]/40"></div>
                                 <div class="w-2 h-2 bg-[#038DAE]/10"></div>
                             </div>
-                            <p class="text-white/40 font-bold text-[9px] uppercase tracking-[0.4em]">STATUS: OCZEKIWANIE NA SYGNAŁ</p>
+                            <p class="t-translate text-white/40 font-bold text-[9px] uppercase tracking-[0.4em]" data-pl="STATUS: OCZEKIWANIE NA SYGNAŁ" data-en="STATUS: AWAITING SIGNAL">STATUS: OCZEKIWANIE NA SYGNAŁ</p>
                         </div>
                     </div>
                 </div>
@@ -223,5 +244,6 @@
 
     <script src="src/data.js"></script>
     <script src="src/home.js"></script>
+    <script src="src/language.js"></script>
 </body>
 </html>

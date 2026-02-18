@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KN SPA i BLPSP - Zespół</title>
-    <link rel="icon" type="image/png" href="gallery/logo.png">
+    <link rel="icon" type="image/png" href="gallery/logo3.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
@@ -16,10 +16,9 @@
             color: #012A4F;
         }
 
-        /* BLUEPRINT CARD - Lżejsza wersja dla wydajności */
+        /* BLUEPRINT CARD */
         .blueprint-card {
             background-color: #012A4F;
-            /* Podwójna siatka linii: Główne (100px) i pomocnicze (20px) */
             background-image: 
                 linear-gradient(rgba(3, 141, 174, 0.2) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(3, 141, 174, 0.2) 1px, transparent 1px),
@@ -31,7 +30,7 @@
             border: 1px solid #038DAE;
             box-shadow: 0 25px 50px -12px rgba(1, 42, 79, 0.6);
             transition: transform 0.2s ease, border-color 0.2s ease;
-            will-change: transform; /* Optymalizacja renderowania */
+            will-change: transform;
         }
 
         .blueprint-card:hover {
@@ -39,7 +38,6 @@
             border-color: #4ade80;
         }
 
-        /* Narożniki */
         .blueprint-card::before {
             content: ''; position: absolute; top: -1px; left: -1px; width: 10px; height: 10px;
             border-top: 2px solid #038DAE; border-left: 2px solid #038DAE;
@@ -51,11 +49,6 @@
             overflow: hidden;
         }
 
-        .img-blueprint-wrap img {
-            transition: filter 0.3s ease;
-        }
-
-        /* Zoptymalizowana animacja migania - ultra płynna */
         .status-blink { 
             background-color: #4ade80;
             box-shadow: 0 0 5px rgba(74, 222, 128, 0.5);
@@ -68,12 +61,8 @@
             50% { opacity: 0.2; transform: scale(0.9); }
         }
 
-        /* Opcjonalnie: lekkie rozmycie dla lepszego efektu świecenia */
-        .status-glow {
-            filter: blur(1px);
-        }
+        .status-glow { filter: blur(1px); }
 
-        /* Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-thumb { background: #038DAE; border-radius: 10px; }
     </style>
@@ -85,7 +74,7 @@
             
             <a href="index.html" class="flex items-center gap-6 group">
                 <div class="h-12 w-auto flex items-center"> 
-                    <img src="gallery/logo.png" alt="Logo" class="h-full w-auto object-contain transition-transform group-hover:scale-105">
+                    <img src="gallery/logo3.png" alt="Logo" class="h-full w-auto object-contain transition-transform group-hover:scale-105">
                 </div>
                 <div class="hidden lg:flex flex-col border-l border-slate-200 pl-6">
                     <div class="flex items-center gap-2">
@@ -95,23 +84,34 @@
                 </div>
             </a>
 
-            <div class="flex items-center gap-8">
-                <div class="hidden sm:block text-[10px] text-slate-400 uppercase tracking-widest font-bold border-r border-slate-200 pr-8">
-                    UNITS_DEPLOYED: <span id="member-count" class="text-[#038DAE]">--</span>
+            <div class="flex items-center gap-6">
+                
+                <div class="hidden sm:block text-[10px] text-slate-400 uppercase tracking-widest font-bold border-r border-slate-200 pr-6">
+                    <span class="t-translate" data-pl="JEDNOSTKI" data-en="UNITS_DEPLOYED">JEDNOSTKI</span>: <span id="member-count" class="text-[#038DAE]">--</span>
                 </div>
                 
                 <a href="index.html" 
                    onclick="if(window.history.length > 1) { window.history.back(); return false; }"
-                   class="text-[#038DAE] font-bold text-[11px] uppercase tracking-widest hover:text-[#012A4F] transition-all">
-                    [ ← RETURN ]
+                   class="t-translate text-[#038DAE] font-bold text-[11px] uppercase tracking-widest hover:text-[#012A4F] transition-all"
+                   data-pl="[ ← POWRÓT ]"
+                   data-en="[ ← BACK ]">
+                    [ ← POWRÓT ]
                 </a>
+
+                <button onclick="toggleLanguage()" class="flex items-center gap-2 px-2 py-1.5 border border-slate-200 hover:border-[#038DAE] transition-all bg-white/50 group/lang">
+                    <span id="lang-flag" class="text-sm leading-none group-hover/lang:scale-110 transition-transform">🇵🇱</span>
+                    <span id="lang-label" class="text-[9px] text-slate-400 group-hover/lang:text-[#038DAE]">PL</span>
+                </button>
             </div>
         </div>
     </nav>
 
     <header class="py-16 max-w-7xl mx-auto px-6 w-full">
         <div class="border-l-4 border-[#038DAE] pl-6">
-            <h1 class="text-5xl md:text-7xl font-black uppercase tracking-tighter text-[#012A4F] italic">ZESPÓŁ</h1>
+            <h1 class="t-translate text-5xl md:text-7xl font-black uppercase tracking-tighter text-[#012A4F] italic"
+                data-pl="ZESPÓŁ" data-en="TEAM">
+                ZESPÓŁ
+            </h1>
             <p class="text-[#038DAE] font-bold text-[10px] uppercase tracking-[0.5em]">Active_Duty_Roster_2026</p>
         </div>
     </header>
@@ -126,6 +126,7 @@
     </footer>
 
     <script src="src/data.js"></script>
+    <script src="src/language.js"></script>
     <script src="src/team.js"></script>
 </body>
 </html>

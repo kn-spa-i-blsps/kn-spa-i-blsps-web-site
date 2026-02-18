@@ -36,8 +36,8 @@ function renderTeam() {
     });
 
     container.innerHTML = sortedMembers.map((person, index) => {
-        const primarySrc = `gallery/members/${person.id}.jpg`;
-        const secondarySrc = `gallery/members/${person.id}.jpeg`;
+        const primarySrc = `gallery/members/${t(person.id)}.jpg`;
+        const secondarySrc = `gallery/members/${t(person.id)}.jpeg`;
         const fallbackSrc = person.img || "";
 
         // --- LOGIKA ZBIERANIA WSZYSTKICH TAGÓW ---
@@ -45,9 +45,9 @@ function renderTeam() {
         
         // 1. Tagi specjalne (Zarząd itp.)
         if (person.customTags) {
-            person.customTags.forEach(t => allTags.push({ 
-                text: t, 
-                css: "text-white border-white/20 bg-white/5" 
+            person.customTags.forEach(tag => allTags.push({ 
+                text: t(tag), 
+                css: "text-[#038DAE] border-[#038DAE]/40 bg-[#038DAE]/10"
             }));
         }
         
@@ -72,13 +72,13 @@ function renderTeam() {
             : '';
 
         return `
-            <a href="member.html?user=${person.id}" class="blueprint-card p-4 flex flex-col group h-full">
+            <a href="member.html?user=${t(person.id)}" class="blueprint-card p-4 flex flex-col group h-full">
                 <div class="flex justify-between items-start mb-4">
                     <span class="text-[8px] font-mono text-[#038DAE] opacity-50">#${String(index + 1).padStart(3, '0')}</span>
                     <div class="w-2 h-2 rounded-full status-blink status-glow"></div>
                 </div>
 
-                <div class="img-blueprint-wrap mb-4 aspect-square">
+                <div class="img-blueprint-wrap mb-4 aspect-[3/4]">
                     <img src="${primarySrc}" 
                          loading="lazy"
                          class="w-full h-full object-cover"
@@ -87,10 +87,10 @@ function renderTeam() {
 
                 <div class="flex-grow">
                     <h2 class="text-lg font-black text-white uppercase tracking-tighter italic leading-tight group-hover:text-[#4ade80] transition-colors">
-                        ${person.name}
+                        ${t(person.name)}
                     </h2>
                     <p class="text-[8px] text-slate-400 font-bold uppercase tracking-widest mt-1 mb-4">
-                        ${person.role}
+                        ${t(person.role)}
                     </p>
                 </div>
 
