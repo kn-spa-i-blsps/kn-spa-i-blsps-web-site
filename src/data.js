@@ -141,10 +141,8 @@ const members = [
     		en: "My name is Janek and I come from Gdynia. I am a Data Engineering student from Gdansk University of Technology and an IB graduate from High School no. 3 in Gdynia. I am a part of the student group's drone section, specifically of the Flysearch project, where I am currently responsible for creating software for testing AI models for drone navigation. I am interested and pursue my education in data analysis, artificial intelligence and machine learning. I have completed a 3-month internship program as Intern Java Software Develop at Sii Gdansk. I have also received a scholarship for a 2-week scientific program about artificial intelligence at Beijing Institute of Technology in China."
 		},
         socials: [
-            { platform: "github", url: "#" },
-			{ platform: "linkedin", url: "#" },
-            { platform: "instagram", url: "#" },
-            { platform: "website", url: "#" }
+            { platform: "github", url: "https://github.com/JanMatusiak" },
+			{ platform: "linkedin", url: "https://www.linkedin.com/in/janmatusiak" }
         ]
     },
     { 
