@@ -80,7 +80,8 @@ const members = [
         name: "Igor Rostkowski", 
         role: "#", 
         img: "https://i.pravatar.cc/150?u=15",
-        bio: "#",
+        bioSource: "bios/igor-rostkowski.md",
+        bio: "ASEFNJIASEFDSFKLASDFNJASLEKFJNSADFNJL,F ASDFJNS. SEFNJASEFIJNASEFNJFEASNF NJSAEFKLJSAEF NJKLS EKJASKLSAEFSF NJKLF E AESFANJKLJNLSEFLKNASEFNJKLASEFSEAEKLJFNASEFANSJEFL",
         socials: [
             { platform: "linkedin", url: "#" },
             { platform: "website", url: "#" },
