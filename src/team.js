@@ -1,89 +1,106 @@
 // team.js
 
 const projectColors = {
-    "musc": "text-red-600 border-red-200 bg-red-50",
-    "flysearch": "text-green-600 border-green-200 bg-green-50",
-    "bluespark": "text-blue-600 border-blue-200 bg-blue-50",
-    "hawk-eye": "text-amber-600 border-amber-200 bg-amber-50",
-    "snows-eye": "text-slate-600 border-slate-200 bg-slate-50"
+    "musc": "text-red-400 border-red-400/30 bg-red-400/10",
+    "flysearch": "text-green-400 border-green-400/30 bg-green-400/10",
+    "bluespark": "text-blue-400 border-blue-400/30 bg-blue-400/10",
+    "hawk-eye": "text-amber-400 border-amber-400/30 bg-amber-400/10",
+    "snows-eye": "text-slate-300 border-slate-300/30 bg-slate-300/10"
 };
+
+function handleImageError(imgElement, secondarySrc, finalFallback) {
+    if (!imgElement.dataset.triedJpeg) {
+        imgElement.dataset.triedJpeg = "true";
+        imgElement.src = secondarySrc;
+    } else if (!imgElement.dataset.triedFallback) {
+        imgElement.dataset.triedFallback = "true";
+        imgElement.src = finalFallback;
+    } else {
+        imgElement.onerror = null;
+        imgElement.src = 'gallery/members/default.jpg';
+    }
+}
 
 function renderTeam() {
     const container = document.getElementById('team-container');
     const countDisplay = document.getElementById('member-count');
     if (!container) return;
 
-    container.innerHTML = "";
-    if (countDisplay) countDisplay.innerText = members.length;
+    countDisplay.innerText = members.length;
 
+    // Sortowanie według priorytetu projektów
     const sortedMembers = [...members].sort((a, b) => {
-        const minOrderA = Math.min(...projects.filter(p => p.teamIds.includes(a.id)).map(p => p.ordering || 999));
-        const minOrderB = Math.min(...projects.filter(p => p.teamIds.includes(b.id)).map(p => p.ordering || 999));
-        return minOrderA - minOrderB;
+        const minA = Math.min(...projects.filter(p => p.teamIds.includes(a.id)).map(p => p.ordering || 999));
+        const minB = Math.min(...projects.filter(p => p.teamIds.includes(b.id)).map(p => p.ordering || 999));
+        return minA - minB;
     });
 
-    sortedMembers.forEach((person, index) => {
-        const hasCustomTags = person.customTags && person.customTags.length > 0;
+    container.innerHTML = sortedMembers.map((person, index) => {
+        const primarySrc = `gallery/members/${person.id}.jpg`;
+        const secondarySrc = `gallery/members/${person.id}.jpeg`;
+        const fallbackSrc = person.img || "";
+
+        // --- LOGIKA ZBIERANIA WSZYSTKICH TAGÓW ---
+        const allTags = [];
         
-        // Tagi customowe: Teraz w kolorze błękitnym (#038DAE)
-        const customBadges = (person.customTags || []).map(tag => `
-            <span class="text-[9px] px-2 py-0.5 border border-[#038DAE]/30 bg-[#038DAE]/5 text-[#038DAE] uppercase font-bold tracking-tight">
-                ${tag}
+        // 1. Tagi specjalne (Zarząd itp.)
+        if (person.customTags) {
+            person.customTags.forEach(t => allTags.push({ 
+                text: t, 
+                css: "text-white border-white/20 bg-white/5" 
+            }));
+        }
+        
+        // 2. Tagi projektów
+        projects.filter(p => p.teamIds.includes(person.id)).forEach(p => {
+            allTags.push({ 
+                text: p.title, 
+                css: projectColors[p.id] || "text-[#038DAE] border-[#038DAE]/20" 
+            });
+        });
+
+        // --- RENDEROWANIE DWÓCH PIERWSZYCH TAGÓW ---
+        const visibleTagsHTML = allTags.slice(0, 2).map(tag => `
+            <span class="text-[8px] px-2 py-0.5 border uppercase font-bold tracking-widest truncate max-w-[70px] ${tag.css}">
+                ${tag.text}
             </span>
         `).join('');
-
-        let personProjects = projects
-            .filter(p => p.teamIds.includes(person.id))
-            .sort((a, b) => (a.ordering || 999) - (b.ordering || 999));
-
-        if (hasCustomTags && personProjects.length > 0) {
-            personProjects = [personProjects[0]]; 
-        }
-
-        const projectBadges = personProjects.map(p => {
-            const colorClass = projectColors[p.id] || "text-slate-500 border-slate-200 bg-slate-50";
-            return `<span class="text-[9px] px-2 py-0.5 border uppercase font-bold tracking-tight ${colorClass}">${p.title}</span>`;
-        }).join('');
-
-        const hiddenCount = (person.customTags && person.customTags.length > 0) 
-            ? projects.filter(p => p.teamIds.includes(person.id)).length - 1 
-            : 0;
-            
-        const moreIndicator = hiddenCount > 0 
-            ? `<span class="text-[9px] text-slate-400 font-bold self-center ml-1">+${hiddenCount}</span>` 
+        
+        // Licznik pokaże się tylko jeśli tagów jest więcej niż 2
+        const moreCount = allTags.length > 2 
+            ? `<span class="text-[9px] text-[#038DAE] font-bold ml-1 opacity-70 tracking-tighter">+${allTags.length - 2}</span>` 
             : '';
 
-        const card = `
-            <a href="member.html?user=${person.id}" class="group bg-white p-6 hover:shadow-xl hover:shadow-[#012A4F]/5 transition-all duration-300 flex flex-col items-center text-center relative overflow-hidden h-full border border-dashed border-slate-200 hover:border-[#038DAE]">
-                
-                <div class="absolute top-3 left-4 text-[10px] text-slate-300 group-hover:text-[#038DAE]/50 transition font-mono">
-                    ID_${index + 1 < 10 ? '0' + (index + 1) : index + 1}
+        return `
+            <a href="member.html?user=${person.id}" class="blueprint-card p-4 flex flex-col group h-full">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="text-[8px] font-mono text-[#038DAE] opacity-50">#${String(index + 1).padStart(3, '0')}</span>
+                    <div class="w-2 h-2 rounded-full status-blink status-glow"></div>
                 </div>
 
-                <div class="relative mb-4">
-                    <div class="absolute -inset-1.5 border border-[#038DAE]/0 group-hover:border-[#038DAE]/30 transition-all duration-500 rounded-sm opacity-0 group-hover:opacity-100"></div>
-                    <img src="${person.img}" class="w-24 h-24 object-cover border border-slate-100 group-hover:scale-105 transition-all duration-500 shadow-md">
+                <div class="img-blueprint-wrap mb-4 aspect-square">
+                    <img src="${primarySrc}" 
+                         loading="lazy"
+                         class="w-full h-full object-cover"
+                         onerror="handleImageError(this, '${secondarySrc}', '${fallbackSrc}')">
                 </div>
 
-                <p class="font-bold text-base text-[#012A4F] uppercase tracking-tighter group-hover:text-[#038DAE] transition leading-none">
-                    ${person.name}
-                </p>
-                
-                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-[0.15em] mt-1.5 mb-3">
-                    ${person.role}
-                </p>
-
-                <div class="flex flex-wrap justify-center gap-1.5 mt-auto">
-                    ${customBadges}
-                    ${projectBadges}
-                    ${moreIndicator}
+                <div class="flex-grow">
+                    <h2 class="text-lg font-black text-white uppercase tracking-tighter italic leading-tight group-hover:text-[#4ade80] transition-colors">
+                        ${person.name}
+                    </h2>
+                    <p class="text-[8px] text-slate-400 font-bold uppercase tracking-widest mt-1 mb-4">
+                        ${person.role}
+                    </p>
                 </div>
 
-                <div class="absolute bottom-0 left-0 w-full h-[3px] bg-[#038DAE] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                <div class="flex items-center gap-1 mt-auto pt-3 border-t border-[#038DAE]/20 overflow-hidden">
+                    ${visibleTagsHTML}
+                    ${moreCount}
+                </div>
             </a>
         `;
-        container.innerHTML += card;
-    });
+    }).join('');
 }
 
 document.addEventListener('DOMContentLoaded', renderTeam);

@@ -1,7 +1,8 @@
-// project.js
+// project.js - Final Blueprint Edition (Fixed Member Images)
 
 let allProjectImages = [];
 let currentImageIndex = 0;
+const GALLERY_LIMIT = 3; 
 
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -10,98 +11,162 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!project) return;
 
-    // 1. Przygotuj listę zdjęć
-    allProjectImages = [project.image]; 
-    if (project.gallery && project.gallery.length > 0) {
-        allProjectImages = [...allProjectImages, ...project.gallery];
-    }
+    allProjectImages = [];
 
-    // 2. Czyścimy kontenery
     document.getElementById('project-visuals').innerHTML = "";
     document.getElementById('project-description').innerHTML = "";
     document.getElementById('project-team').innerHTML = "";
 
-    // 3. Renderowanie nagłówka
-    const headerContainer = document.getElementById('project-header');
+    renderHeader(project);
+    renderGallery(project); 
+    renderDescription(project);
+    renderTeamSection(project);
+});
 
-    // Kolorystyka: Tekst granatowy (#012A4F), Akcent błękitny (#038DAE)
+/**
+ * NAGŁÓWEK - Blueprint Dark Mode
+ */
+function renderHeader(project) {
+    const headerContainer = document.getElementById('project-header');
     const fullTitleHTML = project.fullTitle 
-        ? `<div class="text-slate-500 text-sm md:text-xl font-light tracking-wide mt-3 w-full border-l border-[#038DAE]/30 pl-4 italic leading-relaxed">
-            ${project.fullTitle}
-        </div>` 
+        ? `<div class="text-white/70 text-sm md:text-xl font-light tracking-wide mt-4 border-l-2 border-[#038DAE] pl-6 italic leading-relaxed">${project.fullTitle}</div>` 
         : '';
 
     headerContainer.innerHTML = `
         <div class="flex flex-col gap-2 w-full">
-            <div class="flex items-center gap-3">
-                <span class="text-[#038DAE] text-[10px] font-bold tracking-[0.4em] uppercase">Project_Node:</span>
-                <span class="text-slate-400 text-[10px] font-bold tracking-[0.4em] uppercase">${project.id}</span>
+            <div class="flex items-center gap-3 mb-2">
+                <span class="text-[#038DAE] text-[10px] font-bold tracking-[0.4em] uppercase">Node_ID:</span>
+                <span class="text-white/40 text-[10px] font-bold tracking-[0.4em] uppercase">${project.id}</span>
             </div>
-            <h1 class="text-5xl md:text-7xl font-black text-[#012A4F] uppercase tracking-tighter leading-none">
+            <h1 class="text-5xl md:text-8xl font-black text-white uppercase tracking-tighter leading-[0.85] italic">
                 ${project.title}
             </h1>
             ${fullTitleHTML}
         </div>
     `;
+}
 
-    // 4. Wywołanie funkcji renderujących
-    renderGallery(project);
-    renderDescription(project);
-    renderTeamSection(project);
-});
-
+/**
+ * GALERIA PROJEKTU
+ */
 function renderGallery(project) {
     const container = document.getElementById('project-visuals');
     if (!container) return;
     
     container.innerHTML = `
-        <div class="header-accent mb-6">
+        <div class="header-accent mb-8">
             <h2 class="text-xl font-bold uppercase tracking-tighter text-[#012A4F]">Visual_Output</h2>
         </div>
-    `;
-
-    const LIMIT = 3;
-    const mainImgSrc = project.image || 'https://via.placeholder.com/1200x800?text=NO_IMAGE';
-
-    let galleryHTML = `
-        <div class="relative group mb-4 h-[500px] overflow-hidden border border-slate-200 cursor-pointer bg-white" onclick="openLightbox(0)">
-            <img src="${mainImgSrc}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700 opacity-0" onload="this.style.opacity='1'">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#012A4F]/10 to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+        <div id="main-photo-box" class="relative group mb-6 h-[500px] overflow-hidden data-block cursor-pointer bg-slate-100" onclick="openLightbox(0)">
+            <img id="main-img-element" src="gallery/projects/${project.id}/main.jpg" 
+                 class="w-full h-full object-cover transition duration-700 opacity-0" 
+                 onload="this.style.opacity='1'"
+                 onerror="handleMainImageError(this, '${project.id}', '${project.image}')">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#012A4F]/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+            <div class="absolute bottom-4 left-4 bg-[#038DAE] text-white text-[9px] px-2 py-1 font-bold tracking-widest">PRIMARY_FEED</div>
         </div>
+        <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 gap-6"></div>
+        <button id="btn-expand-gallery" class="hidden w-full py-5 border border-dashed border-[#038DAE]/30 text-[10px] font-bold text-[#038DAE] hover:bg-[#038DAE]/5 hover:border-[#038DAE] transition-all uppercase mt-6 tracking-[0.2em]">
+            [ + ] Expand_Visual_Archive
+        </button>
     `;
 
-    if (project.gallery && project.gallery.length > 0) {
-        galleryHTML += `<div class="grid grid-cols-2 md:grid-cols-3 gap-4">`;
-        project.gallery.forEach((img, idx) => {
-            const isHidden = idx >= LIMIT ? 'hidden' : '';
-            galleryHTML += `
-                <div class="gallery-item ${isHidden} relative h-32 overflow-hidden border border-slate-200 group cursor-pointer bg-white">
-                    <img src="${img}" onclick="openLightbox(${idx + 1})" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 opacity-0" onload="this.style.opacity='1'">
-                </div>`;
-        });
-        galleryHTML += `</div>`;
+    allProjectImages[0] = `gallery/projects/${project.id}/main.jpg`;
+    const grid = document.getElementById('gallery-grid');
+    const expandBtn = document.getElementById('btn-expand-gallery');
+    const extensions = ['jpg', 'jpeg', 'png'];
 
-        if (project.gallery.length > LIMIT) {
-            galleryHTML += `
-                <button id="btn-expand-gallery" class="w-full py-4 border border-dashed border-slate-300 text-[10px] font-bold text-slate-400 hover:text-[#038DAE] hover:border-[#038DAE]/50 transition-all uppercase mt-4">
-                    + Expand_Visual_Data (${project.gallery.length - LIMIT}_files)
-                </button>`;
-        }
-    }
-    
-    container.innerHTML += galleryHTML;
+    expandBtn.onclick = () => {
+        document.querySelectorAll('.gallery-item-extra').forEach(el => el.classList.remove('hidden'));
+        expandBtn.remove();
+    };
 
-    const btn = document.getElementById('btn-expand-gallery');
-    if (btn) {
-        btn.onclick = () => {
-            document.querySelectorAll('.gallery-item.hidden').forEach(el => el.classList.remove('hidden'));
-            btn.remove();
-        };
+    for (let i = 1; i <= 15; i++) {
+        checkExtension(project.id, i, 0, extensions, grid, expandBtn);
     }
 }
 
-// --- LIGHTBOX (Zostaje bez zmian logiki, tylko kolory w HTML/CSS) ---
+function checkExtension(projId, num, extIdx, extensions, grid, expandBtn) {
+    if (extIdx >= extensions.length) return;
+    const path = `gallery/projects/${projId}/${num}.${extensions[extIdx]}`;
+    const tempImg = new Image();
+    tempImg.onload = () => {
+        allProjectImages.push(path);
+        const newIndex = allProjectImages.length - 1;
+        const isOverLimit = (allProjectImages.length - 1) > GALLERY_LIMIT;
+        const item = document.createElement('div');
+        item.className = `gallery-item ${isOverLimit ? 'gallery-item-extra hidden' : ''} relative h-36 overflow-hidden data-block group cursor-pointer bg-white`;
+        item.innerHTML = `<img src="${path}" onclick="openLightbox(${newIndex})" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 grayscale group-hover:grayscale-0">`;
+        grid.appendChild(item);
+        if (isOverLimit && expandBtn) expandBtn.classList.remove('hidden');
+    };
+    tempImg.onerror = () => checkExtension(projId, num, extIdx + 1, extensions, grid, expandBtn);
+    tempImg.src = path;
+}
 
+/**
+ * OPIS I SPECYFIKACJA
+ */
+function renderDescription(project) {
+    let contentHTML = `<div class="text-[#012A4F]/80 text-sm leading-relaxed mb-12 font-medium">${project.fullDesc}</div>`;
+    if (project.spec) {
+        contentHTML += `
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#038DAE]/20 border border-[#038DAE]/20 shadow-sm">
+                ${project.spec.map(s => `
+                    <div class="flex justify-between items-center p-5 bg-white group hover:bg-slate-50 transition-colors">
+                        <span class="text-slate-400 text-[9px] uppercase tracking-[0.2em] font-bold">${s.label}</span>
+                        <span class="text-[#038DAE] text-[11px] font-bold font-mono tracking-tighter">${s.value}</span>
+                    </div>
+                `).join('')}
+            </div>`;
+    }
+    document.getElementById('project-description').innerHTML = contentHTML;
+}
+
+/**
+ * ZESPÓŁ - Naprawiona obsługa wielu formatów zdjęć
+ */
+function renderTeamSection(project) {
+    const teamContainer = document.getElementById('project-team');
+    if (!teamContainer || !project.teamIds) return;
+
+    teamContainer.innerHTML = project.teamIds.map(mId => {
+        const person = members.find(m => m.id.trim() === mId.trim());
+        if (!person) return "";
+
+        // Startujemy od JPG, resztę sprawdzi handleMemberImageError
+        return `
+            <a href="member.html?user=${person.id}" class="flex items-center gap-4 p-4 data-block hover:border-[#038DAE] transition-all group mb-4">
+                <div class="w-12 h-12 flex-shrink-0 overflow-hidden bg-slate-100 border border-slate-200">
+                    <img src="gallery/members/${person.id}.jpg" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500" 
+                         onerror="handleMemberImageError(this, '${person.id}')">
+                </div>
+                <div>
+                    <p class="text-[12px] font-bold text-[#012A4F] uppercase group-hover:text-[#038DAE] transition-colors">${person.name}</p>
+                    <p class="text-[9px] text-[#038DAE] uppercase tracking-widest font-bold mt-0.5">${person.role}</p>
+                </div>
+            </a>`;
+    }).join('');
+}
+
+/**
+ * OBSŁUGA BŁĘDÓW ZDJĘĆ CZŁONKÓW (JPG -> JPEG -> PNG -> DEFAULT)
+ */
+function handleMemberImageError(img, memberId) {
+    if (img.src.includes('.jpg')) {
+        img.src = `gallery/members/${memberId}.jpeg`;
+    } else if (img.src.includes('.jpeg')) {
+        img.src = `gallery/members/${memberId}.png`;
+    } else {
+        img.onerror = null;
+        img.src = 'gallery/members/default.jpg'; // Upewnij się, że masz ten plik lub zmień na placeholder
+    }
+}
+
+/**
+ * LIGHTBOX LOGIC
+ */
 function openLightbox(index) {
     currentImageIndex = index;
     updateLightboxImage();
@@ -124,57 +189,19 @@ function changeImage(step) {
 function updateLightboxImage() {
     const img = document.getElementById('lightbox-img');
     const counter = document.getElementById('lightbox-counter');
-    
-    if (!img || !allProjectImages[currentImageIndex]) return;
-
+    if (!img) return;
     img.style.opacity = '0';
-    const tempImg = new Image();
-    tempImg.src = allProjectImages[currentImageIndex];
-    tempImg.onload = () => {
-        img.src = tempImg.src;
+    img.src = allProjectImages[currentImageIndex];
+    img.onload = () => {
         img.style.opacity = '1';
-        counter.innerText = `IMG_0${currentImageIndex + 1} // TOTAL_${allProjectImages.length}`;
+        counter.innerText = `DATA_REF_0${currentImageIndex + 1} // TOTAL_${allProjectImages.length}`;
     };
 }
 
-// --- OPIS I ZESPÓŁ (Jasny motyw) ---
-
-function renderDescription(project) {
-    let contentHTML = `<div class="text-slate-600 text-sm leading-relaxed mb-10">${project.fullDesc}</div>`;
-    if (project.spec) {
-        contentHTML += `
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-slate-200 border border-slate-200 shadow-sm">
-                ${project.spec.map(s => `
-                    <div class="flex justify-between p-4 bg-white group">
-                        <span class="text-slate-400 text-[9px] uppercase tracking-widest">${s.label}</span>
-                        <span class="text-[#038DAE] text-[9px] font-bold group-hover:text-[#012A4F] transition font-mono">${s.value}</span>
-                    </div>
-                `).join('')}
-            </div>`;
-    }
-    document.getElementById('project-description').innerHTML = contentHTML;
-}
-
-function renderTeamSection(project) {
-    const teamContainer = document.getElementById('project-team');
-    if (project.teamIds) {
-        project.teamIds.forEach(mId => {
-            const person = members.find(m => m.id.trim() === mId.trim());
-            if (person) {
-                teamContainer.innerHTML += `
-                    <a href="member.html?user=${person.id}" class="data-block p-4 flex items-center gap-4 hover:border-[#038DAE] transition group bg-white shadow-sm mb-3">
-                        <img src="${person.img}" class="w-12 h-12 object-cover border border-slate-100 group-hover:border-[#038DAE] transition">
-                        
-                        <div>
-                            <p class="text-sm font-bold text-[#012A4F] uppercase group-hover:text-[#038DAE] transition leading-tight">
-                                ${person.name}
-                            </p>
-                            <p class="text-[10px] text-slate-400 uppercase tracking-widest mt-0.5 font-bold">
-                                ${person.role}
-                            </p>
-                        </div>
-                    </a>`;
-            }
-        });
-    }
+function handleMainImageError(img, projId, fallback) {
+    if (img.src.includes('main.jpg')) img.src = `gallery/projects/${projId}/main.jpeg`;
+    else if (img.src.includes('main.jpeg')) img.src = `gallery/projects/${projId}/main.png`;
+    else if (img.src.includes('main.png') && fallback) img.src = fallback;
+    else { img.onerror = null; img.src = 'https://via.placeholder.com/1200x800?text=IMAGE_NOT_FOUND'; }
+    allProjectImages[0] = img.src;
 }

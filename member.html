@@ -3,101 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koło Naukowe SPA i BLPSP</title>
+    <title>Profil Członka | KN SPA i BLPSP</title>
     <link rel="icon" type="image/png" href="gallery/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
+        /* BAZA STRONY - Jasne tło z kropkami */
         body { 
             font-family: 'JetBrains Mono', monospace; 
             background-color: #F8FAFC; 
             background-image: radial-gradient(#cbd5e1 1.2px, transparent 1.2px); 
             background-size: 25px 25px;
             color: #012A4F;
+            margin: 0;
         }
 
-        .profile-card {
-            background: white;
-            border: 1px dashed #cbd5e1;
+        /* MODUŁ BLUEPRINT (KARTA) - Techniczne ciemne tło */
+        .blueprint-card {
+            background-color: #012A4F;
+            /* Podwójna siatka linii: Główne (100px) i pomocnicze (20px) */
+            background-image: 
+                linear-gradient(rgba(3, 141, 174, 0.2) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(3, 141, 174, 0.2) 1px, transparent 1px),
+                linear-gradient(rgba(3, 141, 174, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(3, 141, 174, 0.1) 1px, transparent 1px);
+            background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
             position: relative;
-            /* Usunięto overflow:hidden stąd w JS */
+            overflow: hidden;
+            border: 1px solid #038DAE;
+            box-shadow: 0 25px 50px -12px rgba(1, 42, 79, 0.6);
         }
 
-        .card-label {
+        /* Efekt winiety dla głębi tła blueprint */
+        .blueprint-overlay {
             position: absolute;
-            top: -12px;
-            right: 20px;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(1, 42, 79, 0.4) 100%);
+            pointer-events: none;
+        }
+
+        /* Narożniki techniczne */
+        .blueprint-card::before {
+            content: ''; position: absolute; top: -1px; left: -1px; width: 40px; height: 40px;
+            border-top: 4px solid #038DAE; border-left: 4px solid #038DAE; z-index: 20;
+        }
+        .blueprint-card::after {
+            content: ''; position: absolute; bottom: -1px; right: -1px; width: 40px; height: 40px;
+            border-bottom: 4px solid #038DAE; border-right: 4px solid #038DAE; z-index: 20;
+        }
+
+        /* BIAŁE OKNO BIO - Kontrastowy moduł */
+        .bio-window {
+            background: white;
+            border: 1px solid #cbd5e1;
+            position: relative;
+            color: #475569;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            z-index: 5;
+        }
+
+        .bio-window::before {
+            content: 'DATA_STREAM_v2.0';
+            position: absolute;
+            top: -10px;
+            left: 20px;
             background: #038DAE;
             color: white;
-            font-size: 10px;
+            font-size: 8px;
+            padding: 2px 10px;
             font-weight: 800;
-            padding: 2px 12px;
-            z-index: 100;
             letter-spacing: 1px;
-            box-shadow: 3px 3px 0px #012A4F;
         }
 
+        /* KONTENER ZDJĘCIA */
         .img-container {
-            border: 1px solid #e2e8f0;
-            transition: all 0.4s ease;
-            overflow: hidden; /* Przeniesiono tutaj, by dociąć tylko zdjęcie */
+            border: 1px solid #038DAE;
+            background: #012A4F;
+            position: relative;
+            padding: 5px;
         }
 
         .img-content {
-            filter: grayscale(100%);
-            opacity: 0.9;
-            transition: all 0.5s ease;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            display: block;
         }
 
-        .group:hover .img-container {
-            border-color: #038DAE;
-            box-shadow: 0 10px 30px rgba(3, 141, 174, 0.1);
-        }
-
-        .group:hover .img-content {
-            filter: grayscale(0%);
-            opacity: 1;
+        .blueprint-card:hover .img-content {
             transform: scale(1.03);
         }
 
-        .markdown-body { color: #475569; }
+        /* STYLE DLA MARKDOWN (Wewnątrz białego okna) */
         .markdown-body h3 {
             color: #012A4F;
             font-size: 0.875rem;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-top: 2rem;
-            margin-bottom: 0.75rem;
+            margin: 1.5rem 0 0.5rem 0;
             display: flex;
             align-items: center;
         }
-        .markdown-body h3::before { content: "//"; margin-right: 8px; color: #038DAE; }
-        .markdown-body p { margin-bottom: 1.25rem; text-align: justify; }
-        .markdown-body li::before { content: "■"; position: absolute; left: 0; color: #038DAE; font-size: 8px; top: 6px; }
+        .markdown-body h3::before { content: ">"; margin-right: 8px; color: #038DAE; }
+        .markdown-body p { margin-bottom: 1.25rem; text-align: justify; line-height: 1.7; font-size: 0.95rem; }
         .markdown-body strong { color: #012A4F; font-weight: 700; }
-        .markdown-body hr { border-top: 1px dashed #e2e8f0; margin: 2rem 0; }
-        .markdown-body blockquote {
-            border-left: 2px solid #038DAE;
-            padding: 0.5rem 0 0.5rem 1.5rem;
-            margin: 1.5rem 0;
-            background: rgba(3, 141, 174, 0.03);
-            font-style: italic;
+        .markdown-body ul { margin-bottom: 1.25rem; }
+        .markdown-body li { position: relative; padding-left: 1.25rem; margin-bottom: 0.5rem; }
+        .markdown-body li::before { content: "■"; position: absolute; left: 0; color: #038DAE; font-size: 8px; top: 6px; }
+
+        /* ANIMACJE I STATUS */
+        .status-blink { 
+            animation: blink 1.5s infinite; 
+            box-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
         }
-        .markdown-body a { color: #038DAE; font-weight: bold; }
-        .status-blink { animation: blink 1.5s infinite; }
-        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+        
+        @keyframes blink { 
+            0% { opacity: 1; } 
+            50% { opacity: 0.3; } 
+            100% { opacity: 1; } 
+        }
+
+        /* Nawigacja powrotna */
+        nav a {
+            position: relative;
+            display: inline-block;
+        }
+        nav a::after {
+            content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px;
+            background: #038DAE; transition: width 0.3s;
+        }
+        nav a:hover::after { width: 100%; }
+        /* Usuwa pasek pod logo, zostawia pod RETURN_TO_BASE */
+        nav a.logo-link::after {
+            display: none !important;
+}
     </style>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-[#038DAE] selection:text-white">
 
-    <nav class="p-6">
-        <a href="index.html" 
-            onclick="if(window.history.length > 1) { window.history.back(); return false; }"
-            class="text-[#038DAE] font-bold text-xs uppercase tracking-widest hover:text-[#012A4F] transition">
-                [ ← RETURN ]
-        </a>
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-dashed border-slate-200 px-6 py-2">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            
+            <a href="index.html" class="logo-link flex items-center gap-6 group">
+                <div class="h-12 w-auto flex items-center"> 
+                    <img src="gallery/logo.png" alt="Logo" class="h-full w-auto object-contain transition-transform group-hover:scale-105">
+                </div>
+                <div class="hidden lg:flex flex-col border-l border-slate-200 pl-6">
+                    <div class="flex items-center gap-2">
+                        <div class="w-2 h-2 bg-[#038DAE] rounded-sm status-blink shadow-[0_0_5px_#038DAE]"></div>
+                        <span class="font-bold tracking-[0.2em] text-[10px] uppercase text-[#012A4F]">KN SPA I BLSPS // SYSTEM_ACTIVE</span>
+                    </div>
+                </div>
+            </a>
+
+            <div class="flex items-center">
+                <a href="index.html" 
+                onclick="if(window.history.length > 1) { window.history.back(); return false; }"
+                class="text-[#038DAE] font-bold text-[11px] uppercase tracking-widest hover:text-[#012A4F] transition-all">
+                    [ ← RETURN_TO_BASE ]
+                </a>
+            </div>
+        </div>
     </nav>
 
     <main id="profile-content" class="flex-grow flex items-center justify-center px-4 py-12 w-full">

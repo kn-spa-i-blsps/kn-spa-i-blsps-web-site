@@ -5,7 +5,6 @@ const members = [
         name: "Jan Mikołajczyk", 
         role: "Prezes",
         customTags: ["Prezes"],
-        img: "https://i.pravatar.cc/150?u=15",
         bio: "#",
         socials: [
             { platform: "linkedin", url: "#" },
@@ -18,7 +17,6 @@ const members = [
         name: "Jakub Bałenkowski", 
         role: "Wiceprezes",
         customTags: ["Wiceprezes"],
-        img: "https://i.pravatar.cc/150?u=15",
         bio: "#",
         socials: [
             { platform: "linkedin", url: "#" },
@@ -31,7 +29,6 @@ const members = [
         name: "Ania Gierasińska", 
         role: "Marketing | Skarbniczka", 
         customTags: ["Marketing", "Skarbniczka"],
-        img: "https://i.pravatar.cc/150?u=15",
         bio: "#",
         socials: [
             { platform: "linkedin", url: "#" },
@@ -43,7 +40,6 @@ const members = [
         id: "emilia-grygiel", 
         name: "Emilia Grygiel", 
         role: "#", 
-        img: "https://i.pravatar.cc/150?u=15",
         bio: "#",
         socials: [
             { platform: "linkedin", url: "#" },
@@ -55,7 +51,6 @@ const members = [
         id: "georgina-riu", 
         name: "Georgina Riu", 
         role: "#", 
-        img: "https://i.pravatar.cc/150?u=15",
         bio: "#",
         socials: [
             { platform: "linkedin", url: "#" },
@@ -67,7 +62,6 @@ const members = [
         id: "hubert-zientara", 
         name: "Hubert Zientara", 
         role: "#", 
-        img: "https://i.pravatar.cc/150?u=15",
         bio: "#",
         socials: [
             { platform: "linkedin", url: "#" },
@@ -79,7 +73,6 @@ const members = [
         id: "igor-rostkowski", 
         name: "Igor Rostkowski", 
         role: "#", 
-        img: "https://i.pravatar.cc/150?u=15",
         bioSource: "bios/igor-rostkowski.md",
         bio: "ASEFNJIASEFDSFKLASDFNJASLEKFJNSADFNJL,F ASDFJNS. SEFNJASEFIJNASEFNJFEASNF NJSAEFKLJSAEF NJKLS EKJASKLSAEFSF NJKLF E AESFANJKLJNLSEFLKNASEFNJKLASEFSEAEKLJFNASEFANSJEFL",
         socials: [
@@ -92,7 +85,6 @@ const members = [
         id: "jan-matusiak", 
         name: "Jan Matusiak", 
         role: "#", 
-        img: "https://i.pravatar.cc/150?u=15",
         bio: "#",
         socials: [
             { platform: "linkedin", url: "#" },
@@ -104,7 +96,6 @@ const members = [
         id: "jan-ciecierski", 
         name: "Jan Ciecierski", 
         role: "#", 
-        img: "https://i.pravatar.cc/150?u=15",
         bio: "#",
         socials: [
             { platform: "linkedin", url: "#" },
@@ -116,7 +107,6 @@ const members = [
         id: "julian-maleta", 
         name: "Julian Maleta", 
         role: "#", 
-        img: "https://i.pravatar.cc/150?u=15",
         bio: "#",
         socials: [
             { platform: "linkedin", url: "#" },
@@ -128,7 +118,6 @@ const members = [
         id: "karol-grzegorzewski", 
         name: "Karol Grzegorzewski", 
         role: "#", 
-        img: "https://i.pravatar.cc/150?u=15",
         bio: "#",
         socials: [
             { platform: "linkedin", url: "#" },
@@ -140,7 +129,6 @@ const members = [
         id: "maciej-domagalski", 
         name: "Maciej Domagalski", 
         role: "#", 
-        img: "https://i.pravatar.cc/150?u=15",
         bio: "#",
         socials: [
             { platform: "linkedin", url: "#" },
@@ -152,7 +140,6 @@ const members = [
         id: "maciej-borowiecki", 
         name: "Maciej Borowiecki", 
         role: "#", 
-        img: "https://i.pravatar.cc/150?u=15",
         bio: "#",
         socials: [
             { platform: "linkedin", url: "#" },
@@ -164,7 +151,6 @@ const members = [
         id: "maksymilian-bernacki", 
         name: "Maksymilian Bernacki", 
         role: "#", 
-        img: "https://i.pravatar.cc/150?u=15",
         bio: "#",
         socials: [
             { platform: "linkedin", url: "#" },
@@ -176,7 +162,6 @@ const members = [
         id: "marcel-kolecki", 
         name: "Marcel Kolecki", 
         role: "#", 
-        img: "https://i.pravatar.cc/150?u=15",
         bio: "#",
         socials: [
             { platform: "linkedin", url: "#" },
@@ -189,19 +174,6 @@ const members = [
         name: "Maria Ancerowicz", 
         role: "Marketing", 
         customTags: ["Marketing"],
-        img: "https://i.pravatar.cc/150?u=15",
-        bio: "#",
-        socials: [
-            { platform: "linkedin", url: "#" },
-            { platform: "website", url: "#" },
-            { platform: "instagram", url: "#" }
-        ]
-    },
-    { 
-        id: "radek-palys", 
-        name: "Radek Pałys", 
-        role: "#", 
-        img: "https://i.pravatar.cc/150?u=15",
         bio: "#",
         socials: [
             { platform: "linkedin", url: "#" },
@@ -213,7 +185,6 @@ const members = [
         id: "stanislaw-kropiewnicki", 
         name: "Stanisław Kropiewnicki", 
         role: "#", 
-        img: "https://i.pravatar.cc/150?u=15",
         bio: "#",
         socials: [
             { platform: "linkedin", url: "#" },
@@ -225,7 +196,6 @@ const members = [
         id: "stanislaw-swiecki", 
         name: "Stanisław Świecki", 
         role: "#", 
-        img: "https://i.pravatar.cc/150?u=15",
         bio: "#",
         socials: [
             { platform: "linkedin", url: "#" },
@@ -237,7 +207,17 @@ const members = [
         id: "szymon-skierski", 
         name: "Szymon Skierski", 
         role: "#", 
-        img: "https://i.pravatar.cc/150?u=15",
+        bio: "#",
+        socials: [
+            { platform: "linkedin", url: "#" },
+            { platform: "website", url: "#" },
+            { platform: "instagram", url: "#" }
+        ]
+    },
+    { 
+        id: "radek-palys", 
+        name: "Radek Pałys", 
+        role: "#", 
         bio: "#",
         socials: [
             { platform: "linkedin", url: "#" },
@@ -255,19 +235,9 @@ const projects = [
         title: "MUSC",
         fullTitle: "Modular UAV Swarm Control System with Machine Learning Methods",
         ordering: 1,
-        image: "https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=1200&h=800&fit=crop", 
-        gallery: [
-            "https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=1200&h=800&fit=crop",
-            "https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=1200&h=800&fit=crop", 
-            "https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=1200&h=800&fit=crop", 
-            "https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=1200&h=800&fit=crop", 
-            "https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=1200&h=800&fit=crop", 
-            "https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=1200&h=800&fit=crop", 
-            "https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=1200&h=800&fit=crop", 
-        ],
         shortDesc: "Autonomiczna sonda do badania jakości wody w zbiornikach retencyjnych.",
         fullDesc: "Projekt Eko Sonda V2 to zaawansowana platforma badawcza wyposażona w zestaw sensorów elektrochemicznych. Urządzenie pozwala na mapowanie zanieczyszczeń w czasie rzeczywistym i przesyłanie danych za pomocą protokołu LoRaWAN bezpośrednio do stacji bazowej.",
-        teamIds: ["jan-mikolajczyk", "igor-rostkowski", "radek-palys", "szymon-skierski"],
+        teamIds: ["jan-mikolajczyk", "igor-rostkowski", "szymon-skierski", "radek-palys"],
         spec: [
             { label: "Procesor", value: "STM32F4 Core" },
             { label: "Zasilanie", value: "Li-Po 3S 2200mAh" },
@@ -285,7 +255,7 @@ const projects = [
         ],
         shortDesc: "System rozpoznawania obrazu dla dronów inspekcyjnych.",
         fullDesc: "Prototyp systemu wizyjnego opartego na sztucznej inteligencji. Algorytm wykrywa mikropęknięcia w strukturach betonowych, co znacznie przyspiesza inspekcję mostów i wiaduktów.",
-        teamIds: ["hubert-zientara", "jan-matusiak", "georgina-riu", "jan-mikolajczyk"],
+        teamIds: ["jan-mikolajczyk", "hubert-zientara", "jan-matusiak", "georgina-riu"],
         spec: [
             { label: "AI Engine", value: "YOLOv8 Nano" },
             { label: "Platforma", value: "Jetson Orin" }
@@ -301,7 +271,7 @@ const projects = [
         ],
         shortDesc: "System rozpoznawania obrazu dla dronów inspekcyjnych.",
         fullDesc: "Prototyp systemu wizyjnego opartego na sztucznej inteligencji. Algorytm wykrywa mikropęknięcia w strukturach betonowych, co znacznie przyspiesza inspekcję mostów i wiaduktów.",
-        teamIds: ["jakub-balenkowski", "jan-ciecierski", "jan-mikolajczyk", "julian-maleta", "maciej-borowiecki", "maksymilian-bernacki", "marcel-kolecki"],
+        teamIds: ["jan-mikolajczyk", "jakub-balenkowski", "jan-ciecierski", "julian-maleta", "maciej-borowiecki", "maksymilian-bernacki", "marcel-kolecki"],
         spec: [
             { label: "AI Engine", value: "YOLOv8 Nano" },
             { label: "Platforma", value: "Jetson Orin" }
@@ -317,7 +287,7 @@ const projects = [
         ],
         shortDesc: "System rozpoznawania obrazu dla dronów inspekcyjnych.",
         fullDesc: "Prototyp systemu wizyjnego opartego na sztucznej inteligencji. Algorytm wykrywa mikropęknięcia w strukturach betonowych, co znacznie przyspiesza inspekcję mostów i wiaduktów.",
-        teamIds: ["emilia-grygiel", "karol-grzegorzewski", "maciej-domagalski", "stanislaw-kropiewnicki", "stanislaw-swiecki", "jan-mikolajczyk"],
+        teamIds: ["jan-mikolajczyk", "emilia-grygiel", "karol-grzegorzewski", "maciej-domagalski", "stanislaw-kropiewnicki", "stanislaw-swiecki"],
         spec: [
             { label: "AI Engine", value: "YOLOv8 Nano" },
             { label: "Platforma", value: "Jetson Orin" }
@@ -338,58 +308,5 @@ const projects = [
             { label: "AI Engine", value: "YOLOv8 Nano" },
             { label: "Platforma", value: "Jetson Orin" }
         ]
-    }
-];
-
-const heroSlides = [
-    {
-        img: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800",
-        label: "SYSTEM_01",
-        title: "Hardware Integration"
-    },
-    {
-        img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800",
-        label: "SYSTEM_02",
-        title: "Circuit Design"
-    },
-    {
-        img: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=800",
-        label: "SYSTEM_03",
-        title: "Embedded Systems"
-    },
-    {
-        img: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=800",
-        label: "SYSTEM_04",
-        title: "Embedded Systems"
-    },
-    {
-        img: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=800",
-        label: "SYSTEM_05",
-        title: "Embedded Systems"
-    },
-    {
-        img: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=800",
-        label: "SYSTEM_06",
-        title: "Embedded Systems"
-    },
-    {
-        img: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=800",
-        label: "SYSTEM_07",
-        title: "Embedded Systems"
-    },
-    {
-        img: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=800",
-        label: "SYSTEM_08",
-        title: "Embedded Systems"
-    },
-    {
-        img: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=800",
-        label: "SYSTEM_09",
-        title: "Embedded Systems"
-    },
-    {
-        img: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=800",
-        label: "SYSTEM_10",
-        title: "Embedded Systems"
     }
 ];

@@ -11,65 +11,93 @@
         body { 
             font-family: 'JetBrains Mono', monospace; 
             background-color: #F8FAFC; 
-            /* Twoje ulubione kropki w wersji jasnej */
             background-image: radial-gradient(#cbd5e1 1.2px, transparent 1.2px); 
             background-size: 25px 25px;
             color: #012A4F;
         }
 
-        /* Kontenery danych dopasowane do jasnego motywu */
+        /* STYL BLUEPRINT (IDENTYCZNY JAK NA HOME) */
+        .blueprint-section {
+            background-color: #012A4F;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blueprint-grid {
+            position: absolute;
+            inset: 0;
+            opacity: 0.2;
+            background-image: radial-gradient(#038DAE 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+        }
+
+        .blueprint-lines {
+            position: absolute;
+            inset: 0;
+            opacity: 0.1;
+            background-image: linear-gradient(#038DAE 1px, transparent 1px), linear-gradient(90deg, #038DAE 1px, transparent 1px);
+            background-size: 100px 100px;
+        }
+
         .data-block { 
             background: white; 
-            border: 1px dashed #cbd5e1; 
+            border: 1px solid #cbd5e1; 
+            position: relative;
         }
 
-        /* Akcent błękitny zamiast pomarańczowego */
-        .header-accent { 
-            border-left: 4px solid #038DAE; 
-            padding-left: 1.5rem; 
+        .data-block::before {
+            content: ''; position: absolute; top: -1px; left: -1px; width: 10px; height: 10px;
+            border-top: 2px solid #038DAE; border-left: 2px solid #038DAE;
+        }
+        .data-block::after {
+            content: ''; position: absolute; bottom: -1px; right: -1px; width: 10px; height: 10px;
+            border-bottom: 2px solid #038DAE; border-right: 2px solid #038DAE;
         }
 
+        .header-accent { border-left: 4px solid #038DAE; padding-left: 1.5rem; }
         .status-blink { animation: blink 1.5s infinite; }
         @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
         
         #lightbox {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(255, 255, 255, 0.98);
-            z-index: 1000;
-            cursor: zoom-out;
-            backdrop-filter: blur(15px);
+            display: none; position: fixed; inset: 0;
+            background: rgba(1, 42, 79, 0.98); z-index: 1000;
         }
-
-        /* Dodatkowy styl dla obramowań sekcji */
-        .section-border {
-            border-color: #cbd5e1 !important;
-            border-style: dashed !important;
-        }
+        .section-border { border-color: #cbd5e1 !important; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-[#038DAE] selection:text-white">
 
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-dashed border-slate-200 px-6 py-4">
+    <nav class="sticky top-0 z-50 bg-white border-b border-slate-200 px-6 py-2">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="index.html" 
-                onclick="if(window.history.length > 1) { window.history.back(); return false; }"
-                class="text-[#038DAE] font-bold text-xs uppercase tracking-widest hover:text-[#012A4F] transition">
-                    [ ← RETURN ]
+            <a href="index.html" class="flex items-center gap-6 group">
+                <div class="h-12 w-auto"> 
+                    <img src="gallery/logo.svg" alt="Logo" class="h-full w-auto object-contain transition-transform group-hover:scale-105">
+                </div>
+                <div class="hidden lg:flex flex-col border-l border-slate-200 pl-6">
+                    <div class="flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 bg-[#038DAE] rounded-sm status-blink"></div>
+                        <span class="font-bold tracking-[0.2em] text-[10px] uppercase text-[#012A4F]">KN SPA I BLSPS // ACTIVE</span>
+                    </div>
+                </div>
             </a>
-            <div class="flex items-center gap-4 text-[10px] text-slate-400 uppercase tracking-widest font-bold">
-                <div class="w-2 h-2 bg-[#038DAE] rounded-full status-blink"></div>
-                VISUALIZER_MODE: <span class="text-[#038DAE]">ENABLED</span>
+            <div class="flex items-center gap-8 text-[11px] font-bold tracking-[0.2em]">
+                <a href="index.html" class="text-[#012A4F] hover:text-[#038DAE] transition uppercase">[ ← POWRÓT ]</a>
             </div>
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-6 py-16 w-full flex-grow border-x section-border">
-        <header id="project-header" class="mb-16"></header>
+    <header class="blueprint-section py-20 border-b border-[#038DAE]/50">
+        <div class="blueprint-grid"></div>
+        <div class="blueprint-lines"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div id="project-header">
+                </div>
+        </div>
+    </header>
 
+    <main class="max-w-7xl mx-auto px-6 py-16 w-full flex-grow border-x section-border bg-white/40">
         <div class="grid lg:grid-cols-4 gap-12">
-            
             <div class="lg:col-span-3 space-y-20">
                 <section id="project-visuals" class="space-y-6">
                     <div class="header-accent">
@@ -81,8 +109,7 @@
                     <div class="header-accent">
                         <h2 class="text-xl font-bold uppercase tracking-tighter text-[#012A4F]">Technical_Specs</h2>
                     </div>
-                    <div id="project-description" class="data-block p-8 border-l-4 border-l-[#038DAE] leading-relaxed text-slate-600 shadow-sm">
-                    </div>
+                    <div id="project-description" class="data-block p-8 leading-relaxed text-slate-600 shadow-sm"></div>
                 </section>
             </div>
             
@@ -91,25 +118,36 @@
                     <div class="header-accent">
                         <h2 class="text-lg font-bold uppercase tracking-tighter text-[#012A4F]">Personnel</h2>
                     </div>
-                    <div id="project-team" class="space-y-2">
-                    </div>
+                    <div id="project-team" class="space-y-2"></div>
                 </section>
             </aside>
         </div>
     </main>
 
-    <div id="lightbox" class="fixed inset-0 z-[1000] hidden flex flex-col items-center justify-center p-4">
-        <button onclick="closeLightbox()" class="absolute top-6 right-8 text-[#012A4F] hover:text-[#038DAE] transition text-[10px] font-bold tracking-tighter uppercase">
-            [ close_x ]
-        </button>
-        <button onclick="changeImage(-1)" class="absolute left-4 md:left-10 text-[#012A4F]/20 hover:text-[#038DAE] transition text-4xl p-4">‹</button>
-        <button onclick="changeImage(1)" class="absolute right-4 md:right-10 text-[#012A4F]/20 hover:text-[#038DAE] transition text-4xl p-4">›</button>
-        <img id="lightbox-img" src="" class="max-w-full max-h-[85vh] object-contain border border-slate-200 shadow-2xl bg-white">
-        <div id="lightbox-counter" class="absolute bottom-10 text-[10px] text-slate-400 font-bold tracking-[0.5em] uppercase"></div>
-    </div>
+    <section id="kontakt" class="blueprint-section py-24 px-6 border-t border-[#038DAE]/50">
+        <div class="blueprint-grid"></div>
+        <div class="blueprint-lines"></div>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-12">
+                <div class="relative">
+                    <span class="text-[#038DAE] font-mono text-[10px] tracking-[0.5em] uppercase mb-4 block">TERMINAL_END_POINT:</span>
+                    <h2 class="text-5xl md:text-7xl font-black text-white uppercase leading-none tracking-tighter italic">
+                        GOTOWY NA <br> <span class="text-[#038DAE]">WDROŻENIE?</span>
+                    </h2>
+                </div>
+                <div class="relative group p-8 border border-[#038DAE]/30 bg-[#012A4F]/50 backdrop-blur-sm">
+                    <div class="absolute -top-[1px] -left-[1px] w-6 h-6 border-t-2 border-l-2 border-[#038DAE]"></div>
+                    <div class="absolute -bottom-[1px] -right-[1px] w-6 h-6 border-b-2 border-r-2 border-[#038DAE]"></div>
+                    <a href="mailto:knspaiblsps@gmail.com" class="text-2xl font-bold text-white hover:text-[#038DAE] transition-colors font-mono tracking-tighter">
+                        KNSPAIBLSPS@GMAIL.COM
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <footer class="py-12 border-t section-border bg-white/50 text-center text-[10px] text-slate-400 uppercase tracking-[0.5em]">
-        KN_PROJECT_LOG_SYSTEM // VER_2.0.26
+    <footer class="py-10 text-center text-[10px] text-slate-400 uppercase tracking-[0.5em] font-bold">
+        &copy; KN SPA I BLSPS // 2026
     </footer>
 
     <script src="src/data.js"></script>
