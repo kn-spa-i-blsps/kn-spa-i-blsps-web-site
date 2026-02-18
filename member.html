@@ -4,56 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Koło Naukowe SPA i BLPSP</title>
+    <link rel="icon" type="image/png" href="gallery/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         body { 
             font-family: 'JetBrains Mono', monospace; 
-            background-color: #0a0a0b;
-            background-image: radial-gradient(#1a1a1c 1px, transparent 1px);
-            background-size: 30px 30px;
-            color: #ececec;
+            background-color: #F8FAFC; 
+            background-image: radial-gradient(#cbd5e1 1.2px, transparent 1.2px); 
+            background-size: 25px 25px;
+            color: #012A4F;
         }
 
-        /* Naprawiona karta */
         .profile-card {
-            background: rgba(15, 15, 18, 0.95);
-            border: 1px solid #27272a;
+            background: white;
+            border: 1px dashed #cbd5e1;
             position: relative;
-            /* Usunięto wszystko, co mogłoby ucinać napisy */
+            /* Usunięto overflow:hidden stąd w JS */
         }
 
-        /* Etykieta w rogu - teraz bezpiecznie przypięta */
         .card-label {
             position: absolute;
             top: -12px;
             right: 20px;
-            background: #f97316;
-            color: black;
+            background: #038DAE;
+            color: white;
             font-size: 10px;
             font-weight: 800;
-            padding: 2px 10px;
-            z-index: 50;
+            padding: 2px 12px;
+            z-index: 100;
             letter-spacing: 1px;
+            box-shadow: 3px 3px 0px #012A4F;
         }
 
-        /* Naprawiony efekt grayscale */
         .img-container {
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid #e2e8f0;
             transition: all 0.4s ease;
+            overflow: hidden; /* Przeniesiono tutaj, by dociąć tylko zdjęcie */
         }
 
         .img-content {
             filter: grayscale(100%);
-            opacity: 0.7;
+            opacity: 0.9;
             transition: all 0.5s ease;
         }
 
-        /* Hover efekty */
         .group:hover .img-container {
-            border-color: #f97316;
-            box-shadow: 0 0 15px rgba(249, 115, 22, 0.15);
+            border-color: #038DAE;
+            box-shadow: 0 10px 30px rgba(3, 141, 174, 0.1);
         }
 
         .group:hover .img-content {
@@ -62,13 +61,9 @@
             transform: scale(1.03);
         }
 
-        /* Style dla treści Markdown */
-        .markdown-body {
-            color: #9ca3af; /* szary tekst */
-        }
-
+        .markdown-body { color: #475569; }
         .markdown-body h3 {
-            color: #f97316; /* pomarańczowe nagłówki */
+            color: #012A4F;
             font-size: 0.875rem;
             font-weight: 800;
             text-transform: uppercase;
@@ -78,89 +73,37 @@
             display: flex;
             align-items: center;
         }
-
-        /* Opcjonalny bajer: kreska przed nagłówkiem MD */
-        .markdown-body h3::before {
-            content: ">";
-            margin-right: 8px;
-            opacity: 0.5;
-        }
-
-        .markdown-body p {
-            margin-bottom: 1.25rem;
-            text-align: justify;
-        }
-
-        .markdown-body ul {
-            list-style-type: none; /* usuwamy standardowe kropki */
-            padding-left: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .markdown-body li {
-            margin-bottom: 0.5rem;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        /* Własne kropki listy w stylu retro-terminala */
-        .markdown-body li::before {
-            content: "■";
-            position: absolute;
-            left: 0;
-            color: #f97316;
-            font-size: 8px;
-            top: 6px;
-        }
-
-        .markdown-body strong {
-            color: #ffffff;
-            font-weight: 700;
-        }
-
-        .markdown-body hr {
-            border: 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            margin: 2rem 0;
-        }
-
+        .markdown-body h3::before { content: "//"; margin-right: 8px; color: #038DAE; }
+        .markdown-body p { margin-bottom: 1.25rem; text-align: justify; }
+        .markdown-body li::before { content: "■"; position: absolute; left: 0; color: #038DAE; font-size: 8px; top: 6px; }
+        .markdown-body strong { color: #012A4F; font-weight: 700; }
+        .markdown-body hr { border-top: 1px dashed #e2e8f0; margin: 2rem 0; }
         .markdown-body blockquote {
-            border-left: 2px solid #f97316;
+            border-left: 2px solid #038DAE;
             padding: 0.5rem 0 0.5rem 1.5rem;
             margin: 1.5rem 0;
-            background: rgba(249, 115, 22, 0.03);
+            background: rgba(3, 141, 174, 0.03);
             font-style: italic;
         }
-
-        .markdown-body a {
-            color: #f97316;
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: all 0.3s;
-        }
-
-        .markdown-body a:hover {
-            border-bottom: 1px solid #f97316;
-        }
-
+        .markdown-body a { color: #038DAE; font-weight: bold; }
         .status-blink { animation: blink 1.5s infinite; }
         @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col selection:bg-[#038DAE] selection:text-white">
 
     <nav class="p-6">
         <a href="index.html" 
             onclick="if(window.history.length > 1) { window.history.back(); return false; }"
-            class="text-orange-500 font-bold text-xs uppercase tracking-widest hover:text-white transition">
+            class="text-[#038DAE] font-bold text-xs uppercase tracking-widest hover:text-[#012A4F] transition">
                 [ ← RETURN ]
         </a>
     </nav>
 
-    <main id="profile-content" class="flex-grow flex items-center justify-center px-4 py-12">
+    <main id="profile-content" class="flex-grow flex items-center justify-center px-4 py-12 w-full">
         </main>
 
-    <footer class="p-6 text-center text-[10px] text-gray-600 uppercase tracking-[0.3em]">
+    <footer class="p-6 text-center text-[10px] text-slate-400 uppercase tracking-[0.3em] font-bold">
         KN_UNIT_PROFILE_SYSTEM // VER 2.0.26
     </footer>
 

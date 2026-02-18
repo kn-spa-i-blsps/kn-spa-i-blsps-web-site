@@ -341,4 +341,55 @@ const projects = [
     }
 ];
 
-// ... (tutaj zostaje Twoja tablica members z poprzedniego kroku)
+const heroSlides = [
+    {
+        img: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800",
+        label: "SYSTEM_01",
+        title: "Hardware Integration"
+    },
+    {
+        img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800",
+        label: "SYSTEM_02",
+        title: "Circuit Design"
+    },
+    {
+        img: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=800",
+        label: "SYSTEM_03",
+        title: "Embedded Systems"
+    },
+    {
+        img: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=800",
+        label: "SYSTEM_04",
+        title: "Embedded Systems"
+    },
+    {
+        img: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=800",
+        label: "SYSTEM_05",
+        title: "Embedded Systems"
+    },
+    {
+        img: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=800",
+        label: "SYSTEM_06",
+        title: "Embedded Systems"
+    },
+    {
+        img: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=800",
+        label: "SYSTEM_07",
+        title: "Embedded Systems"
+    },
+    {
+        img: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=800",
+        label: "SYSTEM_08",
+        title: "Embedded Systems"
+    },
+    {
+        img: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=800",
+        label: "SYSTEM_09",
+        title: "Embedded Systems"
+    },
+    {
+        img: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=800",
+        label: "SYSTEM_10",
+        title: "Embedded Systems"
+    }
+];

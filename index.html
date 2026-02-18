@@ -4,31 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Koło Naukowe SPA i BLPSP</title>
+    <link rel="icon" type="image/png" href="gallery/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body { 
             font-family: 'JetBrains Mono', monospace; 
             background-color: #F8FAFC; 
-            /* Mocniejszy wzór kropek dla jasnego motywu */
-            background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px); 
-            background-size: 24px 24px; /* Nieco gęstsza siatka wygląda bardziej "pro" */
+            background-image: radial-gradient(#cbd5e1 1.2px, transparent 1.2px); 
+            background-size: 25px 25px;
             color: #012A4F;
         }
         
-        /* Styl paska przewijania dopasowany do błękitu */
-        .custom-scroll::-webkit-scrollbar {
-            height: 6px;
-        }
-        .custom-scroll::-webkit-scrollbar-track {
-            background: #e2e8f0;
-            border-radius: 10px;
-        }
-        .custom-scroll::-webkit-scrollbar-thumb {
-            background: #038DAE; /* Twój jasny błękit */
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(3, 141, 174, 0.2);
-        }
+        .custom-scroll::-webkit-scrollbar { height: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #e2e8f0; border-radius: 10px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #038DAE; border-radius: 10px; }
 
         .tech-card {
             background: white;
@@ -42,33 +32,34 @@
             transform: translateY(-2px);
         }
 
-        .status-blink {
-            animation: blink 1.5s infinite;
-        }
+        .status-blink { animation: blink 1.5s infinite; }
         @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
 
-        /* Klasy pomocnicze dla nowych kolorów */
-        .text-brand-dark { color: #012A4F; }
-        .text-brand-light { color: #038DAE; }
-        .bg-brand-dark { background-color: #012A4F; }
-        .bg-brand-light { background-color: #038DAE; }
-        .border-brand-light { border-color: #038DAE; }
+        .gallery-fade { transition: opacity 1s ease-in-out; }
     </style>
 </head>
 <body class="selection:bg-[#038DAE] selection:text-white">
 
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-[#012A4F]/10 px-6 py-4">
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-[#012A4F]/10 px-6 py-2">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="w-3 h-3 bg-[#038DAE] rounded-sm status-blink"></div>
-                <span class="font-bold tracking-widest text-sm uppercase text-brand-dark">KN SPA I BLSPS</span>
-            </div>
+            
+            <a href="index.html" class="flex items-center gap-6 group">
+                <div class="h-14 w-auto"> <img src="gallery/logo.svg" alt="Logo" class="h-full w-auto object-contain transition-transform group-hover:scale-105">
+                </div>
+                <div class="hidden lg:flex flex-col border-l border-slate-200 pl-6">
+                    <div class="flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 bg-[#038DAE] rounded-sm status-blink"></div>
+                        <span class="font-bold tracking-[0.2em] text-[12px] uppercase text-[#012A4F]">KN SPA I BLSPS</span>
+                    </div>
+                </div>
+            </a>
+
             <div class="flex items-center gap-8 text-[11px] font-bold tracking-[0.2em]">
                 <div class="hidden md:flex items-center gap-8">
-                    <a href="#projects" class="text-brand-dark hover:text-brand-light transition decoration-[#038DAE] underline-offset-8 hover:underline decoration-2 leading-none">PROJEKTY</a>
-                    <a href="team.html" class="text-brand-dark hover:text-brand-light transition decoration-[#038DAE] underline-offset-8 hover:underline decoration-2 leading-none">ZESPÓŁ</a>
+                    <a href="#projects" class="text-[#012A4F] hover:text-[#038DAE] transition underline-offset-8 hover:underline decoration-[#038DAE] decoration-2">PROJEKTY</a>
+                    <a href="team.html" class="text-[#012A4F] hover:text-[#038DAE] transition underline-offset-8 hover:underline decoration-[#038DAE] decoration-2">ZESPÓŁ</a>
                 </div>
-                <a href="#kontakt" class="text-brand-light border border-[#038DAE]/30 px-5 py-2 hover:bg-brand-light hover:text-white transition duration-300 flex items-center justify-center h-full font-bold">
+                <a href="#kontakt" class="text-[#038DAE] border border-[#038DAE]/30 px-5 py-2 hover:bg-[#038DAE] hover:text-white transition duration-300 font-bold">
                     KONTAKT
                 </a>
             </div>
@@ -76,19 +67,32 @@
     </nav>
 
     <header class="max-w-7xl mx-auto px-6 pt-24 pb-20 border-x border-slate-200">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-8 leading-[0.9] text-brand-dark">
-                    HARDWARE <br> <span class="text-brand-light">OPTIMIZED</span> <br> FUTURE
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-4">
+                <h1 class="text-5xl md:text-6xl font-extrabold tracking-tighter mb-8 leading-[0.9] text-[#012A4F]">
+                    HARDWARE <br> <span class="text-[#038DAE]">OPTIMIZED</span> <br> FUTURE
                 </h1>
-                <p class="text-slate-500 text-sm max-w-md border-l-2 border-[#038DAE] pl-4 py-2">
+                <p class="text-slate-500 text-sm max-w-sm border-l-2 border-[#038DAE] pl-4 py-2">
                     Skupiamy się na wydajnych systemach wbudowanych i automatyce. Nasz warsztat to miejsce, gdzie kod spotyka się z metalem.
                 </p>
             </div>
-            <div class="hidden lg:block relative">
+
+            <div class="hidden lg:block lg:col-span-8 relative h-[550px] group/gallery">
                 <div class="absolute -inset-4 bg-[#038DAE]/5 blur-3xl rounded-full"></div>
-                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=800" 
-                     class="relative z-10 rounded-sm border border-slate-200 shadow-2xl">
+                
+                <div id="hero-gallery" class="relative z-10 w-full h-full rounded-sm border border-slate-200 shadow-2xl overflow-hidden bg-white cursor-pointer">
+                    <div class="absolute top-4 right-4 z-30 opacity-0 group-hover/gallery:opacity-100 transition-opacity bg-white/80 px-2 py-1 text-[8px] font-bold tracking-widest text-[#038DAE]">
+                        CLICK TO NEXT_
+                    </div>
+                </div>
+
+                <div class="absolute bottom-8 right-8 z-20 text-right pointer-events-none">
+                    <div id="gallery-label" class="text-xs font-bold text-[#038DAE] tracking-[0.5em] uppercase mb-2 drop-shadow-md"></div>
+                    <div id="gallery-title" class="text-4xl font-black text-[#012A4F] uppercase tracking-tighter drop-shadow-md"></div>
+                </div>
+
+                <div id="gallery-dots" class="absolute -bottom-10 left-0 flex gap-3 z-20"></div>
             </div>
         </div>
     </header>
@@ -96,40 +100,36 @@
     <section id="projects" class="py-24 border-y border-slate-200 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="mb-16">
-                <h2 class="text-2xl font-bold uppercase tracking-tighter flex items-center gap-4 text-brand-dark">
-                    <span class="text-brand-light">[01]</span> Aktywne Operacje
+                <h2 class="text-2xl font-bold uppercase tracking-tighter flex items-center gap-4 text-[#012A4F]">
+                    <span class="text-[#038DAE]">[01]</span> Aktywne Operacje
                 </h2>
             </div>
-            
-            <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                </div>
+            <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
         </div>
     </section>
 
     <section id="team" class="py-24 max-w-7xl mx-auto px-6 border-x border-slate-200">
         <div class="flex justify-between items-end mb-12">
-            <h2 class="text-2xl font-bold uppercase tracking-tighter flex items-center gap-4 text-brand-dark">
-                <span class="text-brand-light">[02]</span> <a href="team.html" class="hover:text-brand-light transition">Jednostki</a>
+            <h2 class="text-2xl font-bold uppercase tracking-tighter flex items-center gap-4 text-[#012A4F]">
+                <span class="text-[#038DAE]">[02]</span> <a href="team.html" class="hover:text-[#038DAE] transition">Jednostki</a>
             </h2>
-            <span class="text-[10px] text-slate-400 uppercase">Przewijaj w poziomie &gt;&gt;</span>
+            <span class="text-[10px] text-slate-400 uppercase tracking-widest">Przewijaj w poziomie &gt;&gt;</span>
         </div>
-
-        <div id="team-scroll-container" class="flex gap-6 overflow-x-auto pb-8 custom-scroll snap-x">
-            </div>
+        <div id="team-scroll-container" class="flex gap-6 overflow-x-auto pb-8 custom-scroll snap-x"></div>
     </section>
 
-    <section id="kontakt" class="bg-brand-dark py-20 px-6">
+    <section id="kontakt" class="bg-[#012A4F] py-20 px-6">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
-            <h2 class="text-4xl font-black text-white uppercase leading-none">Gotowy na <br> wdrożenie?</h2>
+            <h2 class="text-4xl font-black text-white uppercase leading-none tracking-tighter">Gotowy na <br> wdrożenie?</h2>
             <div class="flex flex-col items-end">
-                <a href="mailto:knspaiblsps@gmail.com" class="text-3xl font-bold text-[#038DAE] border-b-4 border-[#038DAE] hover:text-white hover:border-white transition px-2 uppercase">KNSPAIBLSLS@GMAIL.COM</a>
-                <p class="mt-4 text-white/40 font-bold text-xs uppercase tracking-widest">STATUS: OCZEKIWANIE NA SYGNAŁ</p>
+                <a href="mailto:knspaiblsps@gmail.com" class="text-3xl font-bold text-[#038DAE] border-b-4 border-[#038DAE] hover:text-white hover:border-white transition px-2 uppercase tracking-tighter">KNSPAIBLSLS@GMAIL.COM</a>
+                <p class="mt-4 text-white/40 font-bold text-[10px] uppercase tracking-[0.4em]">STATUS: OCZEKIWANIE NA SYGNAŁ</p>
             </div>
         </div>
     </section>
 
-    <footer class="py-10 text-center text-[10px] text-slate-400 uppercase tracking-[0.5em]">
-        &copy; KN SPA I BLSPS // ALL RIGHTS RESERVED
+    <footer class="py-10 text-center text-[10px] text-slate-400 uppercase tracking-[0.5em] font-bold">
+        &copy; KN SPA I BLSPS // 2026
     </footer>
 
     <script src="src/data.js"></script>

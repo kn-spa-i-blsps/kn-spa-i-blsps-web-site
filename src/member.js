@@ -7,11 +7,9 @@ async function renderProfile() {
     const container = document.getElementById('profile-content');
     
     if (!user || !container) {
-        if (container) container.innerHTML = "<h1 class='text-orange-500 text-center mt-20 font-mono'>[!] ERROR: USER_NOT_FOUND</h1>";
+        if (container) container.innerHTML = "<h1 class='text-[#038DAE] text-center mt-20 font-mono'>[!] ERROR: USER_NOT_FOUND</h1>";
         return;
     }
-
-    // 1. POBIERANIE BIO (Markdown lub String)
 
     let bioHTML = "";
     if (user.bioSource) {
@@ -19,77 +17,68 @@ async function renderProfile() {
             const response = await fetch(user.bioSource);
             if (!response.ok) throw new Error();
             const markdownText = await response.text();
-            bioHTML = marked.parse(markdownText); // Konwersja MD -> HTML
+            bioHTML = marked.parse(markdownText); 
         } catch (e) {
-            bioHTML = `<p class="text-red-500 opacity-50">[ FILENO_0x04: FAILED_TO_LOAD_EXTERNAL_BIO ]</p>`;
+            bioHTML = `<p class="text-red-500 opacity-50 font-bold uppercase text-[10px]">[ FILENO_0x04: FAILED_TO_LOAD_EXTERNAL_BIO ]</p>`;
         }
     } else {
-        // Jeśli nie ma pliku .md, używamy zwykłego stringa (whitespace-pre-line obsłuży entery)
         bioHTML = user.bio || "No data available in bio registry.";
     }
 
-    // 2. KOLORY PROJEKTÓW
     const projectColors = {
-        "musc": "text-red-500 border-red-500/30 bg-red-500/5",
-        "flysearch": "text-green-400 border-green-400/30 bg-green-400/5",
-        "bluespark": "text-blue-400 border-blue-400/30 bg-blue-400/5",
-        "hawk-eye": "text-yellow-400 border-yellow-400/30 bg-yellow-400/5",
-        "snows-eye": "text-white border-white/30 bg-white/5"
+        "musc": "text-red-600 border-red-200 bg-red-50",
+        "flysearch": "text-green-600 border-green-200 bg-green-50",
+        "bluespark": "text-blue-600 border-blue-200 bg-blue-50",
+        "hawk-eye": "text-amber-600 border-amber-200 bg-amber-50",
+        "snows-eye": "text-slate-600 border-slate-200 bg-slate-50"
     };
 
     const customBadges = (user.customTags || []).map(tag => `
-        <span class="text-[9px] px-2.5 py-1 border border-orange-500/40 bg-orange-500/5 text-orange-500 uppercase font-bold tracking-tight shadow-sm">
+        <span class="text-[9px] px-2.5 py-1 border border-[#038DAE]/30 bg-[#038DAE]/5 text-[#038DAE] uppercase font-bold tracking-tight">
             ${tag}
         </span>
     `).join('');
 
-    const personProjects = projects
-        .filter(p => p.teamIds.includes(user.id))
-        .sort((a, b) => (a.ordering || 999) - (b.ordering || 999));
-
+    const personProjects = projects.filter(p => p.teamIds.includes(user.id));
     const projectBadges = personProjects.map(p => {
-        const colorClass = projectColors[p.id] || "text-orange-500 border-orange-500/30 bg-orange-500/5";
+        const colorClass = projectColors[p.id] || "text-slate-500 border-slate-200 bg-slate-50";
         return `<span class="text-[9px] px-2.5 py-1 border uppercase font-bold tracking-tight ${colorClass}">${p.title}</span>`;
     }).join('');
 
-    // 3. SOCIAL LINKS
     let socialLinksHTML = "";
     if (user.socials) {
         user.socials.forEach(link => {
             const platform = link.platform.toLowerCase();
-            let linkStyle = "border-white/10 text-gray-400 hover:border-white hover:text-white";
-            if (platform === 'github') linkStyle = "border-white/10 text-gray-300 hover:bg-white hover:text-black";
-            else if (platform === 'linkedin') linkStyle = "border-blue-500/30 text-blue-400 hover:bg-blue-500/20 hover:border-blue-500";
-            else if (platform === 'instagram') linkStyle = "border-pink-500/30 text-pink-400 hover:bg-pink-500/20 hover:border-pink-500";
-            else if (platform === 'website') linkStyle = "border-orange-500/30 text-orange-500 hover:bg-orange-500/20 hover:border-orange-500";
+            let linkStyle = "border-slate-200 text-slate-400 hover:border-[#012A4F] hover:text-[#012A4F]";
+            if (platform === 'github') linkStyle = "border-slate-200 text-slate-500 hover:bg-slate-500 hover:text-white hover:border-slate-500";
+            else if (platform === 'linkedin') linkStyle = "border-blue-200 text-blue-600 hover:bg-blue-600 hover:text-white hover:border-blue-600";
+            else if (platform === 'instagram') linkStyle = "border-pink-200 text-pink-500 hover:bg-pink-500 hover:text-white hover:border-pink-500";
+            else if (platform === 'website') linkStyle = "border-[#038DAE]/30 text-[#038DAE] hover:bg-[#038DAE] hover:text-white";
 
             socialLinksHTML += `
-                <a href="${link.url}" target="_blank" class="px-4 py-1.5 border ${linkStyle} text-[9px] font-bold uppercase tracking-[0.2em] transition-all duration-300">
+                <a href="${link.url}" target="_blank" class="px-4 py-1.5 border ${linkStyle} text-[9px] font-bold uppercase tracking-[0.2em] transition-all duration-300 bg-white">
                     ${link.platform}
                 </a>`;
         });
     }
 
-    // 4. FINALNY RENDER
-    // 4. FINALNY RENDER - Skupiony na szerokości
+    // --- KLUCZOWA ZMIANA: Usunięto overflow-hidden z profile-card ---
     container.innerHTML = `
-        <div class="w-full max-w-7xl mx-auto profile-card p-8 md:p-14 shadow-2xl bg-[#0a0a0b] border border-white/5 relative overflow-hidden">
+        <div class="w-full max-w-7xl mx-auto profile-card p-8 md:p-14 shadow-xl relative group">
+            <div class="card-label">CORE_UNIT_${user.id.toUpperCase()}</div>
             
             <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center lg:items-start">
                 
                 <div class="w-full lg:w-64 flex flex-col items-center lg:items-start flex-shrink-0">
-                    <div class="relative mb-4 group">
-                        <div class="w-64 h-64 overflow-hidden border border-white/10 bg-black">
-                            <img src="${user.img}" class="w-full h-full object-cover">
-                        </div>
-                        <div class="absolute -bottom-3 -right-3 bg-orange-500 text-black font-black px-3 py-1 text-[10px] tracking-tighter z-10 shadow-lg font-mono">
-                            CORE_UNIT_${user.id.toUpperCase()}
+                    <div class="relative mb-6">
+                        <div class="w-64 h-64 overflow-hidden img-container bg-white">
+                            <img src="${user.img}" class="w-full h-full object-cover img-content">
                         </div>
                     </div>
 
-                    <div class="mt-4 mb-8 flex items-center justify-center lg:justify-start gap-2 w-full">
-                        <div class="w-1.5 h-1.5 bg-green-500 rounded-full status-blink shadow-[0_0_8px_#22c55e]"></div>
-                        <span class="text-[9px] text-gray-600 uppercase tracking-[0.3em] font-bold">Connection_Stable</span>
+                    <div class="mb-8 flex items-center justify-center lg:justify-start gap-2 w-full font-bold">
+                        <div class="w-2 h-2 bg-green-500 rounded-full status-blink shadow-[0_0_8px_#22c55e]"></div>
+                        <span class="text-[9px] text-slate-400 uppercase tracking-[0.3em]">Connection_Stable</span>
                     </div>
 
                     <div class="flex flex-wrap gap-2 justify-center lg:justify-start">
@@ -98,16 +87,16 @@ async function renderProfile() {
                     </div>
                 </div>
 
-                <div class="flex-grow w-full overflow-hidden">
-                    <div class="mb-8 text-center lg:text-left">
-                        <h1 class="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-2 leading-none">
+                <div class="flex-grow w-full">
+                    <div class="mb-10 text-center lg:text-left">
+                        <h1 class="text-4xl md:text-6xl font-black text-[#012A4F] uppercase tracking-tighter mb-3 leading-none">
                             ${user.name}
                         </h1>
                         <div class="flex items-center justify-center lg:justify-start gap-4">
-                            <span class="text-orange-500 font-bold uppercase tracking-[0.5em] text-[10px]">
+                            <span class="text-[#038DAE] font-bold uppercase tracking-[0.4em] text-[10px]">
                                 // ${user.role}
                             </span>
-                            <div class="h-px flex-grow bg-white/5 hidden md:block"></div>
+                            <div class="h-px flex-grow bg-slate-100 hidden md:block border-t border-dashed border-slate-200"></div>
                         </div>
                     </div>
 
@@ -116,16 +105,15 @@ async function renderProfile() {
                     </div>
 
                     <div class="relative min-h-[250px]">
-                        <div class="absolute -left-6 top-0 bottom-0 w-[1px] bg-orange-500/30"></div>
-                        
-                        <div class="text-sm md:text-base text-gray-400 leading-[1.8] font-light pl-2 markdown-body">
+                        <div class="absolute -left-6 top-0 bottom-0 w-[2px] bg-[#038DAE]/20"></div>
+                        <div class="text-sm md:text-base leading-[1.8] font-medium pl-2 markdown-body">
                             ${bioHTML}
                         </div>
                         
-                        <div class="mt-12 flex flex-wrap gap-6 opacity-30 border-t border-white/5 pt-6 font-mono">
-                            <div class="text-[8px] uppercase tracking-[0.2em] text-gray-500">Access: Verified_Entity</div>
-                            <div class="text-[8px] uppercase tracking-[0.2em] text-gray-500">Registry_ID: ${user.id}</div>
-                            <div class="text-[8px] uppercase tracking-[0.2em] text-gray-500">Encryption: SHA-256</div>
+                        <div class="mt-16 flex flex-wrap gap-6 opacity-40 border-t border-dashed border-slate-200 pt-6 font-mono font-bold text-[#012A4F]">
+                            <div class="text-[8px] uppercase tracking-[0.2em]">Access: Verified_Entity</div>
+                            <div class="text-[8px] uppercase tracking-[0.2em]">Registry_ID: ${user.id}</div>
+                            <div class="text-[8px] uppercase tracking-[0.2em]">Encryption: SHA-256</div>
                         </div>
                     </div>
                 </div>
