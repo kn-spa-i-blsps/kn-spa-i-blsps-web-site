@@ -114,8 +114,8 @@ function renderDescription(project) {
             <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#038DAE]/20 border border-[#038DAE]/20 shadow-sm">
                 ${project.spec.map(s => `
                     <div class="flex justify-between items-center p-5 bg-white group hover:bg-slate-50 transition-colors">
-                        <span class="text-slate-400 text-[9px] uppercase tracking-[0.2em] font-bold">${s.label}</span>
-                        <span class="text-[#038DAE] text-[11px] font-bold font-mono tracking-tighter">${s.value}</span>
+                        <span class="text-slate-400 text-[9px] uppercase tracking-[0.2em] font-bold">${t(s.label)}</span>
+                        <span class="text-[#038DAE] text-[11px] font-bold font-mono tracking-tighter">${t(s.value)}</span>
                     </div>
                 `).join('')}
             </div>`;
