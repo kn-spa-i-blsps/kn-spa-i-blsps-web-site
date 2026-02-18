@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNIT_PROFILE // KN_RESEARCH_LAB</title>
+    <title>Koło Naukowe SPA i BLPSP</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
@@ -68,8 +68,10 @@
 <body class="min-h-screen flex flex-col">
 
     <nav class="p-6">
-        <a href="index.html#zespol" class="text-orange-500 font-bold text-xs uppercase tracking-widest hover:text-white transition group">
-            [ <span class="status-blink group-hover:pr-2 transition-all">←</span> POWRÓT_DO_BAZY ]
+        <a href="index.html" 
+            onclick="if(window.history.length > 1) { window.history.back(); return false; }"
+            class="text-orange-500 font-bold text-xs uppercase tracking-widest hover:text-white transition">
+                [ ← RETURN ]
         </a>
     </nav>
 
@@ -80,7 +82,7 @@
         KN_UNIT_PROFILE_SYSTEM // VER 2.0.26
     </footer>
 
-    <script src="data.js"></script>
-    <script src="profile.js"></script>
+    <script src="src/data.js"></script>
+    <script src="src/member.js"></script>
 </body>
 </html>

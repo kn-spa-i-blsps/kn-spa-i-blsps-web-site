@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROJECT_FILE // KN_RESEARCH_LAB</title>
+    <title>Koło Naukowe SPA i BLPSP</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
@@ -19,7 +19,6 @@
         .status-blink { animation: blink 1.5s infinite; }
         @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
         
-        /* Styl modala (Lightbox) */
         #lightbox {
             display: none;
             position: fixed;
@@ -35,8 +34,10 @@
 
     <nav class="sticky top-0 z-50 bg-[#0a0a0b]/80 backdrop-blur-md border-b border-white/5 px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="index.html#projekty" class="text-orange-500 font-bold text-xs uppercase tracking-[0.2em] hover:text-white transition group">
-                [ ← BACK_TO_DASHBOARD ]
+            <a href="index.html" 
+                onclick="if(window.history.length > 1) { window.history.back(); return false; }"
+                class="text-orange-500 font-bold text-xs uppercase tracking-widest hover:text-white transition">
+                    [ ← RETURN ]
             </a>
             <div class="flex items-center gap-4 text-[10px] text-gray-600 uppercase tracking-widest">
                 <div class="w-2 h-2 bg-orange-500 rounded-full status-blink"></div>
@@ -48,43 +49,43 @@
     <main class="max-w-7xl mx-auto px-6 py-16 w-full flex-grow">
         <header id="project-header" class="mb-16"></header>
 
-        <div class="grid lg:grid-cols-3 gap-16">
-            <div class="lg:col-span-2 space-y-20">
+        <div class="grid lg:grid-cols-4 gap-12">
+            
+            <div class="lg:col-span-3 space-y-20">
                 <section id="project-visuals" class="space-y-6">
                     <div class="header-accent">
                         <h2 class="text-xl font-bold uppercase tracking-tighter text-white">Visual_Output</h2>
                     </div>
-                </section>
+                    </section>
 
                 <section id="documentation" class="space-y-8">
                     <div class="header-accent">
                         <h2 class="text-xl font-bold uppercase tracking-tighter text-white">Technical_Specs</h2>
                     </div>
-                    <div id="project-description" class="data-block p-8 border-l-4 border-l-orange-500"></div>
+                    <div id="project-description" class="data-block p-8 border-l-4 border-l-orange-500 leading-relaxed text-gray-300">
+                        </div>
                 </section>
             </div>
             
-            <aside class="space-y-12">
-                <section id="personnel" class="space-y-8">
+            <aside class="lg:col-span-1 space-y-12">
+                <section id="personnel" class="space-y-6">
                     <div class="header-accent">
-                        <h2 class="text-lg font-bold uppercase tracking-tighter text-white">Personnel_Assigned</h2>
+                        <h2 class="text-lg font-bold uppercase tracking-tighter text-white">Personnel</h2>
                     </div>
-                    <div id="project-team" class="space-y-3"></div>
+                    <div id="project-team" class="space-y-2">
+                        </div>
                 </section>
             </aside>
         </div>
     </main>
 
-    <div id="lightbox" class="fixed inset-0 bg-black/95 z-[1000] hidden flex-col items-center justify-center p-4 backdrop-blur-xl">
-        <button onclick="closeLightbox()" class="absolute top-6 right-8 text-gray-500 hover:text-orange-500 transition text-2xl font-bold tracking-tighter uppercase text-[10px]">
+    <div id="lightbox" class="fixed inset-0 bg-black/95 z-[1000] hidden flex flex-col items-center justify-center p-4 backdrop-blur-xl">
+        <button onclick="closeLightbox()" class="absolute top-6 right-8 text-gray-500 hover:text-orange-500 transition text-[10px] font-bold tracking-tighter uppercase">
             [ close_x ]
         </button>
-        
         <button onclick="changeImage(-1)" class="absolute left-4 md:left-10 text-white/20 hover:text-orange-500 transition text-4xl p-4">‹</button>
         <button onclick="changeImage(1)" class="absolute right-4 md:right-10 text-white/20 hover:text-orange-500 transition text-4xl p-4">›</button>
-
-        <img id="lightbox-img" src="" class="max-w-full max-h-[85vh] object-contain border border-white/5 shadow-2xl transition-all duration-300">
-        
+        <img id="lightbox-img" src="" class="max-w-full max-h-[85vh] object-contain border border-white/5 shadow-2xl">
         <div id="lightbox-counter" class="absolute bottom-10 text-[10px] text-gray-600 font-bold tracking-[0.5em] uppercase"></div>
     </div>
 
@@ -92,7 +93,7 @@
         KN_PROJECT_LOG_SYSTEM // VER_2.0.26
     </footer>
 
-    <script src="data.js"></script>
-    <script src="project-detail.js"></script>
+    <script src="src/data.js"></script>
+    <script src="src/project.js"></script>
 </body>
 </html>
