@@ -124,9 +124,8 @@ const members = [
 		},
         socials: [
             { platform: "github", url: "https://github.com/for5en" },
-			{ platform: "linkedin", url: "#" },
-            { platform: "instagram", url: "#" },
-            { platform: "website", url: "#" }
+			{ platform: "linkedin", url: "https://www.linkedin.com/in/igor-rostkowski-632205386" },
+            { platform: "holo-fractals", url: "https://holographic-fractal-3d-explorer.onrender.com/" }
         ]
     },
     { 
