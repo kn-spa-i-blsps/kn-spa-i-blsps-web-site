@@ -13,10 +13,10 @@ const members = [
             en: "My name is Jasiek. I study Aerospace Engineering at the Warsaw University of Technology and Physics at the University of Warsaw. In the academic year 2024/2025, during my first year of studies in both programs, I founded the Student Research Groups SPA and BLSPS to further develop an Arctic drone project that I have been working on since high school, now known as Snow’s Eye. After establishing the student groups, I realized that having access to an exceptional pool of highly talented students and outstanding researchers at the universities made it a missed opportunity to limit the group’s activity to a single project. As a result, I initiated two additional projects currently developed within the group: Blue Spark and Hawk Eye. Furthermore, I decided to expand the drone-related activities, which has led to the current portfolio of four active projects. I currently serve as the project leader of Hawk Eye, Snow’s Eye, and the drone section, while in the Blue Spark project I work as electronics engineer and act as the president of the entire student research group. Outside of the student groups, I work at Creotech Instruments and at the startup Sentinel Eagle, where I participate in projects carried out, among others, for NATO and the European Space Agency. I am interested in building systems that work, solve real problems, and have genuine scientific value. I strive to demonstrate that student projects can be meaningful and do not have to rely on revisiting already well-explored topics. I have conducted field research in the Arctic, authored several conference publications, and am currently preparing journal papers. In my free time, I enjoy scuba diving, flying airplanes, running, and—most of all—spending time by a lake."
         },
         socials: [
-            { platform: "github", url: "#" },
-			{ platform: "linkedin", url: "#" },
-            { platform: "instagram", url: "#" },
-            { platform: "website", url: "#" }
+            //{ platform: "github", url: "#" },
+			//{ platform: "linkedin", url: "#" },
+            //{ platform: "instagram", url: "#" },
+            //{ platform: "website", url: "#" }
         ]
     },
     { 
@@ -32,10 +32,10 @@ const members = [
     		en: "Hi, I'm Kuba. I’ve been fascinated by science and technology for as long as I can remember. Back in high school in Gdynia I was passionate about physics, but nowadays, my interests revolve around computer science, robotics, and programming. Since March 2025, I’ve been the leader of the BlueSpark project, where I handle software and control algorithms. I’m also working on an underwater localization system intended to supplement current commercial solutions as part of the NCBR’s 'Universities of the Future' program. Currently, I serve as the Vice President of the KN BLSPS Science Club and study Automation and Robotics. In my free time, I’ve spent the last two years tutoring younger students, trying to pass on my passion for science to them."
 		},
         socials: [
-            { platform: "github", url: "#" },
-			{ platform: "linkedin", url: "#" },
-            { platform: "instagram", url: "#" },
-            { platform: "website", url: "#" }
+            { platform: "github", url: "https://github.com/Spparki" },
+			{ platform: "linkedin", url: "https://www.linkedin.com/in/jakub-bałenkowski-5045b0369" },
+            //{ platform: "instagram", url: "#" },
+            //{ platform: "website", url: "#" }
         ]
     },
     { 
@@ -51,10 +51,10 @@ const members = [
     		en: "My name is Ania and I have been a member of our team since July 2025, where I am actively involved in the promotion team. I am responsible for the posts and materials you see on our social media. I also help with the marketing side of our group’s activities – I deal with promotional materials such as leaflets, stickers, roll-ups, and sweatshirts. I study Power Engineering at the Warsaw University of Technology, so technical topics are also familiar to me. At WUT I am a delegate to the Student Research Group Council on behalf of KN BLSPS. In addition to my activities in the research group, I am also a member of the Students’ Union Faculty Council of the MEiL, where I have been actively involved since the beginning of my studies."
 		},
         socials: [
-            { platform: "github", url: "#" },
-			{ platform: "linkedin", url: "#" },
-            { platform: "instagram", url: "#" },
-            { platform: "website", url: "#" }
+            //{ platform: "github", url: "#" },
+			//{ platform: "linkedin", url: "#" },
+            //{ platform: "instagram", url: "#" },
+            //{ platform: "website", url: "#" }
         ]
     },
     { 
@@ -69,10 +69,10 @@ const members = [
     		en: "My name is Emilia, and I am an Aerospace Engineering student at the Warsaw University of Technology. Since mid-2025, I have been part of a team developing an unmanned aerial vehicle (UAV) designed for stratospheric missions. My role involves identifying and implementing applications that enhance the project's scientific and commercial potential. I began with the planning phase and the construction of the prototype. Now, I am using it to test our ideas in practice, ensuring they can be successfully integrated into the final version of the drone. In my free time outside of university, I enjoy playing board games with my friends."
 		},
         socials: [
-            { platform: "github", url: "#" },
-			{ platform: "linkedin", url: "#" },
-            { platform: "instagram", url: "#" },
-            { platform: "website", url: "#" }
+            //{ platform: "github", url: "#" },
+			//{ platform: "linkedin", url: "#" },
+            //{ platform: "instagram", url: "#" },
+            //{ platform: "website", url: "#" }
         ]
     },
     { 
@@ -87,10 +87,10 @@ const members = [
     		en: "My name is Georgina Riu and I am a Master’s student in Aerospace Engineering at ISAE-SUPAERO. I am a member of the student group’s drone section, specifically the Flysearch project. I completed a five-month internship at NASA Jet Propulsion Laboratory as a test engineer for the Chopper Mars Helicopter, where I worked on aerodynamics in Martian conditions. I am also contributing to The Spring Institute as a systems engineer for the SCAMPI project, which is planned to be launched this year."
 		},
         socials: [
-            { platform: "github", url: "#" },
-			{ platform: "linkedin", url: "#" },
-            { platform: "instagram", url: "#" },
-            { platform: "website", url: "#" }
+            //{ platform: "github", url: "#" },
+			//{ platform: "linkedin", url: "#" },
+            //{ platform: "instagram", url: "#" },
+            //{ platform: "website", url: "#" }
         ]
     },
     { 
@@ -105,10 +105,10 @@ const members = [
     		en: "Hi, my name is Hubert and I'm studying towards a Bachelor's degree in Computer Science at the University of Warsaw. I am a graduate of IV Highschool in Toruń. The main project that I'm currently working on is Flysearch - together with Janek Matusiak I'm developing software, that allows us to test the performance of the popular LLMs in drone navigation. I'm interested in cryptography, and am really curious about how machines and software work 'under the hood', but my interests do not end right here - I like to gain the knowledge from various fields of Computer Science, Mathematics, and also the humanities."
 		},
         socials: [
-            { platform: "github", url: "#" },
-			{ platform: "linkedin", url: "#" },
-            { platform: "instagram", url: "#" },
-            { platform: "website", url: "#" }
+            //{ platform: "github", url: "#" },
+			//{ platform: "linkedin", url: "#" },
+            //{ platform: "instagram", url: "#" },
+            //{ platform: "website", url: "#" }
         ]
     },
     { 
@@ -141,7 +141,8 @@ const members = [
 		},
         socials: [
             { platform: "github", url: "https://github.com/JanMatusiak" },
-			{ platform: "linkedin", url: "https://www.linkedin.com/in/janmatusiak" }
+			{ platform: "linkedin", url: "https://www.linkedin.com/in/janmatusiak" },
+            { platform: "instagram", url: "https://www.instagram.com/janmatusiak2" }
         ]
     },
     { 
@@ -156,10 +157,10 @@ const members = [
     		en: "My name is Janek, currently I am studying Computer Science at University of Warsaw. I’m also responsible for programming, robotic arm and 3D printing in Student Research Group SPA in team creating autonomous underwater drone. From an early age I was interested in programming, but in this project, I realised my interests in more technical skills. Currently we are preparing for tournaments in Singapore and USA, to which I am writing software and help with constructing."
 		},
         socials: [
-            { platform: "github", url: "#" },
-			{ platform: "linkedin", url: "#" },
-            { platform: "instagram", url: "#" },
-            { platform: "website", url: "#" }
+            //{ platform: "github", url: "#" },
+			//{ platform: "linkedin", url: "#" },
+            //{ platform: "instagram", url: "#" },
+            //{ platform: "website", url: "#" }
         ]
     },
     { 
@@ -174,10 +175,10 @@ const members = [
     		en: "My name is Julian, and I am a student of Aerospace Engineering at the Warsaw University of Technology, where I have been involved in the BlueSpark project since the second half of 2025. I am a member of the mechanical and design section, where I work with CAD environments and design components necessary for building the drone. I prepare the designed parts for manufacturing, produce them using 3D printers, and then assemble the entire structure into a cohesive system. Due to the drone’s underwater operating environment, I am responsible for ensuring full structural watertightness by sealing components and checking critical joints. I am also responsible for proper weight distribution and balancing of the drone to ensure stable and safe operation."
 		},
         socials: [
-            { platform: "github", url: "#" },
-			{ platform: "linkedin", url: "#" },
-            { platform: "instagram", url: "#" },
-            { platform: "website", url: "#" }
+            //{ platform: "github", url: "#" },
+			//{ platform: "linkedin", url: "#" },
+            //{ platform: "instagram", url: "#" },
+            //{ platform: "website", url: "#" }
         ]
     },
     { 
@@ -192,10 +193,10 @@ const members = [
     		en: "My name is Karol and I am studying Mechanical Engineering at the University of Manchester. Since September 2025, I have been working remotely in the student research group on a stratospheric drone project, where I am mainly involved in the design and construction of the new prototype. I am passionate about many fields of engineering, especially CAD design and mechanics. I plan to pursue my future career in engineering. Additionally, I completed a summer internship in the design department at Sii and I am a member of the propulsion team in a Hyperloop initiative project."
 		},
         socials: [
-            { platform: "github", url: "#" },
-			{ platform: "linkedin", url: "#" },
-            { platform: "instagram", url: "#" },
-            { platform: "website", url: "#" }
+            //{ platform: "github", url: "#" },
+			//{ platform: "linkedin", url: "#" },
+            //{ platform: "instagram", url: "#" },
+            //{ platform: "website", url: "#" }
         ]
     },
     { 
@@ -210,10 +211,10 @@ const members = [
     		en: "I am Maciek and I am a Power Engineering student at Warsaw University of Technology. For years, I have been passionate about designing, modeling, and creating projects that integrate electronics, automation, and mechanics. Within the 'Hawk Eye' project, I am a member of the construction team. Designing and building a stratospheric drone provides me with a unique opportunity to pursue my passions while developing my professional career. Beyond engineering, I am a sports enthusiast, particularly football, which I played at the highest competitive level for over 12 years."
 		},
         socials: [
-            { platform: "github", url: "#" },
-			{ platform: "linkedin", url: "#" },
-            { platform: "instagram", url: "#" },
-            { platform: "website", url: "#" }
+            //{ platform: "github", url: "#" },
+			//{ platform: "linkedin", url: "#" },
+            //{ platform: "instagram", url: "#" },
+            //{ platform: "website", url: "#" }
         ]
     },
     { 
@@ -228,10 +229,10 @@ const members = [
     		en: "My name is Maciek, and I study Computer Science at the University of Warsaw. I have been interested in robotics since childhood, and during my studies, I got into low-level programming and 3D printing. I am an active member of the KN SPA, working on the BlueSpark autonomous underwater drone project. My work there covers both hardware and software. I started by designing the first robot prototypes, and now I lead the development of computer vision and program the control systems. In my free time, I like swimming, and for longer breaks, I love hiking in the mountains."
 		},
         socials: [
-            { platform: "github", url: "#" },
-			{ platform: "linkedin", url: "#" },
-            { platform: "instagram", url: "#" },
-            { platform: "website", url: "#" }
+            //{ platform: "github", url: "#" },
+			//{ platform: "linkedin", url: "#" },
+            //{ platform: "instagram", url: "#" },
+            //{ platform: "website", url: "#" }
         ]
     },
     { 
@@ -246,10 +247,10 @@ const members = [
     		en: "My name is Maks and I am a Power Engineering student at the Warsaw University of Technology. I have been a member of the BlueSpark team since October 2025. This project is particularly close to me because it combines advanced technologies with my interests related to the aquatic environment. My main areas of interest include the hydrosphere and marine technologies. In addition, I am passionate about sailing, water sports, and the design and construction of seagoing yachts, which allows me to approach engineering not only from a theoretical perspective but also through practical, real-world applications on the water."
 		},
         socials: [
-            { platform: "github", url: "#" },
-			{ platform: "linkedin", url: "#" },
-            { platform: "instagram", url: "#" },
-            { platform: "website", url: "#" }
+            //{ platform: "github", url: "#" },
+			//{ platform: "linkedin", url: "#" },
+            //{ platform: "instagram", url: "#" },
+            //{ platform: "website", url: "#" }
         ]
     },
     { 
@@ -264,10 +265,10 @@ const members = [
     		en: "My name is Marcel, and I am a student of Aerospace Engineering at the Warsaw University of Technology. I am the initiator of the BlueSpark project — a multi-robot system of autonomous underwater vehicles — and the head of its mechanical and design section. Within the project, I am responsible for system-level concept development, sensor integration, hardware–software architecture, as well as engineering and organizational aspects. My interests include robotics, underwater acoustics, mechanics, and engineering design. I am a finalist of the “Universities of the Future” program organized by the National Centre for Research and Development (NCBR). I consistently pursue a career as an engineer by combining strong theoretical foundations with hands-on system design and prototyping."
 		},
         socials: [
-            { platform: "github", url: "#" },
-			{ platform: "linkedin", url: "#" },
-            { platform: "instagram", url: "#" },
-            { platform: "website", url: "#" }
+            //{ platform: "github", url: "#" },
+			//{ platform: "linkedin", url: "#" },
+            //{ platform: "instagram", url: "#" },
+            //{ platform: "website", url: "#" }
         ]
     },
     { 
@@ -283,10 +284,10 @@ const members = [
     		en: "Hi, I’m Maria. I am a member of KN SPA since December, focusing on marketing, promotion, and building the organization’s image. I’m interested in financial markets, economics, and how businesses operate in practice. In my free time, I enjoy going to the gym and reading psychology books. I am currently studying Management and Business Finance and Accounting at the University of Warsaw and also actively participate in other student associations."
 		},
         socials: [
-            { platform: "github", url: "#" },
-			{ platform: "linkedin", url: "#" },
-            { platform: "instagram", url: "#" },
-            { platform: "website", url: "#" }
+            //{ platform: "github", url: "#" },
+			//{ platform: "linkedin", url: "#" },
+            //{ platform: "instagram", url: "#" },
+            //{ platform: "website", url: "#" }
         ]
     },
     { 
@@ -301,10 +302,10 @@ const members = [
     		en: "My name is Stanisław, and I study Power Engineering at Warsaw University of Technology. I take part in the HawkEye project, where I work in the team responsible for the design and structural aspects of our project. I develop the technical solutions needed to build a stratospheric drone and look for potential commercial applications for it. In my free time, aside from participating in the project, I focus on programming and automation, which have enabled me to create my own commercial solution designed to improve the operation of automation systems. I’m also active in sports—mainly cycling and going to the gym—and I’m a former member of the national judo team with a black belt in judo."
 		},
         socials: [
-            { platform: "github", url: "#" },
-			{ platform: "linkedin", url: "#" },
-            { platform: "instagram", url: "#" },
-            { platform: "website", url: "#" }
+            //{ platform: "github", url: "#" },
+			//{ platform: "linkedin", url: "#" },
+            //{ platform: "instagram", url: "#" },
+            //{ platform: "website", url: "#" }
         ]
     },
     { 
@@ -319,10 +320,10 @@ const members = [
     		en: "I am a student of Aerospace Engineering at the Warsaw University of Technology. I am fascinated by exploring the unknown and pushing boundaries. I am a member of a student design team working on an unmanned aerial vehicle (UAV) designed for stratospheric flight. Participating in this project allows me to develop my passion for aviation and space exploration by bridging the gap between theory and practical challenges. I intend to shape my future through hard work, courage, and talent. I am a student of Aerospace Engineering at Warsaw University of Technology. I am driven by a passion for discovery and breaking limits. I am part of a construction team focused on developing a stratospheric UAV (Unmanned Aerial Vehicle)."
 		},
         socials: [
-            { platform: "github", url: "#" },
-			{ platform: "linkedin", url: "#" },
-            { platform: "instagram", url: "#" },
-            { platform: "website", url: "#" }
+            //{ platform: "github", url: "#" },
+			//{ platform: "linkedin", url: "#" },
+            //{ platform: "instagram", url: "#" },
+            //{ platform: "website", url: "#" }
         ]
     },
     { 
@@ -337,10 +338,10 @@ const members = [
     		en: "My name is Szymon and I’m a Computer Science student at the University of Warsaw. Since the beginning of November 2025, I’ve been working with my drone team on a project for the ICUAS 2026 competition. I mainly focus on programming, optimizing, and implementing drone behaviour algorithms in Python. I’m especially interested in mathematics, programming, and artificial intelligence. Being part of this student research group makes my free time more enjoyable, helps me improve my programming skills, and teaches me practical experience working with drones."
 		},
         socials: [
-            { platform: "github", url: "#" },
-			{ platform: "linkedin", url: "#" },
-            { platform: "instagram", url: "#" },
-            { platform: "website", url: "#" }
+            //{ platform: "github", url: "#" },
+			//{ platform: "linkedin", url: "#" },
+            //{ platform: "instagram", url: "#" },
+            //{ platform: "website", url: "#" }
         ]
     },
     { 
@@ -355,10 +356,10 @@ const members = [
     		en: "I'm Radek and i'm from Wroclaw. I study Applied Computer Science at Wroclaw University of Science and Technology. I'm member of the drone team, where we work on ICUAS competition. I'm mainly responsible for coding and algorithms."
 		},
         socials: [
-            { platform: "github", url: "#" },
-			{ platform: "linkedin", url: "#" },
-            { platform: "instagram", url: "#" },
-            { platform: "website", url: "#" }
+            //{ platform: "github", url: "#" },
+			//{ platform: "linkedin", url: "#" },
+            //{ platform: "instagram", url: "#" },
+            //{ platform: "website", url: "#" }
         ]
     }
 ];
@@ -393,16 +394,26 @@ const projects = [
             "https://images.unsplash.com/photo-1473960104502-8a63c8ef7e82?w=800&h=600&fit=crop"
         ],
         shortDesc: {
-    		pl: "System rozpoznawania obrazu dla dronów inspekcyjnych.",
+    		pl: "FlySearch to projekt badawczo-rozwojowy, którego celem jest zaprojektowanie i stworzenie API umożliwiającego komunikację między platformą UAV a serwerem z modelem Vision-Language Model (VLM). Dron zbiera dane z czujników (obraz z kamery oraz telemetrię z autopilota), a następnie przekazuje je do warstwy analitycznej, gdzie VLM interpretuje scenę i cel misji, generując rekomendacje dotyczące kierunku lotu. Całość działa w pętli „percepcja → decyzja → ruch”, a jednocześnie rejestruje dane i wyniki w sposób umożliwiający późniejszą analizę i poprawę algorytmów.",
     		en: ""
 		},
         fullDesc: {
-    		pl: "Prototyp systemu wizyjnego opartego na sztucznej inteligencji. Algorytm wykrywa mikropęknięcia w strukturach betonowych, co znacznie przyspiesza inspekcję mostów i wiaduktów.",
+    		pl: `FlySearch to projekt badawczo-rozwojowy, którego celem jest zaprojektowanie i stworzenie API umożliwiającego komunikację między platformą UAV a serwerem z modelem Vision-Language Model (VLM). Dron zbiera dane z czujników (obraz z kamery oraz telemetrię z autopilota), a następnie przekazuje je do warstwy analitycznej, gdzie VLM interpretuje scenę i cel misji, generując rekomendacje dotyczące kierunku lotu. Całość działa w pętli „percepcja → decyzja → ruch”, a jednocześnie rejestruje dane i wyniki w sposób umożliwiający późniejszą analizę i poprawę algorytmów.<br><br>
+            System jest konteneryzowany i przygotowany pod szybkie wdrożenia oraz testy terenowe — od Raspberry Pi na pokładzie drona po serwerową warstwę przetwarzania.<br><br>
+            
+            Co rozwijamy w ramach projektu:<br>
+            <li>Warstwę zbierania danych na pokładzie (Raspberry Pi 5, kamera, telemetria Pixhawk) oraz walidację i ujednolicenie formatów danych (JSON, logowanie zdarzeń).</li>
+            <li>API dron ↔ serwer do wymiany ramek, telemetrii i komend.</li>
+            <li>DevOps i niezawodność: Docker/Compose, CI/CD (GitHub Actions), testy integracyjne, stabilność połączeń (np. tunelowanie zdalnego dostępu), iteracyjne testy w terenie.</li><br><br>
+            
+            Projekt jest świetnym polem do pracy dla osób zainteresowanych AI/ML, backendem, systemami wbudowanymi, robotyką i DevOps — od rozwoju API i infrastruktury, przez integrację sensorów, po projektowanie metryk jakości nawigacji i eksperymenty z VLM w realnych warunkach.<br><br>
+            Kolejnym etapem będzie rozwinięcie FlySearch w kierunku w pełni zintegrowanego demonstratora autonomicznej eksploracji w warunkach „infrastructure-denied” (bez GNSS, internetu i sieci komórkowych), łączącego wnioskowanie VLM z nawigacją opartą o SLAM. Równolegle planowane jest wdrożenie analizy zebranych danych operatej na sztucznej inteligencji do wykrywania i interpretacji „interesujących znalezisk” i planowania misji, a także rozwój niezawodnej komunikacji w warunkach przerywanego łącza — z naciskiem na łączność optyczną jako preferowany kanał oraz mechanizmy utrzymania połączenia. Całość ma pozostać modułowa i skalowalna, a efektem ma być system zweryfikowany w testach laboratoryjnych i terenowych, docelowo na poziomie TRL 6.
+            `,
     		en: ""
 		},
         teamIds: ["jan-mikolajczyk", "hubert-zientara", "jan-matusiak", "georgina-riu"],
         spec: [
-            { label: { pl: "Silnik AI", en: "AI Engine" }, value: { pl: "YOLOv8 Nano", en: "YOLOv8 Nano" } },
+            //{ label: { pl: "Silnik AI", en: "AI Engine" }, value: { pl: "YOLOv8 Nano", en: "YOLOv8 Nano" } },
         ]
     },
     {
@@ -414,16 +425,19 @@ const projects = [
             "https://images.unsplash.com/photo-1473960104502-8a63c8ef7e82?w=800&h=600&fit=crop"
         ],
         shortDesc: {
-    		pl: "System rozpoznawania obrazu dla dronów inspekcyjnych.",
+    		pl: `BlueSpark to innowacyjny, skalowalny system wielorobotyczny klasy AUV (Autonomous Underwater Vehicles), przeznaczony do autonomicznego mapowania dna morskiego, inspekcji infrastruktury podwodnej oraz gromadzenia danych środowiskowych. System działa w oparciu o niewielkie, w pełni autonomiczne jednostki, które współpracują ze sobą w roju i wykonują równoległe misje pomiarowe bez udziału operatora i bez statku-matki.`,
     		en: ""
 		},
         fullDesc: {
-    		pl: "Prototyp systemu wizyjnego opartego na sztucznej inteligencji. Algorytm wykrywa mikropęknięcia w strukturach betonowych, co znacznie przyspiesza inspekcję mostów i wiaduktów.",
+    		pl: `BlueSpark to innowacyjny, skalowalny system wielorobotyczny klasy AUV (Autonomous Underwater Vehicles), przeznaczony do autonomicznego mapowania dna morskiego, inspekcji infrastruktury podwodnej oraz gromadzenia danych środowiskowych. System działa w oparciu o niewielkie, w pełni autonomiczne jednostki, które współpracują ze sobą w roju i wykonują równoległe misje pomiarowe bez udziału operatora i bez statku-matki.<br><br>
+                 W odróżnieniu od standardów rynkowych, bazujących na ROV sterowanych kablem, BlueSpark funkcjonuje w modelu „deploy and forget”: użytkownik wyznacza obszar misji, a system autonomicznie planuje trasy, zbiera dane i rotuje jednostki między pracą a ładowaniem.<br><br>
+                 Odbiorcami rozwiązania są operatorzy offshore, firmy hydrograficzne, instytuty badawcze i sektor wydobywczy, dla których kluczowe są: redukcja kosztów, skrócenie czasu misji, odporność na pogodę oraz zwiększenie bezpieczeństwa prac.<br><br>
+                 BlueSpark jest produktem z kategorii podwodnych systemów pomiarowo-inspekcyjnych nowej generacji, opartym na roju autonomicznych jednostek AUV. Każdy robot realizuje indywidualną trasę zadań, zbierając dane batymetryczne (single-beam/side-scan lub MBES w wersjach rozszerzonych), obrazowanie wizyjne (kamerami niskiej iluminacji), dane fizykochemiczne (pH, zasolenie, temperatura, tlen, mętność) oraz dane magnetyczne i akustyczne`,
     		en: ""
 		},
         teamIds: ["jan-mikolajczyk", "jakub-balenkowski", "jan-ciecierski", "julian-maleta", "maciej-borowiecki", "maksymilian-bernacki", "marcel-kolecki"],
         spec: [
-            { label: { pl: "Silnik AI", en: "AI Engine" }, value: { pl: "YOLOv8 Nano", en: "YOLOv8 Nano" } },
+            //{ label: { pl: "Silnik AI", en: "AI Engine" }, value: { pl: "YOLOv8 Nano", en: "YOLOv8 Nano" } },
         ]
     },
     {
