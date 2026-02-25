@@ -105,8 +105,8 @@ const members = [
     		en: "Hi, my name is Hubert and I'm studying towards a Bachelor's degree in Computer Science at the University of Warsaw. I am a graduate of IV Highschool in Toruń. The main project that I'm currently working on is Flysearch - together with Janek Matusiak I'm developing software, that allows us to test the performance of the popular LLMs in drone navigation. I'm interested in cryptography, and am really curious about how machines and software work 'under the hood', but my interests do not end right here - I like to gain the knowledge from various fields of Computer Science, Mathematics, and also the humanities."
 		},
         socials: [
-            //{ platform: "github", url: "#" },
-			//{ platform: "linkedin", url: "#" },
+            { platform: "github", url: "https://github.com/Qwerty8668" },
+			{ platform: "linkedin", url: "https://www.linkedin.com/in/hubert-zientara/" },
             //{ platform: "instagram", url: "#" },
             //{ platform: "website", url: "#" }
         ]
