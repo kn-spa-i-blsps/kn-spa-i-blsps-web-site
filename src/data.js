@@ -414,16 +414,26 @@ const projects = [
     		en: ""
 		},
         fullDesc: {
-    		pl: `FlySearch to projekt badawczo-rozwojowy, którego celem jest zaprojektowanie i stworzenie API umożliwiającego komunikację między platformą UAV a serwerem z modelem Vision-Language Model (VLM). Dron zbiera dane z czujników (obraz z kamery oraz telemetrię z autopilota), a następnie przekazuje je do warstwy analitycznej, gdzie VLM interpretuje scenę i cel misji, generując rekomendacje dotyczące kierunku lotu. Całość działa w pętli „percepcja → decyzja → ruch”, a jednocześnie rejestruje dane i wyniki w sposób umożliwiający późniejszą analizę i poprawę algorytmów.<br><br>
-            System jest konteneryzowany i przygotowany pod szybkie wdrożenia oraz testy terenowe — od Raspberry Pi na pokładzie drona po serwerową warstwę przetwarzania.<br><br>
-            
-            Co rozwijamy w ramach projektu:<br>
-            <li>Warstwę zbierania danych na pokładzie (Raspberry Pi 5, kamera, telemetria Pixhawk) oraz walidację i ujednolicenie formatów danych (JSON, logowanie zdarzeń).</li>
-            <li>API dron ↔ serwer do wymiany ramek, telemetrii i komend.</li>
-            <li>DevOps i niezawodność: Docker/Compose, CI/CD (GitHub Actions), testy integracyjne, stabilność połączeń (np. tunelowanie zdalnego dostępu), iteracyjne testy w terenie.</li><br><br>
-            
-            Projekt jest świetnym polem do pracy dla osób zainteresowanych AI/ML, backendem, systemami wbudowanymi, robotyką i DevOps — od rozwoju API i infrastruktury, przez integrację sensorów, po projektowanie metryk jakości nawigacji i eksperymenty z VLM w realnych warunkach.<br><br>
-            Kolejnym etapem będzie rozwinięcie FlySearch w kierunku w pełni zintegrowanego demonstratora autonomicznej eksploracji w warunkach „infrastructure-denied” (bez GNSS, internetu i sieci komórkowych), łączącego wnioskowanie VLM z nawigacją opartą o SLAM. Równolegle planowane jest wdrożenie analizy zebranych danych operatej na sztucznej inteligencji do wykrywania i interpretacji „interesujących znalezisk” i planowania misji, a także rozwój niezawodnej komunikacji w warunkach przerywanego łącza — z naciskiem na łączność optyczną jako preferowany kanał oraz mechanizmy utrzymania połączenia. Całość ma pozostać modułowa i skalowalna, a efektem ma być system zweryfikowany w testach laboratoryjnych i terenowych, docelowo na poziomie TRL 6.
+    		pl: `<span class="text-3xl font-extrabold tracking-tight text-slate-800 uppercase">
+                    Flysearch
+                 </span>
+                 <div class="h-1 w-full bg-[#038DAE] rounded-full my-6"></div>
+                 to projekt badawczo-rozwojowy, którego celem jest zaprojektowanie i stworzenie API umożliwiającego komunikację między platformą UAV a serwerem z modelem Vision-Language Model (VLM). Dron zbiera dane z czujników (obraz z kamery oraz telemetrię z autopilota), a następnie przekazuje je do warstwy analitycznej, gdzie VLM interpretuje scenę i cel misji, generując rekomendacje dotyczące kierunku lotu. Całość działa w pętli „percepcja → decyzja → ruch”, a jednocześnie rejestruje dane i wyniki w sposób umożliwiający późniejszą analizę i poprawę algorytmów.<br><br>
+                 System jest konteneryzowany i przygotowany pod szybkie wdrożenia oraz testy terenowe — od Raspberry Pi na pokładzie drona po serwerową warstwę przetwarzania.<br><br>
+                 
+                 <span class="text-xl font-extrabold tracking-tight text-slate-800 uppercase">
+                    Co rozwijamy w ramach projektu:
+                 </span><br>
+                 <li>Warstwę zbierania danych na pokładzie (Raspberry Pi 5, kamera, telemetria Pixhawk) oraz walidację i ujednolicenie formatów danych (JSON, logowanie zdarzeń).</li>
+                 <li>API dron ↔ serwer do wymiany ramek, telemetrii i komend.</li>
+                 <li>DevOps i niezawodność: Docker/Compose, CI/CD (GitHub Actions), testy integracyjne, stabilność połączeń (np. tunelowanie zdalnego dostępu), iteracyjne testy w terenie.</li><br>
+                 
+                 Projekt jest świetnym polem do pracy dla osób zainteresowanych AI/ML, backendem, systemami wbudowanymi, robotyką i DevOps — od rozwoju API i infrastruktury, przez integrację sensorów, po projektowanie metryk jakości nawigacji i eksperymenty z VLM w realnych warunkach.<br><br>
+
+                 <span class="text-xl font-extrabold tracking-tight text-slate-800 uppercase">
+                    Co dalej?
+                 </span><br>
+                 Kolejnym etapem będzie rozwinięcie FlySearch w kierunku w pełni zintegrowanego demonstratora autonomicznej eksploracji w warunkach „infrastructure-denied” (bez GNSS, internetu i sieci komórkowych), łączącego wnioskowanie VLM z nawigacją opartą o SLAM. Równolegle planowane jest wdrożenie analizy zebranych danych operatej na sztucznej inteligencji do wykrywania i interpretacji „interesujących znalezisk” i planowania misji, a także rozwój niezawodnej komunikacji w warunkach przerywanego łącza — z naciskiem na łączność optyczną jako preferowany kanał oraz mechanizmy utrzymania połączenia. Całość ma pozostać modułowa i skalowalna, a efektem ma być system zweryfikowany w testach laboratoryjnych i terenowych, docelowo na poziomie TRL 6.
             `,
     		en: ""
 		},
@@ -445,7 +455,11 @@ const projects = [
     		en: ""
 		},
         fullDesc: {
-    		pl: `BlueSpark to innowacyjny, skalowalny system wielorobotyczny klasy AUV (Autonomous Underwater Vehicles), przeznaczony do autonomicznego mapowania dna morskiego, inspekcji infrastruktury podwodnej oraz gromadzenia danych środowiskowych. System działa w oparciu o niewielkie, w pełni autonomiczne jednostki, które współpracują ze sobą w roju i wykonują równoległe misje pomiarowe bez udziału operatora i bez statku-matki.<br><br>
+    		pl: `<span class="text-3xl font-extrabold tracking-tight text-slate-800 uppercase">
+                    Bluespark
+                 </span>
+                 <div class="h-1 w-full bg-[#038DAE] rounded-full my-6"></div>
+                 to innowacyjny, skalowalny system wielorobotyczny klasy AUV (Autonomous Underwater Vehicles), przeznaczony do autonomicznego mapowania dna morskiego, inspekcji infrastruktury podwodnej oraz gromadzenia danych środowiskowych. System działa w oparciu o niewielkie, w pełni autonomiczne jednostki, które współpracują ze sobą w roju i wykonują równoległe misje pomiarowe bez udziału operatora i bez statku-matki.<br><br>
                  W odróżnieniu od standardów rynkowych, bazujących na ROV sterowanych kablem, BlueSpark funkcjonuje w modelu „deploy and forget”: użytkownik wyznacza obszar misji, a system autonomicznie planuje trasy, zbiera dane i rotuje jednostki między pracą a ładowaniem.<br><br>
                  Odbiorcami rozwiązania są operatorzy offshore, firmy hydrograficzne, instytuty badawcze i sektor wydobywczy, dla których kluczowe są: redukcja kosztów, skrócenie czasu misji, odporność na pogodę oraz zwiększenie bezpieczeństwa prac.<br><br>
                  BlueSpark jest produktem z kategorii podwodnych systemów pomiarowo-inspekcyjnych nowej generacji, opartym na roju autonomicznych jednostek AUV. Każdy robot realizuje indywidualną trasę zadań, zbierając dane batymetryczne (single-beam/side-scan lub MBES w wersjach rozszerzonych), obrazowanie wizyjne (kamerami niskiej iluminacji), dane fizykochemiczne (pH, zasolenie, temperatura, tlen, mętność) oraz dane magnetyczne i akustyczne`,
@@ -469,7 +483,11 @@ const projects = [
     		en: ""
 		},
         fullDesc: {
-    		pl: `Projektowany dron stratosferyczny to innowacyjna platforma badawcza klasy HAPS (High Altitude Pseudo-Satellite), przeznaczona do wykonywania misji w ekstremalnych warunkach stratosfery na pułapie operacyjnym od 20 do 25 kilometrów. System jest wynoszony za pomocą balonu, a po osiągnięciu docelowej wysokości i odłączeniu, realizuje w pełni autonomiczny lot powrotny, prowadząc ciągłe pomiary parametrów środowiskowych bez uzależnienia od zewnętrznych systemów kontroli.<br><br>
+    		pl: `<span class="text-3xl font-extrabold tracking-tight text-slate-800 uppercase">
+                    Hawk Eye
+                 </span>
+                 <div class="h-1 w-full bg-[#038DAE] rounded-full my-6"></div>
+                 Projektowany dron stratosferyczny to innowacyjna platforma badawcza klasy HAPS (High Altitude Pseudo-Satellite), przeznaczona do wykonywania misji w ekstremalnych warunkach stratosfery na pułapie operacyjnym od 20 do 25 kilometrów. System jest wynoszony za pomocą balonu, a po osiągnięciu docelowej wysokości i odłączeniu, realizuje w pełni autonomiczny lot powrotny, prowadząc ciągłe pomiary parametrów środowiskowych bez uzależnienia od zewnętrznych systemów kontroli.<br><br>
                  W odróżnieniu od obecnych standardów rynkowych, bazujących na jednorazowych radiosondach balonowych podatnych na dryf z wiatrem, dron funkcjonuje jako w pełni sterowalna platforma wielokrotnego użytku. Użytkownik zyskuje możliwość zbierania danych wzdłuż ściśle określonej trasy, co drastycznie obniża koszty jednostkowe prowadzenia pomiarów.<br><br>
                  Odbiorcami rozwiązania są państwowe instytucje naukowe i ratownicze, a także sektor technologii kosmicznych. Dla użytkowników kluczowe są: znaczna optymalizacja kosztów badań, możliwość precyzyjnego rejestrowania zjawisk dynamicznych dzięki zachowaniu ciągłości monitoringu, odporność na ekstremalne temperatury spadające do -70 °C oraz elastyczność w doborze pułapu do konkretnego zadania.<br><br>
                  Dron stratosferyczny jest produktem z kategorii zaawansowanych bezzałogowych platform badawczych nowej generacji. W zależności od charakteru misji, jednostka zbiera precyzyjne dane do profilu atmosfery (temperatura, ciśnienie, wilgotność, prędkość i kierunek wiatru), bada dynamikę warstwy ozonowej, może prowadzić obserwacje wizyjne z niższych wysokości (np. inspekcja granic, lasów czy stref katastrof), a także służyć jako latające laboratorium do testowania modułów nadawczych standardów ADS-L oraz ADS-B.`,
