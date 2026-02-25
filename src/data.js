@@ -373,16 +373,32 @@ const projects = [
         fullTitle: "Modular UAV Swarm Control System with Machine Learning Methods",
         ordering: 1,
         shortDesc: {
-    		pl: "Autonomiczna sonda do badania jakości wody w zbiornikach retencyjnych.",
+    		pl: "MUSC to projekt którego celem jest opracowanie systemu w którym każdy UAV wyposażony jest we własne czujniki oraz system sterowania, oraz jest w stanie współpracować z innymi jednostkami przy zachowaniu jedynie minimalnej wymiany informacji. System umożliwia skoordynowaną współpracę roju bez zastosowania centralnej jednostki, każdy dron operuje autonomicznie, a zachowania całego roju wyłania się z zasad koordynacji i strategii sterowania.",
     		en: ""
 		},
         fullDesc: {
-    		pl: "Projekt Eko Sonda V2 to zaawansowana platforma badawcza wyposażona w zestaw sensorów elektrochemicznych. Urządzenie pozwala na mapowanie zanieczyszczeń w czasie rzeczywistym i przesyłanie danych za pomocą protokołu LoRaWAN bezpośrednio do stacji bazowej.",
+    		pl: `<span class="text-3xl font-extrabold tracking-tight text-slate-800 uppercase">
+                    MUSC
+                 </span>
+                 <div class="h-1 w-full bg-[#038DAE] rounded-full my-6"></div>
+                 to projekt którego celem jest opracowanie systemu w którym każdy UAV wyposażony jest we własne czujniki oraz system sterowania, oraz jest w stanie współpracować z innymi jednostkami przy zachowaniu jedynie minimalnej wymiany informacji. System umożliwia skoordynowaną współpracę roju bez zastosowania centralnej jednostki, każdy dron operuje autonomicznie, a zachowania całego roju wyłania się z zasad koordynacji i strategii sterowania. Takie podejście wspiera skalowalność i nie jest uzależnione od komunikacji radiowej.<br><br>
+                 <span class="text-xl font-extrabold tracking-tight text-slate-800 uppercase">
+                    Autonomia:
+                </span><br>
+                 Każdy dron ocenia relatywną pozycje za pomocą wizji na bliskim dystansie, a na większych odległościach oblicza ją za pomocą triangulacji, dzięki takiemu podejściu UAV nie musi polegać na stałym dostępie do zewnętrznej infrastruktury określającej położenie. Decyzje mogą być podejmowana na poziomie lokalnym, a cały system jest w stanie funkcjonować podczas wszelkiego rodzaju zakłóceń sygnału. Komunikacja pomiędzy jednostkami może być wykorzystywana aby poprawić funkcjonowanie roju, ale nie jest wymagana.<br><br>
+                 <span class="text-xl font-extrabold tracking-tight text-slate-800 uppercase">
+                    Skalowalność i modułowość:
+                 </span><br>
+                 Konstrukcja używa architektury modułowej co pozwala na wymianę czujników oraz elementów sterujących bez modyfikowania całego systemu.<br><br>
+                 <span class="text-xl font-extrabold tracking-tight text-slate-800 uppercase">
+                    Uczenie maszynowe:
+                 </span><br>
+                 Algorytmy sterowania rojem wykorzystują sieci neuronowe oraz uczenie maszynowe. Są one stosowane jako dopełnienie systemu kontroli, obsługując złożone oraz niepewne interakcje podczas gdy za bezpieczeństwo odpowiadają deterministyczne metody.`,
     		en: ""
 		},
         teamIds: ["jan-mikolajczyk", "igor-rostkowski", "szymon-skierski", "radek-palys"],
         spec: [
-            { label: { pl: "Silnik AI", en: "AI Engine" }, value: { pl: "YOLOv8 Nano", en: "YOLOv8 Nano" } },
+            //{ label: { pl: "Silnik AI", en: "AI Engine" }, value: { pl: "YOLOv8 Nano", en: "YOLOv8 Nano" } },
         ]
     },
     {
@@ -449,16 +465,19 @@ const projects = [
             "https://images.unsplash.com/photo-1473960104502-8a63c8ef7e82?w=800&h=600&fit=crop"
         ],
         shortDesc: {
-    		pl: "System rozpoznawania obrazu dla dronów inspekcyjnych.",
+    		pl: "Projektowany dron stratosferyczny to innowacyjna platforma badawcza klasy HAPS (High Altitude Pseudo-Satellite), przeznaczona do wykonywania misji w ekstremalnych warunkach stratosfery na pułapie operacyjnym od 20 do 25 kilometrów. System jest wynoszony za pomocą balonu, a po osiągnięciu docelowej wysokości i odłączeniu, realizuje w pełni autonomiczny lot powrotny, prowadząc ciągłe pomiary parametrów środowiskowych bez uzależnienia od zewnętrznych systemów kontroli.",
     		en: ""
 		},
         fullDesc: {
-    		pl: "Prototyp systemu wizyjnego opartego na sztucznej inteligencji. Algorytm wykrywa mikropęknięcia w strukturach betonowych, co znacznie przyspiesza inspekcję mostów i wiaduktów.",
+    		pl: `Projektowany dron stratosferyczny to innowacyjna platforma badawcza klasy HAPS (High Altitude Pseudo-Satellite), przeznaczona do wykonywania misji w ekstremalnych warunkach stratosfery na pułapie operacyjnym od 20 do 25 kilometrów. System jest wynoszony za pomocą balonu, a po osiągnięciu docelowej wysokości i odłączeniu, realizuje w pełni autonomiczny lot powrotny, prowadząc ciągłe pomiary parametrów środowiskowych bez uzależnienia od zewnętrznych systemów kontroli.<br><br>
+                 W odróżnieniu od obecnych standardów rynkowych, bazujących na jednorazowych radiosondach balonowych podatnych na dryf z wiatrem, dron funkcjonuje jako w pełni sterowalna platforma wielokrotnego użytku. Użytkownik zyskuje możliwość zbierania danych wzdłuż ściśle określonej trasy, co drastycznie obniża koszty jednostkowe prowadzenia pomiarów.<br><br>
+                 Odbiorcami rozwiązania są państwowe instytucje naukowe i ratownicze, a także sektor technologii kosmicznych. Dla użytkowników kluczowe są: znaczna optymalizacja kosztów badań, możliwość precyzyjnego rejestrowania zjawisk dynamicznych dzięki zachowaniu ciągłości monitoringu, odporność na ekstremalne temperatury spadające do -70 °C oraz elastyczność w doborze pułapu do konkretnego zadania.<br><br>
+                 Dron stratosferyczny jest produktem z kategorii zaawansowanych bezzałogowych platform badawczych nowej generacji. W zależności od charakteru misji, jednostka zbiera precyzyjne dane do profilu atmosfery (temperatura, ciśnienie, wilgotność, prędkość i kierunek wiatru), bada dynamikę warstwy ozonowej, może prowadzić obserwacje wizyjne z niższych wysokości (np. inspekcja granic, lasów czy stref katastrof), a także służyć jako latające laboratorium do testowania modułów nadawczych standardów ADS-L oraz ADS-B.`,
     		en: ""
 		},
         teamIds: ["jan-mikolajczyk", "emilia-grygiel", "karol-grzegorzewski", "maciej-domagalski", "stanislaw-kropiewnicki", "stanislaw-swiecki"],
         spec: [
-            { label: { pl: "Silnik AI", en: "AI Engine" }, value: { pl: "YOLOv8 Nano", en: "YOLOv8 Nano" } },
+            //{ label: { pl: "Silnik AI", en: "AI Engine" }, value: { pl: "YOLOv8 Nano", en: "YOLOv8 Nano" } },
         ]
     },
     {
