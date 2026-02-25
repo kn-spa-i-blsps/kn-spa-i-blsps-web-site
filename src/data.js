@@ -122,7 +122,6 @@ const members = [
     		pl: "Nazywam się Igor i pochodzę z Łeby. Obecnie studiuję informatykę i matematykę na Uniwersytecie Wrocławskim, kierunki, które od zawsze były mi bliskie i w których chętnie się rozwijam. Należę do koła od września 2025 na skutek paru wypitych piw z szanownym prezesem. W ramach koła działam w zespole dronowym, gdzie zajmujemy się opracowywaniem nowych technologii i przygotowaniami do różnorodnych konkursów. Poza studiami uwielbiam podróżować, trenuję boks, a w wolnych chwilach lubię poczytać.",
     		en: "My name is Igor, and I’m from Łeba. I am currently studying Computer Science and Mathematics at the University of Wrocław, fields I've always been passionate about and in which I enjoy developing my skills. I joined our team in September 2025 after drinking a few beers with the club president. Within the club, I am part of the drone team, where we work on developing new technologies and preparing for various competitions. Outside of my studies, I love traveling, am training in boxing and in my free time I enjoy reading."
 		},
-        customTags: [{ pl: "Marketing", en: "Marketing" }],
         socials: [
             { platform: "github", url: "https://github.com/for5en" },
 			{ platform: "linkedin", url: "https://www.linkedin.com/in/igor-rostkowski-632205386" },
