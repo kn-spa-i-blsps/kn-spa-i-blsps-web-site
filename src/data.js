@@ -157,8 +157,8 @@ const members = [
     		en: "My name is Janek, currently I am studying Computer Science at University of Warsaw. I’m also responsible for programming, robotic arm and 3D printing in Student Research Group SPA in team creating autonomous underwater drone. From an early age I was interested in programming, but in this project, I realised my interests in more technical skills. Currently we are preparing for tournaments in Singapore and USA, to which I am writing software and help with constructing."
 		},
         socials: [
-            //{ platform: "github", url: "#" },
-			//{ platform: "linkedin", url: "#" },
+            { platform: "github", url: "https://github.com/JaCier8" },
+			{ platform: "linkedin", url: "https://www.linkedin.com/in/jan-ciecierski/" },
             //{ platform: "instagram", url: "#" },
             //{ platform: "website", url: "#" }
         ]
@@ -229,8 +229,8 @@ const members = [
     		en: "My name is Maciek, and I study Computer Science at the University of Warsaw. I have been interested in robotics since childhood, and during my studies, I got into low-level programming and 3D printing. I am an active member of the KN SPA, working on the BlueSpark autonomous underwater drone project. My work there covers both hardware and software. I started by designing the first robot prototypes, and now I lead the development of computer vision and program the control systems. In my free time, I like swimming, and for longer breaks, I love hiking in the mountains."
 		},
         socials: [
-            //{ platform: "github", url: "#" },
-			//{ platform: "linkedin", url: "#" },
+            { platform: "github", url: "https://github.com/MaciejBorowiecki" },
+			{ platform: "linkedin", url: "https://www.linkedin.com/in/maciej-borowiecki1/" },
             //{ platform: "instagram", url: "#" },
             //{ platform: "website", url: "#" }
         ]

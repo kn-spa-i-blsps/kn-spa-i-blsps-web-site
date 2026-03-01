@@ -69,37 +69,32 @@
 </head>
 <body class="min-h-screen flex flex-col selection:bg-[#038DAE] selection:text-white">
 
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-dashed border-slate-200 px-6 py-2">
+    <nav class="sticky top-0 z-50 bg-white border-b border-slate-200 px-6 py-2">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            
             <a href="index.html" class="flex items-center gap-6 group">
-                <div class="h-12 w-auto flex items-center"> 
+                <div class="h-12 w-auto"> 
                     <img src="https://res.cloudinary.com/dsrdp5vrr/image/upload/kn-spa-i-blsps/logo3.png" alt="Logo" class="h-full w-auto object-contain transition-transform group-hover:scale-105">
                 </div>
                 <div class="hidden lg:flex flex-col border-l border-slate-200 pl-6">
                     <div class="flex items-center gap-2">
-                        <div class="w-2 h-2 bg-[#038DAE] rounded-sm status-blink shadow-[0_0_8px_#038DAE]"></div>
+                        <div class="w-1.5 h-1.5 bg-[#038DAE] rounded-sm status-blink"></div>
                         <span class="font-bold tracking-[0.2em] text-[10px] uppercase text-[#012A4F]">KN SPA I BLSPS // ACTIVE</span>
                     </div>
                 </div>
             </a>
 
-            <div class="flex items-center gap-6">
-                
-                <div class="hidden sm:block text-[10px] text-slate-400 uppercase tracking-widest font-bold border-r border-slate-200 pr-6">
-                    <span class="t-translate" data-pl="JEDNOSTKI" data-en="UNITS_DEPLOYED">JEDNOSTKI</span>: <span id="member-count" class="text-[#038DAE]">--</span>
+            <div class="flex items-center gap-4 md:gap-8 text-[11px] font-bold tracking-[0.2em]">
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="projects.html" class="t-translate text-[#012A4F] hover:text-[#038DAE] transition uppercase" data-pl="PROJEKTY" data-en="PROJECTS">PROJEKTY</a>
+                    <a href="index.html" class="t-translate text-[#012A4F] hover:text-[#038DAE] transition uppercase" data-pl="GŁÓWNA" data-en="HOME">GŁÓWNA</a>
                 </div>
-                
-                <a href="index.html" 
-                   onclick="if(window.history.length > 1) { window.history.back(); return false; }"
-                   class="t-translate text-[#038DAE] font-bold text-[11px] uppercase tracking-widest hover:text-[#012A4F] transition-all"
-                   data-pl="[ ← POWRÓT ]"
-                   data-en="[ ← BACK ]">
-                    [ ← POWRÓT ]
+
+                <a href="contact.html" class="t-translate border border-[#038DAE] text-[#038DAE] px-5 py-2 hover:bg-[#038DAE] hover:text-white transition duration-300 font-bold uppercase" data-pl="KONTAKT" data-en="CONTACT">
+                    KONTAKT
                 </a>
 
-                <button onclick="toggleLanguage()" class="flex items-center gap-2 px-2 py-1.5 border border-slate-200 hover:border-[#038DAE] transition-all bg-white/50 group/lang">
-                    <span id="lang-flag" class="text-sm leading-none group-hover/lang:scale-110 transition-transform">🇵🇱</span>
+                <button onclick="toggleLanguage()" class="flex items-center gap-2 px-3 py-2 border border-slate-200 hover:border-[#038DAE] transition-all bg-slate-50 group/lang">
+                    <span id="lang-flag" class="text-base leading-none group-hover/lang:scale-110 transition-transform">🇵🇱</span>
                     <span id="lang-label" class="text-[9px] text-slate-400 group-hover/lang:text-[#038DAE]">PL</span>
                 </button>
             </div>

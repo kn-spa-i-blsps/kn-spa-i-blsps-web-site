@@ -142,7 +142,6 @@
 
     <nav class="sticky top-0 z-50 bg-white border-b border-slate-200 px-6 py-2">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            
             <a href="index.html" class="flex items-center gap-6 group">
                 <div class="h-12 w-auto"> 
                     <img src="https://res.cloudinary.com/dsrdp5vrr/image/upload/kn-spa-i-blsps/logo3.png" alt="Logo" class="h-full w-auto object-contain transition-transform group-hover:scale-105">
@@ -156,13 +155,13 @@
             </a>
 
             <div class="flex items-center gap-4 md:gap-8 text-[11px] font-bold tracking-[0.2em]">
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="projects.html" class="t-translate text-[#012A4F] hover:text-[#038DAE] transition uppercase" data-pl="PROJEKTY" data-en="PROJECTS">PROJEKTY</a>
+                    <a href="team.html" class="t-translate text-[#012A4F] hover:text-[#038DAE] transition uppercase" data-pl="ZESPÓŁ" data-en="TEAM">ZESPÓŁ</a>
+                </div>
 
-                <a href="index.html" 
-                   onclick="if(window.history.length > 1) { window.history.back(); return false; }"
-                   class="t-translate text-[#038DAE] font-bold text-[11px] uppercase tracking-widest hover:text-[#012A4F] transition-all"
-                   data-pl="[ ← POWRÓT ]"
-                   data-en="[ ← BACK ]">
-                    [ ← POWRÓT ]
+                <a href="contact.html" class="t-translate border border-[#038DAE] text-[#038DAE] px-5 py-2 hover:bg-[#038DAE] hover:text-white transition duration-300 font-bold uppercase" data-pl="KONTAKT" data-en="CONTACT">
+                    KONTAKT
                 </a>
 
                 <button onclick="toggleLanguage()" class="flex items-center gap-2 px-3 py-2 border border-slate-200 hover:border-[#038DAE] transition-all bg-slate-50 group/lang">

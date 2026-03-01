@@ -23,10 +23,10 @@ function handleImageError(imgElement, secondarySrc, finalFallback) {
 
 function renderTeam() {
     const container = document.getElementById('team-container');
-    const countDisplay = document.getElementById('member-count');
+    // const countDisplay = document.getElementById('member-count');
     if (!container) return;
 
-    countDisplay.innerText = members.length;
+    // countDisplay.innerText = members.length;
 
     // Sortowanie według priorytetu projektów
     const sortedMembers = [...members].sort((a, b) => {

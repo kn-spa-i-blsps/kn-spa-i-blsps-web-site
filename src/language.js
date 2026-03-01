@@ -32,8 +32,10 @@ function updateLangUI() {
     const labelEl = document.getElementById('lang-label');
     
     if (flagEl && labelEl) {
-        flagEl.innerText = window.currentLang === 'pl' ? '🇵🇱' : '🇺🇸';
-        labelEl.innerText = window.currentLang === 'pl' ? 'PL' : 'EN';
+        //flagEl.innerText = window.currentLang === 'pl' ? '🇵🇱' : '🇺🇸';
+        //labelEl.innerText = window.currentLang === 'pl' ? 'PL' : 'EN';
+        flagEl.innerText = window.currentLang === 'pl' ? '🇺🇸' : '🇵🇱';
+        labelEl.innerText = window.currentLang === 'pl' ? 'EN' : 'PL';
     }
 
     // Wywołujemy tłumaczenie statycznych tekstów
