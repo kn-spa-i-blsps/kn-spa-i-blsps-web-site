@@ -13,9 +13,9 @@ const members = [
             en: "My name is Jasiek. I study Aerospace Engineering at the Warsaw University of Technology and Physics at the University of Warsaw. In the academic year 2024/2025, during my first year of studies in both programs, I founded the Student Research Groups SPA and BLSPS to further develop an Arctic drone project that I have been working on since high school, now known as Snow’s Eye. After establishing the student groups, I realized that having access to an exceptional pool of highly talented students and outstanding researchers at the universities made it a missed opportunity to limit the group’s activity to a single project. As a result, I initiated two additional projects currently developed within the group: Blue Spark and Hawk Eye. Furthermore, I decided to expand the drone-related activities, which has led to the current portfolio of four active projects. I currently serve as the project leader of Hawk Eye, Snow’s Eye, and the drone section, while in the Blue Spark project I work as electronics engineer and act as the president of the entire student research group. Outside of the student groups, I work at Creotech Instruments and at the startup Sentinel Eagle, where I participate in projects carried out, among others, for NATO and the European Space Agency. I am interested in building systems that work, solve real problems, and have genuine scientific value. I strive to demonstrate that student projects can be meaningful and do not have to rely on revisiting already well-explored topics. I have conducted field research in the Arctic, authored several conference publications, and am currently preparing journal papers. In my free time, I enjoy scuba diving, flying airplanes, running, and—most of all—spending time by a lake."
         },
         socials: [
-            //{ platform: "github", url: "#" },
-			//{ platform: "linkedin", url: "#" },
-            //{ platform: "instagram", url: "#" },
+            { platform: "github", url: "https://github.com/JasiekMikolwjczyk" },
+			{ platform: "linkedin", url: "https://www.linkedin.com/in/jan-miko%C5%82ajczyk-987073358" },
+            { platform: "instagram", url: "https://www.instagram.com/jasiek_mikolajczyk?igsh=MTc0ZHdiZXFsajQ5dA%3D%3D&utm_source=qr" },
             //{ platform: "website", url: "#" }
         ]
     },
