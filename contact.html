@@ -202,36 +202,34 @@
                     <div class="absolute -top-[1px] -left-[1px] w-8 h-8 border-t-4 border-l-4 border-[#038DAE]"></div>
                     <h2 class="t-translate text-3xl font-black uppercase italic mb-8 tracking-tight" data-pl="Wyślij Zapytanie_" data-en="Send Inquiry_">Wyślij Zapytanie_</h2>
                     
-                    <form id="contact-form" class="space-y-6">
+                    <form action="https://formspree.io/f/xdalrpjb" method="POST" id="contact-form" class="space-y-6">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div class="flex flex-col">
                                 <label class="t-translate text-[10px] font-bold text-[#038DAE] uppercase mb-2" data-pl="Firma / Instytucja" data-en="Company / Institution">Firma / Instytucja</label>
-                                <input type="text" placeholder="NAZWA PODMIOTU" class="input-cyber">
+                                <input type="text" name="firma" placeholder="NAME" class="input-cyber" required>
                             </div>
                             <div class="flex flex-col">
                                 <label class="t-translate text-[10px] font-bold text-[#038DAE] uppercase mb-2" data-pl="Kontakt Bezpośredni" data-en="Direct Contact">Kontakt Bezpośredni</label>
-                                <input type="email" placeholder="EMAIL @ FIRMA.PL" class="input-cyber">
+                                <input type="email" name="email" placeholder="EMAIL" class="input-cyber" required>
                             </div>
                         </div>
                         
                         <div class="flex flex-col">
-                            <label class="t-translate text-[10px] font-bold text-[#038DAE] uppercase mb-2" data-pl="Obszar Zainteresowania" data-en="Area of Interest">Obszar Zainteresowania</label>
-                            <select class="input-cyber bg-[#012A4F] cursor-pointer">
-                                <option class="t-translate" data-pl="PARTNERSTWO TECHNOLOGICZNE" data-en="TECHNOLOGY PARTNERSHIP">PARTNERSTWO TECHNOLOGICZNE</option>
-                                <option class="t-translate" data-pl="REKRUTACJA / STAŻE" data-en="RECRUITMENT / INTERNSHIPS">REKRUTACJA / STAŻE</option>
-                                <option class="t-translate" data-pl="SPONSORING PROJEKTÓW" data-en="PROJECT SPONSORSHIP">SPONSORING PROJEKTÓW</option>
-                                <option class="t-translate" data-pl="INNE" data-en="OTHER">INNE</option>
-                            </select>
+                            <label class="t-translate text-[10px] font-bold text-[#038DAE] uppercase mb-2" data-pl="Temat wiadomości" data-en="Subject">Temat wiadomości</label>
+                            <input type="text" name="subject" placeholder="SUBJECT" class="input-cyber" required>
                         </div>
 
                         <div class="flex flex-col">
                             <label class="t-translate text-[10px] font-bold text-[#038DAE] uppercase mb-2" data-pl="Opis propozycji" data-en="Proposal description">Opis propozycji</label>
-                            <textarea rows="4" class="input-cyber resize-none"></textarea>
+                            <textarea name="wiadomosc" rows="4" class="input-cyber resize-none" required></textarea>
                         </div>
+
+                        <input type="text" name="_gotcha" style="display:none">
 
                         <button type="submit" class="w-full bg-[#038DAE] text-[#011627] py-5 font-black uppercase tracking-[0.4em] hover:bg-white transition-all shadow-lg flex justify-center items-center gap-4">
                             <span class="t-translate" data-pl="INICJUJ PROTOKÓŁ" data-en="INITIATE PROTOCOL">INICJUJ PROTOKÓŁ</span>
                         </button>
+                        <div id="form-status" class="text-center text-[10px] font-bold uppercase tracking-widest mt-4"></div>
                     </form>
                 </div>
             </div>
@@ -242,8 +240,8 @@
                         <span class="text-[#038DAE] text-[10px] font-bold tracking-[0.3em]">OFFICIAL_DOCUMENTATION</span>
                         <h3 class="t-translate text-3xl font-black italic mt-2 uppercase" data-pl="Brief dla Partnerów" data-en="Partner Brief">Brief dla Partnerów</h3>
                         <p class="t-translate text-sm opacity-70 mt-4 leading-relaxed"
-                           data-pl="Pobierz pełną ofertę koła w formacie PDF. Znajdziesz tam harmonogram projektów oraz pakiety sponsorskie."
-                           data-en="Download the full club offer in PDF format. You will find the project schedule and sponsorship packages there.">
+                        data-pl="Pobierz pełną ofertę koła w formacie PDF. Znajdziesz tam harmonogram projektów oraz pakiety sponsorskie."
+                        data-en="Download the full club offer in PDF format. You will find the project schedule and sponsorship packages there.">
                             Pobierz pełną ofertę koła w formacie PDF.
                         </p>
                         <a href="#" class="inline-block mt-8 bg-white text-[#011627] px-6 py-3 font-bold text-sm uppercase tracking-widest hover:bg-[#038DAE] hover:text-white transition-all">
@@ -276,5 +274,6 @@
 
     <script src="src/data.js"></script>
     <script src="src/language.js"></script>
+    <script src="src/formspree.js"></script>
 </body>
 </html>
