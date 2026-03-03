@@ -44,10 +44,78 @@
         }
         .status-blink { animation: blink 1.5s infinite; }
         @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+        /* Styl dla paska/znaku wodnego */
+        .dev-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                #038DAE,
+                #038DAE 10px,
+                #012A4F 10px,
+                #012A4F 20px
+            );
+            color: white;
+            text-align: center;
+            padding: 5px 0;
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 0.3em;
+            z-index: 9999;
+            text-transform: uppercase;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            pointer-events: none; /* Pozwala klikać w elementy pod spodem */
+            opacity: 0.9;
+        }
+
+        /* Opcjonalny duży znak wodny w tle (ukośny) */
+        .watermark-bg {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 8vw;
+            font-weight: 900;
+            color: rgba(1, 42, 79, 0.03); /* Bardzo subtelny kolor */
+            white-space: nowrap;
+            z-index: -1; /* Pod treścią */
+            pointer-events: none;
+            user-select: none;
+            text-transform: uppercase;
+        }
+        .construction-header {
+            background: repeating-linear-gradient(
+                -45deg,
+                #012A4F,
+                #012A4F 15px,
+                #038DAE 15px,
+                #038DAE 30px
+            );
+            color: white;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            border-bottom: 2px solid #038DAE;
+            position: relative;
+            z-index: 60; /* Wyżej niż Twój nav, który ma z-index 50 */
+        }
     </style>
 </head>
 <body class="selection:bg-[#038DAE] selection:text-white flex flex-col min-h-screen">
-
+    <div class="construction-header">
+        <div class="flex justify-center items-center gap-4">
+            <span class="opacity-50 hidden md:inline">///</span>
+            <span class="t-translate" data-pl="STATUS: W BUDOWIE // PROTOKÓŁ TESTOWY" data-en="STATUS: UNDER CONSTRUCTION // TEST PROTOCOL">
+                STATUS: W BUDOWIE // PROTOKÓŁ TESTOWY
+            </span>
+            <span class="opacity-50 hidden md:inline">///</span>
+        </div>
+    </div>
     <nav class="sticky top-0 z-50 bg-white border-b border-slate-200 px-6 py-2">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-6 group">

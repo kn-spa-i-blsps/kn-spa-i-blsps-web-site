@@ -374,7 +374,7 @@ const projects = [
         ordering: 1,
         shortDesc: {
     		pl: "MUSC to projekt którego celem jest opracowanie systemu w którym każdy UAV wyposażony jest we własne czujniki oraz system sterowania, oraz jest w stanie współpracować z innymi jednostkami przy zachowaniu jedynie minimalnej wymiany informacji. System umożliwia skoordynowaną współpracę roju bez zastosowania centralnej jednostki, każdy dron operuje autonomicznie, a zachowania całego roju wyłania się z zasad koordynacji i strategii sterowania.",
-    		en: ""
+    		en: "MUSC is a project focused on developing a decentralized UAV swarm system. Each unit operates autonomously with its own sensors and control system, enabling coordinated collaboration through emergent behavior and minimal information exchange, independent of central control or radio communication."
 		},
         fullDesc: {
     		pl: `<span class="text-3xl font-extrabold tracking-tight text-slate-800 uppercase">
@@ -394,7 +394,24 @@ const projects = [
                     Uczenie maszynowe:
                  </span><br>
                  Algorytmy sterowania rojem wykorzystują sieci neuronowe oraz uczenie maszynowe. Są one stosowane jako dopełnienie systemu kontroli, obsługując złożone oraz niepewne interakcje podczas gdy za bezpieczeństwo odpowiadają deterministyczne metody.`,
-    		en: ""
+    		en: `<span class="text-3xl font-extrabold tracking-tight text-slate-800 uppercase">
+                    MUSC
+                </span>
+                <div class="h-1 w-full bg-[#038DAE] rounded-full my-6"></div>
+                is a project aimed at developing a system in which each UAV is equipped with its own sensors and control system, capable of collaborating with other units while maintaining only minimal information exchange. The system enables coordinated swarm cooperation without a central unit; each drone operates autonomously, and the behavior of the entire swarm emerges from coordination rules and control strategies. This approach supports scalability and is not dependent on radio communication.<br><br>
+                <span class="text-xl font-extrabold tracking-tight text-slate-800 uppercase">
+                    Autonomy:
+                </span><br>
+                Each drone evaluates its relative position using vision at close range and calculates it via triangulation at greater distances. Thanks to this approach, the UAV does not need to rely on constant access to external positioning infrastructure. Decisions can be made at the local level, and the entire system is capable of functioning during various types of signal interference. Communication between units can be utilized to improve swarm performance, but it is not required.<br><br>
+                <span class="text-xl font-extrabold tracking-tight text-slate-800 uppercase">
+                    Scalability and Modularity:
+                </span><br>
+                The design utilizes a modular architecture, which allows for the replacement of sensors and control components without modifying the entire system.<br><br>
+                <span class="text-xl font-extrabold tracking-tight text-slate-800 uppercase">
+                    Machine Learning:
+                </span><br>
+                Swarm control algorithms utilize neural networks and machine learning. These are applied to complement the control system, handling complex and uncertain interactions, while deterministic methods ensure safety.
+                `
 		},
         teamIds: ["jan-mikolajczyk", "igor-rostkowski", "szymon-skierski", "radek-palys"],
         spec: [
@@ -411,7 +428,7 @@ const projects = [
         ],
         shortDesc: {
     		pl: "FlySearch to projekt badawczo-rozwojowy, którego celem jest zaprojektowanie i stworzenie API umożliwiającego komunikację między platformą UAV a serwerem z modelem Vision-Language Model (VLM). Dron zbiera dane z czujników (obraz z kamery oraz telemetrię z autopilota), a następnie przekazuje je do warstwy analitycznej, gdzie VLM interpretuje scenę i cel misji, generując rekomendacje dotyczące kierunku lotu. Całość działa w pętli „percepcja → decyzja → ruch”, a jednocześnie rejestruje dane i wyniki w sposób umożliwiający późniejszą analizę i poprawę algorytmów.",
-    		en: ""
+    		en: "FlySearch is an R&D project creating an API for UAV-to-VLM (Vision-Language Model) communication. It enables drones to transmit imagery and telemetry for real-time scene interpretation and flight recommendations, operating in a continuous \"perception-decision-motion\" loop for autonomous mission guidance."
 		},
         fullDesc: {
     		pl: `<span class="text-3xl font-extrabold tracking-tight text-slate-800 uppercase">
@@ -435,7 +452,26 @@ const projects = [
                  </span><br>
                  Kolejnym etapem będzie rozwinięcie FlySearch w kierunku w pełni zintegrowanego demonstratora autonomicznej eksploracji w warunkach „infrastructure-denied” (bez GNSS, internetu i sieci komórkowych), łączącego wnioskowanie VLM z nawigacją opartą o SLAM. Równolegle planowane jest wdrożenie analizy zebranych danych operatej na sztucznej inteligencji do wykrywania i interpretacji „interesujących znalezisk” i planowania misji, a także rozwój niezawodnej komunikacji w warunkach przerywanego łącza — z naciskiem na łączność optyczną jako preferowany kanał oraz mechanizmy utrzymania połączenia. Całość ma pozostać modułowa i skalowalna, a efektem ma być system zweryfikowany w testach laboratoryjnych i terenowych, docelowo na poziomie TRL 6.
             `,
-    		en: ""
+    		en: `<span class="text-3xl font-extrabold tracking-tight text-slate-800 uppercase">
+                    Flysearch
+                </span>
+                <div class="h-1 w-full bg-[#038DAE] rounded-full my-6"></div>
+                is a research and development project aimed at designing and creating an API that enables communication between a UAV platform and a server hosting a Vision-Language Model (VLM). The drone collects sensor data (camera imagery and autopilot telemetry) and transmits it to an analytical layer, where the VLM interprets the scene and mission objectives to generate flight direction recommendations. The entire system operates in a "perception → decision → movement" loop, while simultaneously recording data and results to allow for subsequent analysis and algorithm improvement.<br><br>
+                The system is containerized and prepared for rapid deployment and field testing — from the onboard Raspberry Pi to the server-side processing layer.<br><br>
+
+                <span class="text-xl font-extrabold tracking-tight text-slate-800 uppercase">
+                    What we are developing within the project:
+                </span><br>
+                <li>Onboard data collection layer (Raspberry Pi 5, camera, Pixhawk telemetry) along with validation and standardization of data formats (JSON, event logging).</li>
+                <li>Drone ↔ Server API for the exchange of frames, telemetry, and commands.</li>
+                <li>DevOps and reliability: Docker/Compose, CI/CD (GitHub Actions), integration testing, connection stability (e.g., remote access tunneling), and iterative field tests.</li><br>
+
+                The project is an excellent field of work for those interested in AI/ML, backend, embedded systems, robotics, and DevOps — from API and infrastructure development, through sensor integration, to designing navigation quality metrics and VLM experiments in real-world conditions.<br><br>
+
+                <span class="text-xl font-extrabold tracking-tight text-slate-800 uppercase">
+                    What’s next?
+                </span><br>
+                The next stage will be evolving FlySearch into a fully integrated demonstrator for autonomous exploration in "infrastructure-denied" environments (no GNSS, internet, or cellular networks), combining VLM reasoning with SLAM-based navigation. In parallel, we plan to implement AI-driven analysis of collected data to detect and interpret "points of interest" and for mission planning, as well as the development of reliable communication in intermittent link conditions — with an emphasis on optical communication as the preferred channel and connection maintenance mechanisms. The entire system is to remain modular and scalable, with the goal of a system verified in laboratory and field tests, ultimately reaching TRL 6.`
 		},
         teamIds: ["jan-mikolajczyk", "hubert-zientara", "jan-matusiak", "georgina-riu"],
         spec: [
@@ -452,7 +488,7 @@ const projects = [
         ],
         shortDesc: {
     		pl: `BlueSpark to innowacyjny, skalowalny system wielorobotyczny klasy AUV (Autonomous Underwater Vehicles), przeznaczony do autonomicznego mapowania dna morskiego, inspekcji infrastruktury podwodnej oraz gromadzenia danych środowiskowych. System działa w oparciu o niewielkie, w pełni autonomiczne jednostki, które współpracują ze sobą w roju i wykonują równoległe misje pomiarowe bez udziału operatora i bez statku-matki.`,
-    		en: ""
+    		en: "BlueSpark is an innovative, scalable AUV (Autonomous Underwater Vehicle) swarm system for autonomous seabed mapping and infrastructure inspection. Small, independent units perform parallel missions without an operator or mother ship, using a \"deploy and forget\" operational model."
 		},
         fullDesc: {
     		pl: `<span class="text-3xl font-extrabold tracking-tight text-slate-800 uppercase">
@@ -463,7 +499,15 @@ const projects = [
                  W odróżnieniu od standardów rynkowych, bazujących na ROV sterowanych kablem, BlueSpark funkcjonuje w modelu „deploy and forget”: użytkownik wyznacza obszar misji, a system autonomicznie planuje trasy, zbiera dane i rotuje jednostki między pracą a ładowaniem.<br><br>
                  Odbiorcami rozwiązania są operatorzy offshore, firmy hydrograficzne, instytuty badawcze i sektor wydobywczy, dla których kluczowe są: redukcja kosztów, skrócenie czasu misji, odporność na pogodę oraz zwiększenie bezpieczeństwa prac.<br><br>
                  BlueSpark jest produktem z kategorii podwodnych systemów pomiarowo-inspekcyjnych nowej generacji, opartym na roju autonomicznych jednostek AUV. Każdy robot realizuje indywidualną trasę zadań, zbierając dane batymetryczne (single-beam/side-scan lub MBES w wersjach rozszerzonych), obrazowanie wizyjne (kamerami niskiej iluminacji), dane fizykochemiczne (pH, zasolenie, temperatura, tlen, mętność) oraz dane magnetyczne i akustyczne`,
-    		en: ""
+    		en: `<span class="text-3xl font-extrabold tracking-tight text-slate-800 uppercase">
+                    Bluespark
+                </span>
+                <div class="h-1 w-full bg-[#038DAE] rounded-full my-6"></div>
+                is an innovative, scalable multi-robot system of the AUV (Autonomous Underwater Vehicles) class, designed for autonomous seabed mapping, underwater infrastructure inspection, and environmental data collection. The system operates based on small, fully autonomous units that collaborate in a swarm to perform parallel measurement missions without operator intervention and without a mother ship.<br><br>
+                Unlike market standards based on cable-controlled ROVs, BlueSpark operates on a "deploy and forget" model: the user defines the mission area, and the system autonomously plans routes, collects data, and rotates units between work and charging.<br><br>
+                The recipients of this solution include offshore operators, hydrographic companies, research institutes, and the mining sector, for whom key factors include: cost reduction, shorter mission times, weather resistance, and increased operational safety.<br><br>
+                BlueSpark is a product in the category of next-generation underwater measurement and inspection systems, based on a swarm of autonomous AUV units. Each robot follows an individual task route, collecting bathymetric data (single-beam/side-scan or MBES in extended versions), visual imaging (using low-light cameras), physicochemical data (pH, salinity, temperature, oxygen, turbidity), as well as magnetic and acoustic data.
+                `
 		},
         teamIds: ["jan-mikolajczyk", "jakub-balenkowski", "jan-ciecierski", "julian-maleta", "maciej-borowiecki", "maksymilian-bernacki", "marcel-kolecki"],
         spec: [
@@ -480,7 +524,7 @@ const projects = [
         ],
         shortDesc: {
     		pl: "Projektowany dron stratosferyczny to innowacyjna platforma badawcza klasy HAPS (High Altitude Pseudo-Satellite), przeznaczona do wykonywania misji w ekstremalnych warunkach stratosfery na pułapie operacyjnym od 20 do 25 kilometrów. System jest wynoszony za pomocą balonu, a po osiągnięciu docelowej wysokości i odłączeniu, realizuje w pełni autonomiczny lot powrotny, prowadząc ciągłe pomiary parametrów środowiskowych bez uzależnienia od zewnętrznych systemów kontroli.",
-    		en: ""
+    		en: "This HAPS-class (High Altitude Pseudo-Satellite) platform is designed for missions in the extreme conditions of the stratosphere (20-25 km). Lifted by balloon and capable of autonomous return flight, it conducts continuous environmental monitoring as a reusable, steerable alternative to traditional weather balloons."
 		},
         fullDesc: {
     		pl: `<span class="text-3xl font-extrabold tracking-tight text-slate-800 uppercase">
@@ -491,7 +535,14 @@ const projects = [
                  W odróżnieniu od obecnych standardów rynkowych, bazujących na jednorazowych radiosondach balonowych podatnych na dryf z wiatrem, dron funkcjonuje jako w pełni sterowalna platforma wielokrotnego użytku. Użytkownik zyskuje możliwość zbierania danych wzdłuż ściśle określonej trasy, co drastycznie obniża koszty jednostkowe prowadzenia pomiarów.<br><br>
                  Odbiorcami rozwiązania są państwowe instytucje naukowe i ratownicze, a także sektor technologii kosmicznych. Dla użytkowników kluczowe są: znaczna optymalizacja kosztów badań, możliwość precyzyjnego rejestrowania zjawisk dynamicznych dzięki zachowaniu ciągłości monitoringu, odporność na ekstremalne temperatury spadające do -70 °C oraz elastyczność w doborze pułapu do konkretnego zadania.<br><br>
                  Dron stratosferyczny jest produktem z kategorii zaawansowanych bezzałogowych platform badawczych nowej generacji. W zależności od charakteru misji, jednostka zbiera precyzyjne dane do profilu atmosfery (temperatura, ciśnienie, wilgotność, prędkość i kierunek wiatru), bada dynamikę warstwy ozonowej, może prowadzić obserwacje wizyjne z niższych wysokości (np. inspekcja granic, lasów czy stref katastrof), a także służyć jako latające laboratorium do testowania modułów nadawczych standardów ADS-L oraz ADS-B.`,
-    		en: ""
+    		en: `<span class="text-3xl font-extrabold tracking-tight text-slate-800 uppercase">
+                    Hawk Eye
+                </span>
+                <div class="h-1 w-full bg-[#038DAE] rounded-full my-6"></div>
+                The designed stratospheric drone is an innovative HAPS (High Altitude Pseudo-Satellite) class research platform, intended for missions in extreme stratospheric conditions at an operational altitude of 20 to 25 kilometers. The system is lifted by a balloon, and upon reaching the target altitude and decoupling, it performs a fully autonomous return flight, conducting continuous environmental parameter measurements without dependence on external control systems.<br><br>
+                Unlike current market standards based on disposable weather balloons prone to wind drift, the drone functions as a fully controllable, reusable platform. The user gains the ability to collect data along a strictly defined route, which drastically reduces the unit costs of conducting measurements.<br><br>
+                The primary recipients of this solution include state scientific and rescue institutions, as well as the space technology sector. Key advantages for users include: significant optimization of research costs, the ability to precisely record dynamic phenomena thanks to continuous monitoring, resistance to extreme temperatures dropping to -70 °C, and flexibility in choosing the altitude for a specific task.<br><br>
+                The stratospheric drone is a product within the category of advanced next-generation unmanned research platforms. Depending on the mission profile, the unit collects precise atmospheric profile data (temperature, pressure, humidity, wind speed and direction), studies ozone layer dynamics, can conduct visual observations from lower altitudes (e.g., border inspection, forests, or disaster zones), and serves as a flying laboratory for testing ADS-L and ADS-B standard transmission modules.`
 		},
         teamIds: ["jan-mikolajczyk", "emilia-grygiel", "karol-grzegorzewski", "maciej-domagalski", "stanislaw-kropiewnicki", "stanislaw-swiecki"],
         spec: [
@@ -507,16 +558,42 @@ const projects = [
             "https://images.unsplash.com/photo-1473960104502-8a63c8ef7e82?w=800&h=600&fit=crop"
         ],
         shortDesc: {
-    		pl: "System rozpoznawania obrazu dla dronów inspekcyjnych.",
-    		en: ""
+    		pl: "Snow’s Eye to autonomiczna platforma UAV zaprojektowana do operacji w warunkach polarnych i środowiskach o ograniczonej dostępności GNSS. Regiony polarne należą do najbardziej wymagających obszarów dla systemów bezzałogowych ze względu na zakłócenia elektromagnetyczne, niskie temperatury, silne wiatry oraz brak infrastruktury wsparcia. Snow’s Eye odpowiada na te wyzwania poprzez wielowarstwową architekturę lokalizacji, łączącą GNSS, VIO/SLAM oraz system awaryjny oparty na UWB, umożliwiający bezpieczny powrót do punktu startowego w warunkach degradacji nawigacji lub łączności.",
+    		en: "Snow’s Eye is an autonomous UAV platform engineered for polar operations and GNSS-denied environments. It overcomes Arctic challenges like electromagnetic interference and extreme weather through a multi-layered localization architecture (GNSS, VIO/SLAM, and UWB), ensuring safe navigation and return."
 		},
         fullDesc: {
-    		pl: "Prototyp systemu wizyjnego opartego na sztucznej inteligencji. Algorytm wykrywa mikropęknięcia w strukturach betonowych, co znacznie przyspiesza inspekcję mostów i wiaduktów.",
-    		en: ""
+    		pl: `<span class="text-3xl font-extrabold tracking-tight text-slate-800 uppercase">
+                    Snow’s Eye
+                 </span>
+                 <div class="h-1 w-full bg-[#038DAE] rounded-full my-6"></div>
+                 to autonomiczna platforma UAV zaprojektowana do operacji w warunkach polarnych i środowiskach o ograniczonej dostępności GNSS. Regiony polarne należą do najbardziej wymagających obszarów dla systemów bezzałogowych ze względu na zakłócenia elektromagnetyczne, niskie temperatury, silne wiatry oraz brak infrastruktury wsparcia. Snow’s Eye odpowiada na te wyzwania poprzez wielowarstwową architekturę lokalizacji, łączącą GNSS, VIO/SLAM oraz system awaryjny oparty na UWB, umożliwiający bezpieczny powrót do punktu startowego w warunkach degradacji nawigacji lub łączności.<br><br>
+                 <span class="text-xl font-extrabold tracking-tight text-slate-800 uppercase">
+                    ARCHITEKTURA:
+                 </span><br>
+                 Platforma została zoptymalizowana pod kątem autonomicznych misji niskiego pułapu z wykorzystaniem precyzyjnych dalmierzy i algorytmów kontroli lotu, co pozwala na stabilne operacje pomiarowe w trudnym terenie. Zintegrowany system planowania misji redukuje obciążenie operatora i umożliwia powtarzalne kampanie badawcze. Architektura systemu jest platformowo-agnostyczna, co pozwala na integrację z różnymi klasami UAV i dostosowanie konfiguracji do konkretnych zadań naukowych.<br><br>
+                 <span class="text-xl font-extrabold tracking-tight text-slate-800 uppercase">
+                    REALIZACJA:
+                 </span><br>
+                 Wybrane podsystemy zostały zweryfikowane podczas kampanii terenowej na Svalbardzie w 2025 roku, gdzie oceniano działanie systemu w warunkach arktycznych. Jako demonstrację możliwości przeprowadzono m.in. pomiary parametrów pokrywy śnieżnej, w tym estymację SWE, traktowaną jako przykład integracji specjalistycznego ładunku badawczego z uniwersalną platformą autonomiczną.
+            `,
+    		en: `<span class="text-3xl font-extrabold tracking-tight text-slate-800 uppercase">
+                    Snow’s Eye
+                </span>
+                <div class="h-1 w-full bg-[#038DAE] rounded-full my-6"></div>
+                is an autonomous UAV platform designed for operations in polar conditions and GNSS-denied environments. Polar regions are among the most demanding areas for unmanned systems due to electromagnetic interference, low temperatures, strong winds, and a lack of support infrastructure. Snow’s Eye addresses these challenges through a multi-layered localization architecture, combining GNSS, VIO/SLAM, and a UWB-based emergency system, enabling a safe return to the launch point in conditions of degraded navigation or connectivity.<br><br>
+                <span class="text-xl font-extrabold tracking-tight text-slate-800 uppercase">
+                    ARCHITECTURE:
+                </span><br>
+                The platform has been optimized for low-altitude autonomous missions using precision rangefinders and flight control algorithms, allowing for stable measurement operations in difficult terrain. An integrated mission planning system reduces operator workload and enables repeatable research campaigns. The system architecture is platform-agnostic, allowing for integration with various UAV classes and adaptation of the configuration to specific scientific tasks.<br><br>
+                <span class="text-xl font-extrabold tracking-tight text-slate-800 uppercase">
+                    IMPLEMENTATION:
+                </span><br>
+                Selected subsystems were verified during a field campaign in Svalbard in 2025, where the system's performance in Arctic conditions was evaluated. As a demonstration of its capabilities, measurements of snow cover parameters were conducted, including SWE estimation, treated as an example of integrating specialized research payload with a universal autonomous platform.
+            `
 		},
         teamIds: ["jan-mikolajczyk", "hubert-zientara"],
         spec: [
-            { label: { pl: "Silnik AI", en: "AI Engine" }, value: { pl: "YOLOv8 Nano", en: "YOLOv8 Nano" } },
+            //{ label: { pl: "Silnik AI", en: "AI Engine" }, value: { pl: "YOLOv8 Nano", en: "YOLOv8 Nano" } },
         ]
     }
 ];
