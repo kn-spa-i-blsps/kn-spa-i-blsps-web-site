@@ -597,3 +597,37 @@ const projects = [
         ]
     }
 ];
+
+
+const news = [
+    {
+        id: "droneworld-expo-2026",
+        date: "2026-03-03",
+        title: {
+            pl: "Relacja z DroneWorld Expo 2026",
+            en: "DroneWorld Expo 2026 Report"
+        },
+        shortDesc: {
+            pl: "Nasz zespół odwiedził największe targi bezzałogowców w Polsce. Nawiązaliśmy współpracę z liderami branży i przetestowaliśmy nowe sensory.",
+            en: "Our team visited the largest drone expo in Poland. We established partnerships with industry leaders and tested new sensors."
+        },
+        fullDesc: {
+            pl: `<span class="text-3xl font-extrabold tracking-tight text-slate-800 uppercase">Nowe Horyzonty</span>
+                 <div class="h-1 w-full bg-[#038DAE] rounded-full my-6"></div>
+                 Podczas trzech dni targowych mieliśmy okazję zaprezentować nasze postępy w projekcie MUSC...`,
+            en: `<span class="text-3xl font-extrabold tracking-tight text-slate-800 uppercase">New Horizons</span>
+                 <div class="h-1 w-full bg-[#038DAE] rounded-full my-6"></div>
+                 During the three-day expo, we had the opportunity to present our progress on the MUSC project...`
+        },
+        links: [
+            { 
+                label: { pl: "Repozytorium GitHub", en: "GitHub Repository" }, 
+                url: "https://github.com/kn-spa-i-blsps/musc" 
+            },
+            { 
+                label: { pl: "Dokumentacja Techniczna", en: "Technical Docs" }, 
+                url: "https://docs.google.com" 
+            }
+        ]
+    }
+];

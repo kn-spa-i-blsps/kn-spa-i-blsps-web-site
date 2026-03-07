@@ -239,8 +239,76 @@ function startHeroLogic() {
     startAuto();
 }
 
+/**
+ * 4. RENDEROWANIE AKTUALNOŚCI NA STRONIE GŁÓWNEJ
+ */
+function renderHomeNews() {
+    const container = document.getElementById('news-container');
+    if (!container || typeof news === 'undefined') return;
+
+    container.innerHTML = "";
+
+    // Sortujemy aktualności od najnowszej (zakładając format daty YYYY-MM-DD)
+    const sortedNews = [...news].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    sortedNews.forEach((item, index) => {
+        // Ścieżka bazowa do zdjęcia głównego (szukamy id-main.jpg)
+        const mainImgPath = `https://res.cloudinary.com/dsrdp5vrr/image/upload/kn-spa-i-blsps/news/${item.id}-main.jpg`;
+
+        container.innerHTML += `
+            <a href="article.html?id=${item.id}" class="tech-card group flex flex-col h-full bg-white shadow-sm hover:shadow-md transition-all">
+                <div class="relative h-48 overflow-hidden border-b border-slate-100 bg-slate-50">
+                    <img src="${mainImgPath}" 
+                         class="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+                         onerror="handleNewsImageError(this, '${item.id}')">
+                    <div class="absolute top-3 left-3 bg-[#012A4F] px-2 py-1 text-[8px] text-white font-bold tracking-widest uppercase">
+                        NEWS_FEED_0${index + 1}
+                    </div>
+                </div>
+
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="w-1 h-1 bg-[#038DAE] rounded-full"></div>
+                        <span class="text-[10px] font-mono text-slate-400 font-bold uppercase">${item.date}</span>
+                    </div>
+                    
+                    <h3 class="text-lg font-bold text-[#012A4F] mb-3 uppercase italic group-hover:text-[#038DAE] transition-colors leading-tight">
+                        ${t(item.title)}
+                    </h3>
+                    
+                    <p class="text-[12px] text-slate-500 leading-relaxed mb-6 flex-grow line-clamp-3">
+                        ${t(item.shortDesc)}
+                    </p>
+                    
+                    <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-50">
+                        <span class="text-[9px] font-black text-[#038DAE] tracking-[0.2em] uppercase group-hover:gap-3 flex items-center gap-2 transition-all">
+                            ACCESS_FULL_REPORT <span>→</span>
+                        </span>
+                    </div>
+                </div>
+            </a>
+        `;
+    });
+}
+
+/**
+ * Obsługa błędów dla zdjęć aktualności (id-main + rozszerzenia)
+ */
+function handleNewsImageError(img, id) {
+    if (img.src.includes('-main.jpg')) {
+        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/kn-spa-i-blsps/news/${id}-main.jpeg`;
+    } else if (img.src.includes('-main.jpeg')) {
+        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/kn-spa-i-blsps/news/${id}-main.png`;
+    } else {
+        img.onerror = null;
+        img.src = 'https://via.placeholder.com/800x600?text=IMAGE_NOT_FOUND';
+    }
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
     renderHomeProjects();
     renderHomeTeam();
     initHeroGallery();
+    renderHomeNews();
 });
