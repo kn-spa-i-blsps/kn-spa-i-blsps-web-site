@@ -38,71 +38,49 @@
         #team-scroll-container {
             -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
-            backface-visibility: hidden;
-        }
-
-        #team-scroll-container a {
-            transform: translateZ(0); 
-            will-change: transform;
-        }
-
-        #team-scroll-container img {
-            backface-visibility: hidden;
-            -webkit-perspective: 1000;
-            perspective: 1000;
-            image-rendering: -webkit-optimize-contrast;
         }
     </style>
 </head>
 <body class="selection:bg-[#038DAE] selection:text-white">
 
-    <nav class="sticky top-0 z-50 bg-white border-b border-slate-200 px-6 py-2">
+    <nav class="sticky top-0 z-50 bg-white border-b border-slate-200 px-4 py-2 md:px-6">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-6 group">
-                <div class="h-12 w-auto"> 
-                    <img src="https://res.cloudinary.com/dsrdp5vrr/image/upload/kn-spa-i-blsps/logo3.png" alt="Logo" class="h-full w-auto object-contain transition-transform group-hover:scale-105">
-                </div>
-                <div class="hidden lg:flex flex-col border-l border-slate-200 pl-6">
+            <a href="index.html" class="flex items-center gap-2 md:gap-6 group">
+                <img src="https://res.cloudinary.com/dsrdp5vrr/image/upload/kn-spa-i-blsps/logo3.png" alt="Logo" class="h-10 md:h-12 w-auto object-contain transition-transform group-hover:scale-105">
+                <div class="hidden sm:flex flex-col border-l border-slate-200 pl-4">
                     <div class="flex items-center gap-2">
                         <div class="w-1.5 h-1.5 bg-[#038DAE] rounded-sm status-blink"></div>
-                        <span class="font-bold tracking-[0.2em] text-[10px] uppercase text-[#012A4F]">KN SPA I BLSPS // ACTIVE</span>
+                        <span class="font-bold tracking-[0.2em] text-[8px] md:text-[10px] uppercase text-[#012A4F]">KN SPA I BLSPS</span>
                     </div>
                 </div>
             </a>
 
-            <div class="flex items-center gap-4 md:gap-8 text-[11px] font-bold tracking-[0.2em]">
-                <div class="hidden md:flex items-center gap-8">
+            <div class="flex items-center gap-3 md:gap-8 text-[9px] md:text-[11px] font-bold tracking-[0.1em] md:tracking-[0.2em]">
+                <div class="flex items-center gap-4 md:gap-8">
                     <a href="projects.html" class="t-translate text-[#012A4F] hover:text-[#038DAE] transition uppercase" data-pl="PROJEKTY" data-en="PROJECTS">PROJEKTY</a>
                     <a href="team.html" class="t-translate text-[#012A4F] hover:text-[#038DAE] transition uppercase" data-pl="ZESPÓŁ" data-en="TEAM">ZESPÓŁ</a>
                 </div>
 
-                <a href="contact.html" class="t-translate border border-[#038DAE] text-[#038DAE] px-5 py-2 hover:bg-[#038DAE] hover:text-white transition duration-300 font-bold uppercase" data-pl="KONTAKT" data-en="CONTACT">
+                <a href="contact.html" class="t-translate border border-[#038DAE] text-[#038DAE] px-3 py-1.5 md:px-5 md:py-2 hover:bg-[#038DAE] hover:text-white transition duration-300 font-bold uppercase" data-pl="KONTAKT" data-en="CONTACT">
                     KONTAKT
                 </a>
 
-                <button onclick="toggleLanguage()" class="flex items-center gap-2 px-3 py-2 border border-slate-200 hover:border-[#038DAE] transition-all bg-slate-50 group/lang">
-                    <span id="lang-flag" class="text-base leading-none group-hover/lang:scale-110 transition-transform">🇵🇱</span>
-                    <span id="lang-label" class="text-[9px] text-slate-400 group-hover/lang:text-[#038DAE]">PL</span>
+                <button onclick="toggleLanguage()" class="flex items-center gap-1 px-2 py-1.5 border border-slate-200 bg-slate-50 group/lang">
+                    <span id="lang-flag" class="text-sm">🇵🇱</span>
+                    <span id="lang-label" class="text-[8px] text-slate-400">PL</span>
                 </button>
             </div>
         </div>
     </nav>
 
-    <header class="bg-[#012A4F] relative overflow-hidden border-b border-[#038DAE]/50 min-h-[700px] flex items-center">
+    <header class="bg-[#012A4F] relative overflow-hidden border-b border-[#038DAE]/50 min-h-[600px] flex items-center py-12 md:py-24">
         <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#038DAE 0.5px, transparent 0.5px); background-size: 20px 20px;"></div>
-        <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(#038DAE 1px, transparent 1px), linear-gradient(90deg, #038DAE 1px, transparent 1px); background-size: 100px 100px;"></div>
         
-        <div class="absolute top-10 left-10 text-[#038DAE]/40 font-mono text-[10px] hidden md:block leading-relaxed">
-            REF_NO: SPA_BLSPS_2026<br>
-            SCALE: 1:1.000<br>
-            SHEET: 01/0A
-        </div>
-
         <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
-            <div class="grid lg:grid-cols-12 gap-16 items-center">
+            <div class="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                 
-                <div class="lg:col-span-5 relative">
-                    <div class="absolute -left-6 top-0 bottom-0 w-[1px] bg-[#038DAE]/30 hidden md:flex flex-col justify-between text-[8px] text-[#038DAE]/50 font-mono py-2">
+                <div class="lg:col-span-5 relative w-full">
+                    <div class="hidden lg:flex absolute -left-6 top-0 bottom-0 w-[1px] bg-[#038DAE]/30 flex-col justify-between text-[8px] text-[#038DAE]/50 font-mono py-2">
                         <span>01</span><span>02</span><span>03</span><span>04</span><span>05</span>
                     </div>
 
@@ -110,61 +88,33 @@
                         Core_Research_Module
                     </div>
 
-                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-8 leading-[0.85] text-white uppercase italic">
-                        <span class="t-translate" 
-                            data-pl="TECHNO<br>LOGIA" 
-                            data-en="ADVANCED<br>TECH">
-                            TECHNO<br>LOGIA
-                        </span>
+                    <h1 class="text-4xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-8 leading-[0.9] text-white uppercase italic">
+                        <span class="t-translate" data-pl="TECHNO<br>LOGIA" data-en="ADVANCED<br>TECH">TECHNO<br>LOGIA</span>
                         <br>
-                        <span class="text-[#038DAE] text-4xl md:text-6xl lg:text-6xl block mt-2">
-                            <span class="t-translate" 
-                                data-pl="OD OCEANÓW<br>PO STRATOSFERĘ" 
-                                data-en="FROM OCEANS<br>TO STRATOSPHERE">
-                                OD OCEANÓW<br>PO STRATOSFERĘ
-                            </span>
+                        <span class="text-[#038DAE] text-2xl md:text-6xl block mt-2">
+                            <span class="t-translate" data-pl="OD OCEANÓW<br>PO STRATOSFERĘ" data-en="FROM OCEANS<br>TO STRATOSPHERE">OD OCEANÓW<br>PO STRATOSFERĘ</span>
                         </span>
                     </h1>
 
-                    <div class="relative p-6 border border-[#038DAE]/30 bg-[#012A4F]/50 backdrop-blur-sm">
-                        <div class="absolute -top-[1px] -left-[1px] w-4 h-4 border-t-2 border-l-2 border-[#038DAE]"></div>
-                        <div class="absolute -bottom-[1px] -right-[1px] w-4 h-4 border-b-2 border-r-2 border-[#038DAE]"></div>
-                        
-                        <p class="t-translate text-slate-300 text-sm leading-relaxed font-light" 
-                           data-pl="Implementacja systemów wbudowanych niskiego poziomu. Optymalizacja procesów hardware'owych w środowisku rozproszonym."
-                           data-en="Low-level embedded systems implementation. Hardware process optimization in a distributed environment.">
-                            Implementacja systemów wbudowanych niskiego poziomu. Optymalizacja procesów hardware'owych w środowisku rozproszonym.
+                    <div class="relative p-5 md:p-6 border border-[#038DAE]/30 bg-[#012A4F]/50 backdrop-blur-sm">
+                        <p class="t-translate text-slate-300 text-xs md:text-sm leading-relaxed font-light" 
+                           data-pl="Implementacja systemów wbudowanych niskiego poziomu. Optymalizacja procesów hardware'owych."
+                           data-en="Low-level embedded systems implementation. Hardware process optimization.">
+                            Implementacja systemów wbudowanych niskiego poziomu. Optymalizacja procesów hardware'owych.
                         </p>
-                    </div>
-
-                    <div class="mt-8 flex gap-6 font-mono">
-                        <div class="text-[#038DAE]">
-                            <span class="t-translate text-[9px] block uppercase opacity-50" data-pl="Częstotliwość:" data-en="Freq:">Częstotliwość:</span>
-                            <span class="text-lg font-bold">2.4 GHz</span>
-                        </div>
-                        <div class="text-[#038DAE]">
-                            <span class="t-translate text-[9px] block uppercase opacity-50" data-pl="Opóźnienie:" data-en="Latency:">Opóźnienie:</span>
-                            <span class="text-lg font-bold">0.02 ms</span>
-                        </div>
                     </div>
                 </div>
 
-                <div class="hidden lg:block lg:col-span-7 relative group/gallery">
-                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
-                        <div class="w-full h-[1px] bg-[#038DAE]"></div>
-                        <div class="h-full w-[1px] bg-[#038DAE] absolute"></div>
-                        <div class="w-64 h-64 border border-[#038DAE] rounded-full absolute"></div>
-                    </div>
-                    
-                    <div id="hero-gallery" class="relative z-10 w-full h-[500px] border-2 border-[#038DAE] shadow-[0_0_30px_rgba(3,141,174,0.2)] overflow-hidden bg-black cursor-pointer">
-                        <div class="absolute bottom-4 left-4 z-30 bg-[#038DAE] text-white text-[9px] px-2 py-1 font-bold uppercase">
+                <div class="w-full lg:col-span-7 relative group/gallery">
+                    <div id="hero-gallery" class="relative z-10 w-full h-[250px] sm:h-[400px] lg:h-[500px] border-2 border-[#038DAE] shadow-[0_0_30px_rgba(3,141,174,0.2)] overflow-hidden bg-black cursor-pointer">
+                        <div class="absolute bottom-4 left-4 z-30 bg-[#038DAE] text-white text-[8px] px-2 py-0.5 font-bold uppercase">
                             LIVE_PREVIEW_SIGNAL
                         </div>
                     </div>
 
                     <div class="absolute -bottom-4 right-0 z-20 text-right">
-                        <div id="gallery-label" class="text-[10px] font-bold text-[#038DAE] tracking-[0.4em] uppercase mb-1"></div>
-                        <div id="gallery-title" class="text-5xl font-black text-white uppercase tracking-tighter leading-none"></div>
+                        <div id="gallery-label" class="text-[8px] md:text-[10px] font-bold text-[#038DAE] tracking-[0.4em] uppercase mb-1"></div>
+                        <div id="gallery-title" class="text-2xl md:text-5xl font-black text-white uppercase tracking-tighter leading-none"></div>
                     </div>
 
                     <div id="gallery-dots" class="absolute -bottom-10 left-0 flex gap-1 z-20"></div>
@@ -173,97 +123,58 @@
         </div>
     </header>
 
-    <section id="news" class="py-24 max-w-7xl mx-auto px-6 border-x border-slate-200 bg-white">
-        <div class="mb-16 flex justify-between items-end">
-            <h2 class="t-translate text-2xl font-bold uppercase tracking-tighter flex items-center gap-4 text-[#012A4F]"
+    <section id="news" class="py-16 md:py-24 max-w-7xl mx-auto px-6 border-x border-slate-200 bg-transparent relative">
+        
+        <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: linear-gradient(#038DAE 1px, transparent 1px), linear-gradient(90deg, #038DAE 1px, transparent 1px); background-size: 40px 40px;"></div>
+
+        <div class="relative z-10">
+            <h2 class="t-translate text-xl md:text-2xl font-bold uppercase tracking-tighter flex items-center gap-4 text-[#012A4F] mb-12"
                 data-pl="<span class='text-[#038DAE]'>[00]</span> Aktualności"
                 data-en="<span class='text-[#038DAE]'>[00]</span> News">
                 <span class="text-[#038DAE]">[00]</span> Aktualności
             </h2>
-        </div>
-        <div id="news-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            </div>
-    </section>
-
-    <section id="projects" class="py-24 max-w-7xl mx-auto px-6 border-x border-slate-200">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-16">
-                <h2 class="t-translate text-2xl font-bold uppercase tracking-tighter flex items-center gap-4 text-[#012A4F]"
-                    data-pl="<span class='text-[#038DAE]'>[01]</span> Aktywne Operacje"
-                    data-en="<span class='text-[#038DAE]'>[01]</span> Active Operations">
-                    <span class="text-[#038DAE]">[01]</span> Aktywne Operacje
-                </h2>
-            </div>
-            <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+            
+            <div id="news-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                </div>
         </div>
     </section>
 
-    <section id="team" class="py-24 max-w-7xl mx-auto px-6 border-x border-slate-200">
-        <div class="flex justify-between items-end mb-12">
-            <h2 class="t-translate text-2xl font-bold uppercase tracking-tighter flex items-center gap-4 text-[#012A4F]"
-                data-pl="<span class='text-[#038DAE]'>[02]</span> Jednostki"
-                data-en="<span class='text-[#038DAE]'>[02]</span> Units">
-                <span class="text-[#038DAE]">[02]</span> Jednostki
-            </h2>
-            <span class="t-translate text-[10px] text-slate-400 uppercase tracking-widest" data-pl="Przewijaj w poziomie >>" data-en="Scroll horizontally >>">Przewijaj w poziomie &gt;&gt;</span>
-        </div>
-        <div id="team-scroll-container" class="flex gap-6 overflow-x-auto pb-8 custom-scroll snap-x"></div>
+    <section id="projects" class="py-16 md:py-24 max-w-7xl mx-auto px-6 border-x border-slate-200">
+        <h2 class="t-translate text-xl md:text-2xl font-bold uppercase tracking-tighter flex items-center gap-4 text-[#012A4F] mb-12"
+            data-pl="<span class='text-[#038DAE]'>[01]</span> Aktywne Operacje"
+            data-en="<span class='text-[#038DAE]'>[01]</span> Active Operations">
+            <span class="text-[#038DAE]">[01]</span> Aktywne Operacje
+        </h2>
+        <div id="projects-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
     </section>
 
-    <section id="kontakt" class="bg-[#012A4F] relative overflow-hidden py-24 px-6 border-t border-[#038DAE]/50">
-        <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(#038DAE 1px, transparent 1px), linear-gradient(90deg, #038DAE 1px, transparent 1px); background-size: 50px 50px;"></div>
-        
+    <section id="kontakt" class="bg-[#012A4F] relative overflow-hidden py-16 md:py-24 px-6 border-t border-[#038DAE]/50">
         <div class="max-w-7xl mx-auto relative z-10">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-12">
-                
-                <div class="relative">
-                    <div class="absolute -left-4 top-0 bottom-0 w-[1px] bg-[#038DAE]/30 hidden md:block"></div>
+            <div class="flex flex-col lg:flex-row justify-between items-center gap-12">
+                <div class="text-center lg:text-left">
                     <span class="text-[#038DAE] font-mono text-[10px] tracking-[0.5em] uppercase mb-4 block">TERMINAL_END_POINT:</span>
-                    <h2 class="t-translate text-5xl md:text-7xl font-black text-white uppercase leading-none tracking-tighter italic"
+                    <h2 class="t-translate text-4xl md:text-7xl font-black text-white uppercase leading-tight tracking-tighter italic"
                         data-pl="GOTOWY NA <br> <span class='text-[#038DAE]'>WDROŻENIE?</span>"
                         data-en="READY FOR <br> <span class='text-[#038DAE]'>DEPLOYMENT?</span>">
                         GOTOWY NA <br> <span class="text-[#038DAE]">WDROŻENIE?</span>
                     </h2>
                 </div>
 
-                <div class="relative group p-8 border border-[#038DAE]/30 bg-[#012A4F]/50 backdrop-blur-sm w-full">
-                    <div class="absolute -top-[1px] -left-[1px] w-6 h-6 border-t-2 border-l-2 border-[#038DAE]"></div>
-                    <div class="absolute -bottom-[1px] -right-[1px] w-6 h-6 border-b-2 border-r-2 border-[#038DAE]"></div>
-                    
-                    <a href="mailto:kontakt@knspaiblsps.pl" class="text-2xl md:text-4xl font-bold text-white hover:text-[#038DAE] transition-colors break-all font-mono tracking-tighter">
+                <div class="relative group p-6 md:p-8 border border-[#038DAE]/30 bg-[#012A4F]/50 backdrop-blur-sm w-full lg:max-w-2xl">
+                    <a href="mailto:kontakt@knspaiblsps.pl" class="text-lg md:text-3xl font-bold text-white hover:text-[#038DAE] transition-colors break-all font-mono">
                         KONTAKT@KNSPAIBLSPS.PL
                     </a>
-                    
-                    <div class="mt-8 grid grid-cols-2 md:grid-cols-3 gap-6 border-t border-[#038DAE]/20 pt-6">
-                        <a href="https://github.com/kn-spa-i-blsps" target="_blank" class="flex flex-col group/link">
-                            <span class="text-[#038DAE] text-[9px] uppercase tracking-widest font-mono">Channel_01</span>
-                            <span class="text-white group-hover/link:text-[#038DAE] transition-colors text-[12px] font-bold uppercase tracking-[0.2em]">GITHUB</span>
-                        </a>
-                        <a href="https://www.instagram.com/kn_spa_i_blsps" target="_blank" class="flex flex-col group/link">
-                            <span class="text-[#038DAE] text-[9px] uppercase tracking-widest font-mono">Channel_02</span>
-                            <span class="text-white group-hover/link:text-[#038DAE] transition-colors text-[12px] font-bold uppercase tracking-[0.2em]">INSTAGRAM</span>
-                        </a>
-                        <a href="https://www.linkedin.com/company/ko%C5%82o-naukowe-badawczych-lotniczych-system%C3%B3w-pomiarowych-i-sterowania/" target="_blank" class="flex flex-col group/link">
-                            <span class="text-[#038DAE] text-[9px] uppercase tracking-widest font-mono">Channel_03</span>
-                            <span class="text-white group-hover/link:text-[#038DAE] transition-colors text-[12px] font-bold uppercase tracking-[0.2em]">LINKEDIN</span>
-                        </a>
-                    </div>
-                    
-                    <div class="mt-8 flex justify-between items-center">
-                        <div class="flex gap-2">
-                            <div class="w-2 h-2 bg-[#038DAE]"></div>
-                            <div class="w-2 h-2 bg-[#038DAE]/40"></div>
-                            <div class="w-2 h-2 bg-[#038DAE]/10"></div>
-                        </div>
-                        <p class="t-translate text-white/40 font-bold text-[9px] uppercase tracking-[0.4em]" data-pl="STATUS: OCZEKIWANIE NA SYGNAŁ" data-en="STATUS: AWAITING SIGNAL">STATUS: OCZEKIWANIE NA SYGNAŁ</p>
+                    <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 border-t border-[#038DAE]/20 pt-6">
+                        <a href="#" class="text-white hover:text-[#038DAE] text-[10px] font-bold uppercase tracking-widest">GITHUB</a>
+                        <a href="#" class="text-white hover:text-[#038DAE] text-[10px] font-bold uppercase tracking-widest">INSTAGRAM</a>
+                        <a href="#" class="text-white hover:text-[#038DAE] text-[10px] font-bold uppercase tracking-widest">LINKEDIN</a>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <footer class="py-10 text-center text-[10px] text-slate-400 uppercase tracking-[0.5em] font-bold">
+    <footer class="py-10 text-center text-[9px] text-slate-400 uppercase tracking-[0.4em] font-bold">
         &copy; KN SPA I BLSPS // 2026
     </footer>
 
