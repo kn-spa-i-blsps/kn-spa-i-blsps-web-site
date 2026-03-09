@@ -285,7 +285,7 @@ const members = [
 		},
         socials: [
             //{ platform: "github", url: "#" },
-			//{ platform: "linkedin", url: "#" },
+			{ platform: "linkedin", url: "https://www.linkedin.com/in/maria-ancerowicz-323847392/" },
             //{ platform: "instagram", url: "#" },
             //{ platform: "website", url: "#" }
         ]
