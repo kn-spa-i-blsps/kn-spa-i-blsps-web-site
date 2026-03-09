@@ -58,7 +58,7 @@ function renderGallery(project) {
             <h2 class="text-xl font-bold uppercase tracking-tighter text-[#012A4F]">Visual_Output</h2>
         </div>
         <div id="main-photo-box" class="relative group mb-6 h-[500px] overflow-hidden data-block cursor-pointer bg-slate-100" onclick="openLightbox(0)">
-            <img id="main-img-element" src="https://res.cloudinary.com/dsrdp5vrr/image/upload/kn-spa-i-blsps/projects/${t(project.id)}/main.jpg" 
+            <img id="main-img-element" src="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/projects/${t(project.id)}/main.jpg" 
                  class="w-full h-full object-cover transition duration-700 opacity-0" 
                  onload="this.style.opacity='1'"
                  onerror="handleMainImageError(this, '${t(project.id)}', '${t(project.image)}')">
@@ -71,7 +71,7 @@ function renderGallery(project) {
         </button>
     `;
 
-    allProjectImages[0] = `https://res.cloudinary.com/dsrdp5vrr/image/upload/kn-spa-i-blsps/projects/${t(project.id)}/main.jpg`;
+    allProjectImages[0] = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/projects/${t(project.id)}/main.jpg`;
     const grid = document.getElementById('gallery-grid');
     const expandBtn = document.getElementById('btn-expand-gallery');
     const extensions = ['jpg', 'jpeg', 'png'];
@@ -138,7 +138,7 @@ function renderTeamSection(project) {
         return `
             <a href="member.html?user=${t(person.id)}" class="flex items-center gap-4 p-4 data-block hover:border-[#038DAE] transition-all group mb-4">
                 <div class="w-12 h-16 flex-shrink-0 overflow-hidden bg-slate-100 border border-slate-200">
-                    <img src="https://res.cloudinary.com/dsrdp5vrr/image/upload/kn-spa-i-blsps/members/${t(person.id)}.jpg" 
+                    <img src="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/members/${t(person.id)}.jpg" 
                          class="w-full h-full object-cover group-hover:scale-110 transition duration-500" 
                          onerror="handleMemberImageError(this, '${t(person.id)}')">
                 </div>
@@ -155,12 +155,12 @@ function renderTeamSection(project) {
  */
 function handleMemberImageError(img, memberId) {
     if (img.src.includes('.jpg')) {
-        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/kn-spa-i-blsps/members/${memberId}.jpeg`;
+        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/members/${memberId}.jpeg`;
     } else if (img.src.includes('.jpeg')) {
-        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/kn-spa-i-blsps/members/${memberId}.png`;
+        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/members/${memberId}.png`;
     } else {
         img.onerror = null;
-        img.src = 'https://res.cloudinary.com/dsrdp5vrr/image/upload/kn-spa-i-blsps/members/default.jpg'; // Upewnij się, że masz ten plik lub zmień na placeholder
+        img.src = 'https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/members/default.jpg'; // Upewnij się, że masz ten plik lub zmień na placeholder
     }
 }
 
@@ -199,8 +199,8 @@ function updateLightboxImage() {
 }
 
 function handleMainImageError(img, projId, fallback) {
-    if (img.src.includes('main.jpg')) img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/kn-spa-i-blsps/projects/${projId}/main.jpeg`;
-    else if (img.src.includes('main.jpeg')) img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/kn-spa-i-blsps/projects/${projId}/main.png`;
+    if (img.src.includes('main.jpg')) img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/projects/${projId}/main.jpeg`;
+    else if (img.src.includes('main.jpeg')) img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/projects/${projId}/main.png`;
     else if (img.src.includes('main.png') && fallback) img.src = fallback;
     else { img.onerror = null; img.src = 'https://via.placeholder.com/1200x800?text=IMAGE_NOT_FOUND'; }
     allProjectImages[0] = img.src;

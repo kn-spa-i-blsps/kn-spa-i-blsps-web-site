@@ -56,7 +56,7 @@ async function initArticle() {
     for (const name of imageNames) {
         let imgUrl = null;
         for (const ext of extensions) {
-            const testUrl = `https://res.cloudinary.com/dsrdp5vrr/image/upload/kn-spa-i-blsps/news/${name}.${ext}`;
+            const testUrl = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/news/${name}.${ext}`;
             if (await checkIfFileExists(testUrl)) { imgUrl = testUrl; break; }
         }
 

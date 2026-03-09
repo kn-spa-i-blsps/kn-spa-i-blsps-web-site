@@ -17,7 +17,7 @@ function handleImageError(imgElement, secondarySrc, finalFallback) {
         imgElement.src = finalFallback;
     } else {
         imgElement.onerror = null;
-        imgElement.src = 'https://res.cloudinary.com/dsrdp5vrr/image/upload/kn-spa-i-blsps/members/default.jpg';
+        imgElement.src = 'https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/members/default.jpg';
     }
 }
 
@@ -36,8 +36,8 @@ function renderTeam() {
     });
 
     container.innerHTML = sortedMembers.map((person, index) => {
-        const primarySrc = `https://res.cloudinary.com/dsrdp5vrr/image/upload/kn-spa-i-blsps/members/${t(person.id)}.jpg`;
-        const secondarySrc = `https://res.cloudinary.com/dsrdp5vrr/image/upload/kn-spa-i-blsps/members/${t(person.id)}.jpeg`;
+        const primarySrc = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/members/${t(person.id)}.jpg`;
+        const secondarySrc = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/members/${t(person.id)}.jpeg`;
         const fallbackSrc = person.img || "";
 
         // --- LOGIKA ZBIERANIA WSZYSTKICH TAGÓW ---

@@ -302,9 +302,9 @@ const members = [
     		en: "My name is Stanisław, and I study Power Engineering at Warsaw University of Technology. I take part in the HawkEye project, where I work in the team responsible for the design and structural aspects of our project. I develop the technical solutions needed to build a stratospheric drone and look for potential commercial applications for it. In my free time, aside from participating in the project, I focus on programming and automation, which have enabled me to create my own commercial solution designed to improve the operation of automation systems. I’m also active in sports—mainly cycling and going to the gym—and I’m a former member of the national judo team with a black belt in judo."
 		},
         socials: [
-            //{ platform: "github", url: "#" },
-			//{ platform: "linkedin", url: "#" },
-            //{ platform: "instagram", url: "#" },
+            { platform: "github", url: "https://github.com/stachulskiii" },
+			{ platform: "linkedin", url: "https://www.linkedin.com/in/stanislaw-kropiewnicki/" },
+            { platform: "instagram", url: "https://www.instagram.com/stachuzdachu/" },
             //{ platform: "website", url: "#" }
         ]
     },
@@ -338,8 +338,8 @@ const members = [
     		en: "My name is Szymon and I’m a Computer Science student at the University of Warsaw. Since the beginning of November 2025, I’ve been working with my drone team on a project for the ICUAS 2026 competition. I mainly focus on programming, optimizing, and implementing drone behaviour algorithms in Python. I’m especially interested in mathematics, programming, and artificial intelligence. Being part of this student research group makes my free time more enjoyable, helps me improve my programming skills, and teaches me practical experience working with drones."
 		},
         socials: [
-            //{ platform: "github", url: "#" },
-			//{ platform: "linkedin", url: "#" },
+            { platform: "github", url: "https://github.com/sudogie3" },
+			{ platform: "linkedin", url: "https://www.linkedin.com/in/szymon-skierski-824043399/" },
             //{ platform: "instagram", url: "#" },
             //{ platform: "website", url: "#" }
         ]
@@ -358,6 +358,24 @@ const members = [
         socials: [
             //{ platform: "github", url: "#" },
 			//{ platform: "linkedin", url: "#" },
+            //{ platform: "instagram", url: "#" },
+            //{ platform: "website", url: "#" }
+        ]
+    },
+    { 
+        id: "marcin-misiewicz", 
+        name: "Marcin Misiewicz", 
+        role: {
+    		pl: "Inżynier | Programista",
+    		en: "Engineer | Developer"
+		}, 
+        bio: {
+    		pl: "Nazywam się Marcin i studiuję informatykę na Politechnice Warszawskiej. W kole naukowym jestem członkiem zespołu dronowego, w którym biorę udział w pracach nad projektem MUSC. Udział w projekcie pozwala mi na rozwijanie praktycznych umiejętności, które w przyszłości wykorzystam w roli Data/ML Engineera. Poza tym pasjonuję się rynkiem finansowym i światem kryptowalut.",
+    		en: "My name is Marcin and I study Computer Science at the Warsaw University of Technology. In the student science club, I am a member of the drone team, where I participate in the MUSC project. Taking part in this project allows me to develop practical skills that I will use in the future as a Data/ML Engineer. Additionally, I am passionate about financial markets, including cryptocurrencies."
+		},
+        socials: [
+            { platform: "github", url: "https://github.com/MarcinMisiewiczz" },
+			{ platform: "linkedin", url: "https://www.linkedin.com/in/marcin-misiewicz-20758a3b0/" },
             //{ platform: "instagram", url: "#" },
             //{ platform: "website", url: "#" }
         ]
@@ -413,7 +431,7 @@ const projects = [
                 Swarm control algorithms utilize neural networks and machine learning. These are applied to complement the control system, handling complex and uncertain interactions, while deterministic methods ensure safety.
                 `
 		},
-        teamIds: ["jan-mikolajczyk", "igor-rostkowski", "szymon-skierski", "radek-palys"],
+        teamIds: ["jan-mikolajczyk", "igor-rostkowski", "szymon-skierski", "radek-palys", "marcin-misiewicz"],
         spec: [
             //{ label: { pl: "Silnik AI", en: "AI Engine" }, value: { pl: "YOLOv8 Nano", en: "YOLOv8 Nano" } },
         ]
