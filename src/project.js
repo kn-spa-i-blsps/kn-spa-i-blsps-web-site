@@ -26,24 +26,66 @@ document.addEventListener('DOMContentLoaded', () => {
 /**
  * NAGŁÓWEK - Blueprint Dark Mode
  */
+/**
+ * NAGŁÓWEK - Blueprint Dark Mode z obsługą Logo Projektu
+ */
+/**
+ * NAGŁÓWEK - Blueprint Dark Mode z dynamiczną obsługą formatów Logo
+ */
 function renderHeader(project) {
     const headerContainer = document.getElementById('project-header');
+    
+    // Logo startuje jako ukryte (hidden)
+    const logoHTML = `
+        <div id="logo-wrap-${t(project.id)}" class="hidden flex-shrink-0 mb-4 md:mb-0">
+             <img src="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/projects/${t(project.id)}/logo.jpg" 
+                  alt="Project Logo" 
+                  class="h-20 md:h-28 w-auto object-contain border-r border-[#038DAE]/30 pr-8 mr-2"
+                  onload="this.parentElement.classList.remove('hidden')"
+                  onerror="handleLogoError(this, '${t(project.id)}')">
+        </div>`;
+
     const fullTitleHTML = project.fullTitle 
         ? `<div class="text-white/70 text-sm md:text-xl font-light tracking-wide mt-4 border-l-2 border-[#038DAE] pl-6 italic leading-relaxed">${t(project.fullTitle)}</div>` 
         : '';
 
     headerContainer.innerHTML = `
-        <div class="flex flex-col gap-2 w-full">
-            <div class="flex items-center gap-3 mb-2">
-                <span class="text-[#038DAE] text-[10px] font-bold tracking-[0.4em] uppercase">Node_ID:</span>
-                <span class="text-white/40 text-[10px] font-bold tracking-[0.4em] uppercase">${t(project.id)}</span>
+        <div class="flex flex-col md:flex-row md:items-center gap-8 w-full">
+            ${logoHTML}
+            <div class="flex flex-col gap-2 flex-grow">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[#038DAE] text-[10px] font-bold tracking-[0.4em] uppercase">Node_ID:</span>
+                    <span class="text-white/40 text-[10px] font-bold tracking-[0.4em] uppercase">${t(project.id)}</span>
+                </div>
+                <h1 class="text-5xl md:text-8xl font-black text-white uppercase tracking-tighter leading-[0.85] italic">
+                    ${t(project.title)}
+                </h1>
+                ${fullTitleHTML}
             </div>
-            <h1 class="text-5xl md:text-8xl font-black text-white uppercase tracking-tighter leading-[0.85] italic">
-                ${t(project.title)}
-            </h1>
-            ${fullTitleHTML}
         </div>
     `;
+}
+
+/**
+ * OBSŁUGA BŁĘDÓW LOGO (JPG -> PNG -> JPEG -> HIDE)
+ */
+/**
+ * OBSŁUGA BŁĘDÓW LOGO (JPG -> PNG -> JPEG -> WEBP -> HIDE)
+ */
+function handleLogoError(img, projId) {
+    const baseUrl = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/projects/${projId}/`;
+
+    if (img.src.includes('logo.jpg')) {
+        img.src = baseUrl + "logo.png";
+    } else if (img.src.includes('logo.png')) {
+        img.src = baseUrl + "logo.jpeg";
+    } else if (img.src.includes('logo.jpeg')) {
+        img.src = baseUrl + "logo.webp";
+    } else {
+        // Jeśli żaden format nie istnieje, zatrzymujemy pętlę i zostawiamy hidden
+        img.onerror = null;
+        console.log(`System_Log: No logo found for ${projId}. Skipping.`);
+    }
 }
 
 /**
