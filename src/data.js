@@ -619,33 +619,95 @@ const projects = [
 
 const news = [
     {
-        id: "droneworld-expo-2026",
-        date: "2026-03-03",
+        id: `drone-world-expo-2026`,
+        date: `2026-03-03`,
         title: {
-            pl: "Relacja z DroneWorld Expo 2026",
-            en: "DroneWorld Expo 2026 Report"
+            pl: `Relacja z DroneWorld Expo 2026`,
+            en: `DroneWorld Expo 2026 Report`
         },
         shortDesc: {
-            pl: "Nasz zespół odwiedził największe targi bezzałogowców w Polsce. Nawiązaliśmy współpracę z liderami branży i przetestowaliśmy nowe sensory.",
-            en: "Our team visited the largest drone expo in Poland. We established partnerships with industry leaders and tested new sensors."
+            pl: `Drone World Expo 2026 było okazją do zaprezentowania projektów rozwijanych w naszym kole naukowym. Wydarzenie zgromadziło przedstawicieli branży technologii bezzałogowych z całego świata. Spotkania i rozmowy podczas targów pozwoliły na nawiązanie nowych kontaktów oraz poznanie najnowszych rozwiązań technologicznych.`,
+            en: `Drone World Expo 2026 provided an opportunity to present the projects developed within our student scientific club. The event brought together representatives of the unmanned technologies industry from around the world. Meetings and discussions held during the expo enabled us to establish new connections and explore the latest technological solutions in the field.`
         },
         fullDesc: {
-            pl: `<span class="text-3xl font-extrabold tracking-tight text-slate-800 uppercase">Nowe Horyzonty</span>
-                 <div class="h-1 w-full bg-[#038DAE] rounded-full my-6"></div>
-                 Podczas trzech dni targowych mieliśmy okazję zaprezentować nasze postępy w projekcie MUSC...`,
-            en: `<span class="text-3xl font-extrabold tracking-tight text-slate-800 uppercase">New Horizons</span>
-                 <div class="h-1 w-full bg-[#038DAE] rounded-full my-6"></div>
-                 During the three-day expo, we had the opportunity to present our progress on the MUSC project...`
+            pl: `W marcu 2026 roku nasze Koło Naukowe uczestniczyło w Drone World Expo – jednym z ważniejszych wydarzeń poświęconych technologiom bezzałogowych systemów powietrznych oraz rozwojowi systemów autonomicznych. Wydarzenie zgromadziło firmy technologiczne, instytucje badawcze oraz zespoły projektowe zajmujące się tworzeniem nowoczesnych rozwiązań w obszarze dronów i technologii UAV.
+        Podczas targów prezentowaliśmy projekty rozwijane w naszym kole, przedstawiając rezultaty pracy naszych zespołów oraz kierunki badań, nad którymi obecnie pracujemy. Była to także okazja do bezpośrednich rozmów z przedstawicielami branży technologicznej, naukowcami oraz innymi zespołami badawczymi zainteresowanymi rozwojem systemów bezzałogowych.
+        Udział w wydarzeniu pozwolił nam zapoznać się z najnowszymi trendami w technologii UAV, w tym z nowymi rozwiązaniami sprzętowymi, systemami sensorów oraz innowacyjnymi podejściami do projektowania i wykorzystania systemów autonomicznych. Targi stworzyły przestrzeń do wymiany doświadczeń, inspirujących dyskusji oraz prezentacji pomysłów rozwijanych w środowisku akademickim.
+        Dla naszego zespołu udział w Drone World Expo był również ważną okazją do promocji działalności koła oraz prezentacji projektów realizowanych przez naszych studentów. Spotkania z przedstawicielami branży i środowiska naukowego umożliwiły nawiązanie nowych kontaktów oraz stworzyły potencjał do przyszłej współpracy badawczej i technologicznej.`,
+            en: `In March 2026 our student scientific club participated in Drone World Expo, an international event dedicated to the development and application of unmanned aerial systems and emerging drone technologies. The expo brought together technology companies, research institutions, engineers and innovators working at the forefront of autonomous and unmanned systems.
+        During the event we presented projects developed within our club, showcasing the outcomes of our student-led research and engineering activities. The exhibition provided an opportunity to highlight the scope of our work and the technological solutions currently being developed by our teams.
+        Drone World Expo also created a valuable space for discussions with industry professionals, researchers and representatives of organizations involved in the development of UAV technologies. These interactions enabled us to exchange ideas, gain insights into current technological trends and learn more about innovative approaches to the design and operation of unmanned systems.
+        For our team, participation in the event was not only an opportunity to present our projects but also to promote the activities of our scientific club and demonstrate the potential of student-driven research initiatives. The meetings and discussions held during the expo opened the door to new connections and potential future collaborations within the broader drone technology community.`
         },
         links: [
-            { 
-                label: { pl: "Repozytorium GitHub", en: "GitHub Repository" }, 
-                url: "https://github.com/kn-spa-i-blsps/musc" 
-            },
-            { 
-                label: { pl: "Dokumentacja Techniczna", en: "Technical Docs" }, 
-                url: "https://docs.google.com" 
-            }
+            //{ label: { pl: ``, en: `` }, url: `` },
+            //{ label: { pl: ``, en: `` }, url: `` },
+            //{ label: { pl: ``, en: `` }, url: `` },
+            //{ label: { pl: ``, en: `` }, url: `` }
+        ]
+    },
+    {
+        id: `arctic-frontiers-2026`,
+        date: `2026-02-02`,
+        title: {
+            pl: `Arctic Frontiers 2026`,
+            en: `Arctic Frontiers 2026`
+        },
+        shortDesc: {
+            pl: `W lutym 2026 roku wzięliśmy udział w konferencji Arctic Frontiers w Tromsø, prezentując projekt Snow’s Eye. Wydarzenie zgromadziło naukowców, przedstawicieli przemysłu oraz decydentów zajmujących się tematyką regionów arktycznych. Była to doskonała okazja do zaprezentowania naszych badań i wymiany doświadczeń.`,
+            en: `In February 2026 we took part in the Arctic Frontiers conference in Tromsø, where we presented the Snow’s Eye project. The event brought together scientists, industry representatives and policymakers focused on Arctic research and development. 
+        It provided an excellent opportunity to showcase our work and exchange insights with experts from around the world.
+        `
+        },
+        fullDesc: {
+            pl: `W lutym 2026 roku braliśmy udział w międzynarodowej konferencji Arctic Frontiers, która odbyła się w Tromsø w Norwegii. Jest to jedno z najważniejszych wydarzeń poświęconych badaniom Arktyki, skupiające naukowców, przedstawicieli instytucji badawczych, przemysłu oraz administracji publicznej z całego świata. Konferencja stanowi platformę do dyskusji na temat zmian klimatycznych, nowych technologii wykorzystywanych w badaniach polarnych oraz wyzwań związanych z funkcjonowaniem w ekstremalnych warunkach środowiskowych.
+        Podczas wydarzenia zaprezentowaliśmy projekt Snow’s Eye – autonomiczną platformę UAV zaprojektowaną do pracy w trudnych warunkach arktycznych. Projekt koncentruje się na wykorzystaniu technologii bezzałogowych do wspierania badań naukowych w regionach o ograniczonym dostępie do infrastruktury oraz w miejscach, gdzie prowadzenie tradycyjnych pomiarów jest szczególnie wymagające.
+        Udział w konferencji był dla nas ważną okazją do zaprezentowania efektów naszej pracy międzynarodowej społeczności naukowej. Prezentacja projektu pozwoliła również na wymianę doświadczeń z badaczami zajmującymi się tematyką systemów autonomicznych, technologii pomiarowych oraz badań środowiskowych w regionach polarnych.
+        Konferencja Arctic Frontiers stworzyła przestrzeń do rozmów o przyszłości badań arktycznych oraz o roli nowoczesnych technologii w monitorowaniu zmian zachodzących w tych wyjątkowo wrażliwych ekosystemach. Udział w wydarzeniu umożliwił nam także nawiązanie nowych kontaktów naukowych i potencjalnych współprac badawczych.
+        Szczegółowy opis projektu Snow’s Eye można znaleźć w sekcji projektów na naszej stronie.
+        `,
+            en: `In February 2026 we participated in the international Arctic Frontiers conference held in Tromsø, Norway. The conference is widely regarded as one of the leading platforms dedicated to Arctic research, bringing together scientists, research institutions, industry representatives and policymakers from across the globe. It serves as an important forum for discussing climate change, technological innovation and the challenges associated with conducting research and operations in polar environments.
+        During the event we presented the Snow’s Eye project – an autonomous UAV platform designed to operate in demanding Arctic conditions. The project explores the potential of unmanned aerial technologies to support scientific research in remote regions where access to infrastructure is limited, and environmental conditions make traditional measurement campaigns particularly challenging.
+        Presenting our work at Arctic Frontiers allowed us to share the outcomes of our research with the international scientific community. It also created valuable opportunities to exchange perspectives with researchers working on autonomous systems, environmental monitoring technologies and field research in polar regions.
+        The conference further emphasized the growing importance of advanced technologies in studying climate processes and monitoring environmental change in the Arctic. Our participation enabled us to establish new professional connections and explore potential future collaborations with research groups and institutions engaged in polar science.
+        A detailed description of the Snow’s Eye project can be found in the projects section of our website.
+        `
+        },
+        links: [
+            //{ label: { pl: ``, en: `` }, url: `` },
+            //{ label: { pl: ``, en: `` }, url: `` },
+            //{ label: { pl: ``, en: `` }, url: `` },
+            //{ label: { pl: ``, en: `` }, url: `` }
+        ]
+    },
+    {
+        id: `siemens-tech-2026`,
+        date: `2026-02-27`,
+        title: {
+            pl: `Wyróżnienie nagrodą Siemens – projekt Hawk Eye`,
+            en: `Hawk Eye Project Recognized with a Siemens Award`
+        },
+        shortDesc: {
+            pl: `Zostaliśmy wyróżnieni nagrodą firmy Siemens w postaci produktów o wartości 10 000 zł na rozwój projektu Hawk Eye. Projekt dotyczy wielofunkcyjnego drona stratosferycznego rozwijanego w naszym kole naukowym. Wsparcie pozwoli nam kontynuować prace nad rozwojem tej platformy.`,
+            en: `Our scientific club received an award from Siemens in the form of products worth 10,000 PLN to support the development of the Hawk Eye project. The project focuses on a multifunctional stratospheric drone developed by our team. This support will allow us to continue advancing the platform.`
+        },
+        fullDesc: {
+            pl: `Nasze Koło Naukowe zostało wyróżnione nagrodą firmy Siemens w postaci produktów o łącznej wartości 10 000 zł, które zostały przeznaczone na rozwój projektu Hawk Eye. Wsparcie to stanowi ważny krok w dalszym rozwijaniu naszej działalności badawczej oraz realizacji projektów związanych z nowoczesnymi technologiami bezzałogowymi.
+        Hawk Eye to projekt wielofunkcyjnego drona stratosferycznego, którego celem jest stworzenie platformy zdolnej do długotrwałego lotu nad wybranym obszarem. Koncepcja ta łączy wybrane zalety systemów satelitarnych z elastycznością operacyjną bezzałogowych platform latających działających na niższych wysokościach.
+        Tego typu rozwiązania mogą w przyszłości znaleźć zastosowanie w wielu obszarach, takich jak obserwacja Ziemi, monitoring środowiska, wczesne wykrywanie pożarów, monitoring granic czy zapewnianie łączności w regionach dotkniętych klęskami żywiołowymi. Rozwijane w projekcie technologie mają na celu zwiększenie możliwości prowadzenia badań i monitoringu w trudno dostępnych regionach.
+        Otrzymane wsparcie pozwoli nam kontynuować rozwój kluczowych elementów platformy, testować nowe rozwiązania technologiczne oraz prowadzić dalsze prace badawcze w ramach działalności naszego koła. Wyróżnienie ze strony firmy Siemens stanowi dla naszego zespołu istotne docenienie pracy studentów zaangażowanych w rozwój projektu oraz potwierdzenie potencjału prowadzonych przez nas działań badawczych.
+        `,
+            en: `Our student scientific club has been recognized with an award from Siemens in the form of products worth 10,000 PLN, supporting the further development of the Hawk Eye project. This distinction represents an important milestone for our team and highlights the potential of the technologies being developed within our research activities.
+        Hawk Eye is a project focused on the development of a multifunctional stratospheric drone designed for long-endurance missions over selected areas. The concept aims to combine certain advantages of satellite-based observation with the flexibility and accessibility of lower-altitude unmanned aerial platforms.
+        Such systems have the potential to support a wide range of applications, including Earth observation, environmental monitoring, early detection of wildfires, border surveillance and the provision of communication support in areas affected by natural disasters. By exploring these possibilities, the project seeks to contribute to the development of innovative aerial monitoring solutions.
+        The support provided by Siemens will allow our team to continue developing key components of the platform, test new technological solutions and further expand the research conducted within our scientific club. Receiving this award is also a significant recognition of the dedication and work of the students involved in the project.
+        `
+        },
+        links: [
+            //{ label: { pl: ``, en: `` }, url: `` },
+            //{ label: { pl: ``, en: `` }, url: `` },
+            //{ label: { pl: ``, en: `` }, url: `` },
+            //{ label: { pl: ``, en: `` }, url: `` }
         ]
     }
 ];
