@@ -709,6 +709,69 @@ const news = [
             //{ label: { pl: ``, en: `` }, url: `` },
             //{ label: { pl: ``, en: `` }, url: `` }
         ]
+    },
+    {
+        id: `bit-ai-2026`,
+        date: `2026-01-03`,
+        title: {
+            pl: `Udział w programie naukowym o AI w Chinach `,
+            en: `Participation in the AI academic program in China`
+        },
+        shortDesc: {
+            pl: `W styczniu 2026 jeden z naszych członków wziął udział w programie naukowym o sztucznej inteligencji w Chinach, na campusie Beijing Institute of Technology w Zhuhai. Była to okazja, aby poznać podstawowe zagadnienia związane z tą dziedziną, jak również poznać lepiej ten kraj poprzez liczne wycieczki i warsztaty kulturalne. Podczas finałowej prezentacji o zastosowaniu sztucznej inteligencji w Polsce nie zabrakło okazji do promowania działalności Koła.`,
+            en: `In January 2026, one of our members attended an AI scientific program at the Beijing Institute of Technology in Zhuhai, China. The experience combined deep dives into AI fundamentals with rich cultural workshops and tours. The final presentation on AI in Poland provided a perfect platform to showcase our Research Club's latest projects to an international audience.`
+        },
+        fullDesc: {
+            pl: `W styczniu 2026 jeden z członków naszego Koła, student Politechniki Gdańskiej Jan Matusiak, wziął udział w dwutygodniowym "Study in BIT" Artificial Intelligence Winter Program na campusie Beijing Institute of Technology w Zhuhai. Otrzymał on nominację do stypendium z Wydziału Elektroniki, Telekomunikacji i Informatyki swojej uczelni, dzięki czemu mógł w pełni korzystać w oferty programu.
+        Główną część programu stanowiły codzienne wykłady o podstawach sztucznej inteligencji - jej zastosowaniach, etyce, a także agentach AI i uczeniu przez wzmacnianie. Nie brakowało również zajęć kulturowych, podczas których mogliśmy spróbować tradycyjnej kaligrafii oraz wycinanek.
+        Była to również okazja by pozwiedzać - nie tylko Zhuhai, ale również Shenzen i Guanghzou, wiodące miasta regionu GBA i jedne z największych miast nie tylko Chin, ale i na całym świecie. 
+        Zwieńczeniem programu była prezentacja końcowa, podczas której cały zespół z Politechniki Gdańskiej opowiedział o zastosowaniach w sztucznej inteligencji w Polsce. Janek opowiadał między innymi o swoim udziale w projekcie FlySearch w naszym Kole, w którym bada wpływ sztucznej inteligencji na nawigację dronem.`,
+            en: `In January 2026, Jan Matusiak, a member of our Research Club and a student at Gdańsk University of Technology, participated in the two-week 'Study in BIT' Artificial Intelligence Winter Program at the Beijing Institute of Technology campus in Zhuhai. Having received a scholarship nomination from the Faculty of Electronics, Telecommunications, and Informatics, he was able to fully engage in the program's offerings.
+
+                The core of the program consisted of daily lectures on AI fundamentals – including its applications, ethics, AI agents, and reinforcement learning. The experience was enriched by cultural workshops where participants practiced traditional calligraphy and paper-cutting.
+
+                The trip also provided an opportunity to explore Zhuhai, Shenzhen, and Guangzhou – leading cities of the Greater Bay Area and some of the largest metropolises in the world. The program culminated in a final presentation, where the team from Gdańsk University of Technology discussed AI applications in Poland. Jan highlighted his involvement in our FlySearch project, focusing on the impact of AI on autonomous drone navigation.`
+        },
+        links: [
+            { label: { pl: ``, en: `` }, url: `` },
+            { label: { pl: ``, en: `` }, url: `` },
+            { label: { pl: ``, en: `` }, url: `` },
+            { label: { pl: ``, en: `` }, url: `` }
+        ]
+    },
+    {
+        id: `orlen-foundation-2026`,
+        date: `2025-12-01`,
+        title: {
+            pl: `Grant Fundacji ORLEN dla projektu Hawk Eye Stratospheric Drone`,
+            en: `ORLEN Foundation Grant for the Hawk Eye Stratospheric Drone Project`
+        },
+        shortDesc: {
+            pl: `Nasze koło naukowe otrzymało grant Fundacji ORLEN w ramach programu „Od cząsteczki do galaktyki”. Wsparcie zostało przyznane na rozwój projektu Hawk Eye Stratospheric Drone – autonomicznej platformy stratosferycznej typu HAPS. Projekt koncentruje się na opracowaniu wielokrotnego użytku systemu do badań atmosfery, monitoringu środowiska oraz zapewniania łączności w trudno dostępnych regionach.`,
+            en: `Our student scientific club has been awarded a grant from the ORLEN Foundation as part of the “From Molecule to Galaxy” program. The funding supports the development of the Hawk Eye Stratospheric Drone project – an autonomous high-altitude platform of the HAPS type. The project focuses on creating a reusable system for atmospheric research, environmental monitoring, and communication in hard-to-reach areas.`
+        },
+        fullDesc: {
+            pl: `Nasze koło naukowe działające na Wydziale Mechaniki, Energetyki i Lotnictwa Politechniki Warszawskiej zostało laureatem programu grantowego Fundacji ORLEN „Od cząsteczki do galaktyki”. Program ten wspiera działalność studenckich kół naukowych prowadzących projekty badawcze z zakresu chemii, fizyki oraz nauk pokrewnych, umożliwiając rozwój innowacyjnych inicjatyw naukowych i technologicznych.
+        Nagrodzony projekt, realizowany pod opieką dr hab. inż. Elżbiety Jarzębowskiej, prof. PW, nosi nazwę „Hawk Eye Stratospheric Drone” i koncentruje się na opracowaniu autonomicznego drona stratosferycznego typu HAPS (High Altitude Pseudo-Satellite). Planowana platforma ma operować na wysokościach od 10 do 30 km, stanowiąc elastyczną i bardziej ekonomiczną alternatywę dla tradycyjnych systemów satelitarnych.
+        Jednym z kluczowych celów projektu jest ograniczenie problemu elektroodpadów powstających w wyniku wykorzystywania jednorazowych radiosond meteorologicznych. W odpowiedzi na to wyzwanie opracowywany jest system wielokrotnego użytku, zdolny do bezpiecznego powrotu i lądowania po zakończeniu misji.
+        Innowacyjność projektu opiera się między innymi na wykorzystaniu ogniw fotowoltaicznych oraz zdolności platformy do długotrwałego, autonomicznego lotu, który może trwać co najmniej 24 godziny. Dron ma pełnić funkcję stratosferycznej stacji bazowej SMBS, zapewniając łączność w promieniu do 100 km, zwłaszcza w regionach o ograniczonej infrastrukturze komunikacyjnej. Platforma może także wspierać działania ratownicze typu SAR oraz monitoring klęsk żywiołowych dzięki zastosowaniu kamer wielospektralnych.
+        Realizacja projektu została zaplanowana w kilku etapach, obejmujących budowę prototypu testowego, przeprowadzenie testów sterowania w warunkach stratosferycznych oraz stworzenie pełnej platformy zdolnej do pracy z zerowym bilansem energetycznym. Projekt rozwijany jest we współpracy z ekspertami z Creotech Instruments S.A. oraz Instytutu Geofizyki Polskiej Akademii Nauk.
+        Otrzymany grant stanowi istotne wsparcie dla dalszego rozwoju projektu oraz umożliwia realizację kolejnych etapów badań nad autonomicznymi platformami stratosferycznymi rozwijanymi w naszym kole naukowym.
+        `,
+            en: `Our student research club operating at the Faculty of Power and Aeronautical Engineering of the Warsaw University of Technology has been awarded a grant from the ORLEN Foundation under the “From Molecule to Galaxy” program. The initiative supports student research groups working in the fields of chemistry, physics, and related scientific disciplines, promoting innovative academic and technological projects.
+        The awarded project, supervised by Professor Elżbieta Jarzębowska, is titled “Hawk Eye Stratospheric Drone” and focuses on the development of an autonomous stratospheric UAV platform of the HAPS (High Altitude Pseudo-Satellite) type. The system is designed to operate at altitudes between 10 and 30 km, offering a flexible and cost-effective alternative to traditional satellite systems.
+        One of the key objectives of the project is to address the environmental issue associated with disposable meteorological radiosondes, which generate electronic waste after a single use. The proposed solution involves the development of a reusable platform capable of safely returning and landing after completing its mission.
+        The innovative character of the system is based on the integration of photovoltaic cells and the platform’s capability to perform long-endurance autonomous flights lasting at least 24 hours. The platform is intended to function as a stratospheric mobile base station (SMBS), providing communication coverage within a radius of up to 100 km, particularly in regions with limited communication infrastructure. Additionally, the system may support search-and-rescue (SAR) operations and disaster monitoring through the use of multispectral imaging systems.
+        The implementation of the project includes several development stages, including the construction of a test prototype, control system testing in stratospheric conditions, and the development of a full platform capable of operating with a zero-energy balance. The project is being developed in collaboration with experts from Creotech Instruments S.A. and the Institute of Geophysics of the Polish Academy of Sciences.
+        The grant awarded by the ORLEN Foundation provides significant support for the continued development of the project and enables further research on autonomous stratospheric platforms conducted within our student scientific club.
+        `
+        },
+        links: [
+            { label: { pl: ``, en: `` }, url: `` },
+            { label: { pl: ``, en: `` }, url: `` },
+            { label: { pl: ``, en: `` }, url: `` },
+            { label: { pl: ``, en: `` }, url: `` }
+        ]
     }
 ];
 
