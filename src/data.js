@@ -711,3 +711,26 @@ const news = [
         ]
     }
 ];
+
+const partners = [
+    {
+        id: 1,
+        name: "Politechnika Warszawska",
+        url: "https://www.pw.edu.pl/",
+        logo: "https://www.ch.pw.edu.pl/var/ch/storage/images/media/images/logo-pw/14895-2-pol-PL/logo-PW_imagelarge.png"
+    },
+    {
+        id: 2,
+        name: "Uniwersytet Warszawski",
+        url: "https://www.uw.edu.pl/",
+        logo: "https://www.uw.edu.pl/wp-content/uploads/2017/07/logo-2-11.png"
+    },
+    {
+        id: 3,
+        name: "Botland",
+        url: "https://botland.com.pl",
+        logo: "https://botland.com.pl/img/polska-logo-1603126632.jpg"
+    },
+];
+
+// Jeśli używasz modułów, dodaj export, jeśli nie - zmienna będzie dostępna globalnie
