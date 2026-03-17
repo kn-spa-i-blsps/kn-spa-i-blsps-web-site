@@ -46,22 +46,23 @@ async function initArticle() {
     const slider = document.getElementById('hero-slider-container');
     const gallery = document.getElementById('article-gallery');
     const dots = document.getElementById('slider-dots');
-    const extensions = ['jpg', 'jpeg', 'png'];
+    const extensions = ['jpg', 'jpeg', 'png', 'webp'];
     
-    // Szukamy id-main oraz id-1 do id-10
-    const imageNames = [`${id}-main`, ...Array.from({length: 10}, (_, i) => `${id}-${i+1}`)];
+    // ZMIANA: Szukamy 'main' oraz '1' do '10' wewnątrz podfolderu o nazwie {id}
+    const imageNames = [`main`, ...Array.from({length: 10}, (_, i) => `${i+1}`)];
     
     let foundCount = 0;
 
     for (const name of imageNames) {
         let imgUrl = null;
         for (const ext of extensions) {
-            const testUrl = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/news/${name}.${ext}`;
+            // KONSTRUKCJA URL: folder 'news' / 'id-artykulu' / 'nazwa-pliku'
+            const testUrl = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/news/${id}/${name}.${ext}`;
             if (await checkIfFileExists(testUrl)) { imgUrl = testUrl; break; }
         }
 
         if (imgUrl) {
-            // Dodaj do slidera (tylko pierwsze 4 zdjęcia)
+            // Dodaj do slidera (pierwsze 4 zdjęcia)
             if (foundCount < 4) {
                 const img = document.createElement('img');
                 img.src = imgUrl;
@@ -76,7 +77,6 @@ async function initArticle() {
             
             // Dodaj wszystko do dolnej galerii
             const gItem = document.createElement('div');
-            // overflow-hidden jest kluczowe, żeby zdjęcie nie "wyszło" poza ramkę przy skali
             gItem.className = "aspect-square overflow-hidden bg-slate-100 border border-slate-200 group/gallery-item cursor-pointer";
 
             gItem.innerHTML = `
@@ -85,7 +85,6 @@ async function initArticle() {
             `;
 
             gallery.appendChild(gItem);
-            
             foundCount++;
         }
     }

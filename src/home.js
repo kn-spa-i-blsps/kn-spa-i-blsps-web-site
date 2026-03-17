@@ -253,7 +253,7 @@ function renderHomeNews() {
 
     sortedNews.forEach((item, index) => {
         // Ścieżka bazowa do zdjęcia głównego (szukamy id-main.jpg)
-        const mainImgPath = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/news/${item.id}-main.jpg`;
+        const mainImgPath = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/news/${item.id}/main.jpg`;
 
         container.innerHTML += `
             <a href="article.html?id=${item.id}" class="tech-card group flex flex-col h-full bg-white shadow-sm hover:shadow-md transition-all">
@@ -296,9 +296,9 @@ function renderHomeNews() {
  */
 function handleNewsImageError(img, id) {
     if (img.src.includes('-main.jpg')) {
-        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/news/${id}-main.jpeg`;
+        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/news/${id}/main.jpeg`;
     } else if (img.src.includes('-main.jpeg')) {
-        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/news/${id}-main.png`;
+        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/news/${id}/main.png`;
     } else {
         img.onerror = null;
         img.src = 'https://via.placeholder.com/800x600?text=IMAGE_NOT_FOUND';

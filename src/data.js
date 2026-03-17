@@ -640,10 +640,10 @@ const news = [
         For our team, participation in the event was not only an opportunity to present our projects but also to promote the activities of our scientific club and demonstrate the potential of student-driven research initiatives. The meetings and discussions held during the expo opened the door to new connections and potential future collaborations within the broader drone technology community.`
         },
         links: [
-            //{ label: { pl: ``, en: `` }, url: `` },
-            //{ label: { pl: ``, en: `` }, url: `` },
-            //{ label: { pl: ``, en: `` }, url: `` },
-            //{ label: { pl: ``, en: `` }, url: `` }
+            ////{ label: { pl: ``, en: `` }, url: `` },
+            ////{ label: { pl: ``, en: `` }, url: `` },
+            ////{ label: { pl: ``, en: `` }, url: `` },
+            ////{ label: { pl: ``, en: `` }, url: `` }
         ]
     },
     {
@@ -674,10 +674,10 @@ const news = [
         `
         },
         links: [
-            //{ label: { pl: ``, en: `` }, url: `` },
-            //{ label: { pl: ``, en: `` }, url: `` },
-            //{ label: { pl: ``, en: `` }, url: `` },
-            //{ label: { pl: ``, en: `` }, url: `` }
+            ////{ label: { pl: ``, en: `` }, url: `` },
+            ////{ label: { pl: ``, en: `` }, url: `` },
+            ////{ label: { pl: ``, en: `` }, url: `` },
+            ////{ label: { pl: ``, en: `` }, url: `` }
         ]
     },
     {
@@ -704,10 +704,10 @@ const news = [
         `
         },
         links: [
-            //{ label: { pl: ``, en: `` }, url: `` },
-            //{ label: { pl: ``, en: `` }, url: `` },
-            //{ label: { pl: ``, en: `` }, url: `` },
-            //{ label: { pl: ``, en: `` }, url: `` }
+            ////{ label: { pl: ``, en: `` }, url: `` },
+            ////{ label: { pl: ``, en: `` }, url: `` },
+            ////{ label: { pl: ``, en: `` }, url: `` },
+            ////{ label: { pl: ``, en: `` }, url: `` }
         ]
     },
     {
@@ -733,14 +733,14 @@ const news = [
                 The trip also provided an opportunity to explore Zhuhai, Shenzhen, and Guangzhou – leading cities of the Greater Bay Area and some of the largest metropolises in the world. The program culminated in a final presentation, where the team from Gdańsk University of Technology discussed AI applications in Poland. Jan highlighted his involvement in our FlySearch project, focusing on the impact of AI on autonomous drone navigation.`
         },
         links: [
-            { label: { pl: ``, en: `` }, url: `` },
-            { label: { pl: ``, en: `` }, url: `` },
-            { label: { pl: ``, en: `` }, url: `` },
-            { label: { pl: ``, en: `` }, url: `` }
+            //{ label: { pl: ``, en: `` }, url: `` },
+            //{ label: { pl: ``, en: `` }, url: `` },
+            //{ label: { pl: ``, en: `` }, url: `` },
+            //{ label: { pl: ``, en: `` }, url: `` }
         ]
     },
     {
-        id: `orlen-foundation-2026`,
+        id: `orlen-foundation-2025`,
         date: `2025-12-01`,
         title: {
             pl: `Grant Fundacji ORLEN dla projektu Hawk Eye Stratospheric Drone`,
@@ -767,10 +767,10 @@ const news = [
         `
         },
         links: [
-            { label: { pl: ``, en: `` }, url: `` },
-            { label: { pl: ``, en: `` }, url: `` },
-            { label: { pl: ``, en: `` }, url: `` },
-            { label: { pl: ``, en: `` }, url: `` }
+            //{ label: { pl: ``, en: `` }, url: `` },
+            //{ label: { pl: ``, en: `` }, url: `` },
+            //{ label: { pl: ``, en: `` }, url: `` },
+            //{ label: { pl: ``, en: `` }, url: `` }
         ]
     }
 ];
