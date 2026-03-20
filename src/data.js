@@ -379,7 +379,43 @@ const members = [
             //{ platform: "instagram", url: "#" },
             //{ platform: "website", url: "#" }
         ]
-    }
+    },
+    { 
+        id: "wojciech-rybak", 
+        name: "Wojciech Rybak", 
+        role: {
+    		pl: "Inżynier | Programista",
+    		en: "Engineer | Developer"
+		}, 
+        bio: {
+    		pl: "",
+    		en: ""
+		},
+        socials: [
+            { platform: "github", url: "https://github.com/rybakwojciech589" },
+			{ platform: "linkedin", url: "https://www.linkedin.com/in/wojciech-rybak--/" },
+            //{ platform: "instagram", url: "#" },
+            //{ platform: "website", url: "#" }
+        ]
+    },
+    { 
+        id: "mikolaj-sczogiel", 
+        name: "Mikołaj Sczogiel", 
+        role: {
+    		pl: "Inżynier | Programista",
+    		en: "Engineer | Developer"
+		}, 
+        bio: {
+    		pl: "",
+            en: "",
+        },
+        socials: [
+            { platform: "github", url: "https://github.com/MikolajSczogiel" },
+			{ platform: "linkedin", url: "https://www.linkedin.com/in/msczogiel/" },
+            //{ platform: "instagram", url: "#" },
+            //{ platform: "website", url: "#" }
+        ]
+    },
 ];
 
 // data.js - dodajemy bazę projektów
