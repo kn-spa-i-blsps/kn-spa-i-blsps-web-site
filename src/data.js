@@ -467,7 +467,7 @@ const projects = [
                 Swarm control algorithms utilize neural networks and machine learning. These are applied to complement the control system, handling complex and uncertain interactions, while deterministic methods ensure safety.
                 `
 		},
-        teamIds: ["jan-mikolajczyk", "igor-rostkowski", "szymon-skierski", "radek-palys", "marcin-misiewicz"],
+        teamIds: ["jan-mikolajczyk", "igor-rostkowski", "szymon-skierski", "radek-palys", "marcin-misiewicz", "wojciech-rybak", "mikolaj-sczogiel"],
         spec: [
             //{ label: { pl: "Silnik AI", en: "AI Engine" }, value: { pl: "YOLOv8 Nano", en: "YOLOv8 Nano" } },
         ]
