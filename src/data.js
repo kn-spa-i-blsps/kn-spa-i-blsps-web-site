@@ -422,7 +422,8 @@ const members = [
         role: {
     		pl: "Marketing",
     		en: "Marketing"
-		}, 
+		},
+        customTags: [{ pl: "Marketing", en: "Marketing" }],
         bio: {
     		pl: "",
             en: "",
