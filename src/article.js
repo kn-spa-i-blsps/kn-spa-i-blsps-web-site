@@ -57,7 +57,7 @@ async function initArticle() {
         let imgUrl = null;
         for (const ext of extensions) {
             // KONSTRUKCJA URL: folder 'news' / 'id-artykulu' / 'nazwa-pliku'
-            const testUrl = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/news/${id}/${name}.${ext}`;
+            const testUrl = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/${id}/${name}.${ext}`;
             if (await checkIfFileExists(testUrl)) { imgUrl = testUrl; break; }
         }
 

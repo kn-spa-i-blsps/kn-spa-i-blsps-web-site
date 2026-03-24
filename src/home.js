@@ -19,7 +19,7 @@ function renderHomeProjects() {
 
     projects.forEach((proj, index) => {
         // Dynamiczna ścieżka do zdjęcia głównego projektu
-        const mainImgPath = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/projects/${t(proj.id)}/main.jpg`;
+        const mainImgPath = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/projects/${t(proj.id)}/main.jpg`;
 
         container.innerHTML += `
             <a href="project.html?id=${t(proj.id)}" class="tech-card overflow-hidden group flex flex-col h-full shadow-sm">
@@ -57,9 +57,9 @@ function renderHomeProjects() {
 // Obsługa błędów formatów dla małych kafelków projektów
 function handleHomeProjectImageError(img, id, fallback) {
     if (img.src.includes('main.jpg')) {
-        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/projects/${id}/main.jpeg`;
+        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/projects/${id}/main.jpeg`;
     } else if (img.src.includes('main.jpeg')) {
-        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/projects/${id}/main.png`;
+        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/projects/${id}/main.png`;
     } else if (img.src.includes('main.png') && fallback) {
         img.src = fallback;
     } else {
@@ -90,9 +90,9 @@ function renderHomeTeam() {
     });
 
     const membersHTML = sortedMembers.map(person => {
-        const primarySrc = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/members/${t(person.id)}.jpg`;
-        const secondarySrc = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/members/${t(person.id)}.jpeg`;
-        const fallbackSrc = person.img || "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/members/default.jpg";
+        const primarySrc = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/${t(person.id)}.jpg`;
+        const secondarySrc = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/${t(person.id)}.jpeg`;
+        const fallbackSrc = person.img || "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/default.jpg";
 
         const customBadges = (person.customTags || []).map(tag => `
             <span class="text-[8px] px-1.5 py-0.5 border border-[#038DAE]/20 bg-[#038DAE]/5 text-[#038DAE] uppercase font-bold tracking-tighter">
@@ -155,7 +155,7 @@ async function initHeroGallery() {
     for (let i = 1; i <= MAX_HERO_FILES; i++) {
         let found = false;
         for (const ext of extensions) {
-            const path = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/main/${i}.${ext}`;
+            const path = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/main/${i}.${ext}`;
             const exists = await checkIfFileExists(path);
             if (exists) {
                 // Szukamy labeli/tytułów w heroSlides z data.js (jeśli są dopasowane po indeksie)
@@ -253,7 +253,7 @@ function renderHomeNews() {
 
     sortedNews.forEach((item, index) => {
         // Ścieżka bazowa do zdjęcia głównego (szukamy id-main.jpg)
-        const mainImgPath = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/news/${item.id}/main.jpg`;
+        const mainImgPath = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/${item.id}/main.jpg`;
 
         container.innerHTML += `
             <a href="article.html?id=${item.id}" class="tech-card group flex flex-col h-full bg-white shadow-sm hover:shadow-md transition-all">
@@ -296,9 +296,9 @@ function renderHomeNews() {
  */
 function handleNewsImageError(img, id) {
     if (img.src.includes('main.jpg')) {
-        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/news/${id}/main.jpeg`;
+        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/${id}/main.jpeg`;
     } else if (img.src.includes('main.jpeg')) {
-        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/news/${id}/main.png`;
+        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/${id}/main.png`;
     } else {
         img.onerror = null;
         img.src = 'https://via.placeholder.com/800x600?text=IMAGE_NOT_FOUND';
@@ -307,8 +307,8 @@ function handleNewsImageError(img, id) {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    renderHomeProjects();
-    renderHomeTeam();
     initHeroGallery();
     renderHomeNews();
+    renderHomeProjects();
+    renderHomeTeam();
 });

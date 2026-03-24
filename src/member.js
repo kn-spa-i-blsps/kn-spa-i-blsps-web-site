@@ -82,7 +82,7 @@ async function renderProfile() {
                 <div class="w-64 flex-shrink-0 mx-auto lg:mx-0">
                     <div class="img-container mb-8 shadow-2xl transform -rotate-1 group">
                         <div class="overflow-hidden h-80">
-                            <img src="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/members/${t(user.id)}.jpg" 
+                            <img src="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/${t(user.id)}.jpg" 
                                  class="w-full h-full object-cover img-content"
                                  onerror="handleMemberImageError(this, '${t(user.id)}')">
                         </div>
@@ -136,7 +136,7 @@ async function renderProfile() {
                     <div>> DATA_REF: ${Math.random().toString(36).substr(2, 9).toUpperCase()}</div>
                 </div>
                 
-                <img src="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/logo3.png" 
+                <img src="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/logo3.png" 
                     class="h-10 md:h-12 w-auto object-contain" 
                     style="filter: brightness(1.2) contrast(1.1) drop-shadow(0 0 5px rgba(3, 141, 174, 1));">
             </div>
@@ -145,9 +145,9 @@ async function renderProfile() {
 }
 
 function handleMemberImageError(img, memberId) {
-    if (img.src.includes('.jpg')) img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/members/${memberId}.jpeg`;
-    else if (img.src.includes('.jpeg')) img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/members/${memberId}.png`;
-    else { img.onerror = null; img.src = 'https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/members/default.jpg'; }
+    if (img.src.includes('.jpg')) img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/${memberId}.jpeg`;
+    else if (img.src.includes('.jpeg')) img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/${memberId}.png`;
+    else { img.onerror = null; img.src = 'https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/default.jpg'; }
 }
 
 document.addEventListener('DOMContentLoaded', renderProfile);
