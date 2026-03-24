@@ -295,9 +295,9 @@ function renderHomeNews() {
  * Obsługa błędów dla zdjęć aktualności (id-main + rozszerzenia)
  */
 function handleNewsImageError(img, id) {
-    if (img.src.includes('-main.jpg')) {
+    if (img.src.includes('main.jpg')) {
         img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/news/${id}/main.jpeg`;
-    } else if (img.src.includes('-main.jpeg')) {
+    } else if (img.src.includes('main.jpeg')) {
         img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/news/${id}/main.png`;
     } else {
         img.onerror = null;

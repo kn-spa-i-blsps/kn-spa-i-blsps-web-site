@@ -416,6 +416,24 @@ const members = [
             //{ platform: "website", url: "#" }
         ]
     },
+    { 
+        id: "iza-grodek", 
+        name: "Iza Gródek", 
+        role: {
+    		pl: "Marketing",
+    		en: "Marketing"
+		}, 
+        bio: {
+    		pl: "",
+            en: "",
+        },
+        socials: [
+            //{ platform: "github", url: "https://github.com/MikolajSczogiel" },
+			//{ platform: "linkedin", url: "https://www.linkedin.com/in/msczogiel/" },
+            //{ platform: "instagram", url: "#" },
+            //{ platform: "website", url: "#" }
+        ]
+    },
 ];
 
 // data.js - dodajemy bazę projektów
@@ -807,6 +825,34 @@ const news = [
             //{ label: { pl: ``, en: `` }, url: `` },
             //{ label: { pl: ``, en: `` }, url: `` },
             //{ label: { pl: ``, en: `` }, url: `` }
+        ]
+    },
+    {
+        id: `tvp3-2026`,
+        date: `2026-03-23`,
+        title: {
+            pl: `Nasze koło naukowe gościem programu „Dobrego dnia” w TVP3 Warszawa!`,
+            en: `Our Science Club Featured on TVP3 Warsaw`
+        },
+        shortDesc: {
+            pl: `Członkowie naszego koła naukowego byli gośćmi programu "Dobrego dnia" w TVP3 Warszawa, gdzie zaprezentowali nasze najnowsze osiągnięcia w dziedzinie technologii bezzałogowych. Podczas rozmowy przybliżyliśmy kulisy prac nad dronem stratosferycznym Hawk Eye oraz podwodnym systemem Blue Spark, podkreślając ich realny potencjał wdrożeniowy w nauce i przemyśle. To wystąpienie było doskonałą okazją do pokazania, jak w ramach ogólnopolskiej współpracy studenckiej skutecznie przekuwamy innowacyjne idee w działające rozwiązania technologiczne.`,
+            en: `Members of our science club appeared on TVP3 Warsaw’s "Dobrego dnia" to showcase our latest advancements in unmanned technology. During the interview, they shared insights into the development of the Hawk Eye stratospheric drone and the Blue Spark underwater system, emphasizing their real-world application potential in both science and industry. This broadcast served as a perfect platform to demonstrate how our nationwide student collaboration effectively transforms innovative ideas into functional technological solutions.`
+        },
+        fullDesc: {
+            pl: `Członkowie naszego koła naukowego – Jan Mikołajczyk (prezes koła i lider projektu), Stanisław Świecki (lider zespołu konstrukcyjnego) oraz Maciej Domagalski (główny inżynier projektu) – niedawno wystąpili w programie „Dobrego dnia” w TVP3 Warszawa, gdzie opowiedzieli o naszej codziennej działalności oraz kierunkach rozwoju technologii bezzałogowych. Podczas rozmowy nasi reprezentanci podkreślili, że z powodzeniem zrzeszamy ambitne osoby z różnych uczelni w całej Polsce, które wspólnie z nami chcą rozwijać swoje kompetencje poprzez pracę nad nowoczesnymi rozwiązaniami technologicznymi. Jednym z głównych tematów wystąpienia był projekt Hawk Eye, czyli zaawansowany dron stratosferyczny, nad którym obecnie pracujemy. Zaprezentowaliśmy zarówno ambitne założenia tego systemu, jak i jego aktualny stan rozwoju oparty na już działającym prototypie, który stanowi dla nas fundament dalszych prac badawczych w zakresie monitoringu środowiska i wsparcia nauki.
+                Duże zainteresowanie widzów wzbudził również Blue Spark – nasz autonomiczny dron podwodny, którego potencjał w badaniach akwenów, przemyśle oraz misjach eksploracyjnych udowadnia, że rozwijane przez nas technologie nie ograniczają się wyłącznie do przestrzeni powietrznej. W trakcie programu mocno zaznaczyliśmy nasze nadrzędne założenie, wedle którego tworzone przez nas rozwiązania nie są jedynie akademickimi koncepcjami, lecz dążymy do tego, aby posiadały realny potencjał wdrożeniowy poza murami uczelni. Katalog prezentowanych inicjatyw uzupełniliśmy o inne projekty, takie jak MUSC oparty na technologii roju dronów, FlySearch oraz system Snow’s Eye, które wspólnie budują spójny i wszechstronny kierunek rozwoju technologii bezzałogowych o szerokim spektrum zastosowań.
+                Udział w programie był dla nas nie tylko szansą na zaprezentowanie efektów naszej pracy szerszej publiczności, ale również ważnym krokiem w budowaniu świadomości na temat roli nowoczesnych systemów autonomicznych w nauce i przemyśle. Całe wystąpienie stało się dla nas doskonałym potwierdzeniem tego, jak skutecznie potrafimy przekładać śmiałe idee na konkretne rozwiązania technologiczne, które wkrótce mogą realnie wpłynąć na oblicze współczesnej techniki. Udział w programie był dla nas ważnym doświadczeniem, które motywuje do dalszego rozwoju naszych systemów oraz podejmowania kolejnych wyzwań inżynieryjnych.
+        `,
+            en: `Members of our science club – Jan Mikołajczyk (President and Project Leader), Stanisław Świecki (Construction Team Lead), and Maciej Domagalski (Chief Project Engineer) – were recently invited to the "Dobrego dnia" program on TVP3 Warsaw, where they discussed our daily operations and the strategic directions of unmanned technology development. During the interview, our representatives emphasized that we successfully unite ambitious individuals from various universities across Poland who wish to enhance their competencies by working on cutting-edge technological solutions. A central theme of the appearance was the Hawk Eye project – an advanced stratospheric drone currently under development. We presented both the ambitious objectives of this system and its current stage of development, centred around a fully functional prototype that serves as the foundation for our ongoing research into environmental monitoring and scientific support.
+                The audience also showed significant interest in Blue Spark – our autonomous underwater vehicle (AUV). Its potential applications in aquatic research, industrial inspections, and exploration missions demonstrate that our technological innovations extend far beyond the aerial domain. Throughout the broadcast, we firmly highlighted our core principle: the solutions we develop are not merely academic concepts. Instead, we strive to ensure they possess genuine implementation potential outside the university environment. Our portfolio of initiatives was further supplemented by other projects, such as MUSC, based on drone swarm technology, as well as FlySearch and the Snow’s Eye system, which together form a cohesive and versatile trajectory for unmanned systems across a broad spectrum of applications.
+                Participating in the program was not only an opportunity to showcase the results of our work to a wider audience but also a vital step in raising awareness regarding the role of modern autonomous systems in science and industry. The appearance served as a powerful testament to our ability to translate bold ideas into tangible technological solutions that could soon have a profound impact on the landscape of modern engineering. Our involvement in the broadcast was a significant milestone, further motivating us to refine our systems and tackle the next generation of engineering challenges.
+        `
+        },
+        links: [
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` }
         ]
     }
 ];
