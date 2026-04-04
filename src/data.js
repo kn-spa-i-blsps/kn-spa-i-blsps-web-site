@@ -918,8 +918,8 @@ const partners = [
     {
         id: 9,
         name: "Instytut Geofizyki PAN",
-        url: "https://pan.pl/",
-        logo: "https://pan.pl/app/uploads/2025/09/Logo_PAN_PL_RGB.png",
+        url: "https://www.igf.edu.pl/",
+        logo: "https://www.igf.edu.pl/app/uploads/2025/05/igf-pl-colour-scaled.png",
         category: "support"
     },
     {
