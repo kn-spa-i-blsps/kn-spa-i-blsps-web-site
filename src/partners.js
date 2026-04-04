@@ -23,21 +23,16 @@ function renderPartners() {
                     ${items.map(partner => `
                         <a href="${partner.url}" target="_blank" rel="noopener noreferrer" 
                         class="group relative flex items-center justify-center p-10 rounded-2xl 
-                                /* Tło: czarne, półprzezroczyste, z lekkim rozmyciem */
-                                bg-black/20 backdrop-blur-sm border border-black/20 
+                                bg-black/20 border border-black/20 
                                 transition-all duration-500 
                                 hover:bg-black/65 hover:border-black hover:-translate-y-2 aspect-[16/9]">
                             
                             <img 
                                 src="${partner.logo}" 
                                 alt="${partner.name}" 
-                                /* KLUCZOWE ZMIANY TUTAJ: */
-                                /* brightness(0) invert(1) zamienia czarne logo na białe, a białe zostawia białe */
-                                /* opacity-70 sprawia, że są jednolite i nie dominują */
                                 class="max-h-full max-w-full w-auto h-auto object-contain 
                                     transition-all duration-500 
-                                    filter brightness(0) invert(1) opacity-70 
-                                    /* Po najechaniu usuwamy filtry i przywracamy kolory */
+                                    filter brightness(0) invert(1) 
                                     group-hover:filter-none group-hover:opacity-100 group-hover:scale-105"
                             >
                         </a>
