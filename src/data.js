@@ -417,16 +417,16 @@ const members = [
         ]
     },
     { 
-        id: "iza-grodek", 
-        name: "Iza Gródek", 
+        id: "izabela-grodek", 
+        name: "Izabela Gródek", 
         role: {
     		pl: "Marketing",
     		en: "Marketing"
 		},
         customTags: [{ pl: "Marketing", en: "Marketing" }],
         bio: {
-    		pl: "",
-            en: "",
+    		pl: `Hej, jestem Iza. Studiuję Zarządzanie na Uniwersytecie Warszawskim. W swoich działaniach stawiam na pro aktywność i otwartość na nowe wyzwania. Interesuję się tym, jak biznes funkcjonuje w skali globalnej oraz jak różne kultury wpływają na sposób pracy w zespole. Moją wielką pasją jest Formuła 1 – uwielbiam w niej połączenie strategii, technologii i szybkości podejmowania decyzji. W wolnych chwilach zajmuję się fotografią, która uczy mnie uważności i kreatywnego spojrzenia na świat.`,
+            en: `Hi, I’m Iza. I’m a Management student at the University of Warsaw. In everything I do, I focus on being proactive and open to new challenges. I’m interested in how business operates on a global scale and how different cultures influence teamwork. My biggest passion is Formula 1 – I love the mix of strategy, technology, and split-second decision-making. In my free time, I’m into photography, which teaches me to stay observant and keep a creative perspective on the world.`,
         },
         socials: [
             //{ platform: "github", url: "https://github.com/MikolajSczogiel" },
@@ -863,20 +863,100 @@ const partners = [
         id: 1,
         name: "Politechnika Warszawska",
         url: "https://www.pw.edu.pl/",
-        logo: "https://www.ch.pw.edu.pl/var/ch/storage/images/media/images/logo-pw/14895-2-pol-PL/logo-PW_imagelarge.png"
+        logo: "https://www.ch.pw.edu.pl/var/ch/storage/images/media/images/logo-pw/14895-2-pol-PL/logo-PW_imagelarge.png",
+        category: "partner"
     },
     {
         id: 2,
         name: "Uniwersytet Warszawski",
         url: "https://www.uw.edu.pl/",
-        logo: "https://www.uw.edu.pl/wp-content/uploads/2017/07/logo-2-11.png"
+        logo: "https://www.uw.edu.pl/wp-content/uploads/2017/07/logo-2-11.png",
+        category: "partner"
     },
     {
         id: 3,
+        name: "Creotech GEO",
+        url: "https://creotech.pl/",
+        logo: "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1775328864/kn-spa-i-blsps/logos/Creotech_GEO.png",
+        category: "partner"
+    },
+    {
+        id: 4,
+        name: "Inkubator UW",
+        url: "https://iuw.edu.pl/",
+        logo: "https://iuw.edu.pl/wp-content/uploads/2022/07/logo-inkubator.svg",
+        category: "partner"
+    },
+    {
+        id: 5,
         name: "Botland",
         url: "https://botland.com.pl",
-        logo: "https://botland.com.pl/img/polska-logo-1603126632.jpg"
+        logo: "https://botland.com.pl/img/polska-logo-1603126632.jpg",
+        category: "partner"
     },
+    {
+        id: 6,
+        name: "Siemens",
+        url: "https://www.siemens.com/en-us/",
+        logo: "https://press.siemens.com/profiles/c2_base/modules/c2cms_instance_logo/assets/sag-logo.png",
+        category: "support"
+    },
+    {
+        id: 7,
+        name: "Fundacja Orlen",
+        url: "https://fundacja.orlen.pl/pl",
+        logo: "https://mojemiejscenaziemi.pl/wp-content/uploads/2022/07/Logo-ORLEN.png",
+        category: "support"
+    },
+    {
+        id: 8,
+        name: "Our Future Foundation",
+        url: "https://off.org.pl/",
+        logo: "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1775329364/kn-spa-i-blsps/logos/OFF.png",
+        category: "support"
+    },
+    {
+        id: 9,
+        name: "Instytut Geofizyki PAN",
+        url: "https://pan.pl/",
+        logo: "https://pan.pl/app/uploads/2025/09/Logo_PAN_PL_RGB.png",
+        category: "support"
+    },
+    {
+        id: 10,
+        name: "IDUB",
+        url: "https://inicjatywadoskonalosci.uw.edu.pl/en/",
+        logo: "https://inicjatywadoskonalosci.uw.edu.pl/wp-content/uploads/sites/11/2021/07/logotyp-IDUB-EN-poziom-kolor.svg",
+        category: "support"
+    },
+    {
+        id: 11,
+        name: "NCBR",
+        url: "https://www.gov.pl/web/ncbr",
+        logo: "https://www.gov.pl/logo/3fe4125e-947b-4513-bdcd-cf161ce5871d",
+        category: "support"
+    },
+    {
+        id: 12,
+        name: "Uczelnie przyszłości",
+        url: "https://www.gov.pl/web/ncbr/projekt-uczelnie-przyszlosci",
+        logo: "https://p.lodz.pl/sites/default/files/styles/max_250x250/public/2025-02/uczelenie_przyszlosci_logo.png",
+        category: "support"
+    },
+    {
+        id: 13,
+        name: "PTAK Warsaw Expo",
+        url: "https://warsawexpo.eu/",
+        logo: "https://warsawexpo.eu/wp-content/uploads/2019/07/logo-white.png",
+        category: "support"
+    },
+    {
+        id: 14,
+        name: "Ministerstwo Nauki i Szkolnictwa Wyższego",
+        url: "https://www.gov.pl/web/nauka",
+        logo: "https://www.gov.pl/img/units/nauka/05_znak_uproszczony_kolor_biale_tlo.png",
+        category: "support"
+    }
 ];
 
 // Jeśli używasz modułów, dodaj export, jeśli nie - zmienna będzie dostępna globalnie

@@ -136,7 +136,7 @@ function handleImageError(imgElement, nextSrc, finalFallback) {
 }
 
 /**
- * 3. DYNAMICZNY HERO SLIDER (SZUKANIE W GALLERY/MAIN)
+ * 3. DYNAMICZNY HERO SLIDER (SEKWENCYJNE SZUKANIE W MAIN/)
  */
 let currentSlide = 0;
 let slideInterval;
@@ -148,35 +148,46 @@ async function initHeroGallery() {
     if (!galleryContainer) return;
 
     detectedHeroSlides = [];
-    const extensions = ['jpg', 'jpeg', 'png'];
-    const MAX_HERO_FILES = 10; // Sprawdzamy do 10 zdjęć w folderze gallery/main/
+    const extensions = ['jpg', 'jpeg', 'png', 'webp'];
+    const MAX_HERO_FILES = 12; // Maksymalny dopuszczalny limit
 
-    // Brute-force szukanie zdjęć w gallery/main/1, 2, 3...
+    // SEKWENCYJNE SZUKANIE: jeśli brakuje numeru "i", przerywamy sprawdzanie kolejnych
     for (let i = 1; i <= MAX_HERO_FILES; i++) {
-        let found = false;
+        let foundThisIndex = false;
+        
         for (const ext of extensions) {
-            const path = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/main/${i}.${ext}`;
+            const path = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1200/kn-spa-i-blsps/main/${i}.${ext}`;
             const exists = await checkIfFileExists(path);
+            
             if (exists) {
-                // Szukamy labeli/tytułów w heroSlides z data.js (jeśli są dopasowane po indeksie)
-                const meta = (typeof heroSlides !== 'undefined' && heroSlides[i-1]) ? heroSlides[i-1] : { label: "ARCHIVE_DATA", title: `NODE_0${i}` };
+                // Dopasowanie metadanych z data.js (jeśli istnieją pod tym indeksem)
+                const meta = (typeof heroSlides !== 'undefined' && heroSlides[i-1]) 
+                    ? heroSlides[i-1] 
+                    : { label: "ARCHIVE_DATA", title: `NODE_0${i}` };
+                
                 detectedHeroSlides.push({ img: path, label: meta.label, title: meta.title });
-                found = true;
-                break;
+                foundThisIndex = true;
+                break; // Znaleziono format, przerywamy sprawdzanie innych rozszerzeń dla tego numeru
             }
+        }
+
+        if (!foundThisIndex) {
+            // BRAK PLIKU O NUMERZE i: Przerywamy sprawdzanie dalszych numerów (np. 3 brakuje -> nie sprawdza 4)
+            console.log(`Hero Slider: Sequence broken at index ${i}. Stopping search.`);
+            break; 
         }
     }
 
-    // Jeśli nic nie znalazło w folderze, spróbuj użyć starego heroSlides z data.js
+    // Fallback: jeśli folder /main/ jest pusty, użyj danych statycznych z data.js
     if (detectedHeroSlides.length === 0 && typeof heroSlides !== 'undefined') {
         detectedHeroSlides = heroSlides;
     }
 
     if (detectedHeroSlides.length === 0) return;
 
-    // Renderowanie slajdów i kropek
+    // Renderowanie elementów wizualnych
     galleryContainer.innerHTML = "";
-    dotsContainer.innerHTML = "";
+    if (dotsContainer) dotsContainer.innerHTML = "";
 
     detectedHeroSlides.forEach((slide, index) => {
         const img = document.createElement('img');
@@ -185,10 +196,12 @@ async function initHeroGallery() {
         img.id = `hero-img-${index}`;
         galleryContainer.appendChild(img);
 
-        const dot = document.createElement('div');
-        dot.className = `h-1 transition-all duration-500 ${index === 0 ? 'w-16 bg-[#038DAE]' : 'w-4 bg-slate-200'}`;
-        dot.id = `hero-dot-${index}`;
-        dotsContainer.appendChild(dot);
+        if (dotsContainer) {
+            const dot = document.createElement('div');
+            dot.className = `h-1 transition-all duration-500 ${index === 0 ? 'w-16 bg-[#038DAE]' : 'w-4 bg-slate-200'}`;
+            dot.id = `hero-dot-${index}`;
+            dotsContainer.appendChild(dot);
+        }
     });
 
     startHeroLogic();

@@ -15,7 +15,18 @@
             background-size: 25px 25px;
             color: #012A4F;
         }
-        .gallery-fade { transition: opacity 1s ease-in-out; }
+        /* Płynne przejście zdjęć w sliderze */
+        .gallery-fade { transition: opacity 0.7s ease-in-out; }
+        
+        /* Styl dla treści artykułu (odstępy, czcionki) */
+        #article-content p { margin-bottom: 1.5rem; line-height: 1.8; }
+        #article-content h2, #article-content h3 { 
+            color: #012A4F; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            margin-top: 2rem; 
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 <body class="selection:bg-[#038DAE] selection:text-white">
@@ -28,7 +39,7 @@
                 </div>
                 <div class="hidden lg:flex flex-col border-l border-slate-200 pl-6">
                     <div class="flex items-center gap-2">
-                        <div class="w-1.5 h-1.5 bg-[#038DAE] rounded-sm status-blink"></div>
+                        <div class="w-1.5 h-1.5 bg-[#038DAE] rounded-sm animate-pulse"></div>
                         <span class="font-bold tracking-[0.2em] text-[10px] uppercase text-[#012A4F]">KN SPA I BLSPS // REPORT_ARCHIVE</span>
                     </div>
                 </div>
@@ -39,78 +50,76 @@
                     <a href="index.html" class="t-translate text-[#012A4F] hover:text-[#038DAE] transition uppercase" data-pl="GŁÓWNA" data-en="HOME">GŁÓWNA</a>
                     <a href="team.html" class="t-translate text-[#012A4F] hover:text-[#038DAE] transition uppercase" data-pl="ZESPÓŁ" data-en="TEAM">ZESPÓŁ</a>
                 </div>
-
-                <a href="contact.html" class="t-translate border border-[#038DAE] text-[#038DAE] px-5 py-2 hover:bg-[#038DAE] hover:text-white transition duration-300 font-bold uppercase" data-pl="KONTAKT" data-en="CONTACT">
-                    KONTAKT
-                </a>
-
+                <a href="contact.html" class="t-translate border border-[#038DAE] text-[#038DAE] px-5 py-2 hover:bg-[#038DAE] hover:text-white transition duration-300 font-bold uppercase" data-pl="KONTAKT" data-en="CONTACT">KONTAKT</a>
                 <button onclick="toggleLanguage()" class="flex items-center gap-2 px-3 py-2 border border-slate-200 hover:border-[#038DAE] transition-all bg-slate-50 group/lang">
-                    <span id="lang-flag" class="text-base leading-none group-hover/lang:scale-110 transition-transform">🇵🇱</span>
+                    <span id="lang-flag" class="text-base leading-none">🇵🇱</span>
                     <span id="lang-label" class="text-[9px] text-slate-400 group-hover/lang:text-[#038DAE]">PL</span>
                 </button>
             </div>
         </div>
     </nav>
 
-    <header class="relative h-[60vh] min-h-[400px] bg-black overflow-hidden border-b-2 border-[#038DAE]">
-        <div id="hero-slider-container" class="absolute inset-0">
-            </div>
+    <header id="main-header" style="height: 75vh; min-height: 500px;" class="relative bg-slate-900 overflow-hidden border-b-2 border-[#038DAE]">
+        <img id="article-main-img" src="" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#012A4F]/90 via-[#012A4F]/20 to-transparent pointer-events-none"></div>
         
-        <div class="absolute inset-0 bg-gradient-to-t from-[#012A4F] via-[#012A4F]/40 to-transparent"></div>
-        
-        <div class="absolute bottom-0 left-0 w-full p-8 md:p-16">
+        <div class="absolute bottom-0 left-0 w-full p-8 md:p-16 pointer-events-none z-10">
             <div class="max-w-7xl mx-auto">
-                <div id="article-date" class="text-[#038DAE] font-mono text-[13px] tracking-[0.5em] mb-4 font-bold">LOADING_TIMESTAMP...</div>
-                <h1 id="article-title" class="text-4xl md:text-6xl lg:text-7xl font-black text-white uppercase tracking-tighter leading-none italic mb-4">
+                <div id="article-date" class="text-[#038DAE] font-mono text-[11px] md:text-[14px] tracking-[0.5em] mb-4 font-bold bg-white/10 w-fit px-3 py-1 backdrop-blur-md border-l-2 border-[#038DAE]">
+                    LOADING_TIMESTAMP...
+                </div>
+                <h1 id="article-title" class="text-4xl md:text-6xl lg:text-7xl font-black text-white uppercase tracking-tighter leading-[0.85] italic max-w-5xl drop-shadow-2xl">
                     LOADING_TITLE...
                 </h1>
-                <div id="slider-dots" class="flex gap-2 mt-6"></div>
             </div>
-        </div>
-
-        <div class="absolute top-8 right-8 bg-[#038DAE] text-white text-[9px] px-3 py-1 font-bold uppercase tracking-widest animate-pulse">
-            LIVE_PREVIEW // ATTACHED_MEDIA
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-6 py-16 grid lg:grid-cols-12 gap-16">
-        
-        <div class="lg:col-span-8">
-            <div id="article-content" class="text-slate-600 leading-relaxed text-sm md:text-base prose prose-slate max-w-none">
-                </div>
+    <main class="max-w-7xl mx-auto px-6 py-16">
+        <div class="grid lg:grid-cols-12 gap-16">
+            <div class="lg:col-span-8">
+                <div id="article-content" class="text-slate-600 leading-relaxed text-sm md:text-base prose prose-slate max-w-none mb-16"></div>
 
-            <div class="mt-20 border-t border-slate-100 pt-16">
-                <h2 class="text-[#038DAE] font-bold text-[10px] tracking-[0.5em] uppercase mb-10 flex items-center gap-4">
-                    <span class="w-8 h-[1px] bg-[#038DAE]"></span> FULL_IMAGE_DATABASE
-                </h2>
-                <div id="article-gallery" class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                <section id="article-gallery-section" class="border-t border-slate-200 pt-16">
+                <div class="flex items-center gap-4 mb-10">
+                    <div class="w-12 h-[2px] bg-[#038DAE]"></div>
+                    <h2 class="text-[#012A4F] font-bold text-[14px] tracking-[0.4em] uppercase">
+                        <span class="t-translate" 
+                            data-pl="Dokumentacja_Wizualna" 
+                            data-en="Visual_Documentation">
+                            Dokumentacja_Wizualna
+                        </span>
+                    </h2>
+                </div>
+                <div id="article-gallery-grid" class="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
                     </div>
+            </section>
             </div>
+
+            <aside class="lg:col-span-4">
+                <div class="sticky top-24">
+                    <div class="p-8 border border-slate-200 bg-white relative">
+                        <div class="absolute -top-[1px] -left-[1px] w-4 h-4 border-t-2 border-l-2 border-[#038DAE]"></div>
+                        <div class="absolute -bottom-[1px] -right-[1px] w-4 h-4 border-b-2 border-r-2 border-[#038DAE]"></div>
+                        <h3 class="text-[#012A4F] font-bold text-[12px] tracking-[0.3em] uppercase mb-6">External_Resources</h3>
+                        <div id="article-links" class="space-y-4"></div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <div id="lightbox" class="fixed inset-0 bg-[#012A4F]/95 z-[100] hidden flex-col items-center justify-center p-4 backdrop-blur-md">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-4xl font-light hover:text-[#038DAE] transition-colors">&times;</button>
+        
+        <div class="relative max-w-5xl w-full flex items-center justify-center">
+            <button onclick="changeLightboxSlide(-1)" class="absolute -left-4 md:-left-16 text-white text-5xl hover:text-[#038DAE] transition-all p-4">‹</button>
+            <img id="lightbox-img" src="" class="max-h-[85vh] max-w-full object-contain border border-white/10 shadow-2xl">
+            <button onclick="changeLightboxSlide(1)" class="absolute -right-4 md:-right-16 text-white text-5xl hover:text-[#038DAE] transition-all p-4">›</button>
         </div>
 
-        <aside class="lg:col-span-4 space-y-8">
-            <div class="sticky top-24">
-                <div class="p-8 border border-slate-200 bg-white relative group">
-                    <div class="absolute -top-[1px] -left-[1px] w-4 h-4 border-t-2 border-l-2 border-[#038DAE]"></div>
-                    <div class="absolute -bottom-[1px] -right-[1px] w-4 h-4 border-b-2 border-r-2 border-[#038DAE]"></div>
-                    
-                    <h3 class="text-[#012A4F] font-bold text-[12px] tracking-[0.3em] uppercase mb-6 flex items-center gap-2">
-                        EXTERNAL_RESOURCES [01]
-                    </h3>
-                    
-                    <div id="article-links" class="space-y-4">
-                        </div>
-                </div>
-
-                <div class="mt-8 p-6 bg-[#012A4F] text-white/50 text-[10px] font-mono leading-relaxed border-l-4 border-[#038DAE]">
-                    <span class="text-white block mb-2 font-bold tracking-widest">STATION_INFO:</span>
-                    REPORT_ID: <span id="info-id">---</span><br>
-                    STAUTS: VERIFIED_BY_CORE<br>
-                    ENCRYPTION: AES_256_VLC
-                </div>
-            </div>
-        </aside>
-    </main>
+        <div id="lightbox-counter" class="mt-8 text-[#038DAE] font-mono text-[10px] tracking-[0.5em] uppercase"></div>
+    </div>
 
     <footer class="py-10 text-center text-[10px] text-slate-400 uppercase tracking-[0.5em] font-bold border-t border-slate-100">
         &copy; KN SPA I BLSPS // DATA_TRANSMISSION_SECURED
