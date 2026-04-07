@@ -19,10 +19,16 @@ function updateStaticTranslations() {
     const elements = document.querySelectorAll('.t-translate');
     
     elements.forEach(el => {
+        // 1. Obsługa tekstów (to co już masz)
         const text = el.getAttribute(`data-${window.currentLang}`);
         if (text) {
-            // Używamy innerHTML, żeby obsłużyć tagi typu <br> lub <span> w tłumaczeniach
             el.innerHTML = text;
+        }
+
+        // 2. NOWOŚĆ: Obsługa linków (href)
+        const newHref = el.getAttribute(`data-${window.currentLang}-href`);
+        if (newHref) {
+            el.setAttribute('href', newHref);
         }
     });
 }
