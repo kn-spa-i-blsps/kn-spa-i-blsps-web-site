@@ -855,6 +855,60 @@ const news = [
             // { label: { pl: ``, en: `` }, url: `` },
             // { label: { pl: ``, en: `` }, url: `` }
         ]
+    },
+    {
+        id: `botland-2026`,
+        date: `2026-04-10`,
+        title: {
+            pl: `Wspólnie dla innowacji: Partnerstwo naszego Koła Naukowego z firmą Botland`,
+            en: `Powering Innovation: Our Student Research Group Partners with Botland`
+        },
+        shortDesc: {
+            pl: `Z ogromną radością ogłaszamy nawiązanie współpracy partnerskiej pomiędzy naszym kołem a firmą Botland. Jako czołowy polski dystrybutor drukarek 3D, elektroniki i technologii dla pasjonatów, Botland wesprze nasze koło w realizacji najbardziej ambitnych projektów inżynierskich. Zapraszamy do zapoznania się ze szczegółami tego technologicznego partnerstwa oraz ofertą naszego partnera na stronie https://botland.com.pl/.`,
+            en: `We are thrilled to announce a strategic partnership between our student research group and Botland. As a premier Polish distributor of 3D printers, electronics, and cutting-edge technology for enthusiasts, Botland will support our most ambitious engineering endeavors. We invite you to explore the details of this technological alliance and browse our partner's extensive portfolio at https://botland.com.pl/ `
+        },
+        fullDesc: {
+            pl: `Z wielką przyjemnością ogłaszamy nawiązanie oficjalnej współpracy pomiędzy naszym kołem naukowym a firmą Botland. Jest to dla nas wyjątkowe wydarzenie, ponieważ łączymy siły z uznanym, polskim dystrybutorem drukarek 3D, elektroniki i nowoczesnych technologii stworzonych z myślą o pasjonatach. Wsparcie tak doświadczonego partnera otwiera przed nami zupełnie nowe możliwości w zakresie realizacji zaawansowanych projektów technicznych oraz prototypowania innowacyjnych rozwiązań.
+        Współpraca z Botland to przede wszystkim dostęp do najwyższej jakości komponentów i narzędzi, które są niezbędne w codziennej pracy naszych konstruktorów. Jako marka silnie zakorzeniona w środowisku twórców i inżynierów, nasz nowy partner doskonale rozumie potrzeby ambitnych projektów studenckich. Jesteśmy przekonani, że ta współpraca zaowocuje wieloma ciekawymi konstrukcjami, które już niedługo zaprezentujemy szerszej publiczności. Zachęcamy wszystkich do odwiedzenia strony internetowej naszego partnera pod adresem https://botland.com.pl/ i śledzenia efektów naszych wspólnych działań technologicznych.
+        `,
+            en: `It is with great pleasure that we announce the commencement of an official partnership between our student research group and Botland. This collaboration marks a significant milestone for us, as we join forces with a renowned Polish distributor of 3D printers, electronic components, and cutting-edge technologies specifically designed for tech enthusiasts. Securing the support of such an experienced partner unlocks a wealth of new opportunities for us, particularly in executing advanced technical projects and prototyping innovative solutions.
+        Our collaboration with Botland primarily ensures seamless access to high-fidelity components and specialized tools, which are indispensable for the day-to-day operations of our engineers and designers. As a brand deeply rooted in the maker and engineering communities, our new partner possesses a profound understanding of the requirements inherent in ambitious student-led initiatives. We are confident that this synergy will result in numerous sophisticated constructions, which we look forward to unveiling to a wider audience in the near future. We encourage everyone to visit our partner’s website at https://botland.com.pl/  and follow the progress of our collaborative technological ventures.
+        `
+        },
+        links: [
+            { label: { pl: `BOTLAND`, en: `BOTLAND` }, url: `https://botland.com.pl/` },
+            //{ label: { pl: ``, en: `` }, url: `` },
+            //{ label: { pl: ``, en: `` }, url: `` },
+            //{ label: { pl: ``, en: `` }, url: `` }
+        ]
+    },
+    {
+        id: `european-drone-forum-2026`,
+        date: `2026-03-24`,
+        title: {
+            pl: `W centrum europejskiej debaty o dronach: Relacja z European Drone Forum`,
+            en: `At the Forefront of UAS Innovation: Insights from the European Drone Forum`
+        },
+        shortDesc: {
+            pl: `Reprezentant naszego koła naukowego wizytował European Drone Forum, kluczowe wydarzenie skupiające liderów branży i organów regulacyjnych z całej Europy. Udział w prelekcjach dotyczących certyfikacji oraz integracji systemów bezzałogowych w cywilnej przestrzeni powietrznej pozwolił nam na konfrontację naszych działań z najnowszymi światowymi standardami. Zdobyta wiedza merytoryczna oraz wgląd w procesy standaryzacji technicznej stanowią dla nas strategiczny fundament do dalszej optymalizacji realizowanych projektów inżynieryjnych.`,
+            en: `A representative of our science club recently attended the European Drone Forum, a premier event gathering industry leaders and regulatory bodies from across Europe. Engaging in high-level discussions on certification and the integration of unmanned systems into civil airspace allowed us to align our current initiatives with the latest global benchmarks. The technical insights and firsthand exposure to standardization processes will serve as a strategic foundation for the further optimization of our ongoing engineering projects.`
+        },
+        fullDesc: {
+            pl: `Niedawno przedstawiciel naszego koła naukowego miał okazję uczestniczyć w European Drone Forum – jednym z najbardziej prestiżowych wydarzeń branżowych w Europie, skupiającym kluczowych ekspertów, liderów przemysłu oraz przedstawicieli organów regulacyjnych. Udział w forum w roli wizytującego zapewnił nam bezpośredni wgląd w najnowsze trendy i priorytety rozwojowe, które obecnie kształtują rynek systemów autonomicznych. Podczas licznych prelekcji nasz reprezentant analizował zagadnienia dotyczące ewoluujących przepisów bezpieczeństwa, certyfikacji oraz integracji bezzałogowców w cywilnej przestrzeni powietrznej, co stanowi obecnie jedno z największych wyzwań dla inżynierów i operatorów na całym świecie.
+        Wizyta ta była niezwykle cennym doświadczeniem merytorycznym, pozwalającym skonfrontować naszą wiedzę z wizjami największych graczy technologicznych. Obserwacja prezentowanych innowacji oraz kierunków, w jakich zmierzają europejskie regulacje, utwierdziła nas w przekonaniu, że nasza codzienna praca badawczo-rozwojowa trafnie wpisuje się w nowoczesne standardy i odpowiada na realne potrzeby rynku. Możliwość przyjrzenia się z bliska procesom standaryzacji oraz wymiana doświadczeń z praktykami z całej Europy dostarczyły nam strategicznych informacji, które realnie wpłyną na optymalizację naszych procesów projektowych i podniesienie jakości realizowanych inicjatyw.
+        Udział w tak znaczącym międzynarodowym wydarzeniu to kolejny krok w stronę budowania profesjonalnego zaplecza wiedzy, niezbędnego do operowania w dynamicznym środowisku wysokich technologii. Wyjazd ten traktujemy jako kluczowy element rozwoju, dzięki któremu jesteśmy w stanie jeszcze precyzyjniej definiować nasze cele inżynieryjne i naukowe. Wracamy z forum z nowym spojrzeniem na przyszłość technologii autonomicznych oraz solidnym przygotowaniem teoretycznym, które pozwoli nam dbać o to, by każda podejmowana przez nas inicjatywa była zawsze w pełni zgodna z najbardziej aktualnymi wymogami panującymi w branży bezzałogowej.
+        `,
+            en: `A representative of our science club recently had the privilege of attending the European Drone Forum, one of the most prestigious industry events in Europe, bringing together key experts, industry leaders, and regulatory representatives. Participating in the forum as a visiting observer provided us with direct insight into the emerging trends and developmental priorities currently shaping the autonomous systems market. Throughout numerous presentations, our representative analysed critical issues surrounding evolving safety regulations, certification, and the integration of Unmanned Aircraft Systems (UAS) into civil airspace – one of the foremost challenges currently facing engineers and operators worldwide.
+        This visit proved to be an invaluable scholarly experience, allowing us to benchmark our expertise against the visions of major technological stakeholders. Observing the showcased innovations and the trajectory of European regulations reinforced our confidence that our daily research and development efforts are firmly aligned with modern global standards and effectively address real-world market demands. Gaining a closer look at technical standardization processes and exchanging experiences with practitioners from across Europe provided us with strategic data that will tangibly influence the optimization of our design workflows and enhance the quality of our initiatives.
+        Participating in such a significant international event marks another milestone in building the professional knowledge base essential for operating within the dynamic high-tech landscape. We view this involvement as a pivotal element of our development, enabling us to define our engineering and scientific objectives with even greater precision. We return from the forum with a renewed perspective on the future of autonomous technologies and a robust theoretical foundation, ensuring that every initiative we undertake remains fully compliant with the most current requirements and trends prevailing in the global unmanned industry.
+        `
+        },
+        links: [
+            //{ label: { pl: ``, en: `` }, url: `` },
+            //{ label: { pl: ``, en: `` }, url: `` },
+            //{ label: { pl: ``, en: `` }, url: `` },
+            //{ label: { pl: ``, en: `` }, url: `` }
+        ]
     }
 ];
 
