@@ -909,6 +909,73 @@ const news = [
             //{ label: { pl: ``, en: `` }, url: `` },
             //{ label: { pl: ``, en: `` }, url: `` }
         ]
+    },
+    {
+        id: `world-of-hydrogen-expo-2026`,
+        date: `2026-04-14`,
+        title: {
+            pl: `World of Hydrogen Expo 2026 – relacja z targów`,
+            en: `World of Hydrogen Expo 2026 – Event Report
+        `
+        },
+        shortDesc: {
+            pl: `World of Hydrogen Expo 2026 za nami i był to dla naszego koła wyjątkowy udział. Wystąpiliśmy w roli partnera merytorycznego targów, zaprezentowaliśmy własne stoisko, a dwoje naszych członków stanęło na scenie jako prelegenci przed ekspertami z całej Europy. Relacjonujemy, jak przebiegło jedno z najważniejszych wydarzeń wodorowych w Polsce.`,
+            en: `World of Hydrogen Expo 2026 is behind us and it was an extraordinary edition for our organisation. We took on the role of substantive partner of the expo, presented our own stand, and two of our members took to the stage as speakers before an audience of experts from across Europe. Here is our account of one of the most significant hydrogen-focused events in Poland.`
+        },
+        fullDesc: {
+            pl: `Wzięliśmy udział w World of Hydrogen Expo 2026 – jednym z najważniejszych w Polsce wydarzeń poświęconych nowoczesnym technologiom energetycznym, gromadzącym ekspertów, przedstawicieli przemysłu oraz środowiska akademickiego. Tegoroczna edycja była dla nas wyjątkowa, ponieważ uczestniczyliśmy w niej nie tylko jako goście, ale również jako partner merytoryczny targów, aktywnie współtworząc ich ekspercki charakter. Zaprezentowaliśmy się również na własnym stoisku, które stało się miejscem spotkań z przedstawicielami branży i przestrzenią do rozmów o naszej działalności.
+        Program targów oraz towarzyszącego im Hydrogen Solutions Summit skupiał się na praktycznych aspektach wdrażania technologii wodorowych i ich rosnącej roli w przemyśle oraz energetyce. Wydarzenie stworzyło wyjątkową platformę do wymiany doświadczeń między środowiskiem naukowym a rynkiem. Szczególnym wyróżnieniem dla całego koła był udział dwojga naszych członków w roli prelegentów: Jana Mikołajczyka oraz Jakuba Bałenkowskiego którzy podzielili się swoją wiedzą i doświadczeniem przed gronem specjalistów z całej Europy.
+        Udział w targach przyniósł nam wiele cennych doświadczeń – bezpośredni kontakt z aktualnymi trendami, rozmowy z firmami, instytucjami i ośrodkami badawczymi, a przede wszystkim nowe znajomości, które mogą zaowocować w przyszłych projektach. 
+        `,
+            en: `Our student research group attended World of Hydrogen Expo 2026 – one of Poland's most prominent events dedicated to cutting-edge energy technologies, bringing together experts, industry professionals, and members of the academic community. This year's edition proved particularly significant for us: we participated not merely as attendees, but as a substantive partner of the expo, actively contributing to its expert-driven character. We also hosted our own stand, which served as a meeting point for industry representatives and an opportunity for in-depth conversations about our work.
+        The programme of the expo and the accompanying Hydrogen Solutions Summit centred on the practical implementation of hydrogen technologies and their growing relevance within industry and the energy sector. The event provided an exceptional platform for the exchange of experience between the academic world and the market – an opportunity we embraced to the fullest. A particular distinction for our organisation was the participation of two of our members as speakers: Jan Mikołajczyk and Jakub Bałenkowski, who shared their expertise and insights with an audience of specialists from across Europe.
+        Our involvement in the expo proved immensely rewarding – affording us direct exposure to the latest industry trends, meaningful conversations with companies, institutions, and research centres, and above all, new connections that may well bear fruit in future projects. 
+        `
+        },
+        links: [
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` }
+        ]
+    },
+    {
+        id: `aero-2026`,
+        date: `2026-04-22`,
+        title: {
+            pl: `AERO Friedrichshafen 2026 – relacja z jednego z kluczowych wydarzeń branży lotniczej`,
+            en: `AERO Friedrichshafen 2026 – Insights from One of Europe’s Key Aviation Events`
+        },
+        shortDesc: {
+            pl: `Jak naprawdę wygląda przyszłość lotnictwa i jakie kierunki dziś wyznaczają jej rozwój? Podczas AERO Friedrichshafen 2026 mieliśmy okazję zobaczyć to z bliska — od innowacyjnych technologii po nowe modele funkcjonowania branży aviation. To doświadczenie pozwoliło nam lepiej zrozumieć, jak teoria łączy się z praktyką w dynamicznie zmieniającym się sektorze.`,
+            en: `What does the future of aviation really look like, and what are the trends shaping its development today? At AERO Friedrichshafen 2026, we had the opportunity to see it up close — from cutting-edge technologies to new models shaping the aviation industry. This experience helped us better understand how theory translates into practice in a rapidly evolving sector.`
+        },
+        fullDesc: {
+            pl: `W dniach targowych mieliśmy okazję uczestniczyć w AERO Friedrichshafen 2026 — jednym z najważniejszych wydarzeń europejskiego sektora lotniczego, które co roku gromadzi setki wystawców oraz tysiące uczestników z całego świata.
+
+        Obecność na targach była dla nas przede wszystkim szansą na bezpośrednie zetknięcie się z aktualnymi trendami w branży aviation. Wśród prezentowanych rozwiązań szczególną uwagę zwracały innowacje technologiczne, rozwój zrównoważonego lotnictwa oraz rosnące znaczenie integracji nowych modeli biznesowych w sektorze.
+
+        Udział w wydarzeniu umożliwił nam również nawiązanie wartościowych kontaktów z przedstawicielami branży — od firm technologicznych, przez operatorów, aż po organizacje rozwijające rozwiązania przyszłości dla lotnictwa. Tego typu networking stanowi istotny element budowania kompetencji i zrozumienia realiów rynku już na etapie studiów.
+
+        Nie bez znaczenia była także możliwość obserwacji, w jaki sposób teoria przekazywana w trakcie zajęć akademickich znajduje swoje odzwierciedlenie w praktyce rynkowej. Udział w AERO pozwolił nam spojrzeć szerzej na wyzwania i kierunki rozwoju współczesnego lotnictwa.
+
+        Wracamy z nową wiedzą, inspiracjami oraz motywacją do dalszego rozwoju w obszarze aviation i business.`,
+            en: `During this year’s edition of AERO Friedrichshafen 2026, we had the opportunity to take part in one of the most important events in the European aviation industry, bringing together hundreds of exhibitors and thousands of participants from around the world.
+
+        Our presence at the event was, above all, a chance to directly engage with current trends shaping the aviation sector. Among the showcased solutions, particular attention was drawn to technological innovation, the development of sustainable aviation, and the growing importance of new business models within the industry.
+
+        Participating in AERO also enabled us to establish valuable connections with industry representatives — from technology companies and operators to organizations working on future-oriented aviation solutions. This type of networking plays a key role in building practical understanding of the market already at the academic stage.
+
+        Equally important was the opportunity to observe how academic knowledge translates into real-world applications. Attending AERO allowed us to gain a broader perspective on the challenges and future directions of modern aviation.
+
+        We return with new insights, inspiration, and strong motivation to further develop in the field of aviation and business.`
+        },
+        links: [
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` }
+        ]
     }
 ];
 
