@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" role="img" aria-label="Placeholder sponsor logo">
+  <rect width="300" height="200" fill="#efe9dd"/>
+  <g stroke="#071624" stroke-width="0.5" opacity="0.1">
+    <path d="M0 50 H300 M0 100 H300 M0 150 H300"/>
+    <path d="M50 0 V200 M100 0 V200 M150 0 V200 M200 0 V200 M250 0 V200"/>
+  </g>
+  <g stroke="#1e8d9b" stroke-width="2" fill="none">
+    <rect x="100" y="65" width="100" height="70" rx="2"/>
+    <path d="M115 80 H185 M115 100 H170 M115 120 H180"/>
+  </g>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" fill="#314755">
+    <text x="150" y="180" font-size="10" letter-spacing="2" text-anchor="middle">[LOGO TBD]</text>
+  </g>
+</svg>

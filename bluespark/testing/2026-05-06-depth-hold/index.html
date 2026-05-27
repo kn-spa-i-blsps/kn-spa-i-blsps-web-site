@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="pl"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Astro v6.3.8"><title>Test depth hold - utrzymanie zadanej głębokości - 2026-05-06 | BlueSpark - Swarm AUV System</title><meta name="description" content="Pętla depth hold działa - drift w stanie ustalonym ~3-4 cm, czas powrotu do setpoint po perturbacji <3 s."><meta property="og:title" content="Test depth hold - utrzymanie zadanej głębokości - 2026-05-06 | BlueSpark - Swarm AUV System"><meta property="og:description" content="Pętla depth hold działa - drift w stanie ustalonym ~3-4 cm, czas powrotu do setpoint po perturbacji <3 s."><meta property="og:image" content="https://knspaiblsps.pl/bluespark/logo/bluespark-logo.jpeg"><meta property="og:type" content="website"><meta property="og:url" content="https://knspaiblsps.pl/bluespark/testing/2026-05-06-depth-hold/"><meta name="twitter:card" content="summary_large_image"><link rel="icon" type="image/jpeg" href="/bluespark/logo/bluespark-logo.jpeg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"><link rel="canonical" href="https://knspaiblsps.pl/bluespark/testing/2026-05-06-depth-hold/"><script>
+      // Theme persistence - dark as default, only "light" in localStorage skips dark.
+      (function() {
+        try {
+          var saved = localStorage.getItem("bluespark-theme");
+          if (saved !== "light") {
+            document.documentElement.setAttribute("data-theme", "dark");
+          }
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      })();
+    </script><link rel="stylesheet" href="/bluespark/_astro/Base.DzmNRMY1.css">
+<link rel="stylesheet" href="/bluespark/_astro/index.BqeOIjh7.css"></head> <body> <a href="#main" class="skip-link">Przejdź do treści</a> <header class="site-nav" data-astro-cid-dmqpwcec> <div class="container nav-row" data-astro-cid-dmqpwcec> <a href="/bluespark/" class="brand" aria-label="BlueSpark - Home" data-astro-cid-dmqpwcec> <img src="/bluespark/logo/bluespark-logo.jpeg" alt="" class="brand-mark" width="44" height="44" data-astro-cid-dmqpwcec> <span class="brand-text" data-astro-cid-dmqpwcec> <span class="brand-name" data-astro-cid-dmqpwcec>BlueSpark</span> <span class="brand-org" data-astro-cid-dmqpwcec>SWARM AUV SYSTEM</span> </span> </a> <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu" data-astro-cid-dmqpwcec> <span data-astro-cid-dmqpwcec></span><span data-astro-cid-dmqpwcec></span><span data-astro-cid-dmqpwcec></span> </button> <nav id="primary-nav" class="nav-items" aria-label="Primary" data-astro-cid-dmqpwcec> <ul data-astro-cid-dmqpwcec> <li data-astro-cid-dmqpwcec> <a href="/bluespark/" class data-astro-cid-dmqpwcec> <span class="num mono" data-astro-cid-dmqpwcec>[00]</span> <span data-astro-cid-dmqpwcec>Start</span> </a> </li><li data-astro-cid-dmqpwcec> <a href="/bluespark/vehicle/bluespark/" class data-astro-cid-dmqpwcec> <span class="num mono" data-astro-cid-dmqpwcec>[01]</span> <span data-astro-cid-dmqpwcec>Pojazd</span> </a> </li><li data-astro-cid-dmqpwcec> <a href="/bluespark/design/" class data-astro-cid-dmqpwcec> <span class="num mono" data-astro-cid-dmqpwcec>[02]</span> <span data-astro-cid-dmqpwcec>Decyzje</span> </a> </li><li data-astro-cid-dmqpwcec> <a href="/bluespark/testing/" class="active" data-astro-cid-dmqpwcec> <span class="num mono" data-astro-cid-dmqpwcec>[03]</span> <span data-astro-cid-dmqpwcec>Testy</span> </a> </li><li data-astro-cid-dmqpwcec> <a href="/bluespark/journal/" class data-astro-cid-dmqpwcec> <span class="num mono" data-astro-cid-dmqpwcec>[04]</span> <span data-astro-cid-dmqpwcec>Dziennik</span> </a> </li><li data-astro-cid-dmqpwcec> <a href="/bluespark/competitions/robosub-2026/" class data-astro-cid-dmqpwcec> <span class="num mono" data-astro-cid-dmqpwcec>[05]</span> <span data-astro-cid-dmqpwcec>Zawody</span> </a> </li><li data-astro-cid-dmqpwcec> <a href="/bluespark/team/" class data-astro-cid-dmqpwcec> <span class="num mono" data-astro-cid-dmqpwcec>[06]</span> <span data-astro-cid-dmqpwcec>Zespół</span> </a> </li><li data-astro-cid-dmqpwcec> <a href="/bluespark/sponsors/" class data-astro-cid-dmqpwcec> <span class="num mono" data-astro-cid-dmqpwcec>[07]</span> <span data-astro-cid-dmqpwcec>Sponsorzy</span> </a> </li><li data-astro-cid-dmqpwcec> <a href="/bluespark/contact/" class data-astro-cid-dmqpwcec> <span class="num mono" data-astro-cid-dmqpwcec>[08]</span> <span data-astro-cid-dmqpwcec>Kontakt</span> </a> </li> </ul> <div class="nav-aux" data-astro-cid-dmqpwcec> <a href="/bluespark/search/" class="nav-search" aria-label="Szukaj" data-astro-cid-dmqpwcec> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-astro-cid-dmqpwcec><circle cx="11" cy="11" r="7" data-astro-cid-dmqpwcec></circle><path d="m20 20-3.5-3.5" data-astro-cid-dmqpwcec></path></svg> <span data-astro-cid-dmqpwcec>Szukaj</span> </a> <button class="theme-switch" type="button" aria-label="Toggle dark mode" data-theme-switch data-astro-cid-g6q3pnbr> <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-g6q3pnbr> <circle cx="12" cy="12" r="4" data-astro-cid-g6q3pnbr></circle> <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" data-astro-cid-g6q3pnbr></path> </svg> <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-g6q3pnbr> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" data-astro-cid-g6q3pnbr></path> </svg> </button>  <script>
+  // is:inline = re-runs at każde ładowanie strony, nie bundle.
+  // Multiple bind protection - usuwa stary handler przed dodaniem nowego.
+  (function() {
+    const btns = document.querySelectorAll("[data-theme-switch]");
+    btns.forEach((btn) => {
+      if (btn.dataset.themeInit) return;
+      btn.dataset.themeInit = "1";
+      btn.addEventListener("click", () => {
+        const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+        if (isDark) {
+          document.documentElement.removeAttribute("data-theme");
+          localStorage.setItem("bluespark-theme", "light");
+        } else {
+          document.documentElement.setAttribute("data-theme", "dark");
+          localStorage.setItem("bluespark-theme", "dark");
+        }
+      });
+    });
+  })();
+</script> <a class="lang-switch" href="/bluespark/en/testing/2026-05-06-depth-hold/" aria-label="Switch to EN" data-lang="en" data-astro-cid-r2b4e7hz> <span class="active" data-astro-cid-r2b4e7hz>PL</span> <span class="sep" data-astro-cid-r2b4e7hz>/</span> <span class data-astro-cid-r2b4e7hz>EN</span> </a> <script>
+  document.querySelectorAll(".lang-switch[data-lang]").forEach(function(el) {
+    el.addEventListener("click", function() {
+      try { localStorage.setItem("bluespark-lang", el.getAttribute("data-lang")); } catch (e) {}
+    });
+  });
+</script> </div> </nav> </div> </header>  <script type="module">const e=document.querySelector(".nav-toggle"),n=document.querySelector(".nav-items");e?.addEventListener("click",()=>{const t=n?.classList.toggle("open");e.setAttribute("aria-expanded",t?"true":"false")});</script> <main id="main">  <section class="post-hero" data-astro-cid-lcw2b24x> <div class="container container-narrow" data-astro-cid-lcw2b24x> <div class="breadcrumb mono" data-astro-cid-lcw2b24x> <a href="/bluespark/" data-astro-cid-lcw2b24x>/</a> <span data-astro-cid-lcw2b24x>testing</span> <span data-astro-cid-lcw2b24x>/</span> <span class="current" data-astro-cid-lcw2b24x>2026-05-06-depth-hold</span> </div> <div class="post-meta-line mono" data-astro-cid-lcw2b24x> <span class="post-tag" data-astro-cid-lcw2b24x>TEST</span> <span data-astro-cid-lcw2b24x>2026-05-06</span> <span data-astro-cid-lcw2b24x>·</span> <span data-astro-cid-lcw2b24x>Basen</span> </div> <h1 class="post-title" data-astro-cid-lcw2b24x>Test depth hold - utrzymanie zadanej głębokości</h1> <p class="post-lead" data-astro-cid-lcw2b24x>Pętla depth hold działa - drift w stanie ustalonym ~3-4 cm, czas powrotu do setpoint po perturbacji &lt;3 s.</p> </div> </section> <section style="padding-block: var(--s-3);" data-astro-cid-lcw2b24x> <div class="container container-narrow" data-astro-cid-lcw2b24x> <div class="meta-box" data-astro-cid-lcw2b24x> <div class="grid grid-4 meta-grid" data-astro-cid-lcw2b24x> <div data-astro-cid-lcw2b24x><span class="label" data-astro-cid-lcw2b24x>Data</span><span class="mono value" data-astro-cid-lcw2b24x>2026-05-06</span></div> <div data-astro-cid-lcw2b24x><span class="label" data-astro-cid-lcw2b24x>Lokalizacja</span><span class="value" data-astro-cid-lcw2b24x>Basen</span></div> <div data-astro-cid-lcw2b24x><span class="label" data-astro-cid-lcw2b24x>Czas trwania</span><span class="mono value" data-astro-cid-lcw2b24x>ok. 3 h</span></div> <div data-astro-cid-lcw2b24x><span class="label" data-astro-cid-lcw2b24x>Wynik</span><span class="value result-PASS" data-astro-cid-lcw2b24x>PASS</span></div> </div> </div> </div> </section> <section class="container container-narrow section-tight" data-astro-cid-lcw2b24x> <h2 class="post-h2" data-astro-cid-lcw2b24x>Cele sesji</h2> <ul class="bullets" data-astro-cid-lcw2b24x> <li data-astro-cid-lcw2b24x>Walidacja pętli depth hold (Bar30 -&gt; Pixhawk EKF -&gt; ArduSub depth control)</li><li data-astro-cid-lcw2b24x>Pomiar drift&#39;u głębokości na zadanej setpoint (cel: ≤5 cm w stanie ustalonym)</li><li data-astro-cid-lcw2b24x>Czas powrotu do setpoint po perturbacji (manualne pchnięcie pionowe)</li><li data-astro-cid-lcw2b24x>Stabilność przy zmianie setpoint (krok 0.5 m, 1.0 m, 1.5 m)</li> </ul> </section><article class="container container-narrow section prose" data-astro-cid-lcw2b24x> <h2 id="cel">Cel</h2>
+<p>Walidacja pętli <strong>depth hold</strong> - czy pojazd potrafi samodzielnie trzymać zadaną głębokość bez ręcznego korygowania ze stacji powierzchniowej. Funkcja kluczowa dla wszystkich zadań RoboSub - bez stabilnej głębokości nie ma sensownej percepcji ani manewrowania.</p>
+<p>Pętla: <strong>Bar30 (depth, I²C) → Pixhawk EKF → ArduSub depth control mode → PWM na 4 thrustery wertykalne</strong>. Setpoint wysyłany z naszego węzła ROS 2 przez MAVROS.</p>
+<h2 id="metoda">Metoda</h2>
+<ol>
+<li>Pojazd zarmowany, manualne sterowanie z surface station.</li>
+<li>Setpoint głębokości ustawiany przez MAVROS service <code>/mavros/cmd/command</code> (kod 84 - depth target).</li>
+<li>Trzy poziomy setpoint: <strong>0.5 m</strong>, <strong>1.0 m</strong>, <strong>1.5 m</strong>.</li>
+<li>Dla każdego: pomiar drift’u w stanie ustalonym przez 60 s + 3 manualne perturbacje (pchnięcie pionowe pojazdu z surface station), pomiar czasu powrotu do setpoint.</li>
+<li>Logowanie: timestamp + zadana głębokość + odczyt Bar30 + PWM wertykalnych thrusterów.</li>
+</ol>
+<h2 id="wyniki">Wyniki</h2>
+<p><strong>PASS.</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Setpoint</th><th>Drift ustalony</th><th>Czas powrotu po perturbacji</th></tr></thead><tbody><tr><td>0.5 m</td><td>±3 cm</td><td>~2 s</td></tr><tr><td>1.0 m</td><td>±3 cm</td><td>~2.5 s</td></tr><tr><td>1.5 m</td><td>±4 cm</td><td>~3 s</td></tr></tbody></table>
+<p>Drift rośnie minimalnie z głębokością - prawdopodobnie efekt szumu sensora Bar30 + drobny coupling z thrusterami horyzontalnymi (efekt fluida przy podwodnej propulsji).</p>
+<h2 id="wnioski">Wnioski</h2>
+<ul>
+<li>Depth hold gotowy do użycia jako baseline dla mission planner’a - na ten moment używamy domyślnych gain’ów ArduSub, są wystarczające.</li>
+<li>Następny krok: walidacja depth hold w połączeniu z yaw control (test 6DOF, planowany 20-05).</li>
+<li>Strojenie PID gain’ów ArduSub pod nasz dokładny pojazd (masa 35 kg, geometria BlueROV2 Heavy) - do zrobienia jeśli wet test ujawni problem ze stabilnością przy ruchu.</li>
+</ul> </article> <section class="container container-narrow section" data-astro-cid-lcw2b24x> <hr class="hr" data-astro-cid-lcw2b24x> <div class="post-nav" data-astro-cid-lcw2b24x> <a href="/bluespark/testing/" class="btn" data-astro-cid-lcw2b24x>← Wróć do listy testów</a> <span class="mono" style="color: var(--fg-faint); font-size: 0.75rem;" data-astro-cid-lcw2b24x>TEST · 2026</span> </div> </section>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="container footer-row" data-astro-cid-sz7xmlte> <div class="footer-brand" data-astro-cid-sz7xmlte> <img src="/bluespark/logo/bluespark-logo.jpeg" alt="BlueSpark" width="120" height="120" class="footer-mark" data-astro-cid-sz7xmlte> <p class="footer-note" data-astro-cid-sz7xmlte>Projekt BlueSpark Koła Naukowego SPA i BLSPS - Uniwersytet Warszawski i Politechnika Warszawska.</p> </div> <div class="footer-links" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <h4 class="label" data-astro-cid-sz7xmlte>Projekt</h4> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/bluespark/vehicle/bluespark/" data-astro-cid-sz7xmlte>BlueSpark AUV</a></li> <li data-astro-cid-sz7xmlte><a href="/bluespark/design/" data-astro-cid-sz7xmlte>Decyzje</a></li> <li data-astro-cid-sz7xmlte><a href="/bluespark/testing/" data-astro-cid-sz7xmlte>Testy</a></li> <li data-astro-cid-sz7xmlte><a href="/bluespark/journal/" data-astro-cid-sz7xmlte>Dziennik</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <h4 class="label" data-astro-cid-sz7xmlte>Zespół</h4> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/bluespark/team/" data-astro-cid-sz7xmlte>Zespół</a></li> <li data-astro-cid-sz7xmlte><a href="/bluespark/sponsors/" data-astro-cid-sz7xmlte>Sponsorzy</a></li> <li data-astro-cid-sz7xmlte><a href="/bluespark/contact/" data-astro-cid-sz7xmlte>Kontakt</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <h4 class="label" data-astro-cid-sz7xmlte>External</h4> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="https://knspaiblsps.pl/" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>knspaiblsps.pl</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/kn-spa-i-blsps/bluespark" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> <li data-astro-cid-sz7xmlte><a href="https://robosub.org/" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>RoboSub 2026</a></li> </ul> </div> </div> </div> <div class="container footer-meta" data-astro-cid-sz7xmlte> <span class="mono" data-astro-cid-sz7xmlte>© 2026 KN SPA i BLSPS</span> <span class="mono footer-build" data-astro-cid-sz7xmlte>BUILD 2026.05</span> </div> </footer> </body></html>

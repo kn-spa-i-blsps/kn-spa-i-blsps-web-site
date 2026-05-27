@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Placeholder avatar">
+  <rect width="400" height="400" fill="#efe9dd"/>
+  <g stroke="#071624" stroke-width="0.5" opacity="0.12">
+    <path d="M0 50 H400 M0 100 H400 M0 150 H400 M0 200 H400 M0 250 H400 M0 300 H400 M0 350 H400"/>
+    <path d="M50 0 V400 M100 0 V400 M150 0 V400 M200 0 V400 M250 0 V400 M300 0 V400 M350 0 V400"/>
+  </g>
+  <g stroke="#1e8d9b" stroke-width="2.5" fill="none">
+    <circle cx="200" cy="170" r="55"/>
+    <path d="M115 340 Q115 250 200 250 Q285 250 285 340"/>
+  </g>
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" fill="#314755">
+    <text x="200" y="380" font-size="11" letter-spacing="2" text-anchor="middle">[PHOTO TBD]</text>
+  </g>
+</svg>
