@@ -58,24 +58,6 @@ const members = [
         ]
     },
     { 
-        id: "emilia-grygiel", 
-        name: "Emilia Grygiel", 
-        role: {
-    		pl: "Inżynier | Programista",
-    		en: "Engineer | Developer"
-		}, 
-        bio: {
-    		pl: "Nazywam się Emilia i jestem studentką Lotnictwa i Kosmonautyki na Politechnice Warszawskiej. Od połowy 2025 roku jestem częścią zespołu pracującego nad budową bezzałogowego statku powietrznego do misji w stratosferze. Moją rolą jest szukanie i wdrażanie zastosowań zwiększających potencjał naukowy i komercyjny naszego projektu. Zaczynałam od planowania, a następnie budowy prototypu. Teraz za jego pomocą sprawdzam w praktyce nasze pomysły, żeby mieć pewność, że będziemy mogli je wprowadzić w ostatecznej wersji drona. Swój czas spędzany poza uczelnią poświęcam na granie w planszówki ze znajomymi.",
-    		en: "My name is Emilia, and I am an Aerospace Engineering student at the Warsaw University of Technology. Since mid-2025, I have been part of a team developing an unmanned aerial vehicle (UAV) designed for stratospheric missions. My role involves identifying and implementing applications that enhance the project's scientific and commercial potential. I began with the planning phase and the construction of the prototype. Now, I am using it to test our ideas in practice, ensuring they can be successfully integrated into the final version of the drone. In my free time outside of university, I enjoy playing board games with my friends."
-		},
-        socials: [
-            //{ platform: "github", url: "#" },
-			//{ platform: "linkedin", url: "#" },
-            //{ platform: "instagram", url: "#" },
-            //{ platform: "website", url: "#" }
-        ]
-    },
-    { 
         id: "georgina-riu", 
         name: "Georgina Riu", 
         role: {
@@ -435,6 +417,103 @@ const members = [
             //{ platform: "website", url: "#" }
         ]
     },
+    { 
+        id: "bartosz-ogorkiewicz", 
+        name: "Bartosz Ogórkiewicz", 
+        role: {
+    		pl: "Inżynier | Programista",
+    		en: "Engineer | Developer"
+		},
+        bio: {
+    		pl: `Hej, nazywam się Bartek i studiuję Informatykę na Uniwersytecie Warszawskim. Od dawna interesuję się matematyką i informatyką, a na studiach szczególnie wciągnęły mnie sztuczna inteligencja i robotyka. W kole pracuję nad projektem autonomicznego drona podwodnego BlueSpark i programuję system sterowania (choć od czasu do czasu podam też komuś śrubokręt). W wolnych chwilach lubię poczytać i powspinać się na ściance.`,
+            en: `Hi, I'm Bartek and I'm a Computer Science student at the University of Warsaw. I've long been interested in mathematics and computer science, and during my studies I got particularly hooked on artificial intelligence and robotics. In the student research club I work on BlueSpark, an autonomous underwater drone, where I program the control system (though from time to time I'll also hand someone a screwdriver). In my free time I enjoy reading and indoor climbing.`,
+        },
+        socials: [
+            { platform: "github", url: "https://github.com/bartek-ogorkiewicz" },
+			{ platform: "linkedin", url: "https://www.linkedin.com/in/bartoszogorkiewicz/" },
+            // { platform: "instagram", url: "" },
+            // { platform: "website", url: "" },
+        ]
+    },
+    { 
+        id: "maciej-malewicz", 
+        name: "Maciej Malewicz", 
+        role: {
+    		pl: "Inżynier | Programista",
+    		en: "Engineer | Developer"
+		},
+        bio: {
+    		pl: `"Nazywam się Maciej i studiuję Informatykę na UW.
+Informatyka jest moją pasją, przede wszystkim jej teoretyczne aspekty, 
+ale nie stronię też od pisania kodu.
+Interesuję się szeroko pojętą fantasyką - lubię ją czytać i pisać.
+"`,
+            en: `"My name is Maciej and I study Computer Science at UW.
+Computer Science is my passion, I am especially interested in the theoretical aspects,
+but I do not dislike writing code.
+My other interests include fantasy and science fiction - both reading and writing it."`,
+        },
+        socials: [
+            { platform: "github", url: "https://github.com/malevitzch" },
+			{ platform: "linkedin", url: "https://www.linkedin.com/in/maciej-malewicz-b4a970248/" },
+            // { platform: "instagram", url: "" },
+            // { platform: "website", url: "" },
+        ]
+    },
+    { 
+        id: "aleksandra-lipinska", 
+        name: "Aleksandra Lipińska", 
+        role: {
+    		pl: "Inżynier | Programista",
+    		en: "Engineer | Developer"
+		},
+        bio: {
+    		pl: `Jestem Ola i studiuję Fizykę Indywidualną oraz Energetykę Jądrową na Uniwersytecie Warszawskim. Mój background to eksperymentalna fizyka jądrowa, a obecnie chcę wykorzystywać swoje umiejętności w projektach technicznych. W kole pracuję nad wykorzystaniem 3D Gaussian Splatting do wykrywania anomalii w środowisku podwodnym. Działam również w zarządzie Koła Naukowego Fizyki Jądrowej i Cząstek Elementarnych, a poza nauką tworzę prace plastyczne japońską techniką kiri-e oraz gram w siatkówkę.`,
+            en: `Hi, I’m Ola and I study Physics and Nuclear Power Engineering at the University of Warsaw. My background is in experimental nuclear physics, and I currently want to apply my skills in technical projects. In student research club I work on using 3D Gaussian Splatting for anomaly detection in underwater environments. I am also a board member of the Nuclear and Particle Physics Scientific Club, in free time I create artwork using the Japanese kiri-e technique and play volleyball.`,
+        },
+        socials: [
+            // { platform: "github", url: "" },
+			// { platform: "linkedin", url: "" },
+            // { platform: "instagram", url: "" },
+            // { platform: "website", url: "" },
+        ]
+    },
+    { 
+        id: "maciej-jakubowski", 
+        name: "Maciej Jakubowski", 
+        role: {
+    		pl: "Koordynator budżetu",
+    		en: "Budget Coordinator"
+		},
+        bio: {
+    		pl: `Cześć, jestem Maciek. Studiuję Finanse Biznesu i Rachunkowość na Uniwersytecie Warszawskim. W kole zajmuję się finansami i dbam o to, żeby nasze projekty spinały się budżetowo. W wolnym czasie interesuję się giełdą oraz piłką nożną.`,
+            en: `Hi, I'm Maciek. I study Business Finance and Accounting at the University of Warsaw. In KNA SPA  BLSPS, I handle the finances and make sure all our projects stay on budget. In my free time, I'm interested in the stock market and football.`,
+        },
+        socials: [
+            // { platform: "github", url: "" },
+			{ platform: "linkedin", url: "https://www.linkedin.com/in/maciej-jakubowski-5735ba404/" },
+            // { platform: "instagram", url: "" },
+            // { platform: "website", url: "" },
+        ]
+    },
+    { 
+        id: "ksawery-radomski", 
+        name: "Ksawery Radomski", 
+        role: {
+    		pl: "Inżynier | Programista",
+    		en: "Engineer | Developer"
+		},
+        bio: {
+    		pl: `Cześć, jestem Ksawery, studiuję Lotnictwo i Kosmonautykę na Politechnice Warszawskiej. Łazikami, dronami i innymi systemami łączącymi mechanikę z automatyką interesuję się od pierwszej klasy technikum. Podczas studiów chcę budować praktyczne rozwiązania, wykorzystując poznaną na wykładach teorię, dlatego znalazłem się w kole, w którym wraz z innymi zdolnymi osobami pracuję przy projekcie bezzałogowego statku powietrznego Hawk Eye. Zajmuję się konstrukcją oraz systemem wynoszenia, jak i uwalniania ładunku w powietrzu. W przyszłości chciałbym zajmować się projektowaniem, budową i integracją różnego rodzaju systemów bezzałogowych. Poza uczelnią uwielbiam pracować jako opiekun na letnich obozach, łowić ryby i jeździć rowerem. Przez miłość do wyjazdów pod namiot, w wakacje ciężko zastać mnie w domu.`,
+            en: `Hi, I'm Ksawery. I study Aerospace Engineering at the Warsaw University of Technology. I've been interested in rovers, drones, and other systems combining mechanics with automation since my first year of technical high school. During my studies, I want to build practical solutions using the theory learned in lectures. That's why I joined the student club, where I work alongside other talented people on the unmanned aerial vehicle project named Hawk Eye. I am responsible for the structural design, as well as the payload lifting and mid-air release systems. In the future, I would like to focus on designing, building, and integrating various types of unmanned systems. Outside of university, I love working as a summer camp instructor, fishing, and cycling. Because of my love for camping, it's hard to catch me at home during the summer.`,
+        },
+        socials: [
+            // { platform: "github", url: "" },
+			// { platform: "linkedin", url: "" },
+            { platform: "instagram", url: "https://www.instagram.com/to_ja_ksawcio/" },
+            // { platform: "website", url: "" },
+        ]
+    },
 ];
 
 // data.js - dodajemy bazę projektów
@@ -582,7 +661,7 @@ const projects = [
                 BlueSpark is a product in the category of next-generation underwater measurement and inspection systems, based on a swarm of autonomous AUV units. Each robot follows an individual task route, collecting bathymetric data (single-beam/side-scan or MBES in extended versions), visual imaging (using low-light cameras), physicochemical data (pH, salinity, temperature, oxygen, turbidity), as well as magnetic and acoustic data.
                 `
 		},
-        teamIds: ["jan-mikolajczyk", "jakub-balenkowski", "jan-ciecierski", "julian-maleta", "maciej-borowiecki", "maksymilian-bernacki", "marcel-kolecki"],
+        teamIds: ["jan-mikolajczyk", "jakub-balenkowski", "jan-ciecierski", "julian-maleta", "maciej-borowiecki", "maksymilian-bernacki", "marcel-kolecki", "bartosz-ogorkiewicz"],
         spec: [
             //{ label: { pl: "Silnik AI", en: "AI Engine" }, value: { pl: "YOLOv8 Nano", en: "YOLOv8 Nano" } },
         ]
@@ -617,7 +696,7 @@ const projects = [
                 The primary recipients of this solution include state scientific and rescue institutions, as well as the space technology sector. Key advantages for users include: significant optimization of research costs, the ability to precisely record dynamic phenomena thanks to continuous monitoring, resistance to extreme temperatures dropping to -70 °C, and flexibility in choosing the altitude for a specific task.<br><br>
                 The stratospheric drone is a product within the category of advanced next-generation unmanned research platforms. Depending on the mission profile, the unit collects precise atmospheric profile data (temperature, pressure, humidity, wind speed and direction), studies ozone layer dynamics, can conduct visual observations from lower altitudes (e.g., border inspection, forests, or disaster zones), and serves as a flying laboratory for testing ADS-L and ADS-B standard transmission modules.`
 		},
-        teamIds: ["jan-mikolajczyk", "emilia-grygiel", "karol-grzegorzewski", "maciej-domagalski", "stanislaw-kropiewnicki", "stanislaw-swiecki"],
+        teamIds: ["jan-mikolajczyk", "karol-grzegorzewski", "maciej-domagalski", "stanislaw-kropiewnicki", "stanislaw-swiecki", "ksawery-radomski"],
         spec: [
             //{ label: { pl: "Silnik AI", en: "AI Engine" }, value: { pl: "YOLOv8 Nano", en: "YOLOv8 Nano" } },
         ]
@@ -976,6 +1055,133 @@ const news = [
             // { label: { pl: ``, en: `` }, url: `` },
             // { label: { pl: ``, en: `` }, url: `` }
         ]
+    },
+    {
+        id: `solidexpert-2026`,
+        date: `2026-05-23`,
+        title: {
+            pl: `Od pomysłu do modelu!  Współpraca z SolidExpert. `,
+            en: `From concept to 3D model! Our new partnership with SolidExpert`
+        },
+        shortDesc: {
+            pl: `Nasze koło naukowe nawiązało współpracę z firmą SolidExpert - oficjalnym dystrybutorem oprogramowania SOLIDWORKS w Polsce. To dla nas ogromna szansa na rozwój umiejętności inżynierskich i realizację jeszcze bardziej zaawansowanych projektów technicznych `,
+            en: `Our scientific club has established a partnership with SolidExpert - the official distributor of SOLIDWORKS software in Poland. This is a tremendous opportunity for us to advance our engineering skills and take on even more sophisticated technical projects.`
+        },
+        fullDesc: {
+            pl: `Z ogromną radością ogłaszamy nawiązanie oficjalnej współpracy pomiędzy naszym kołem naukowym a firmą SolidExpert - oficjalnym dystrybutorem rozwiązań SOLIDWORKS na Polskę. To dla nas wyjątkowe wydarzenie, które otwiera przed naszym zespołem zupełnie nowe możliwości w zakresie projektowania inżynierskiego. SolidExpert chętnie wspiera młodych inżynierów i pasjonatów w niekomercyjnych projektach, dostarczając kołom naukowym wsparcie informatyczne, techniczne oraz merytoryczne z zakresu rozwiązań SOLIDWORKS.  
+        Dzięki tej współpracy nasi członkowie uzyskają dostęp do profesjonalnego oprogramowania CAD/CAE/CAM klasy przemysłowej, które pozwoli nam tworzyć zaawansowane modele 3D, przeprowadzać symulacje oraz sprawnie zarządzać dokumentacją projektową. Współpraca z SolidExpert to także możliwość nawiązania nowych relacji z inżynierami oraz firmami z całej Polski, co daje szansę na zbudowanie sieci kontaktów i pozyskanie potencjalnych pracodawców w przyszłości. Zachęcamy do śledzenia naszych działań i odwiedzenia strony partnera pod adresem solidexpert.com. 
+        `,
+            en: `We are thrilled to announce an official partnership between our scientific club and SolidExpert - the official distributor of SOLIDWORKS solutions in Poland, operating in the market since 2002. This is a milestone event for our team, opening up entirely new possibilities in the field of engineering design. SolidExpert actively supports young engineers and enthusiasts in non-commercial projects, providing student scientific clubs with technical, IT, and substantive support within the SOLIDWORKS ecosystem.
+        Through this collaboration, our members will gain access to professional CAD/CAE/CAM software of industrial grade, enabling us to create advanced 3D models, run simulations, and efficiently manage project documentation. The partnership with SolidExpert also presents an invaluable networking opportunity, connecting us with engineers and companies from across Poland, opening doors to future sponsors and potential employers. We encourage you to follow our progress and visit our partner's website at solidexpert.com.
+        `
+        },
+        links: [
+            { label: { pl: `SolidExpert`, en: `SolidExpert` }, url: `https://solidexpert.com` },
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` }
+        ]
+    },
+    {
+        id: `noc-muzeow-2026`,
+        date: `2026-05-16`,
+        title: {
+            pl: `Noc Muzeów w Urzędzie Patentowym i Ministerstwie Rozwoju i Technologii`,
+            en: `Museum Night at the Patent Office and the Ministry of Economic Development and Technology`
+        },
+        shortDesc: {
+            pl: `Dwa stanowiska, dwie lokalizacje i setki ciekawskich odwiedzających – tak wyglądała tegoroczna Noc Muzeów dla naszego koła naukowego. Dzięki współpracy z Urzędem Patentowym RP mieliśmy okazję zaprezentować naszą działalność w dwóch wyjątkowych miejscach w sercu Warszawy, stając się częścią jednego z największych wydarzeń kulturalnych w stolicy.`,
+            en: `Two stands, two venues, and hundreds of curious visitors – that was this year's Museum Night for our student research group. Thanks to our collaboration with the Patent Office of the Republic of Poland, we had the opportunity to showcase our work at two remarkable locations in the heart of Warsaw, becoming part of one of the city's biggest cultural events.`
+        },
+        fullDesc: {
+            pl: `W tym roku Noc Muzeów nabrała dla nas wyjątkowego wymiaru. Nasze koło naukowe miało zaszczyt wziąć w niej udział jako wystawca zaproszony przez Urząd Patentowy RP, i to od razu w dwóch miejscach: w samym Urzędzie Patentowym oraz w gmachu Ministerstwa Rozwoju i Technologii. To właśnie dzięki zaproszeniu Urzędu Patentowego mogliśmy zaprezentować się w tym prestiżowym miejscu, gdzie na co dzień tworzy się historia polskiej innowacyjności. Tegoroczna edycja zgromadziła w Warszawie ponad 300 instytucji i przyciągnęła setki tysięcy zwiedzających. 
+        Przez całą noc prowadziliśmy dwa stanowiska jednocześnie, prezentując nasze projekty i badania ramię w ramię z ekspertami Urzędu Patentowego. Odwiedzający mogli dowiedzieć się, czym zajmuje się nasze koło, porozmawiać z nami bezpośrednio i zobaczyć, jak młodzi naukowcy podchodzą do rozwiązywania realnych problemów. Wiele osób zatrzymywało się na dłużej, zadając pytania i dzieląc się własnymi doświadczeniami. Atmosfera w obu miejscach była pełna ciekawości, inspirujących rozmów i spotkań z ludźmi, którzy na co dzień stykają się ze światem wynalazków i nowych technologii.
+        Udział w Nocy Muzeów to dla nas nie tylko powód do dumy, ale też cenne doświadczenie, które pokazało, jak wiele można zyskać na otwartym dialogu z mieszkańcami miasta. Przekonaliśmy się, że nauka nie musi być zamknięta w murach uczelni, może wychodzić do ludzi, angażować i zachwycać. Serdecznie dziękujemy Urzędowi Patentowemu za zaproszenie i zaufanie, a wszystkim odwiedzającym za rozmowy i zainteresowanie naszą działalnością. Do zobaczenia za rok!
+        `,
+            en: `This year's Museum Night took on a truly special meaning for us. Our student research group had the honour of taking part as exhibitors, invited by the Patent Office of the Republic of Poland, and at two locations at once: at the Patent Office itself and at the seat of the Ministry of Economic Development and Technology. It was precisely thanks to the Patent Office's invitation that we were able to present ourselves at such a prestigious venue, where the history of Polish innovation is shaped every day. This year's edition brought together over 300 institutions across Warsaw and attracted hundreds of thousands of visitors, and we are proud to have been part of it.
+        Throughout the night, we ran two stands simultaneously, presenting our projects and research side by side with experts from the Patent Office. Visitors had the chance to learn about our group's work, speak with us directly, and see first-hand how young researchers approach real-world problems. Many people stopped for longer conversations, asking questions and sharing their own experiences. The atmosphere at both venues was brimming with curiosity, stimulating conversations, and encounters with people who work at the forefront of invention and emerging technology.
+        Participating in Museum Night is not only a source of immense pride for us, but also an invaluable experience that showed us how much can be gained from an open dialogue with the local community. We were reminded that science need not be confined to lecture halls and laboratories, it can reach out to people, engage them, and inspire wonder. We extend our heartfelt thanks to the Patent Office for their invitation and trust, and to every visitor who stopped by for a conversation and showed interest in what we do. See you next year!
+        `
+        },
+        links: [
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` }
+        ]
+    },
+    {
+        id: `sanya-oceans-2026`,
+        date: `2026-05-25`,
+        title: {
+            pl: `Sanya OCEANS 2026 – relacja z udziału w konferencji`,
+            en: `Sanya OCEANS 2026 – conference recap`
+        },
+        shortDesc: {
+            pl: `W maju wzięliśmy udział w konferencji IEEE OCEANS 2026 w Sanya, gdzie mieliśmy zaszczyt zaprezentować własną pracę naukową „Joint Optimization of Fleet Size, Localization Infrastructure, and Trajectories for Multi-AUV Persistent Monitoring". Udział w wydarzeniu pozwolił nam skonfrontować nasze wyniki z pracami zespołów z całego świata, śledzić aktualne trendy w robotyce podwodnej i nawiązać wartościowe kontakty z przedstawicielami uczelni i instytutów badawczych. Wracamy z nowymi inspiracjami i motywacją do dalszego rozwoju.`,
+            en: `In May, we attended IEEE OCEANS 2026 in Sanya, where we had the honour of presenting our research paper „Joint Optimization of Fleet Size, Localization Infrastructure, and Trajectories for Multi-AUV Persistent Monitoring". The conference gave us the chance to benchmark our work against teams from around the world, follow the latest trends in underwater robotics, and connect with representatives of universities and research institutes. We're returning with new inspiration and motivation to keep moving forward.`
+        },
+        fullDesc: {
+            pl: `W maju mieliśmy okazję wziąć udział w konferencji IEEE OCEANS 2026 w Sanya, jednym z najważniejszych wydarzeń naukowych poświęconych technologiom morskim i podwodnym, gromadzącym co roku badaczy, inżynierów oraz zespoły studenckie z całego świata. Wyjazd był dla nas przede wszystkim szansą na zaprezentowanie efektów własnej pracy badawczej, mieliśmy zaszczyt przedstawić pracę naukową „Joint Optimization of Fleet Size, Localization Infrastructure, and Trajectories for Multi-AUV Persistent Monitoring".
+        Udział w konferencji umożliwił nam bezpośrednie zetknięcie się z aktualnymi kierunkami rozwoju robotyki podwodnej, systemów pomiarowych oraz technologii autonomicznych na poziomie międzynarodowym. Wśród prezentowanych badań szczególną uwagę zwracały innowacje w zakresie nawigacji podwodnej, integracji systemów sensorycznych oraz zastosowań autonomicznych pojazdów podwodnych w środowiskach ekstremalnych. Tego rodzaju konfrontacja z pracami innych zespołów badawczych daje perspektywę, której nie sposób uzyskać wyłącznie w oparciu o literaturę naukową.
+        Równie wartościowy okazał się wymiar networkingowy wyjazdu, rozmowy z przedstawicielami uczelni i instytutów badawczych z różnych krajów pozwoliły nam lepiej zrozumieć, w jakim miejscu jako koło się znajdujemy i w jakim kierunku warto się rozwijać. Udział w IEEE OCEANS był też okazją do spojrzenia na naszą pracę z zewnątrz, z perspektywy środowiska oceniającego ją na tle globalnych standardów. Wracamy z Sanya z nowymi kontaktami, inspiracjami oraz motywacją do dalszego rozwijania projektów badawczych i pogłębiania kompetencji w obszarze systemów pomiarowych i automatyki.`,
+            en: `In May, we had the opportunity to attend IEEE OCEANS 2026 in Sanya, one of the most important scientific events dedicated to marine and underwater technologies, gathering researchers, engineers, and student teams from around the world every year. The trip was above all a chance to present the results of our own research, we had the honour of presenting our paper „Joint Optimization of Fleet Size, Localization Infrastructure, and Trajectories for Multi-AUV Persistent Monitoring". 
+        Attending the conference allowed us to engage directly with the latest directions in underwater robotics, measurement systems, and autonomous technologies at an international level. Among the presented research, we were particularly drawn to innovations in underwater navigation, sensor system integration, and AUV applications in extreme environments. This kind of confrontation with the work of other research teams offers a perspective that simply cannot be gained through literature alone. The networking aspect of the trip proved equally valuable, conversations with representatives of universities and research institutes from various countries helped us better understand where we stand as a student organisation and which direction is worth pursuing. IEEE OCEANS was also an opportunity to look at our work from the outside, through the lens of a community evaluating it against global standards. We're returning from Sanya with new contacts, fresh inspiration, and motivation to continue developing our research projects and deepening our competencies in the field of measurement systems and automation.`
+        },
+        links: [
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` }
+        ]
+    },
+    {
+        id: `stypendium-ncn`,
+        date: `-`,
+        title: {
+            pl: `Stypendium NCN dla członków naszego koła`,
+            en: `NCN Scholarship for Our Members`
+        },
+        shortDesc: {
+            pl: `Z przyjemnością informujemy, że trzech przedstawicieli naszego koła pracujących nad projektem FlySearch otrzymało stypendium naukowe w ramach projektu badawczego NCN SONATA BIS „Uniwersalny robot - rozwijanie uczenia robotów poprzez uczenie ze wzmocnieniem i modele VLA", kierowanego przez prof. Marka Cygana. To wyróżnienie potwierdza realny wkład naszych członków w badania naukowe i stanowi dla nich wyjątkową szansę na rozwój w bezpośrednim kontakcie z doświadczoną kadrą akademicką. Serdecznie gratulujemy stypendystom!`,
+            en: `We are pleased to announce that three members of our circle working on the FlySearch project have been awarded a scientific scholarship as part of the NCN SONATA BIS research project „Universal Robot - Advancing Robot Learning through Reinforcement Learning and VLA Models", led by Prof. Marek Cygan. This honour confirms the real contribution our members make to scientific research and gives them an exceptional opportunity to grow in direct collaboration with experienced academics. Congratulations!`
+        },
+        fullDesc: {
+            pl: `Z przyjemnością informujemy, że trzech przedstawicieli naszego koła pracujących nad projektem FlySearch otrzymało stypendium naukowe w ramach projektu badawczego NCN SONATA BIS „Uniwersalny robot - rozwijanie uczenia robotów poprzez uczenie ze wzmocnieniem i modele VLA", kierowanego przez prof. Marka Cygana. To dla nas powód do ogromnej dumy i potwierdzenie, że praca wykonywana w ramach koła przekłada się na realne osiągnięcia naukowe.
+        Przyznane stypendia są wyrazem uznania komisji konkursowej dla zaangażowania i kompetencji naszych członków. Udział w projekcie NCN SONATA BIS to dla stypendystów nie tylko prestiż, ale przede wszystkim wyjątkowa szansa na rozwój, możliwość czynnego uczestnictwa w badaniach na wysokim poziomie, bezpośredni kontakt z doświadczoną kadrą akademicką oraz praca w środowisku stawiającym konkretne, niebanalne wyzwania badawcze. Projekt ten wpisuje się w szerszy nurt badań nad autonomicznymi systemami uczącymi się, a jego interdyscyplinarny charakter stwarza przestrzeń do rozwijania kompetencji wykraczających daleko poza ramy standardowej ścieżki akademickiej. Tego rodzaju doświadczenie, zdobywane już na etapie studiów, ma trudną do przecenienia wartość zarówno naukową, jak i zawodową.
+        Serdecznie gratulujemy stypendystom i życzymy owocnej współpracy w nadchodzących miesiącach, jesteśmy przekonani, że to dopiero początek wielu wspólnych sukcesów.`,
+            en: `We are delighted to announce that three members of our circle working on the FlySearch project have been awarded a scientific scholarship as part of the NCN SONATA BIS research project „Universal Robot -  Advancing Robot Learning through Reinforcement Learning and VLA Models", led by Prof. Marek Cygan. This is a source of great pride for us and a confirmation that the work carried out within our circle translates into real scientific achievements.
+        The scholarships reflect the jury's recognition of our members' dedication and competence. Participation in the NCN SONATA BIS project is not only a distinction, but above all an exceptional opportunity for growth, a chance to actively contribute to high-level research, work in direct contact with experienced academics, and engage with a environment that poses concrete, non-trivial scientific challenges. The project itself sits within the broader field of autonomous learning systems, and its interdisciplinary nature creates space for developing competencies that go well beyond the standard academic path. This kind of experience, gained already during one's studies, carries immense value, both scientifically and professionally.
+        We extend our warmest congratulations to the scholarship recipients and wish them a fruitful collaboration in the months ahead, we are certain this is just the beginning of many shared successes.`
+        },
+        links: [
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` }
+        ]
+    },
+    {
+        id: `gala-finalowa-uprp-2026`,
+        date: `2026-06-22`,
+        title: {
+            pl: `Nasza historia na 10. Jubileuszowej Gali w Urzędzie Patentowym RP – relacja`,
+            en: `Our story at the 10th Anniversary Gala of the Patent Office of the Republic of Poland – report`
+        },
+        shortDesc: {
+            pl: `Zostaliśmy zaproszeni przez Urząd Patentowy RP na 10. Jubileuszową Galę Finałową konkursu „Ambasador Szkolnej Wynalazczości”. Urząd wskazał historię naszego koła jako przykład dla nowego pokolenia twórców, dzięki czemu mogliśmy zaprezentować nasze projekty i udowodnić, że działalność wynalazczą oraz innowacyjne projekty można z powodzeniem realizować już w wieku studenckim.`,
+            en: `We were invited by the Patent Office of the Republic of Poland to participate in the 10th Anniversary Final Gala of the "School Invention Ambassador" competition. The office highlighted our club's history as a model for the new generation of creators, allowing us to showcase our projects and prove that inventive activity and innovative projects can be successfully achieved at a student age.`
+        },
+        fullDesc: {
+            pl: `Wzięliśmy udział w 10. Jubileuszowej Gali Finałowej konkursu „Ambasador Szkolnej Wynalazczości”, która odbyła się w siedzibie Urzędu Patentowego Rzeczypospolitej Polskiej. Trafiliśmy tam na oficjalne zaproszenie ze strony samego urzędu, który uznał naszą historię za świetny wzór do naśladowania dla młodych twórców. Dostaliśmy idealną przestrzeń, aby opowiedzieć o tym, jak rozwijaliśmy nasze koło, jak wyglądają realia pracy nad technologiami w środowisku studenckim oraz z czym wiąże się to w praktyce. Pokazaliśmy strukturę naszej działalności oraz nasze projekty, nad którymi regularnie pracujemy, chcąc bez zbędnego dystansu i prosto z mostu udowodnić rówieśnikom oraz zaproszonym gościom, że status studenta w żaden sposób nie ogranicza możliwości technologicznych. Na własnym przykładzie pokazaliśmy, że świeże podejście, pasja i zgrany zespół to kapitał, który w zupełności wystarcza do opracowywania autorskich rozwiązań technicznych. Całe wydarzenie i rozmowy z młodymi innowatorami dały nam mnóstwo energii do dalszego działania, a sam wyjazd pozwolił nam mocniej zakorzenić się w środowisku związanszym z nowoczesnymi technologiami i innowacjami.`,
+            en: `We participated in the 10th Anniversary Final Gala of the "School Invention Ambassador" competition, held at the headquarters of the Patent Office of the Republic of Poland. We attended upon an official invitation from the office itself, which recognized our story as an excellent blueprint for young creators. We were given the perfect platform to share how we developed our scientific club, what the realities of working on technologies within a student environment look like, and what it entails in practice. We presented our operational structure and our projects that we regularly work on, aiming to prove directly and without unnecessary distance to both peers and guests that student status in no way limits technological capabilities. Using our own journey, we demonstrated that a fresh perspective, passion, and a tight-knit team provide more than enough capital to develop proprietary technical solutions. The whole event and the discussions with young innovators gave us a ton of energy for our next steps, and the trip allowed us to strengthen our roots within the community connected with modern technologies and innovation.`
+        },
+        links: [
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` }
+        ]
     }
 ];
 
@@ -1076,6 +1282,27 @@ const partners = [
         name: "Ministerstwo Nauki i Szkolnictwa Wyższego",
         url: "https://www.gov.pl/web/nauka",
         logo: "https://www.gov.pl/img/units/nauka/05_znak_uproszczony_kolor_biale_tlo.png",
+        category: "support"
+    },
+    {
+        id: 15,
+        name: "Urząd Patentowy RP",
+        url: "https://uprp.gov.pl/pl",
+        logo: "https://uprp.gov.pl/sites/default/files/2020-03/logo%20uprp_1.png",
+        category: "partner"
+    },
+    {
+        id: 16,
+        name: "Solidexpert",
+        url: "https://solidexpert.com/",
+        logo: "https://solidexpert.com/wp-content/themes/solidexpert/images/solidexpert-visiativ.webp",
+        category: "partner"
+    },
+    {
+        id: 17,
+        name: "Fundacja UV",
+        url: "https://fundacjauv.org.pl/",
+        logo: "https://fundacjauv.org.pl/wp-content/uploads/2019/02/logo.png",
         category: "support"
     }
 ];
