@@ -290,6 +290,8 @@ function memberPhotoFieldHTML(r = {}) {
       </div>
     </div>`;
 }
+
+function projectImageFieldHTML(r = {}) {
   return `
     <div class="form-group">
       <label>Okładka projektu (main)</label>
