@@ -6,8 +6,8 @@ const PATCH_MARKER = 'bluespark-kn-patch.css';
 
 function injectPatch(html) {
   if (html.includes(PATCH_MARKER)) return html;
-  const patchHead = '<link rel="stylesheet" href="/bluespark/bluespark-kn-patch.css?v=1">';
-  const patchBody = '<script src="/bluespark/bluespark-kn-patch.js?v=1" defer></script>';
+  const patchHead = '<link rel="stylesheet" href="/bluespark/bluespark-kn-patch.css?v=2">';
+  const patchBody = '<script src="/bluespark/bluespark-kn-patch.js?v=2" defer></script>';
   return html
     .replace('</head>', `${patchHead}</head>`)
     .replace('</body>', `${patchBody}</body>`);
