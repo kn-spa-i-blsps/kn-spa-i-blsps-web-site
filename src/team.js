@@ -8,17 +8,8 @@ const projectColors = {
     "snows-eye": "text-slate-300 border-slate-300/30 bg-slate-300/10"
 };
 
-function handleImageError(imgElement, secondarySrc, finalFallback) {
-    if (!imgElement.dataset.triedJpeg) {
-        imgElement.dataset.triedJpeg = "true";
-        imgElement.src = secondarySrc;
-    } else if (!imgElement.dataset.triedFallback) {
-        imgElement.dataset.triedFallback = "true";
-        imgElement.src = finalFallback;
-    } else {
-        imgElement.onerror = null;
-        imgElement.src = 'https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/default.jpg';
-    }
+function handleImageError(imgElement, relPath, fallback) {
+    handleConventionImageError(imgElement, relPath, 'f_auto,q_auto,w_800,c_limit', fallback);
 }
 
 function renderTeam() {
@@ -36,9 +27,10 @@ function renderTeam() {
     });
 
     container.innerHTML = sortedMembers.map((person, index) => {
-        const primarySrc = person.photo || `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/${t(person.id)}.jpg`;
-        const secondarySrc = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/${t(person.id)}.jpeg`;
-        const fallbackSrc = person.img || "";
+        const memberId = t(person.id);
+        const defaultMember = Img.cld('members/default', 'f_auto,q_auto,w_800,c_limit');
+        const primarySrc = person.photo ? Img.optimize(person.photo, 800) : Img.cld(`members/${memberId}`, 'f_auto,q_auto,w_800,c_limit');
+        const fallbackSrc = person.img ? Img.optimize(person.img, 800) : defaultMember;
 
         // --- LOGIKA ZBIERANIA WSZYSTKICH TAGÓW ---
         const allTags = [];
@@ -82,7 +74,7 @@ function renderTeam() {
                     <img src="${primarySrc}" 
                          loading="lazy"
                          class="w-full h-full object-cover"
-                         onerror="handleImageError(this, '${secondarySrc}', '${fallbackSrc}')">
+                         onerror="handleImageError(this, 'members/${memberId}', '${fallbackSrc}')">
                 </div>
 
                 <div class="flex-grow">

@@ -12,12 +12,33 @@ const CLOUD = process.env.CLOUDINARY_CLOUD_NAME || 'dsrdp5vrr';
 const API_KEY = process.env.CLOUDINARY_API_KEY || '';
 const API_SECRET = process.env.CLOUDINARY_API_SECRET || '';
 
+export const IMAGE_EXTENSIONS = [
+  'jpg', 'jpeg', 'heic', 'heif', 'png', 'webp', 'avif', 'gif', 'bmp', 'tiff', 'tif', 'svg',
+];
+
+const MIME_TO_EXT = {
+  'image/png': 'png',
+  'image/webp': 'webp',
+  'image/jpeg': 'jpg',
+  'image/jpg': 'jpg',
+  'image/heic': 'heic',
+  'image/heif': 'heif',
+  'image/heic-sequence': 'heic',
+  'image/avif': 'avif',
+  'image/gif': 'gif',
+  'image/bmp': 'bmp',
+  'image/tiff': 'tiff',
+  'image/svg+xml': 'svg',
+};
+
 export const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 12 * 1024 * 1024 },
   fileFilter: (_req, file, cb) => {
-    if (file.mimetype?.startsWith('image/')) cb(null, true);
-    else cb(new Error('Tylko pliki graficzne'));
+    if (file.mimetype?.startsWith('image/')) return cb(null, true);
+    const ext = file.originalname?.split('.').pop()?.toLowerCase();
+    if (ext && IMAGE_EXTENSIONS.includes(ext)) return cb(null, true);
+    cb(new Error('Tylko pliki graficzne'));
   },
 });
 
@@ -29,10 +50,10 @@ export function getUploadsRoot() {
   return UPLOADS_ROOT;
 }
 
-function extFromMime(mimetype) {
-  if (mimetype === 'image/png') return 'png';
-  if (mimetype === 'image/webp') return 'webp';
-  if (mimetype === 'image/jpeg' || mimetype === 'image/jpg') return 'jpg';
+function extFromMime(mimetype, originalname) {
+  if (mimetype && MIME_TO_EXT[mimetype]) return MIME_TO_EXT[mimetype];
+  const ext = originalname?.split('.').pop()?.toLowerCase();
+  if (ext && IMAGE_EXTENSIONS.includes(ext)) return ext;
   return 'jpg';
 }
 
@@ -44,14 +65,14 @@ function signParams(params) {
   return crypto.createHash('sha1').update(sorted + API_SECRET).digest('hex');
 }
 
-async function uploadToCloudinary(buffer, { folder, publicId }) {
+async function uploadToCloudinary(buffer, { folder, publicId, filename }) {
   const timestamp = Math.round(Date.now() / 1000);
   const params = { folder, timestamp };
   if (publicId) params.public_id = publicId;
 
   const signature = signParams(params);
   const form = new FormData();
-  form.append('file', new Blob([buffer]), 'upload.jpg');
+  form.append('file', new Blob([buffer]), filename || 'upload.jpg');
   form.append('api_key', API_KEY);
   form.append('timestamp', String(timestamp));
   form.append('signature', signature);
@@ -88,9 +109,8 @@ function buildRelativePath(category, entityId, role, index, ext) {
 
 function cloudinaryTarget(category, entityId, role, index) {
   if (category === 'news') {
-    const folder = `kn-spa-i-blsps/news/${entityId}`;
-    if (role === 'cover') return { folder: `kn-spa-i-blsps/news`, publicId: `${entityId}/main` };
-    return { folder: `kn-spa-i-blsps/news`, publicId: `${entityId}/${index || 1}` };
+    if (role === 'cover') return { folder: 'kn-spa-i-blsps/news', publicId: `${entityId}/main` };
+    return { folder: 'kn-spa-i-blsps/news', publicId: `${entityId}/${index || 1}` };
   }
   if (category === 'member') {
     return { folder: 'kn-spa-i-blsps/members', publicId: entityId };
@@ -102,15 +122,15 @@ function cloudinaryTarget(category, entityId, role, index) {
 }
 
 /** Zapisuje obraz na Cloudinary (jeśli skonfigurowane) lub lokalnie na dysku serwera. */
-export async function persistImage(buffer, mimetype, { category, entityId, role = 'cover', index }) {
+export async function persistImage(buffer, mimetype, { category, entityId, role = 'cover', index, originalname }) {
   if (!entityId) throw new Error('entityId jest wymagane');
 
-  const ext = extFromMime(mimetype);
+  const ext = extFromMime(mimetype, originalname);
   const relativePath = buildRelativePath(category, entityId, role, index, ext);
 
   if (isCloudinaryConfigured()) {
     const { folder, publicId } = cloudinaryTarget(category, entityId, role, index);
-    return uploadToCloudinary(buffer, { folder, publicId });
+    return uploadToCloudinary(buffer, { folder, publicId, filename: `upload.${ext}` });
   }
 
   return saveLocalUpload(buffer, relativePath);

@@ -34,6 +34,7 @@ async function fetchSiteData() {
     window.partners = data.partners;
     if (data.heroSlides) window.heroSlides = data.heroSlides;
 
+    await loadScript('/src/image-utils.js');
     for (const src of window.__pageScripts || []) {
       await loadScript(src);
     }

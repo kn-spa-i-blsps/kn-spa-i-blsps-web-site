@@ -253,7 +253,7 @@ function mediaFieldsHTML(r = {}) {
         <label>Okładka (hero artykułu)</label>
         <input name="cover_image" id="cover-image-input" value="${esc(r.cover_image || '')}" placeholder="https://... lub /uploads/...">
         <div class="media-row">
-          <label class="btn btn-sm">Wgraj okładkę<input type="file" accept="image/*" id="cover-upload" hidden></label>
+          <label class="btn btn-sm">Wgraj okładkę<input type="file" accept="image/*,.heic,.heif" id="cover-upload" hidden></label>
           <img id="cover-preview" class="img-preview" src="${esc(r.cover_image || '')}" alt="">
         </div>
       </div>
@@ -262,7 +262,7 @@ function mediaFieldsHTML(r = {}) {
         <input type="hidden" name="gallery" id="gallery-json" value="${esc(JSON.stringify(gallery))}">
         <div id="gallery-previews" class="gallery-previews"></div>
         <div class="media-row" style="margin-top:0.5rem">
-          <label class="btn btn-sm">Dodaj zdjęcia<input type="file" accept="image/*" multiple id="gallery-upload" hidden></label>
+          <label class="btn btn-sm">Dodaj zdjęcia<input type="file" accept="image/*,.heic,.heif" multiple id="gallery-upload" hidden></label>
           <button type="button" class="btn btn-sm" onclick="addGalleryUrl()">+ Wklej URL</button>
         </div>
       </div>
@@ -276,7 +276,7 @@ function memberPhotoFieldHTML(r = {}) {
       <input name="photo_url" id="member-photo-input" value="${esc(r.photo_url || '')}" placeholder="https://... lub /uploads/...">
       <p class="form-hint">Najpierw ustaw ID (slug), potem wgraj plik.</p>
       <div class="media-row">
-        <label class="btn btn-sm">Wgraj zdjęcie<input type="file" accept="image/*" id="member-photo-upload" hidden></label>
+        <label class="btn btn-sm">Wgraj zdjęcie<input type="file" accept="image/*,.heic,.heif" id="member-photo-upload" hidden></label>
         <img id="member-photo-preview" class="img-preview" src="${esc(r.photo_url || '')}" alt="">
       </div>
     </div>`;
@@ -286,7 +286,7 @@ function memberPhotoFieldHTML(r = {}) {
       <label>Okładka projektu (main)</label>
       <input name="image_url" id="project-image-input" value="${esc(r.image_url || '')}" placeholder="https://... lub /uploads/...">
       <div class="media-row">
-        <label class="btn btn-sm">Wgraj okładkę<input type="file" accept="image/*" id="project-image-upload" hidden></label>
+        <label class="btn btn-sm">Wgraj okładkę<input type="file" accept="image/*,.heic,.heif" id="project-image-upload" hidden></label>
         <img id="project-image-preview" class="img-preview" src="${esc(r.image_url || '')}" alt="">
       </div>
     </div>`;

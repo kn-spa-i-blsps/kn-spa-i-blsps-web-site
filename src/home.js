@@ -32,14 +32,16 @@ function renderProjectCards(container, { featuredId = 'bluespark', layout = 'hom
     sorted.forEach((proj, index) => {
         const id = t(proj.id);
         const href = id === 'bluespark' ? '/bluespark/' : `project.html?id=${id}`;
-        const mainImgPath = proj.image || `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_900,c_limit/kn-spa-i-blsps/projects/${id}/main.jpg`;
+        const mainImgPath = proj.image
+            ? Img.optimize(proj.image, 900)
+            : Img.cld(`projects/${id}/main`, 'f_auto,q_auto,w_900,c_limit');
         const isFeatured = !isPageLayout && id === featuredId;
         const cardClass = isPageLayout ? ' page-card' : (isFeatured ? ' featured lg:col-span-2' : '');
 
         container.innerHTML += `
             <a href="${href}" class="home-project-card group${cardClass}">
                 <img src="${mainImgPath}" alt="" class="bg-img" loading="lazy"
-                     onerror="handleHomeProjectImageError(this, '${id}', '${proj.image || ''}')">
+                     onerror="handleConventionImageError(this, 'projects/${id}/main', 'f_auto,q_auto,w_800,c_limit', '${proj.image ? Img.optimize(proj.image, 800) : ''}')">
                 <div class="overlay"></div>
                 <div class="body">
                     <div class="flex items-center justify-between mb-2">
@@ -65,19 +67,7 @@ function renderHomeProjects() {
     renderProjectCards(document.getElementById('projects-container'), { featuredId: 'bluespark', layout: 'home' });
 }
 
-// Obsługa błędów formatów dla małych kafelków projektów
-function handleHomeProjectImageError(img, id, fallback) {
-    if (img.src.includes('main.jpg')) {
-        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/projects/${id}/main.jpeg`;
-    } else if (img.src.includes('main.jpeg')) {
-        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/projects/${id}/main.png`;
-    } else if (img.src.includes('main.png') && fallback) {
-        img.src = fallback;
-    } else {
-        img.onerror = null;
-        img.src = 'https://via.placeholder.com/600x400?text=NO_IMAGE';
-    }
-}
+// Obsługa błędów formatów — patrz image-utils.js (handleConventionImageError)
 
 /**
  * 2. RENDEROWANIE SEKCOJI TEAM (SCROLL)
@@ -101,9 +91,12 @@ function renderHomeTeam() {
     });
 
     const membersHTML = sortedMembers.map(person => {
-        const primarySrc = person.photo || `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/${t(person.id)}.jpg`;
-        const secondarySrc = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/${t(person.id)}.jpeg`;
-        const fallbackSrc = person.img || "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/default.jpg";
+        const memberId = t(person.id);
+        const defaultMember = Img.cld('members/default', 'f_auto,q_auto,w_800,c_limit');
+        const primarySrc = person.photo
+            ? Img.optimize(person.photo, 800)
+            : Img.cld(`members/${memberId}`, 'f_auto,q_auto,w_800,c_limit');
+        const fallbackSrc = person.img ? Img.optimize(person.img, 800) : defaultMember;
 
         const customBadges = (person.customTags || []).map(tag => `
             <span class="text-[8px] px-1.5 py-0.5 border border-[#038DAE]/20 bg-[#038DAE]/5 text-[#038DAE] uppercase font-bold tracking-tighter">
@@ -124,7 +117,7 @@ function renderHomeTeam() {
             <a href="member.html?user=${t(person.id)}" class="min-w-[240px] tech-card p-4 snap-center group transition-transform duration-300 shadow-sm hover:shadow-md bg-white">
                 <div class="relative mb-4 overflow-hidden bg-slate-100 aspect-[3/4]">
                     <img src="${primarySrc}" loading="lazy" class="w-full h-full object-cover"
-                        onerror="handleImageError(this, '${secondarySrc}', '${fallbackSrc}')">
+                        onerror="handleConventionImageError(this, 'members/${memberId}', 'f_auto,q_auto,w_800,c_limit', '${fallbackSrc}')">
                 </div>
                 <h3 class="text-sm font-bold text-[#012A4F] uppercase tracking-tight group-hover:text-[#038DAE] transition-colors">${t(person.name)}</h3>
                 <p class="text-[9px] text-[#038DAE] font-bold mt-1 tracking-widest uppercase italic mb-3">${t(person.role)}</p>
@@ -136,18 +129,9 @@ function renderHomeTeam() {
     container.innerHTML = membersHTML;
 }
 
-function handleImageError(imgElement, nextSrc, finalFallback) {
-    if (!imgElement.dataset.triedJpeg) {
-        imgElement.dataset.triedJpeg = "true";
-        imgElement.src = nextSrc;
-    } else {
-        imgElement.onerror = null;
-        imgElement.src = finalFallback;
-    }
-}
 
 /**
- * 3. DYNAMICZNY HERO SLIDER (SEKWENCYJNE SZUKANIE W MAIN/)
+ * 3. DYNAMICZNY HERO SLIDER
  */
 let currentSlide = 0;
 let slideInterval;
@@ -159,16 +143,14 @@ async function initHeroGallery() {
     if (!galleryContainer) return;
 
     detectedHeroSlides = [];
-    const extensions = ['jpg', 'jpeg', 'png', 'webp'];
-    const MAX_HERO_FILES = 12; // Maksymalny dopuszczalny limit
+    const MAX_HERO_FILES = 12;
 
-    // SEKWENCYJNE SZUKANIE: jeśli brakuje numeru "i", przerywamy sprawdzanie kolejnych
     for (let i = 1; i <= MAX_HERO_FILES; i++) {
         let foundThisIndex = false;
-        
-        for (const ext of extensions) {
-            const path = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1200/kn-spa-i-blsps/main/${i}.${ext}`;
-            const exists = await checkIfFileExists(path);
+
+        for (const ext of Img.EXT) {
+            const path = Img.cldExt(`main/${i}`, ext, 'f_auto,q_auto,w_1200');
+            const exists = await Img.checkExists(path);
             
             if (exists) {
                 // Dopasowanie metadanych z data.js (jeśli istnieją pod tym indeksem)
@@ -218,15 +200,6 @@ async function initHeroGallery() {
     startHeroLogic();
 }
 
-function checkIfFileExists(url) {
-    return new Promise((resolve) => {
-        const img = new Image();
-        img.onload = () => resolve(true);
-        img.onerror = () => resolve(false);
-        img.src = url;
-    });
-}
-
 function startHeroLogic() {
     const labelEl = document.getElementById('gallery-label');
     const titleEl = document.getElementById('gallery-title');
@@ -267,12 +240,12 @@ function startHeroLogic() {
  * 4. RENDEROWANIE AKTUALNOŚCI NA STRONIE GŁÓWNEJ
  */
 function newsImgPath(id, w = 800) {
-    return `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_${w},c_limit/kn-spa-i-blsps/news/${id}/main.jpg`;
+    return Img.cld(`news/${id}/main`, `f_auto,q_auto,w_${w},c_limit`);
 }
 
 function newsCoverSrc(item, w = 800) {
-    if (item.coverImage) return item.coverImage;
-    if (item.cover && !item.cover.endsWith(`/news/${item.id}/main.jpg`)) return item.cover;
+    if (item.coverImage) return Img.optimize(item.coverImage, w);
+    if (item.cover && !item.cover.endsWith(`/news/${item.id}/main.jpg`)) return Img.optimize(item.cover, w);
     return newsImgPath(item.id, w);
 }
 
@@ -292,7 +265,7 @@ function renderFeaturedHeroCard(item, isLatest) {
         <a href="article.html?id=${item.id}" class="home-news-featured group">
             <div class="feat-img relative overflow-hidden bg-slate-100">
                 <img src="${newsCoverSrc(item, 1000)}" alt="" class="w-full h-full object-cover min-h-[200px] md:min-h-full transition duration-500 group-hover:scale-105"
-                     onerror="handleNewsImageError(this, '${item.id}')">
+                     onerror="handleConventionImageError(this, 'news/${item.id}/main', 'f_auto,q_auto,w_800,c_limit', '')">
                 <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
                     ${spotlightNewsBadge(item, { isLatest })}
                 </div>
@@ -314,7 +287,7 @@ function renderFeaturedTileCard(item, isLatest) {
         <a href="article.html?id=${item.id}" class="home-news-featured-tile group">
             <div class="tile-img relative overflow-hidden bg-slate-100">
                 <img src="${newsCoverSrc(item, 800)}" alt="" class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
-                     onerror="handleNewsImageError(this, '${item.id}')">
+                     onerror="handleConventionImageError(this, 'news/${item.id}/main', 'f_auto,q_auto,w_800,c_limit', '')">
                 <div class="absolute top-2 left-2 flex flex-wrap gap-1">
                     ${spotlightNewsBadge(item, { isLatest })}
                 </div>
@@ -363,7 +336,7 @@ function renderHomeNews() {
         <a href="article.html?id=${item.id}" class="home-news-row group">
             <div class="thumb relative overflow-hidden">
                 <img src="${newsCoverSrc(item, 500)}" alt="" class="w-full h-full object-cover transition duration-300 group-hover:scale-105"
-                     onerror="handleNewsImageError(this, '${item.id}')">
+                     onerror="handleConventionImageError(this, 'news/${item.id}/main', 'f_auto,q_auto,w_800,c_limit', '')">
                 ${isLatest ? '<div class="news-badge news-badge-latest news-badge-sm">LATEST</div>' : ''}
             </div>
             <div class="row-body">
@@ -378,18 +351,8 @@ function renderHomeNews() {
 }
 
 /**
- * Obsługa błędów dla zdjęć aktualności (id-main + rozszerzenia)
+ * Obsługa błędów dla zdjęć aktualności — patrz image-utils.js
  */
-function handleNewsImageError(img, id) {
-    if (img.src.includes('main.jpg')) {
-        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/${id}/main.jpeg`;
-    } else if (img.src.includes('main.jpeg')) {
-        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/${id}/main.png`;
-    } else {
-        img.onerror = null;
-        img.src = 'https://via.placeholder.com/800x600?text=IMAGE_NOT_FOUND';
-    }
-}
 
 
 

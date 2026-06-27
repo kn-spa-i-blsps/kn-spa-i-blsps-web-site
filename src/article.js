@@ -13,11 +13,7 @@ function formatArticleContent(item) {
 }
 
 function optimizeImg(url, width) {
-  if (!url) return url;
-  if (url.includes('cloudinary.com') && url.includes('/upload/')) {
-    return url.replace('/upload/', `/upload/f_auto,q_auto,w_${width},c_limit/`);
-  }
-  return url;
+  return typeof Img !== 'undefined' ? Img.optimize(url, width) : url;
 }
 
 async function initArticle() {
@@ -36,15 +32,14 @@ async function initArticle() {
   document.getElementById('article-content').innerHTML = formatArticleContent(item);
   document.getElementById('article-content').classList.add('article-prose');
 
-  const fallbackCover = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600/kn-spa-i-blsps/news/${id}/main.jpg`;
+  const fallbackCover = Img.cld(`news/${id}/main`, 'f_auto,q_auto,w_1600');
   const mainImgUrl = optimizeImg(item.cover || item.coverImage || fallbackCover, 1600);
 
   const mainImgEl = document.getElementById('article-main-img');
   if (mainImgEl) {
     mainImgEl.src = mainImgUrl;
     mainImgEl.onerror = function onCoverErr() {
-      if (this.src !== fallbackCover) this.src = fallbackCover;
-      else this.onerror = null;
+      handleConventionImageError(this, `news/${id}/main`, 'f_auto,q_auto,w_1600', fallbackCover);
     };
     mainImgEl.onload = () => mainImgEl.classList.remove('opacity-0');
   }
@@ -68,12 +63,11 @@ async function loadAndRenderGridGallery(item, id, mainImgUrl) {
     images = dbGallery.map((u) => optimizeImg(u, 1600));
   } else {
     images = [mainImgUrl];
-    const extensions = ['jpg', 'jpeg', 'png', 'webp'];
     for (let i = 1; i <= 15; i++) {
       let found = false;
-      for (const ext of extensions) {
-        const url = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_600/kn-spa-i-blsps/news/${id}/${i}.${ext}`;
-        if (await checkIfFileExists(url)) {
+      for (const ext of Img.EXT) {
+        const url = Img.cldExt(`news/${id}/${i}`, ext, 'f_auto,q_auto,w_600');
+        if (await Img.checkExists(url)) {
           images.push(url.replace('w_600', 'w_1600'));
           found = true;
           break;
@@ -155,14 +149,6 @@ function renderArticleLinks(item) {
   }
 }
 
-function checkIfFileExists(url) {
-  return new Promise((resolve) => {
-    const img = new Image();
-    img.onload = () => resolve(true);
-    img.onerror = () => resolve(false);
-    img.src = url;
-  });
-}
 
 window.openLightbox = openLightbox;
 window.closeLightbox = closeLightbox;

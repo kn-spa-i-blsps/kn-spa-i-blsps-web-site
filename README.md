@@ -37,17 +37,21 @@ npm start
 **W panelu admin** (`/admin`) możesz **wgrać plik z dysku** przy artykule, członku lub projekcie — bez logowania na cloudinary.com.
 
 - **Bez kluczy Cloudinary:** pliki zapisują się na serwerze (`/uploads/...`) — wymaga **Persistent Disk** na Render (`DATA_DIR`)
-- **Z kluczami** (`CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`): upload idzie na Cloudinary
+- **Z kluczami** (`CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`): upload idzie na Cloudinary (HEIC jest automatycznie konwertowany przez `f_auto`)
+
+Obsługiwane rozszerzenia: **jpg, jpeg, heic, heif, png, webp, avif, gif, bmp, tiff, svg** — na Cloudinary z `f_auto` (w tym HEIC z iPhone).
 
 Ręczny upload na [cloudinary.com](https://cloudinary.com) nadal działa — wg ścieżek poniżej.
 
 | Typ | Ścieżka |
 |-----|---------|
-| Artykuł — okładka | `kn-spa-i-blsps/news/{id}/main.jpg` |
-| Artykuł — galeria | `kn-spa-i-blsps/news/{id}/1.jpg`, `2.jpg`... |
-| Członek | `kn-spa-i-blsps/members/{id}.jpg` |
-| Projekt | `kn-spa-i-blsps/projects/{id}/main.jpg` |
-| Hero slider | `kn-spa-i-blsps/main/1.jpg`, `2.jpg`... |
+| Artykuł — okładka | `kn-spa-i-blsps/news/{id}/main.{ext}` |
+| Artykuł — galeria | `kn-spa-i-blsps/news/{id}/1.{ext}`, `2.{ext}`... |
+| Członek | `kn-spa-i-blsps/members/{id}.{ext}` |
+| Projekt | `kn-spa-i-blsps/projects/{id}/main.{ext}` |
+| Hero slider | `kn-spa-i-blsps/main/1.{ext}`, `2.{ext}`... |
+
+`{ext}` = jpg, jpeg, **heic**, heif, png, webp, avif, gif, bmp, tiff, svg
 
 ## Migracja danych
 

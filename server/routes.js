@@ -216,6 +216,7 @@ router.post('/admin/upload', authMiddleware, upload.single('file'), async (req, 
       entityId,
       role,
       index,
+      originalname: req.file.originalname,
     });
     res.json({ url, mode: isCloudinaryConfigured() ? 'cloudinary' : 'local' });
   } catch (err) {
