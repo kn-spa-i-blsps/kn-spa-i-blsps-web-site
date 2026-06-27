@@ -26,9 +26,10 @@
         <p id="login-error" style="color:var(--danger);font-size:0.8rem;margin-bottom:1rem;display:none"></p>
         <button type="submit" class="btn btn-primary" style="width:100%">Zaloguj</button>
       </form>
-      <p class="form-hint" style="margin-top:1.5rem;text-align:center">
-        Domyślnie: login <code>admin</code>, hasło <code>kn-admin-2026</code><br>
-        Na Renderze ustaw <code>ADMIN_PASSWORD</code> w Environment — po redeployu zadziała to hasło.
+      <p id="login-api-hint" class="form-hint" style="margin-top:1.5rem;text-align:center"></p>
+      <p class="form-hint" style="margin-top:0.75rem;text-align:center;font-size:0.75rem">
+        Panel musi być na <strong>Web Service</strong> (adres <code>*.onrender.com</code>), nie na Static Site.<br>
+        Jeśli <code>knspaiblsps.pl/admin</code> nie działa — użyj adresu z Render Dashboard.
       </p>
     </div>
   </div>
@@ -146,6 +147,6 @@
   </div>
 
   <div class="toast" id="toast"></div>
-  <script src="/admin/admin.js"></script>
+  <script src="/admin/admin.js?v=8"></script>
 </body>
 </html>

@@ -75,7 +75,11 @@ export function setAuthCookie(res, token) {
 }
 
 export function clearAuthCookie(res) {
-  res.clearCookie('admin_token', { path: '/' });
+  res.clearCookie('admin_token', {
+    path: '/',
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+  });
 }
 
 export function changePassword(currentPassword, newPassword) {

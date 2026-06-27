@@ -1,13 +1,18 @@
 const API = '/api';
+const AUTH_PATHS = ['/auth/login', '/auth/logout', '/auth/emergency-reset'];
 let token = localStorage.getItem('admin_token');
 let currentEdit = null;
 let currentType = null;
 let cloudinaryEnabled = false;
 let uploadMode = 'local';
 
+function isAuthPath(path) {
+  return AUTH_PATHS.some((p) => path.includes(p));
+}
+
 async function api(path, opts = {}) {
   const headers = { 'Content-Type': 'application/json', ...opts.headers };
-  if (token) headers.Authorization = `Bearer ${token}`;
+  if (token && !isAuthPath(path)) headers.Authorization = `Bearer ${token}`;
   const res = await fetch(`${API}${path}`, { ...opts, headers, credentials: 'include' });
   const raw = await res.text();
   let data = {};
@@ -16,16 +21,19 @@ async function api(path, opts = {}) {
   } catch {
     if (!res.ok) {
       if (res.status === 404) {
-        throw new Error('API niedostępne — upewnij się, że na Renderze masz Web Service (nie Static Site) i Root Directory jest puste.');
+        throw new Error('API niedostępne na tej domenie. Użyj adresu Web Service (np. *.onrender.com/admin) albo przenieś domenę z Static Site na Web Service.');
       }
       throw new Error(`Błąd serwera (${res.status}). Sprawdź logi deployu.`);
     }
   }
-  if (res.status === 401 && !path.includes('/auth/login')) {
-    logout();
-    throw new Error('Unauthorized');
+  if (res.status === 401 && !isAuthPath(path)) {
+    if (!path.includes('/auth/me')) logout();
+    throw new Error(data.error || 'Sesja wygasła — zaloguj się ponownie');
   }
-  if (!res.ok) throw new Error(data.error || `Request failed (${res.status})`);
+  if (!res.ok) {
+    const hint = data.hint ? ` (${data.hint})` : '';
+    throw new Error((data.error || `Request failed (${res.status})`) + hint);
+  }
   return data;
 }
 
@@ -50,7 +58,31 @@ async function showAdmin(username) {
     cloudinaryEnabled = cfg.cloudinaryUpload;
     uploadMode = cfg.uploadMode || (cloudinaryEnabled ? 'cloudinary' : 'local');
   } catch { /* ignore */ }
-  loadAll();
+  try {
+    await loadAll();
+  } catch (ex) {
+    toast(ex.message || 'Błąd ładowania tabel', true);
+  }
+}
+
+async function checkApiAvailable() {
+  try {
+    const res = await fetch('/api/auth/status', { cache: 'no-store' });
+    if (!res.ok) throw new Error('status');
+    const data = await res.json();
+    const hint = document.getElementById('login-api-hint');
+    if (hint && data.username) {
+      hint.textContent = `Login do panelu: ${data.username}`;
+    }
+    return true;
+  } catch {
+    const err = document.getElementById('login-error');
+    if (err) {
+      err.textContent = 'API nie działa na tej domenie. Wejdź na panel przez adres Web Service (np. https://kn-spa-i-blsps-web-site.onrender.com/admin)';
+      err.style.display = 'block';
+    }
+    return false;
+  }
 }
 
 async function checkAuth() {
@@ -75,14 +107,20 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
   const err = document.getElementById('login-error');
   err.style.display = 'none';
   try {
+    token = null;
+    localStorage.removeItem('admin_token');
     const fd = new FormData(e.target);
     const data = await api('/auth/login', {
       method: 'POST',
-      body: JSON.stringify({ username: fd.get('username'), password: fd.get('password') }),
+      body: JSON.stringify({
+        username: String(fd.get('username') || '').trim(),
+        password: String(fd.get('password') || ''),
+      }),
     });
+    if (!data.token) throw new Error('Brak tokenu w odpowiedzi serwera');
     token = data.token;
     localStorage.setItem('admin_token', token);
-    showAdmin(fd.get('username'));
+    showAdmin(data.username || fd.get('username'));
   } catch (ex) {
     err.textContent = ex.message || 'Błąd logowania';
     err.style.display = 'block';
@@ -736,4 +774,4 @@ document.getElementById('password-form').addEventListener('submit', async (e) =>
   }
 });
 
-checkAuth();
+checkApiAvailable().then(() => checkAuth());

@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import db from './db.js';
+import db, { getSetting } from './db.js';
 import {
   authMiddleware,
   verifyLogin,
@@ -61,6 +61,14 @@ router.get('/partners', (_req, res) => {
 
 // ─── Auth ─────────────────────────────────────────────────────
 
+router.get('/auth/status', (_req, res) => {
+  res.json({
+    ok: true,
+    username: getSetting('admin_username') || 'admin',
+    hasPassword: Boolean(getSetting('admin_password_hash')),
+  });
+});
+
 router.post('/auth/emergency-reset', (req, res) => {
   const { key, password } = req.body || {};
   const result = emergencyResetPassword(key, password);
@@ -70,12 +78,13 @@ router.post('/auth/emergency-reset', (req, res) => {
 
 router.post('/auth/login', (req, res) => {
   const { username, password } = req.body || {};
+  const storedUser = getSetting('admin_username') || 'admin';
   if (!verifyLogin(username, password)) {
-    return res.status(401).json({ error: 'Nieprawidłowy login lub hasło' });
+    return res.status(401).json({ error: 'Nieprawidłowy login lub hasło', hint: `Login: ${storedUser}` });
   }
-  const token = createToken(username);
+  const token = createToken(storedUser);
   setAuthCookie(res, token);
-  res.json({ ok: true, token });
+  res.json({ ok: true, token, username: storedUser });
 });
 
 router.post('/auth/logout', (_req, res) => {
