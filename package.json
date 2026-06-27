@@ -1,0 +1,24 @@
+{
+  "name": "kn-spa-i-blsps-website",
+  "version": "2.0.0",
+  "private": true,
+  "description": "KN SPA i BLSPS website with admin panel",
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "migrate": "node server/migrate.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "better-sqlite3": "^11.9.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "marked": "^15.0.12"
+  }
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kontakt | KN SPA i BLSPS</title>
+  <link rel="icon" href="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/logo3.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="nav"></div>
+  <main class="container">
+    <header class="page-header">
+      <h1 id="page-title">Kontakt</h1>
+      <p class="page-meta">COMM_CHANNEL // OPEN</p>
+    </header>
+    <div style="max-width:560px">
+      <form id="contact-form">
+        <div class="form-group">
+          <label for="name" id="lbl-name">Imię i nazwisko</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email" id="lbl-email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message" id="lbl-message">Wiadomość</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" id="submit-btn">Wyślij</button>
+        <p id="form-status" style="margin-top:1rem;font-family:var(--font-mono);font-size:0.8rem"></p>
+      </form>
+    </div>
+  </main>
+  <div id="footer"></div>
+  <script type="module">
+    import { getLang, renderNav, renderFooter, initTheme, initNav } from './js/core.js';
+    const pl = getLang() === 'pl';
+    document.getElementById('nav').innerHTML = renderNav('contact');
+    document.getElementById('footer').innerHTML = renderFooter();
+    document.getElementById('page-title').textContent = pl ? 'Kontakt' : 'Contact';
+    document.getElementById('lbl-name').textContent = pl ? 'Imię i nazwisko' : 'Name';
+    document.getElementById('lbl-email').textContent = 'Email';
+    document.getElementById('lbl-message').textContent = pl ? 'Wiadomość' : 'Message';
+    document.getElementById('submit-btn').textContent = pl ? 'Wyślij' : 'Send';
+    initTheme(); initNav();
+
+    document.getElementById('contact-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = document.getElementById('form-status');
+      status.textContent = pl ? 'Wysyłanie...' : 'Sending...';
+      try {
+        const res = await fetch('https://formspree.io/f/xdalrpjb', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(Object.fromEntries(new FormData(e.target))),
+        });
+        if (res.ok) {
+          status.style.color = 'var(--accent)';
+          status.textContent = pl ? 'Wysłano! Odpowiemy wkrótce.' : 'Sent! We will reply soon.';
+          e.target.reset();
+        } else throw new Error();
+      } catch {
+        status.style.color = '#dc2626';
+        status.textContent = pl ? 'Błąd wysyłki. Spróbuj ponownie.' : 'Send failed. Try again.';
+      }
+    });
+  </script>
+</body>
+</html>

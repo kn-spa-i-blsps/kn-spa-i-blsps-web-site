@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projekty | KN SPA i BLSPS</title>
+  <link rel="icon" href="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/logo3.png">
+  <link rel="preconnect" href="https://res.cloudinary.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="nav"></div>
+  <main class="container">
+    <header class="page-header">
+      <h1 id="page-title">Projekty</h1>
+      <p class="page-meta">SYS_REGISTRY // ALL_PROJECTS</p>
+    </header>
+    <div class="grid grid-2" id="grid"><div class="loading">LOADING...</div></div>
+  </main>
+  <div id="footer"></div>
+  <script type="module">
+    import { fetchContent, t, getLang, renderNav, renderFooter, initTheme, initNav, CLOUDINARY, handleProjectImgError } from './js/core.js';
+    document.getElementById('nav').innerHTML = renderNav('projects');
+    document.getElementById('footer').innerHTML = renderFooter();
+    document.getElementById('page-title').textContent = getLang() === 'pl' ? 'Projekty' : 'Projects';
+    initTheme(); initNav();
+    window.handleProjectImgError = handleProjectImgError;
+    const { projects } = await fetchContent();
+    document.getElementById('grid').innerHTML = projects.map((p) => {
+      const href = p.id === 'bluespark' ? '/bluespark/' : `/project/${p.id}`;
+      return `<a href="${href}" class="kn-card">
+        <div class="kn-card-img"><img src="${CLOUDINARY.project(p.id, 1000)}" alt="" loading="lazy" onerror="handleProjectImgError(this)"></div>
+        <div class="kn-card-body"><span class="kn-card-tag">${p.id.toUpperCase()}</span><h3>${t(p.title)}</h3><p>${t(p.shortDesc)}</p></div>
+      </a>`;
+    }).join('');
+  </script>
+</body>
+</html>

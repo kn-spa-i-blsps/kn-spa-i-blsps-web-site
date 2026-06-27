@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin | KN SPA i BLSPS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+  <!-- Login -->
+  <div id="login-screen" class="login-screen">
+    <div class="login-card">
+      <h1>KN SPA i BLSPS</h1>
+      <h2>Panel administracyjny</h2>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="username">Login</label>
+          <input type="text" id="username" name="username" value="admin" required autocomplete="username">
+        </div>
+        <div class="form-group">
+          <label for="password">Hasło</label>
+          <input type="password" id="password" name="password" required autocomplete="current-password">
+        </div>
+        <p id="login-error" style="color:var(--danger);font-size:0.8rem;margin-bottom:1rem;display:none"></p>
+        <button type="submit" class="btn btn-primary" style="width:100%">Zaloguj</button>
+      </form>
+      <p class="form-hint" style="margin-top:1.5rem;text-align:center">
+        Domyślne hasło: <code>kn-admin-2026</code> — zmień w zmiennych środowiskowych Render!
+      </p>
+    </div>
+  </div>
+
+  <!-- Admin layout -->
+  <div id="admin-layout" class="admin-layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <h1>ADMIN_PANEL</h1>
+        <p style="font-size:0.75rem;color:var(--fg-muted);margin-top:0.25rem" id="user-info"></p>
+      </div>
+      <ul class="sidebar-nav">
+        <li><a href="#" data-section="news" class="active">Aktualności</a></li>
+        <li><a href="#" data-section="members">Członkowie</a></li>
+        <li><a href="#" data-section="projects">Projekty</a></li>
+        <li><a href="#" data-section="partners">Partnerzy</a></li>
+        <li><a href="#" data-section="settings">Ustawienia</a></li>
+        <li><a href="#" id="logout-btn" style="margin-top:2rem;color:var(--danger)">Wyloguj</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <!-- News -->
+      <section id="section-news" class="section-panel">
+        <div class="page-header">
+          <h2>Aktualności</h2>
+          <button class="btn btn-primary" id="add-news-btn">+ Nowy artykuł</button>
+        </div>
+        <div class="cloudinary-hint">
+          Zdjęcia wrzucaj na Cloudinary: <code>kn-spa-i-blsps/news/{id}/main.jpg</code> oraz <code>1.jpg, 2.jpg...</code> dla galerii.
+        </div>
+        <table class="data-table">
+          <thead><tr><th>Data</th><th>Tytuł</th><th>ID</th><th></th></tr></thead>
+          <tbody id="news-table"></tbody>
+        </table>
+      </section>
+
+      <!-- Members -->
+      <section id="section-members" class="section-panel hidden">
+        <div class="page-header">
+          <h2>Członkowie</h2>
+          <button class="btn btn-primary" id="add-member-btn">+ Nowy członek</button>
+        </div>
+        <div class="cloudinary-hint">
+          Zdjęcie członka: <code>kn-spa-i-blsps/members/{id}.jpg</code>
+        </div>
+        <table class="data-table">
+          <thead><tr><th>Imię</th><th>Rola</th><th>ID</th><th></th></tr></thead>
+          <tbody id="members-table"></tbody>
+        </table>
+      </section>
+
+      <!-- Projects -->
+      <section id="section-projects" class="section-panel hidden">
+        <div class="page-header">
+          <h2>Projekty</h2>
+          <button class="btn btn-primary" id="add-project-btn">+ Nowy projekt</button>
+        </div>
+        <div class="cloudinary-hint">
+          Okładka: <code>kn-spa-i-blsps/projects/{id}/main.jpg</code>, galeria: <code>1.jpg, 2.jpg...</code>
+        </div>
+        <table class="data-table">
+          <thead><tr><th>Nazwa</th><th>ID</th><th>Kolejność</th><th></th></tr></thead>
+          <tbody id="projects-table"></tbody>
+        </table>
+      </section>
+
+      <!-- Partners -->
+      <section id="section-partners" class="section-panel hidden">
+        <div class="page-header">
+          <h2>Partnerzy</h2>
+          <button class="btn btn-primary" id="add-partner-btn">+ Nowy partner</button>
+        </div>
+        <table class="data-table">
+          <thead><tr><th>Nazwa</th><th>Kategoria</th><th></th></tr></thead>
+          <tbody id="partners-table"></tbody>
+        </table>
+      </section>
+
+      <!-- Settings -->
+      <section id="section-settings" class="section-panel hidden">
+        <div class="page-header"><h2>Ustawienia</h2></div>
+        <form id="password-form" style="max-width:400px">
+          <div class="form-group">
+            <label>Obecne hasło</label>
+            <input type="password" name="currentPassword" required>
+          </div>
+          <div class="form-group">
+            <label>Nowe hasło (min. 8 znaków)</label>
+            <input type="password" name="newPassword" required minlength="8">
+          </div>
+          <button type="submit" class="btn btn-primary">Zmień hasło</button>
+        </form>
+        <div style="margin-top:3rem">
+          <h3 style="margin-bottom:1rem;font-size:1rem">Podgląd strony</h3>
+          <a href="/" target="_blank" class="btn">Otwórz stronę główną →</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modal-title">Edycja</h3>
+        <button class="modal-close" id="modal-close">×</button>
+      </div>
+      <form id="modal-form"></form>
+      <div class="modal-footer">
+        <button type="button" class="btn" id="modal-cancel">Anuluj</button>
+        <button type="submit" form="modal-form" class="btn btn-primary" id="modal-save">Zapisz</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="/admin/admin.js"></script>
+</body>
+</html>

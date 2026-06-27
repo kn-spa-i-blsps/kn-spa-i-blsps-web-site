@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zespół | KN SPA i BLSPS</title>
+  <link rel="icon" href="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/logo3.png">
+  <link rel="preconnect" href="https://res.cloudinary.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="nav"></div>
+  <main class="container">
+    <header class="page-header">
+      <h1 id="page-title">Zespół</h1>
+      <p class="page-meta">PERSONNEL_DB</p>
+    </header>
+    <div class="grid grid-3" id="grid"><div class="loading">LOADING...</div></div>
+  </main>
+  <div id="footer"></div>
+  <script type="module">
+    import { fetchContent, t, getLang, renderNav, renderFooter, initTheme, initNav, CLOUDINARY, handleMemberImgError } from './js/core.js';
+    document.getElementById('nav').innerHTML = renderNav('team');
+    document.getElementById('footer').innerHTML = renderFooter();
+    document.getElementById('page-title').textContent = getLang() === 'pl' ? 'Zespół' : 'Team';
+    initTheme(); initNav();
+    window.handleMemberImgError = handleMemberImgError;
+    const { members, projects } = await fetchContent();
+    const colors = { musc: '#dc2626', flysearch: '#16a34a', bluespark: '#2563eb', 'hawk-eye': '#d97706', 'snows-eye': '#64748b' };
+    document.getElementById('grid').innerHTML = members.map((m) => {
+      const badges = projects.filter((p) => p.teamIds.includes(m.id)).map((p) =>
+        `<span class="badge" style="color:${colors[p.id] || 'inherit'}">${p.title}</span>`).join('');
+      return `<a href="/member/${m.id}" class="kn-card">
+        <div class="kn-card-img" style="height:280px"><img src="${CLOUDINARY.member(m.id)}" alt="${m.name}" loading="lazy" onerror="handleMemberImgError(this,'${m.id}')"></div>
+        <div class="kn-card-body"><h3>${m.name}</h3><span class="kn-card-tag">${t(m.role)}</span><div style="margin-top:0.5rem">${badges}</div></div>
+      </a>`;
+    }).join('');
+  </script>
+</body>
+</html>
