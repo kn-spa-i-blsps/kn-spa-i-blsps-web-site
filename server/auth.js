@@ -19,7 +19,7 @@ export function ensureAdminUser() {
 /** Synchronizuje login/hasło z env tylko gdy jawnie włączone lub brak konta. */
 export function syncAdminFromEnv() {
   const envUser = process.env.ADMIN_USERNAME?.trim();
-  const envPass = process.env.ADMIN_PASSWORD;
+  const envPass = process.env.ADMIN_PASSWORD?.trim();
   const force = process.env.ADMIN_SYNC_PASSWORD === 'true';
   const hasHash = Boolean(getSetting('admin_password_hash'));
 
