@@ -1,0 +1,118 @@
+/* KN SPA i BLSPS — BlueSpark site patch (logo + back link) */
+
+.site-nav .container {
+  padding-inline: 14px;
+}
+
+@media (min-width: 768px) {
+  .site-nav .container {
+    padding-inline: 18px;
+  }
+}
+
+.site-nav .nav-row {
+  gap: 10px;
+}
+
+.site-nav .brand {
+  gap: 10px;
+  min-width: 0;
+}
+
+/* Circle logo beside text — slightly larger than original 44px */
+.site-nav .brand-mark {
+  width: 50px !important;
+  height: 50px !important;
+  max-width: 50px !important;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  flex-shrink: 0;
+  border: 1px solid var(--navy-deep);
+  box-shadow: 0 0 12px #2e8c9b40;
+}
+
+@media (min-width: 768px) {
+  .site-nav .brand-mark {
+    width: 52px !important;
+    height: 52px !important;
+    max-width: 52px !important;
+  }
+}
+
+.site-nav .nav-items {
+  gap: 6px;
+  min-width: 0;
+}
+
+.site-nav .nav-items ul {
+  gap: 0;
+}
+
+.site-nav .nav-items a {
+  padding: 6px 8px;
+  font-size: 0.78rem;
+}
+
+.site-nav .nav-aux {
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.site-footer .footer-mark {
+  width: 88px !important;
+  height: 88px !important;
+  max-width: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.kn-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-secondary);
+  border: 1px solid var(--hairline-strong);
+  padding: 6px 9px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.kn-back-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+.kn-back-link .kn-back-icon {
+  font-size: 13px;
+  line-height: 1;
+}
+
+@media (max-width: 1180px) {
+  .nav-aux .kn-back-link span:not(.kn-back-icon) {
+    display: none;
+  }
+
+  .kn-back-link {
+    padding: 6px 8px;
+  }
+}
+
+@media (max-width: 900px) {
+  .site-nav .nav-items a .num {
+    display: none;
+  }
+
+  .site-nav .nav-items a {
+    padding: 6px 7px;
+    font-size: 0.75rem;
+  }
+}

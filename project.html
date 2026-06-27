@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" href="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/logo3.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/subpages.css?v=3">
     <style>
         body { 
             font-family: 'JetBrains Mono', monospace; 
@@ -98,13 +99,9 @@
         </div>
     </nav>
 
-    <header class="blueprint-section py-20 border-b border-[#038DAE]/50">
-        <div class="blueprint-grid"></div>
-        <div class="blueprint-lines"></div>
-        
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div id="project-header">
-                </div>
+    <header class="sp-hero py-16 border-b border-[#038DAE]/50">
+        <div class="sp-hero-inner max-w-7xl mx-auto px-6">
+            <div id="project-header"></div>
         </div>
     </header>
 
@@ -204,6 +201,7 @@
         &copy; KN SPA I BLSPS // 2026
     </footer>
 
-    <script src="src/data.js"></script>
-    <script src="src/language.js"></script> <script src="src/project.js"></script>  </body>
+    <script>window.__pageScripts = ['/src/project.js'];</script>
+    <script src="/src/language.js"></script>
+    <script src="/src/loader.js?v=9"></script>
 </html>

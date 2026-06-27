@@ -53,4 +53,4 @@ function renderPartners() {
     if (typeof updateStaticTranslations === 'function') updateStaticTranslations();
 }
 
-document.addEventListener('DOMContentLoaded', renderPartners);
+window.bootPartners = renderPartners;
