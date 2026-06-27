@@ -42,21 +42,37 @@
     return base === `${FOLDER}${relPath}` || base.endsWith(`/${relPath}`);
   }
 
+  const PROBE_EXTENSIONS = ['jpg', 'jpeg', 'png', 'webp', 'heic', 'heif', 'avif'];
+
   function checkExists(url) {
     return new Promise((resolve) => {
       const img = new Image();
-      img.onload = () => resolve(true);
-      img.onerror = () => resolve(false);
+      const timer = setTimeout(() => {
+        img.onload = null;
+        img.onerror = null;
+        img.src = '';
+        resolve(false);
+      }, 10000);
+      img.onload = () => {
+        clearTimeout(timer);
+        resolve(true);
+      };
+      img.onerror = () => {
+        clearTimeout(timer);
+        resolve(false);
+      };
       img.src = url;
     });
   }
 
-  async function probeSequential(buildUrl, max = 15) {
+  /** Szuka news/projects/{id}/1, 2, 3… na Cloudinary */
+  async function probeNumbered(folder, id, { max = 15, width = 1600 } = {}) {
     const found = [];
+    const transforms = `f_auto,q_auto,w_${width},c_limit`;
     for (let i = 1; i <= max; i++) {
       let hit = false;
-      for (const ext of IMAGE_EXTENSIONS) {
-        const url = buildUrl(i, ext);
+      for (const ext of PROBE_EXTENSIONS) {
+        const url = cldExt(`${folder}/${id}/${i}`, ext, transforms);
         if (await checkExists(url)) {
           found.push(url);
           hit = true;
@@ -123,7 +139,8 @@
     publicPath,
     isConventionUrl,
     checkExists,
-    probeSequential,
+    probeNumbered,
+    PROBE_EXTENSIONS,
     onConventionError,
     onImageError,
     isPlaceholderUrl,

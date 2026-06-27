@@ -34,6 +34,41 @@ export function galleryUrl(type, id, index, w = 600) {
   return cld(`${folder}/${id}/${index}.jpg`, `f_auto,q_auto,w_${w}`);
 }
 
+const PROBE_EXTENSIONS = ['jpg', 'jpeg', 'png', 'webp', 'heic', 'heif', 'avif'];
+const galleryProbeCache = new Map();
+
+function galleryAssetUrl(folder, id, index, ext, width = 1600) {
+  return `${CLOUDINARY_BASE}/f_auto,q_auto,w_${width},c_limit/kn-spa-i-blsps/${folder}/${id}/${index}.${ext}`;
+}
+
+/** Szuka {folder}/{id}/1, 2, 3… na Cloudinary (HEAD). Wynik cache'owany w pamięci. */
+export async function probeNumberedGallery(folder, id, { max = 15, width = 1600 } = {}) {
+  const cacheKey = `${folder}:${id}:${width}`;
+  if (galleryProbeCache.has(cacheKey)) return galleryProbeCache.get(cacheKey);
+
+  const found = [];
+  for (let i = 1; i <= max; i++) {
+    let hit = false;
+    for (const ext of PROBE_EXTENSIONS) {
+      const url = galleryAssetUrl(folder, id, i, ext, width);
+      try {
+        const res = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(8000) });
+        if (res.ok) {
+          found.push(url);
+          hit = true;
+          break;
+        }
+      } catch {
+        // próbuj kolejne rozszerzenie
+      }
+    }
+    if (!hit) break;
+  }
+
+  galleryProbeCache.set(cacheKey, found);
+  return found;
+}
+
 /** Placeholdery z data.js (Unsplash itd.) — nie powinny nadpisywać Cloudinary. */
 export function isPlaceholderImage(url) {
   if (!url || !String(url).trim()) return true;

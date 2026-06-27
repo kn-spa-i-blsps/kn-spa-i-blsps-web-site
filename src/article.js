@@ -49,10 +49,10 @@ async function initArticle() {
   }
 
   renderArticleLinks(item);
-  await loadAndRenderGridGallery(item, id, mainImgUrl, fallbackCover, hasCustomCover);
+  await loadAndRenderGridGallery(item, id, mainImgUrl, fallbackCover);
 }
 
-async function loadAndRenderGridGallery(item, id, mainImgUrl, fallbackCover, hasCustomCover) {
+async function loadAndRenderGridGallery(item, id, mainImgUrl, fallbackCover) {
   const gridContainer = document.getElementById('article-gallery-grid');
   const section = document.getElementById('article-gallery-section');
   if (!gridContainer) return;
@@ -60,18 +60,15 @@ async function loadAndRenderGridGallery(item, id, mainImgUrl, fallbackCover, has
   gridContainer.innerHTML = '';
   allArticleImages = [];
 
-  const dbGallery = (item.gallery || []).filter(Boolean);
-  let images = [];
+  const dbGallery = (item.gallery || []).filter(Boolean).map((u) => optimizeImg(u, 1600));
+  const coverUrl = optimizeImg(mainImgUrl, 1600) || fallbackCover;
+
+  let images = [coverUrl];
 
   if (dbGallery.length > 0) {
-    images = dbGallery.map((u) => optimizeImg(u, 1600));
+    images.push(...dbGallery);
   } else {
-    const coverForGallery = hasCustomCover ? mainImgUrl : fallbackCover;
-    images = [coverForGallery];
-    const probed = await Img.probeSequential(
-      (i, ext) => Img.cldExt(`news/${id}/${i}`, ext, 'f_auto,q_auto,w_1600'),
-      15
-    );
+    const probed = await Img.probeNumbered('news', id, { max: 15, width: 1600 });
     images.push(...probed);
   }
 
@@ -86,15 +83,23 @@ async function loadAndRenderGridGallery(item, id, mainImgUrl, fallbackCover, has
 
   images.forEach((url, index) => {
     allArticleImages.push(url);
-    renderGridItem(optimizeImg(url, 600), index, index === 0 ? 'MAIN_TRACK' : `DATA_NODE_0${index}`);
+    const label = index === 0 ? 'MAIN_TRACK' : `DATA_NODE_${String(index).padStart(2, '0')}`;
+    renderGridItem(url, id, index, label);
   });
 }
 
-function renderGridItem(url, lightboxIndex, label) {
+function renderGridItem(url, articleId, lightboxIndex, label) {
   const gridContainer = document.getElementById('article-gallery-grid');
+  const thumb = optimizeImg(url, 800);
+  const full = optimizeImg(url, 1600);
+  const slot = lightboxIndex === 0 ? 'main' : lightboxIndex;
   gridContainer.insertAdjacentHTML('beforeend', `
     <div class="sp-gallery-item" onclick="openLightbox(${lightboxIndex})">
-      <img src="${url}" alt="" class="opacity-0" onload="this.classList.remove('opacity-0')" loading="lazy">
+      <img src="${thumb}" alt="" loading="lazy"
+        data-full="${full}"
+        data-slot="${slot}"
+        onload="this.classList.remove('opacity-0')"
+        onerror="handleConventionImageError(this, 'news/${articleId}/${slot}', 'f_auto,q_auto,w_800,c_limit', '')">
       <div class="sp-gallery-overlay">
         <div class="text-[#038DAE] font-mono text-[9px] tracking-widest uppercase mb-1">VIEW_FULLRES</div>
         <div class="text-white font-bold text-xs uppercase italic tracking-tight">${label} // >></div>
@@ -150,7 +155,6 @@ function renderArticleLinks(item) {
     linksContainer.innerHTML = `<div class="py-4 px-2 border border-dashed border-slate-200 text-center text-[11px] font-bold text-slate-400 tracking-widest uppercase italic">NO_RESOURCES</div>`;
   }
 }
-
 
 window.openLightbox = openLightbox;
 window.closeLightbox = closeLightbox;

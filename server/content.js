@@ -1,5 +1,5 @@
 import db from './db.js';
-import { memberPhoto, projectCover, newsCover, isPlaceholderImage } from './cloudinary.js';
+import { memberPhoto, projectCover, newsCover, isPlaceholderImage, probeNumberedGallery } from './cloudinary.js';
 
 function parseJson(str, fallback = []) {
   try {
@@ -13,14 +13,23 @@ function bilingual(pl, en) {
   return { pl: pl || '', en: en || '' };
 }
 
-export function getAllContent() {
+export async function getAllContent() {
   const members = db.prepare('SELECT * FROM members ORDER BY sort_order, name').all().map(formatMember);
   const projects = db.prepare('SELECT * FROM projects ORDER BY ordering, title').all().map(formatProject);
-  const news = db.prepare('SELECT * FROM news WHERE published = 1 ORDER BY date DESC').all().map(formatNews);
+  const newsRows = db.prepare('SELECT * FROM news WHERE published = 1 ORDER BY date DESC').all();
+  const news = await Promise.all(newsRows.map(enrichNewsGallery));
   const partners = db.prepare('SELECT * FROM partners ORDER BY sort_order, name').all().map(formatPartner);
   const heroSlides = db.prepare('SELECT * FROM hero_slides ORDER BY sort_order').all();
 
   return { members, projects, news, partners, heroSlides };
+}
+
+async function enrichNewsGallery(row) {
+  const item = formatNews(row);
+  if (!item.gallery.length) {
+    item.gallery = await probeNumberedGallery('news', row.id);
+  }
+  return item;
 }
 
 export function formatMember(row) {

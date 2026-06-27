@@ -16,9 +16,9 @@ const router = Router();
 
 // ─── Public API ───────────────────────────────────────────────
 
-router.get('/content', (_req, res) => {
+router.get('/content', async (_req, res) => {
   res.set('Cache-Control', 'no-store');
-  res.json(getAllContent());
+  res.json(await getAllContent());
 });
 
 router.get('/members', (_req, res) => {
