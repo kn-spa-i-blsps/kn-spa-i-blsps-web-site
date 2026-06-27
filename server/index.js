@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 import { fileURLToPath } from 'url';
 import { ensureAdminUser } from './auth.js';
 import { runMigration } from './migrate.js';
+import { runSchemaMigrations } from './schema.js';
 import apiRouter from './routes.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -66,6 +67,7 @@ app.get('/health', (_req, res) => res.json({ ok: true }));
 
 // Bootstrap
 ensureAdminUser();
+runSchemaMigrations();
 runMigration();
 
 app.listen(PORT, () => {

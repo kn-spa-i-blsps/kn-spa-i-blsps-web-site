@@ -2,6 +2,7 @@ const API = '/api';
 let token = localStorage.getItem('admin_token');
 let currentEdit = null;
 let currentType = null;
+let cloudinaryEnabled = false;
 
 async function api(path, opts = {}) {
   const headers = { 'Content-Type': 'application/json', ...opts.headers };
@@ -28,10 +29,14 @@ function showLogin() {
   document.getElementById('admin-layout').classList.remove('active');
 }
 
-function showAdmin(username) {
+async function showAdmin(username) {
   document.getElementById('login-screen').style.display = 'none';
   document.getElementById('admin-layout').classList.add('active');
   document.getElementById('user-info').textContent = username;
+  try {
+    const cfg = await api('/admin/config');
+    cloudinaryEnabled = cfg.cloudinaryUpload;
+  } catch { /* ignore */ }
   loadAll();
 }
 
@@ -192,44 +197,239 @@ window.deleteItem = async (type, id) => {
   toast('Usunięto');
 };
 
+function esc(s) {
+  return String(s || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+}
+
+function parseJsonField(val, fallback = []) {
+  if (Array.isArray(val)) return val;
+  try { return JSON.parse(val || '[]'); } catch { return fallback; }
+}
+
+function formatOptions(selected) {
+  return [
+    ['html', 'HTML — pełna kontrola tagów'],
+    ['markdown', 'Markdown — nagłówki, listy, pogrubienie'],
+    ['plain', 'Zwykły tekst — auto akapity'],
+  ].map(([v, l]) => `<option value="${v}" ${selected === v ? 'selected' : ''}>${l}</option>`).join('');
+}
+
+function linkRowHTML(link = {}, idx = 0) {
+  const label = link.label || {};
+  return `
+    <div class="link-row">
+      <div class="form-row">
+        <div class="form-group"><label>Etykieta PL</label><input class="link-label-pl" value="${esc(label.pl || '')}"></div>
+        <div class="form-group"><label>Etykieta EN</label><input class="link-label-en" value="${esc(label.en || '')}"></div>
+      </div>
+      <div class="form-group"><label>URL *</label><input class="link-url" value="${esc(link.url || '')}" placeholder="https://"></div>
+      <button type="button" class="btn btn-sm btn-danger" onclick="this.closest('.link-row').remove()">Usuń link</button>
+    </div>`;
+}
+
+function linksEditorHTML(links) {
+  const items = parseJsonField(links, []).filter((l) => l && l.url);
+  const rows = items.length ? items.map((l, i) => linkRowHTML(l, i)).join('') : '';
+  return `
+    <div class="form-group">
+      <label>Linki zewnętrzne (panel boczny artykułu)</label>
+      <div id="links-list" class="links-list">${rows}</div>
+      <button type="button" class="btn btn-sm" onclick="addLinkRow()" style="margin-top:0.5rem">+ Dodaj link</button>
+    </div>`;
+}
+
+function mediaFieldsHTML(r = {}) {
+  const gallery = parseJsonField(r.gallery, []);
+  const hint = cloudinaryEnabled
+    ? 'Upload bezpośrednio na Cloudinary lub wklej URL.'
+    : 'Upload: ustaw CLOUDINARY_API_KEY i CLOUDINARY_API_SECRET na Renderze. Na razie wklejaj URL.';
+  return `
+    <div class="media-section">
+      <p class="form-hint">${hint}</p>
+      <div class="form-group">
+        <label>Okładka (hero artykułu)</label>
+        <input name="cover_image" id="cover-image-input" value="${esc(r.cover_image || '')}" placeholder="https://res.cloudinary.com/...">
+        <div class="media-row">
+          ${cloudinaryEnabled ? '<label class="btn btn-sm">Wgraj okładkę<input type="file" accept="image/*" id="cover-upload" hidden></label>' : ''}
+          <img id="cover-preview" class="img-preview" src="${esc(r.cover_image || '')}" alt="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Galeria zdjęć</label>
+        <input type="hidden" name="gallery" id="gallery-json" value="${esc(JSON.stringify(gallery))}">
+        <div id="gallery-previews" class="gallery-previews"></div>
+        <div class="media-row" style="margin-top:0.5rem">
+          ${cloudinaryEnabled ? '<label class="btn btn-sm">Dodaj zdjęcia<input type="file" accept="image/*" multiple id="gallery-upload" hidden></label>' : ''}
+          <button type="button" class="btn btn-sm" onclick="addGalleryUrl()">+ Wklej URL</button>
+        </div>
+      </div>
+    </div>`;
+}
+
+function articleFormHTML(r = {}, isNew = false) {
+  return `
+    <div class="form-row">
+      <div class="form-group"><label>ID (slug) *</label><input name="id" ${isNew ? '' : 'disabled'} value="${esc(r.id || '')}" ${isNew ? 'required placeholder="moja-konferencja-2026"' : ''}></div>
+      <div class="form-group"><label>Data *</label><input type="date" name="date" required value="${esc(r.date || new Date().toISOString().slice(0, 10))}"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Tytuł PL *</label><input name="title_pl" required value="${esc(r.title_pl || '')}"></div>
+      <div class="form-group"><label>Tytuł EN</label><input name="title_en" value="${esc(r.title_en || '')}"></div>
+    </div>
+    ${bilingualFields('short_desc', r)}
+    <div class="form-group">
+      <label>Format treści</label>
+      <select name="content_format">${formatOptions(r.content_format || 'html')}</select>
+    </div>
+    ${bilingualFields('full_desc', r)}
+    ${mediaFieldsHTML(r)}
+    ${linksEditorHTML(r.links)}
+    <div class="form-group"><label><input type="checkbox" name="published" value="1" ${r.published !== 0 ? 'checked' : ''}> Opublikowany</label></div>
+    ${isNew ? '' : `<input type="hidden" name="_id" value="${esc(r.id)}">`}
+  `;
+}
+
+function collectLinks() {
+  return [...document.querySelectorAll('#links-list .link-row')].map((row) => ({
+    label: {
+      pl: row.querySelector('.link-label-pl')?.value || '',
+      en: row.querySelector('.link-label-en')?.value || '',
+    },
+    url: row.querySelector('.link-url')?.value || '',
+  })).filter((l) => l.url);
+}
+
+function getGalleryFromForm() {
+  try { return JSON.parse(document.getElementById('gallery-json')?.value || '[]'); } catch { return []; }
+}
+
+function setGallery(urls) {
+  document.getElementById('gallery-json').value = JSON.stringify(urls);
+  renderGalleryPreviews(urls);
+}
+
+function renderGalleryPreviews(urls) {
+  const el = document.getElementById('gallery-previews');
+  if (!el) return;
+  el.innerHTML = urls.map((url, i) => `
+    <div class="gallery-thumb">
+      <img src="${esc(url)}" alt="">
+      <button type="button" onclick="removeGalleryImage(${i})" title="Usuń">×</button>
+    </div>
+  `).join('');
+}
+
+window.addLinkRow = () => {
+  document.getElementById('links-list').insertAdjacentHTML('beforeend', linkRowHTML({}, Date.now()));
+};
+
+window.removeGalleryImage = (idx) => {
+  const g = getGalleryFromForm();
+  g.splice(idx, 1);
+  setGallery(g);
+};
+
+window.addGalleryUrl = () => {
+  const url = prompt('URL zdjęcia (Cloudinary lub inny):');
+  if (!url) return;
+  setGallery([...getGalleryFromForm(), url.trim()]);
+};
+
+function getArticleIdFromForm() {
+  const idField = document.querySelector('#modal-form [name="id"]');
+  if (idField && !idField.disabled && idField.value.trim()) return idField.value.trim();
+  return document.querySelector('#modal-form [name="_id"]')?.value || currentEdit?.id;
+}
+
+async function uploadArticleImage(file, articleId, type, index) {
+  const fd = new FormData();
+  fd.append('file', file);
+  fd.append('articleId', articleId);
+  fd.append('type', type);
+  if (index != null) fd.append('index', String(index));
+  const res = await fetch(`${API}/admin/upload`, {
+    method: 'POST',
+    headers: token ? { Authorization: `Bearer ${token}` } : {},
+    credentials: 'include',
+    body: fd,
+  });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error || 'Upload failed');
+  return data.url;
+}
+
+function initArticleMediaHandlers() {
+  renderGalleryPreviews(getGalleryFromForm());
+  const coverPreview = document.getElementById('cover-preview');
+  const coverInput = document.getElementById('cover-image-input');
+  if (coverInput && coverPreview) {
+    coverInput.addEventListener('input', () => {
+      coverPreview.src = coverInput.value;
+      coverPreview.style.display = coverInput.value ? 'block' : 'none';
+    });
+  }
+
+  document.getElementById('cover-upload')?.addEventListener('change', async (e) => {
+    const file = e.target.files?.[0];
+    const articleId = getArticleIdFromForm();
+    if (!file || !articleId) { toast('Najpierw podaj ID artykułu', true); return; }
+    try {
+      toast('Uploadowanie...');
+      const url = await uploadArticleImage(file, articleId, 'cover');
+      coverInput.value = url;
+      coverPreview.src = url;
+      coverPreview.style.display = 'block';
+      toast('Okładka wgrana!');
+    } catch (ex) { toast(ex.message, true); }
+    e.target.value = '';
+  });
+
+  document.getElementById('gallery-upload')?.addEventListener('change', async (e) => {
+    const files = [...(e.target.files || [])];
+    const articleId = getArticleIdFromForm();
+    if (!articleId) { toast('Najpierw podaj ID artykułu', true); return; }
+    const gallery = getGalleryFromForm();
+    let nextIndex = gallery.length + 1;
+    for (const file of files) {
+      try {
+        toast(`Upload ${file.name}...`);
+        const url = await uploadArticleImage(file, articleId, 'gallery', nextIndex);
+        gallery.push(url);
+        nextIndex += 1;
+      } catch (ex) { toast(ex.message, true); }
+    }
+    setGallery(gallery);
+    e.target.value = '';
+  });
+}
+
+function collectNewsPayload(fd) {
+  return {
+    id: fd.get('id') || undefined,
+    date: fd.get('date'),
+    title_pl: fd.get('title_pl'),
+    title_en: fd.get('title_en'),
+    short_desc_pl: fd.get('short_desc_pl'),
+    short_desc_en: fd.get('short_desc_en'),
+    full_desc_pl: fd.get('full_desc_pl'),
+    full_desc_en: fd.get('full_desc_en'),
+    content_format: fd.get('content_format'),
+    cover_image: document.getElementById('cover-image-input')?.value || fd.get('cover_image') || '',
+    gallery: getGalleryFromForm(),
+    links: collectLinks(),
+    published: fd.get('published') === '1',
+  };
+}
+
 // ─── News CRUD ───────────────────────────────────────────────
 
 document.getElementById('add-news-btn').onclick = () => {
   currentEdit = {};
   currentType = 'news';
-  openModal('Nowy artykuł', `
-    <div class="form-row">
-      <div class="form-group"><label>ID (slug, np. moja-konferencja-2026)</label><input name="id" required placeholder="moja-konferencja-2026"></div>
-      <div class="form-group"><label>Data</label><input type="date" name="date" required value="${new Date().toISOString().slice(0, 10)}"></div>
-    </div>
-    <div class="form-row">
-      <div class="form-group"><label>Tytuł PL *</label><input name="title_pl" required></div>
-      <div class="form-group"><label>Tytuł EN</label><input name="title_en"></div>
-    </div>
-    ${bilingualFields('short_desc')}
-    <div class="form-group">
-      <label>Format treści</label>
-      <select name="content_format">
-        <option value="html">HTML</option>
-        <option value="markdown">Markdown (ładniejsze artykuły!)</option>
-      </select>
-      <p class="form-hint">Markdown: nagłówki #, listy -, **pogrubienie**, linki [tekst](url)</p>
-    </div>
-    ${bilingualFields('full_desc')}
-    <div class="form-group"><label><input type="checkbox" name="published" value="1" checked> Opublikowany</label></div>
-  `, async (fd) => {
-    await api('/admin/news', {
-      method: 'POST',
-      body: JSON.stringify({
-        id: fd.get('id'), date: fd.get('date'),
-        title_pl: fd.get('title_pl'), title_en: fd.get('title_en'),
-        short_desc_pl: fd.get('short_desc_pl'), short_desc_en: fd.get('short_desc_en'),
-        full_desc_pl: fd.get('full_desc_pl'), full_desc_en: fd.get('full_desc_en'),
-        content_format: fd.get('content_format'),
-        published: fd.get('published') === '1',
-      }),
-    });
+  openModal('Nowy artykuł', articleFormHTML({}, true), async (fd) => {
+    await api('/admin/news', { method: 'POST', body: JSON.stringify(collectNewsPayload(fd)) });
   });
+  setTimeout(initArticleMediaHandlers, 50);
 };
 
 window.editNews = async (id) => {
@@ -238,39 +438,10 @@ window.editNews = async (id) => {
   if (!r) return;
   currentEdit = r;
   currentType = 'news';
-  openModal(`Edytuj: ${r.title_pl}`, `
-    <input type="hidden" name="_id" value="${r.id}">
-    <div class="form-row">
-      <div class="form-group"><label>ID</label><input value="${r.id}" disabled style="opacity:0.5"></div>
-      <div class="form-group"><label>Data</label><input type="date" name="date" required value="${r.date}"></div>
-    </div>
-    <div class="form-row">
-      <div class="form-group"><label>Tytuł PL</label><input name="title_pl" required value="${esc(r.title_pl)}"></div>
-      <div class="form-group"><label>Tytuł EN</label><input name="title_en" value="${esc(r.title_en)}"></div>
-    </div>
-    ${bilingualFields('short_desc', r)}
-    <div class="form-group">
-      <label>Format treści</label>
-      <select name="content_format">
-        <option value="html" ${r.content_format === 'html' ? 'selected' : ''}>HTML</option>
-        <option value="markdown" ${r.content_format === 'markdown' ? 'selected' : ''}>Markdown</option>
-      </select>
-    </div>
-    ${bilingualFields('full_desc', r)}
-    <div class="form-group"><label><input type="checkbox" name="published" value="1" ${r.published ? 'checked' : ''}> Opublikowany</label></div>
-  `, async (fd) => {
-    await api(`/admin/news/${r.id}`, {
-      method: 'PUT',
-      body: JSON.stringify({
-        date: fd.get('date'),
-        title_pl: fd.get('title_pl'), title_en: fd.get('title_en'),
-        short_desc_pl: fd.get('short_desc_pl'), short_desc_en: fd.get('short_desc_en'),
-        full_desc_pl: fd.get('full_desc_pl'), full_desc_en: fd.get('full_desc_en'),
-        content_format: fd.get('content_format'),
-        published: fd.get('published') === '1',
-      }),
-    });
+  openModal(`Edytuj: ${r.title_pl}`, articleFormHTML(r, false), async (fd) => {
+    await api(`/admin/news/${r.id}`, { method: 'PUT', body: JSON.stringify(collectNewsPayload(fd)) });
   });
+  setTimeout(initArticleMediaHandlers, 50);
 };
 
 // ─── Members CRUD ────────────────────────────────────────────
@@ -428,9 +599,5 @@ document.getElementById('password-form').addEventListener('submit', async (e) =>
     toast(ex.message, true);
   }
 });
-
-function esc(s) {
-  return String(s || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
-}
 
 checkAuth();

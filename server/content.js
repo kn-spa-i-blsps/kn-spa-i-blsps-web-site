@@ -54,6 +54,7 @@ export function formatProject(row) {
 }
 
 export function formatNews(row) {
+  const gallery = parseJson(row.gallery);
   return {
     id: row.id,
     date: row.date,
@@ -61,8 +62,10 @@ export function formatNews(row) {
     shortDesc: bilingual(row.short_desc_pl, row.short_desc_en),
     fullDesc: bilingual(row.full_desc_pl, row.full_desc_en),
     contentFormat: row.content_format || 'html',
-    links: parseJson(row.links),
-    cover: newsCover(row.id),
+    links: parseJson(row.links).filter((l) => l && l.url),
+    cover: row.cover_image || newsCover(row.id),
+    coverImage: row.cover_image || '',
+    gallery,
   };
 }
 

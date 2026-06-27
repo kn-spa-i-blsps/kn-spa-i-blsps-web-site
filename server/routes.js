@@ -9,6 +9,7 @@ import {
   changePassword,
 } from './auth.js';
 import { getAllContent, formatMember, formatProject, formatNews, formatPartner, slugify } from './content.js';
+import { upload, uploadToCloudinary, defaultNewsFolder, isCloudinaryConfigured } from './upload.js';
 
 const router = Router();
 
@@ -188,6 +189,36 @@ router.delete('/admin/projects/:id', authMiddleware, (req, res) => {
   res.json({ ok: true });
 });
 
+router.get('/admin/config', authMiddleware, (_req, res) => {
+  res.json({ cloudinaryUpload: isCloudinaryConfigured() });
+});
+
+router.post('/admin/upload', authMiddleware, upload.single('file'), async (req, res) => {
+  try {
+    if (!req.file) return res.status(400).json({ error: 'Brak pliku' });
+    const articleId = req.body.articleId || req.body.article_id;
+    if (!articleId) return res.status(400).json({ error: 'articleId jest wymagane' });
+
+    const type = req.body.type || 'gallery';
+    const folder = defaultNewsFolder(articleId);
+    const publicId = type === 'cover' ? `${articleId}/main` : undefined;
+    const index = req.body.index;
+
+    let uploadPublicId = publicId;
+    if (type === 'gallery' && index) {
+      uploadPublicId = `${articleId}/${index}`;
+    }
+
+    const url = await uploadToCloudinary(req.file.buffer, {
+      folder,
+      publicId: uploadPublicId,
+    });
+    res.json({ url });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // News
 router.get('/admin/news', authMiddleware, (_req, res) => {
   res.json(db.prepare('SELECT * FROM news ORDER BY date DESC').all());
@@ -199,13 +230,15 @@ router.post('/admin/news', authMiddleware, (req, res) => {
   if (!b.date || !b.title_pl) return res.status(400).json({ error: 'Data i tytuł PL są wymagane' });
 
   db.prepare(`
-    INSERT INTO news (id, date, title_pl, title_en, short_desc_pl, short_desc_en, full_desc_pl, full_desc_en, content_format, links, published, updated_at)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
+    INSERT INTO news (id, date, title_pl, title_en, short_desc_pl, short_desc_en, full_desc_pl, full_desc_en, content_format, cover_image, gallery, links, published, updated_at)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
   `).run(
     id, b.date, b.title_pl, b.title_en || '',
     b.short_desc_pl || '', b.short_desc_en || '',
     b.full_desc_pl || '', b.full_desc_en || '',
     b.content_format || 'html',
+    b.cover_image || '',
+    JSON.stringify(parseBodyJson(b.gallery, [])),
     JSON.stringify(parseBodyJson(b.links, [])),
     b.published !== undefined ? (b.published ? 1 : 0) : 1
   );
@@ -215,13 +248,15 @@ router.post('/admin/news', authMiddleware, (req, res) => {
 router.put('/admin/news/:id', authMiddleware, (req, res) => {
   const b = req.body;
   const result = db.prepare(`
-    UPDATE news SET date=?, title_pl=?, title_en=?, short_desc_pl=?, short_desc_en=?, full_desc_pl=?, full_desc_en=?, content_format=?, links=?, published=?, updated_at=datetime('now')
+    UPDATE news SET date=?, title_pl=?, title_en=?, short_desc_pl=?, short_desc_en=?, full_desc_pl=?, full_desc_en=?, content_format=?, cover_image=?, gallery=?, links=?, published=?, updated_at=datetime('now')
     WHERE id=?
   `).run(
     b.date, b.title_pl, b.title_en || '',
     b.short_desc_pl || '', b.short_desc_en || '',
     b.full_desc_pl || '', b.full_desc_en || '',
     b.content_format || 'html',
+    b.cover_image || '',
+    JSON.stringify(parseBodyJson(b.gallery, [])),
     JSON.stringify(parseBodyJson(b.links, [])),
     b.published !== undefined ? (b.published ? 1 : 0) : 1,
     req.params.id

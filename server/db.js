@@ -62,6 +62,8 @@ db.exec(`
     full_desc_pl TEXT DEFAULT '',
     full_desc_en TEXT DEFAULT '',
     content_format TEXT DEFAULT 'html',
+    cover_image TEXT DEFAULT '',
+    gallery TEXT DEFAULT '[]',
     links TEXT DEFAULT '[]',
     published INTEGER DEFAULT 1,
     created_at TEXT DEFAULT (datetime('now')),
