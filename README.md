@@ -24,7 +24,9 @@ npm start
 ## Deploy na Render
 
 1. Zmień typ serwisu ze **Static Site** na **Web Service** (albo użyj `render.yaml`)
-2. Ustaw zmienne środowiskowe:
+2. **Root Directory:** zostaw puste (repo root, nie `site/`)
+3. Ustaw zmienne środowiskowe:
+   - `NODE_VERSION` — `22` (wymagane; Node 26 + stary better-sqlite3 nie zbuduje się)
    - `ADMIN_PASSWORD` — twoje bezpieczne hasło
    - `ADMIN_USERNAME` — opcjonalnie, domyślnie `admin`
    - `JWT_SECRET` — losowy długi string

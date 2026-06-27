@@ -10,11 +10,11 @@
     "migrate": "node server/migrate.js"
   },
   "engines": {
-    "node": ">=20"
+    "node": "20.x || 22.x"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",
-    "better-sqlite3": "^11.9.1",
+    "better-sqlite3": "^12.9.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "express": "^5.1.0",
