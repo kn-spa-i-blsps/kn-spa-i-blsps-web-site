@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import { fileURLToPath } from 'url';
-import { ensureAdminUser } from './auth.js';
+import { ensureAdminUser, syncAdminFromEnv } from './auth.js';
 import { runMigration } from './migrate.js';
 import { runSchemaMigrations } from './schema.js';
 import apiRouter from './routes.js';
@@ -14,6 +14,8 @@ const DATA_DIR = process.env.DATA_DIR || path.join(__dirname, '..', 'data');
 const PORT = process.env.PORT || 3000;
 
 const app = express();
+
+app.set('trust proxy', 1);
 
 app.use(express.json({ limit: '2mb' }));
 app.use(cookieParser());
@@ -50,6 +52,7 @@ app.use(express.static(ROOT, { index: false }));
 app.get('/health', (_req, res) => res.json({ ok: true }));
 
 ensureAdminUser();
+syncAdminFromEnv();
 runSchemaMigrations();
 runMigration();
 

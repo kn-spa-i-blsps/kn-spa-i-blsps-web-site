@@ -19,7 +19,9 @@ npm start
 
 - Strona: http://localhost:3000
 - Admin: http://localhost:3000/admin
-- Domyślne hasło: `kn-admin-2026` (login: `admin`)
+- Login: `admin`, hasło domyślne: `kn-admin-2026`
+- Na Renderze ustaw `ADMIN_PASSWORD` — po redeployu synchronizuje się z bazą
+- Awaryjny reset: `ADMIN_PASSWORD=nowe-haslo npm run reset-admin`
 
 ## Deploy na Render
 

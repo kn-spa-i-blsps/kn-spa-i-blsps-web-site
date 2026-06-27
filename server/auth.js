@@ -13,14 +13,32 @@ export function ensureAdminUser() {
   const hash = bcrypt.hashSync(defaultPassword, 12);
   setSetting('admin_password_hash', hash);
   setSetting('admin_username', process.env.ADMIN_USERNAME || 'admin');
-  console.log('[auth] Default admin account created. Change ADMIN_PASSWORD in env!');
+  console.log('[auth] Default admin account created.');
+}
+
+/** Na Renderze hasło z env działa tylko przy pierwszym starcie — ta funkcja to naprawia. */
+export function syncAdminFromEnv() {
+  const envUser = process.env.ADMIN_USERNAME?.trim();
+  const envPass = process.env.ADMIN_PASSWORD;
+
+  if (envUser) {
+    setSetting('admin_username', envUser);
+    console.log(`[auth] Admin username synced from env: ${envUser}`);
+  }
+
+  if (envPass) {
+    setSetting('admin_password_hash', bcrypt.hashSync(envPass, 12));
+    console.log('[auth] Admin password synced from ADMIN_PASSWORD env');
+  }
 }
 
 export function verifyLogin(username, password) {
   const storedUser = getSetting('admin_username') || 'admin';
   const hash = getSetting('admin_password_hash');
-  if (!hash || username !== storedUser) return false;
-  return bcrypt.compareSync(password, hash);
+  const user = String(username || '').trim();
+  const pass = String(password || '');
+  if (!hash || user !== storedUser) return false;
+  return bcrypt.compareSync(pass, hash);
 }
 
 export function createToken(username) {

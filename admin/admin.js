@@ -9,12 +9,23 @@ async function api(path, opts = {}) {
   const headers = { 'Content-Type': 'application/json', ...opts.headers };
   if (token) headers.Authorization = `Bearer ${token}`;
   const res = await fetch(`${API}${path}`, { ...opts, headers, credentials: 'include' });
+  const raw = await res.text();
+  let data = {};
+  try {
+    data = raw ? JSON.parse(raw) : {};
+  } catch {
+    if (!res.ok) {
+      if (res.status === 404) {
+        throw new Error('API niedostępne — upewnij się, że na Renderze masz Web Service (nie Static Site) i Root Directory jest puste.');
+      }
+      throw new Error(`Błąd serwera (${res.status}). Sprawdź logi deployu.`);
+    }
+  }
   if (res.status === 401 && !path.includes('/auth/login')) {
     logout();
     throw new Error('Unauthorized');
   }
-  const data = await res.json().catch(() => ({}));
-  if (!res.ok) throw new Error(data.error || 'Request failed');
+  if (!res.ok) throw new Error(data.error || `Request failed (${res.status})`);
   return data;
 }
 
