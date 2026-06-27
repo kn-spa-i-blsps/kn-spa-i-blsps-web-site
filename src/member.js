@@ -85,7 +85,7 @@ async function renderProfile() {
                 <div class="w-64 flex-shrink-0 mx-auto lg:mx-0">
                     <div class="img-container mb-8 shadow-2xl transform -rotate-1 group">
                         <div class="overflow-hidden h-80">
-                            <img src="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/${t(user.id)}.jpg" 
+                            <img src="${user.photo || `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/${t(user.id)}.jpg`}" 
                                  class="w-full h-full object-cover img-content"
                                  onerror="handleMemberImageError(this, '${t(user.id)}')">
                         </div>

@@ -9,7 +9,7 @@ import {
   changePassword,
 } from './auth.js';
 import { getAllContent, formatMember, formatProject, formatNews, formatPartner, slugify } from './content.js';
-import { upload, uploadToCloudinary, defaultNewsFolder, isCloudinaryConfigured } from './upload.js';
+import { upload, persistImage, isCloudinaryConfigured } from './upload.js';
 
 const router = Router();
 
@@ -111,12 +111,13 @@ router.post('/admin/members', authMiddleware, (req, res) => {
   if (!b.name) return res.status(400).json({ error: 'Imię jest wymagane' });
 
   db.prepare(`
-    INSERT INTO members (id, name, role_pl, role_en, bio_pl, bio_en, custom_tags, socials, sort_order, updated_at)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
+    INSERT INTO members (id, name, role_pl, role_en, bio_pl, bio_en, custom_tags, socials, photo_url, sort_order, updated_at)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
   `).run(
     id, b.name, b.role_pl || '', b.role_en || '', b.bio_pl || '', b.bio_en || '',
     JSON.stringify(parseBodyJson(b.custom_tags, [])),
     JSON.stringify(parseBodyJson(b.socials, [])),
+    b.photo_url || '',
     b.sort_order ?? 999
   );
   res.status(201).json({ id });
@@ -125,12 +126,13 @@ router.post('/admin/members', authMiddleware, (req, res) => {
 router.put('/admin/members/:id', authMiddleware, (req, res) => {
   const b = req.body;
   const result = db.prepare(`
-    UPDATE members SET name=?, role_pl=?, role_en=?, bio_pl=?, bio_en=?, custom_tags=?, socials=?, sort_order=?, updated_at=datetime('now')
+    UPDATE members SET name=?, role_pl=?, role_en=?, bio_pl=?, bio_en=?, custom_tags=?, socials=?, photo_url=?, sort_order=?, updated_at=datetime('now')
     WHERE id=?
   `).run(
     b.name, b.role_pl || '', b.role_en || '', b.bio_pl || '', b.bio_en || '',
     JSON.stringify(parseBodyJson(b.custom_tags, [])),
     JSON.stringify(parseBodyJson(b.socials, [])),
+    b.photo_url || '',
     b.sort_order ?? 999,
     req.params.id
   );
@@ -191,30 +193,31 @@ router.delete('/admin/projects/:id', authMiddleware, (req, res) => {
 });
 
 router.get('/admin/config', authMiddleware, (_req, res) => {
-  res.json({ cloudinaryUpload: isCloudinaryConfigured() });
+  res.json({
+    fileUpload: true,
+    cloudinaryUpload: isCloudinaryConfigured(),
+    uploadMode: isCloudinaryConfigured() ? 'cloudinary' : 'local',
+  });
 });
 
 router.post('/admin/upload', authMiddleware, upload.single('file'), async (req, res) => {
   try {
     if (!req.file) return res.status(400).json({ error: 'Brak pliku' });
-    const articleId = req.body.articleId || req.body.article_id;
-    if (!articleId) return res.status(400).json({ error: 'articleId jest wymagane' });
 
-    const type = req.body.type || 'gallery';
-    const folder = defaultNewsFolder(articleId);
-    const publicId = type === 'cover' ? `${articleId}/main` : undefined;
-    const index = req.body.index;
+    const entityId = req.body.entityId || req.body.articleId || req.body.article_id;
+    if (!entityId) return res.status(400).json({ error: 'entityId (ID wpisu) jest wymagane' });
 
-    let uploadPublicId = publicId;
-    if (type === 'gallery' && index) {
-      uploadPublicId = `${articleId}/${index}`;
-    }
+    const category = req.body.category || 'news';
+    const role = req.body.role || req.body.type || 'cover';
+    const index = req.body.index ? parseInt(req.body.index, 10) : undefined;
 
-    const url = await uploadToCloudinary(req.file.buffer, {
-      folder,
-      publicId: uploadPublicId,
+    const url = await persistImage(req.file.buffer, req.file.mimetype, {
+      category,
+      entityId,
+      role,
+      index,
     });
-    res.json({ url });
+    res.json({ url, mode: isCloudinaryConfigured() ? 'cloudinary' : 'local' });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

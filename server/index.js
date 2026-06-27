@@ -10,6 +10,7 @@ import { createBluesparkHandler } from './bluespark.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
+const DATA_DIR = process.env.DATA_DIR || path.join(__dirname, '..', 'data');
 const PORT = process.env.PORT || 3000;
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(express.json({ limit: '2mb' }));
 app.use(cookieParser());
 
 app.use('/api', apiRouter);
+app.use('/uploads', express.static(path.join(DATA_DIR, 'uploads')));
 app.use('/admin', express.static(path.join(ROOT, 'admin')));
 app.use('/bluespark', createBluesparkHandler(path.join(ROOT, 'bluespark')));
 app.use('/css', express.static(path.join(ROOT, 'css')));

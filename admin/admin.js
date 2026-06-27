@@ -3,6 +3,7 @@ let token = localStorage.getItem('admin_token');
 let currentEdit = null;
 let currentType = null;
 let cloudinaryEnabled = false;
+let uploadMode = 'local';
 
 async function api(path, opts = {}) {
   const headers = { 'Content-Type': 'application/json', ...opts.headers };
@@ -36,6 +37,7 @@ async function showAdmin(username) {
   try {
     const cfg = await api('/admin/config');
     cloudinaryEnabled = cfg.cloudinaryUpload;
+    uploadMode = cfg.uploadMode || (cloudinaryEnabled ? 'cloudinary' : 'local');
   } catch { /* ignore */ }
   loadAll();
 }
@@ -242,16 +244,16 @@ function linksEditorHTML(links) {
 function mediaFieldsHTML(r = {}) {
   const gallery = parseJsonField(r.gallery, []);
   const hint = cloudinaryEnabled
-    ? 'Upload bezpośrednio na Cloudinary lub wklej URL.'
-    : 'Upload: ustaw CLOUDINARY_API_KEY i CLOUDINARY_API_SECRET na Renderze. Na razie wklejaj URL.';
+    ? 'Wgraj plik z dysku (trafi na Cloudinary) lub wklej URL.'
+    : 'Wgraj plik z dysku (zapis na serwerze — wymaga Persistent Disk na Render) lub wklej URL Cloudinary.';
   return `
     <div class="media-section">
       <p class="form-hint">${hint}</p>
       <div class="form-group">
         <label>Okładka (hero artykułu)</label>
-        <input name="cover_image" id="cover-image-input" value="${esc(r.cover_image || '')}" placeholder="https://res.cloudinary.com/...">
+        <input name="cover_image" id="cover-image-input" value="${esc(r.cover_image || '')}" placeholder="https://... lub /uploads/...">
         <div class="media-row">
-          ${cloudinaryEnabled ? '<label class="btn btn-sm">Wgraj okładkę<input type="file" accept="image/*" id="cover-upload" hidden></label>' : ''}
+          <label class="btn btn-sm">Wgraj okładkę<input type="file" accept="image/*" id="cover-upload" hidden></label>
           <img id="cover-preview" class="img-preview" src="${esc(r.cover_image || '')}" alt="">
         </div>
       </div>
@@ -260,9 +262,32 @@ function mediaFieldsHTML(r = {}) {
         <input type="hidden" name="gallery" id="gallery-json" value="${esc(JSON.stringify(gallery))}">
         <div id="gallery-previews" class="gallery-previews"></div>
         <div class="media-row" style="margin-top:0.5rem">
-          ${cloudinaryEnabled ? '<label class="btn btn-sm">Dodaj zdjęcia<input type="file" accept="image/*" multiple id="gallery-upload" hidden></label>' : ''}
+          <label class="btn btn-sm">Dodaj zdjęcia<input type="file" accept="image/*" multiple id="gallery-upload" hidden></label>
           <button type="button" class="btn btn-sm" onclick="addGalleryUrl()">+ Wklej URL</button>
         </div>
+      </div>
+    </div>`;
+}
+
+function memberPhotoFieldHTML(r = {}) {
+  return `
+    <div class="form-group">
+      <label>Zdjęcie członka</label>
+      <input name="photo_url" id="member-photo-input" value="${esc(r.photo_url || '')}" placeholder="https://... lub /uploads/...">
+      <p class="form-hint">Najpierw ustaw ID (slug), potem wgraj plik.</p>
+      <div class="media-row">
+        <label class="btn btn-sm">Wgraj zdjęcie<input type="file" accept="image/*" id="member-photo-upload" hidden></label>
+        <img id="member-photo-preview" class="img-preview" src="${esc(r.photo_url || '')}" alt="">
+      </div>
+    </div>`;
+}
+  return `
+    <div class="form-group">
+      <label>Okładka projektu (main)</label>
+      <input name="image_url" id="project-image-input" value="${esc(r.image_url || '')}" placeholder="https://... lub /uploads/...">
+      <div class="media-row">
+        <label class="btn btn-sm">Wgraj okładkę<input type="file" accept="image/*" id="project-image-upload" hidden></label>
+        <img id="project-image-preview" class="img-preview" src="${esc(r.image_url || '')}" alt="">
       </div>
     </div>`;
 }
@@ -344,11 +369,16 @@ function getArticleIdFromForm() {
   return document.querySelector('#modal-form [name="_id"]')?.value || currentEdit?.id;
 }
 
-async function uploadArticleImage(file, articleId, type, index) {
+async function uploadMediaFile(file, { category, entityId, role, index }) {
   const fd = new FormData();
   fd.append('file', file);
-  fd.append('articleId', articleId);
-  fd.append('type', type);
+  fd.append('category', category);
+  fd.append('entityId', entityId);
+  fd.append('role', role);
+  if (category === 'news') {
+    fd.append('articleId', entityId);
+    fd.append('type', role);
+  }
   if (index != null) fd.append('index', String(index));
   const res = await fetch(`${API}/admin/upload`, {
     method: 'POST',
@@ -359,6 +389,10 @@ async function uploadArticleImage(file, articleId, type, index) {
   const data = await res.json();
   if (!res.ok) throw new Error(data.error || 'Upload failed');
   return data.url;
+}
+
+async function uploadArticleImage(file, articleId, type, index) {
+  return uploadMediaFile(file, { category: 'news', entityId: articleId, role: type, index });
 }
 
 function initArticleMediaHandlers() {
@@ -402,6 +436,50 @@ function initArticleMediaHandlers() {
       } catch (ex) { toast(ex.message, true); }
     }
     setGallery(gallery);
+    e.target.value = '';
+  });
+}
+
+function initMemberPhotoHandlers(memberId) {
+  const input = document.getElementById('member-photo-input');
+  const preview = document.getElementById('member-photo-preview');
+  const upload = document.getElementById('member-photo-upload');
+  input?.addEventListener('input', () => {
+    if (preview) preview.src = input.value;
+  });
+  upload?.addEventListener('change', async (e) => {
+    const file = e.target.files?.[0];
+    const id = memberId || document.querySelector('#modal-form [name="id"]')?.value?.trim();
+    if (!file || !id) { toast('Najpierw podaj ID członka', true); return; }
+    try {
+      toast('Uploadowanie...');
+      const url = await uploadMediaFile(file, { category: 'member', entityId: id, role: 'main' });
+      input.value = url;
+      if (preview) preview.src = url;
+      toast('Zdjęcie wgrane!');
+    } catch (ex) { toast(ex.message, true); }
+    e.target.value = '';
+  });
+}
+
+function initProjectImageHandlers(projectId) {
+  const input = document.getElementById('project-image-input');
+  const preview = document.getElementById('project-image-preview');
+  const upload = document.getElementById('project-image-upload');
+  input?.addEventListener('input', () => {
+    if (preview) preview.src = input.value;
+  });
+  upload?.addEventListener('change', async (e) => {
+    const file = e.target.files?.[0];
+    const id = projectId || document.querySelector('#modal-form [name="id"]')?.value?.trim();
+    if (!file || !id) { toast('Najpierw podaj ID projektu', true); return; }
+    try {
+      toast('Uploadowanie...');
+      const url = await uploadMediaFile(file, { category: 'project', entityId: id, role: 'main' });
+      input.value = url;
+      if (preview) preview.src = url;
+      toast('Okładka wgrana!');
+    } catch (ex) { toast(ex.message, true); }
     e.target.value = '';
   });
 }
@@ -493,6 +571,7 @@ document.getElementById('add-member-btn').onclick = () => {
       <div class="form-group"><label>Rola EN</label><input name="role_en"></div>
     </div>
     ${bilingualFields('bio')}
+    ${memberPhotoFieldHTML()}
     <div class="form-group"><label>Socials (JSON)</label><textarea name="socials" placeholder='[{"platform":"github","url":"https://..."}]'></textarea></div>
     <div class="form-group"><label>Kolejność</label><input type="number" name="sort_order" value="999"></div>
   `, async (fd) => {
@@ -502,10 +581,12 @@ document.getElementById('add-member-btn').onclick = () => {
         id: fd.get('id') || undefined, name: fd.get('name'),
         role_pl: fd.get('role_pl'), role_en: fd.get('role_en'),
         bio_pl: fd.get('bio_pl'), bio_en: fd.get('bio_en'),
+        photo_url: fd.get('photo_url') || '',
         socials: fd.get('socials') || '[]', sort_order: parseInt(fd.get('sort_order')) || 999,
       }),
     });
   });
+  setTimeout(() => initMemberPhotoHandlers(), 50);
 };
 
 window.editMember = async (id) => {
@@ -519,6 +600,7 @@ window.editMember = async (id) => {
       <div class="form-group"><label>Rola EN</label><input name="role_en" value="${esc(r.role_en)}"></div>
     </div>
     ${bilingualFields('bio', r)}
+    ${memberPhotoFieldHTML(r)}
     <div class="form-group"><label>Socials (JSON)</label><textarea name="socials">${esc(r.socials)}</textarea></div>
     <div class="form-group"><label>Kolejność</label><input type="number" name="sort_order" value="${r.sort_order}"></div>
   `, async (fd) => {
@@ -527,10 +609,12 @@ window.editMember = async (id) => {
       body: JSON.stringify({
         name: fd.get('name'), role_pl: fd.get('role_pl'), role_en: fd.get('role_en'),
         bio_pl: fd.get('bio_pl'), bio_en: fd.get('bio_en'),
+        photo_url: fd.get('photo_url') || '',
         socials: fd.get('socials'), sort_order: parseInt(fd.get('sort_order')) || 999,
       }),
     });
   });
+  setTimeout(() => initMemberPhotoHandlers(id), 50);
 };
 
 // ─── Projects CRUD ─────────────────────────────────────────────
@@ -545,6 +629,7 @@ document.getElementById('add-project-btn').onclick = () => {
     <div class="form-group"><label>Kolejność</label><input type="number" name="ordering" value="999"></div>
     ${bilingualFields('short_desc')}
     ${bilingualFields('full_desc')}
+    ${projectImageFieldHTML()}
     <div class="form-group"><label>Team IDs (JSON array)</label><textarea name="team_ids" placeholder='["jan-kowalski"]'></textarea></div>
   `, async (fd) => {
     await api('/admin/projects', {
@@ -554,10 +639,12 @@ document.getElementById('add-project-btn').onclick = () => {
         ordering: parseInt(fd.get('ordering')) || 999,
         short_desc_pl: fd.get('short_desc_pl'), short_desc_en: fd.get('short_desc_en'),
         full_desc_pl: fd.get('full_desc_pl'), full_desc_en: fd.get('full_desc_en'),
+        image_url: fd.get('image_url') || '',
         team_ids: fd.get('team_ids') || '[]',
       }),
     });
   });
+  setTimeout(() => initProjectImageHandlers(), 50);
 };
 
 window.editProject = async (id) => {
@@ -570,6 +657,7 @@ window.editProject = async (id) => {
     <div class="form-group"><label>Kolejność</label><input type="number" name="ordering" value="${r.ordering}"></div>
     ${bilingualFields('short_desc', r)}
     ${bilingualFields('full_desc', r)}
+    ${projectImageFieldHTML(r)}
     <div class="form-group"><label>Team IDs (JSON)</label><textarea name="team_ids">${esc(r.team_ids)}</textarea></div>
   `, async (fd) => {
     await api(`/admin/projects/${id}`, {
@@ -579,10 +667,12 @@ window.editProject = async (id) => {
         ordering: parseInt(fd.get('ordering')) || 999,
         short_desc_pl: fd.get('short_desc_pl'), short_desc_en: fd.get('short_desc_en'),
         full_desc_pl: fd.get('full_desc_pl'), full_desc_en: fd.get('full_desc_en'),
+        image_url: fd.get('image_url') || '',
         team_ids: fd.get('team_ids'),
       }),
     });
   });
+  setTimeout(() => initProjectImageHandlers(id), 50);
 };
 
 // ─── Partners CRUD ─────────────────────────────────────────────

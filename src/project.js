@@ -63,7 +63,7 @@ async function renderProjectGallery(project) {
     if (!container) return;
     
     const projId = t(project.id);
-    const mainImgUrl = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1200/kn-spa-i-blsps/projects/${projId}/main.jpg`;
+    const mainImgUrl = project.image || `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1200/kn-spa-i-blsps/projects/${projId}/main.jpg`;
     
     allProjectImages = [mainImgUrl];
 
@@ -186,7 +186,7 @@ function renderTeamSection(project) {
         if (!person) return "";
         return `<a href="member.html?user=${t(person.id)}" class="flex items-center gap-4 p-4 data-block hover:border-[#038DAE] transition-all group mb-4 bg-white">
             <div class="w-12 h-16 flex-shrink-0 overflow-hidden bg-slate-100 border border-slate-200">
-                <img src="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_400/kn-spa-i-blsps/members/${t(person.id)}.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_400/kn-spa-i-blsps/members/default.jpg'">
+                <img src="${person.photo || `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_400/kn-spa-i-blsps/members/${t(person.id)}.jpg`}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_400/kn-spa-i-blsps/members/default.jpg'">
             </div>
             <div>
                 <p class="text-[14px] font-bold text-[#012A4F] uppercase group-hover:text-[#038DAE]">${t(person.name)}</p>

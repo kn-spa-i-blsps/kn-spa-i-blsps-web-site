@@ -32,9 +32,14 @@ npm start
    - `JWT_SECRET` — losowy długi string
 3. Dodaj **Persistent Disk** (1 GB) zamontowany na `/opt/render/project/data` — żeby baza SQLite przetrwała restarty
 
-## Zdjęcia (Cloudinary)
+## Zdjęcia
 
-Zdjęcia nadal na Cloudinary (`dsrdp5vrr`). Wrzucaj ręcznie na cloudinary.com:
+**W panelu admin** (`/admin`) możesz **wgrać plik z dysku** przy artykule, członku lub projekcie — bez logowania na cloudinary.com.
+
+- **Bez kluczy Cloudinary:** pliki zapisują się na serwerze (`/uploads/...`) — wymaga **Persistent Disk** na Render (`DATA_DIR`)
+- **Z kluczami** (`CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`): upload idzie na Cloudinary
+
+Ręczny upload na [cloudinary.com](https://cloudinary.com) nadal działa — wg ścieżek poniżej.
 
 | Typ | Ścieżka |
 |-----|---------|

@@ -33,7 +33,8 @@ export function formatMember(row) {
       typeof t === 'string' ? { pl: t, en: t } : t
     ),
     socials: parseJson(row.socials),
-    photo: memberPhoto(row.id),
+    photo: row.photo_url || memberPhoto(row.id),
+    photoUrl: row.photo_url || '',
   };
 }
 

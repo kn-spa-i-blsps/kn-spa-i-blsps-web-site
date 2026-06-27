@@ -32,7 +32,7 @@ function renderProjectCards(container, { featuredId = 'bluespark', layout = 'hom
     sorted.forEach((proj, index) => {
         const id = t(proj.id);
         const href = id === 'bluespark' ? '/bluespark/' : `project.html?id=${id}`;
-        const mainImgPath = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_900,c_limit/kn-spa-i-blsps/projects/${id}/main.jpg`;
+        const mainImgPath = proj.image || `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_900,c_limit/kn-spa-i-blsps/projects/${id}/main.jpg`;
         const isFeatured = !isPageLayout && id === featuredId;
         const cardClass = isPageLayout ? ' page-card' : (isFeatured ? ' featured lg:col-span-2' : '');
 
@@ -101,7 +101,7 @@ function renderHomeTeam() {
     });
 
     const membersHTML = sortedMembers.map(person => {
-        const primarySrc = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/${t(person.id)}.jpg`;
+        const primarySrc = person.photo || `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/${t(person.id)}.jpg`;
         const secondarySrc = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/${t(person.id)}.jpeg`;
         const fallbackSrc = person.img || "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/default.jpg";
 

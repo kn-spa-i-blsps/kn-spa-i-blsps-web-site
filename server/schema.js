@@ -12,4 +12,10 @@ export function runSchemaMigrations() {
     db.exec('ALTER TABLE news ADD COLUMN featured INTEGER DEFAULT 0');
     console.log('[schema] Added news.featured column');
   }
+
+  const memberCols = db.prepare('PRAGMA table_info(members)').all().map((c) => c.name);
+  if (!memberCols.includes('photo_url')) {
+    db.exec('ALTER TABLE members ADD COLUMN photo_url TEXT DEFAULT ""');
+    console.log('[schema] Added members.photo_url column');
+  }
 }

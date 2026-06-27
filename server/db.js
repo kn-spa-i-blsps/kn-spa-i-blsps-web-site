@@ -30,6 +30,7 @@ db.exec(`
     bio_en TEXT DEFAULT '',
     custom_tags TEXT DEFAULT '[]',
     socials TEXT DEFAULT '[]',
+    photo_url TEXT DEFAULT '',
     sort_order INTEGER DEFAULT 999,
     created_at TEXT DEFAULT (datetime('now')),
     updated_at TEXT DEFAULT (datetime('now'))
