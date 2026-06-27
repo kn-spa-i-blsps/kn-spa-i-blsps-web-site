@@ -17,37 +17,33 @@ function renderHomeProjects() {
     if (!container) return;
     container.innerHTML = "";
 
-    projects.forEach((proj, index) => {
-        // Dynamiczna ścieżka do zdjęcia głównego projektu
-        const mainImgPath = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/projects/${t(proj.id)}/main.jpg`;
+    const sorted = [...projects].sort((a, b) => (a.ordering || 999) - (b.ordering || 999));
+
+    sorted.forEach((proj, index) => {
+        const id = t(proj.id);
+        const href = id === 'bluespark' ? '/bluespark/' : `project.html?id=${id}`;
+        const mainImgPath = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_900,c_limit/kn-spa-i-blsps/projects/${id}/main.jpg`;
+        const featured = index === 0 ? ' featured lg:col-span-2' : '';
 
         container.innerHTML += `
-            <a href="project.html?id=${t(proj.id)}" class="tech-card overflow-hidden group flex flex-col h-full shadow-sm">
-                <div class="relative h-40 overflow-hidden border-b border-slate-100">
-                    <img src="${mainImgPath}" 
-                         class="w-full h-full object-cover transition duration-700 group-hover:scale-110"
-                         onerror="handleHomeProjectImageError(this, '${t(proj.id)}', '${t(proj.image)}')">
-                    <div class="absolute top-2 left-2 bg-[#038DAE] px-2 py-1 text-[9px] text-white font-bold border border-[#038DAE]/30 shadow-lg">
-                        IMG_REF_0${index + 1}
+            <a href="${href}" class="home-project-card group${featured}">
+                <img src="${mainImgPath}" alt="" class="bg-img" loading="lazy"
+                     onerror="handleHomeProjectImageError(this, '${id}', '${proj.image || ''}')">
+                <div class="overlay"></div>
+                <div class="body">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-[8px] font-bold text-[#038DAE] tracking-[0.35em] uppercase">SYS_0${index + 1}</span>
+                        <span class="text-[8px] text-white/40 font-mono">${id}</span>
                     </div>
-                </div>
-
-                <div class="p-5 flex flex-col flex-grow">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="text-[9px] font-bold text-slate-400 tracking-widest uppercase italic">SYS_LOG: ${t(proj.id)}</span>
-                    </div>
-                    
-                    <h3 class="text-md font-bold text-[#012A4F] mb-2 uppercase group-hover:text-[#038DAE] transition">
+                    <h3 class="text-xl lg:text-2xl font-black text-white uppercase italic tracking-tight group-hover:text-[#038DAE] transition-colors leading-none">
                         ${t(proj.title)}
                     </h3>
-                    
-                    <p class="text-[11px] text-slate-500 leading-relaxed mb-6 flex-grow">
+                    <p class="text-[10px] text-slate-300 leading-relaxed mt-3 line-clamp-2 opacity-90">
                         ${t(proj.shortDesc)}
                     </p>
-                    
-                    <div class="text-[10px] font-bold text-[#038DAE]/70 group-hover:text-[#038DAE] flex items-center gap-2 uppercase tracking-tighter">
-                        DECRYPT_DATA <span class="group-hover:translate-x-1 transition">>></span>
-                    </div>
+                    <span class="inline-flex items-center gap-2 mt-4 text-[9px] font-bold text-[#038DAE] tracking-[0.2em] uppercase">
+                        DECRYPT_DATA <span class="group-hover:translate-x-1 transition-transform">→</span>
+                    </span>
                 </div>
             </a>
         `;
@@ -255,53 +251,54 @@ function startHeroLogic() {
 /**
  * 4. RENDEROWANIE AKTUALNOŚCI NA STRONIE GŁÓWNEJ
  */
+function newsImgPath(id, w = 800) {
+    return `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_${w},c_limit/kn-spa-i-blsps/news/${id}/main.jpg`;
+}
+
 function renderHomeNews() {
+    const featuredEl = document.getElementById('news-featured');
     const container = document.getElementById('news-container');
     if (!container || typeof news === 'undefined') return;
 
-    container.innerHTML = "";
-
-    // Sortujemy aktualności od najnowszej (zakładając format daty YYYY-MM-DD)
     const sortedNews = [...news].sort((a, b) => new Date(b.date) - new Date(a.date));
+    if (!sortedNews.length) return;
 
-    sortedNews.forEach((item, index) => {
-        // Ścieżka bazowa do zdjęcia głównego (szukamy id-main.jpg)
-        const mainImgPath = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/${item.id}/main.jpg`;
+    const [latest, ...rest] = sortedNews;
 
-        container.innerHTML += `
-            <a href="article.html?id=${item.id}" class="tech-card group flex flex-col h-full bg-white shadow-sm hover:shadow-md transition-all">
-                <div class="relative h-48 overflow-hidden border-b border-slate-100 bg-slate-50">
-                    <img src="${mainImgPath}" 
-                         class="w-full h-full object-cover transition duration-700 group-hover:scale-110"
-                         onerror="handleNewsImageError(this, '${item.id}')">
-                    <div class="absolute top-3 left-3 bg-[#012A4F] px-2 py-1 text-[8px] text-white font-bold tracking-widest uppercase">
-                        NEWS_FEED_0${index + 1}
-                    </div>
+    if (featuredEl) {
+        featuredEl.innerHTML = `
+            <a href="article.html?id=${latest.id}" class="home-news-featured group">
+                <div class="feat-img relative overflow-hidden bg-slate-100">
+                    <img src="${newsImgPath(latest.id, 1000)}" alt="" class="w-full h-full object-cover min-h-[200px] md:min-h-full transition duration-500 group-hover:scale-105"
+                         onerror="handleNewsImageError(this, '${latest.id}')">
+                    <div class="absolute top-3 left-3 bg-[#038DAE] text-white text-[8px] font-bold px-2 py-1 tracking-widest uppercase">LATEST</div>
                 </div>
-
-                <div class="p-6 flex flex-col flex-grow">
-                    <div class="flex items-center gap-2 mb-3">
-                        <div class="w-1 h-1 bg-[#038DAE] rounded-full"></div>
-                        <span class="text-[10px] font-mono text-slate-400 font-bold uppercase">${item.date}</span>
-                    </div>
-                    
-                    <h3 class="text-lg font-bold text-[#012A4F] mb-3 uppercase italic group-hover:text-[#038DAE] transition-colors leading-tight">
-                        ${t(item.title)}
+                <div class="p-5 md:p-8 flex flex-col justify-center border-l-0 md:border-l border-slate-100">
+                    <span class="text-[10px] font-mono text-[#038DAE] font-bold tracking-widest mb-2">${latest.date}</span>
+                    <h3 class="text-xl md:text-2xl font-black text-[#012A4F] uppercase italic leading-tight mb-3 group-hover:text-[#038DAE] transition-colors">
+                        ${t(latest.title)}
                     </h3>
-                    
-                    <p class="text-[12px] text-slate-500 leading-relaxed mb-6 flex-grow line-clamp-3">
-                        ${t(item.shortDesc)}
-                    </p>
-                    
-                    <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-50">
-                        <span class="text-[9px] font-black text-[#038DAE] tracking-[0.2em] uppercase group-hover:gap-3 flex items-center gap-2 transition-all">
-                            ACCESS_FULL_REPORT <span>→</span>
-                        </span>
-                    </div>
+                    <p class="text-[11px] text-slate-500 leading-relaxed line-clamp-3 mb-4">${t(latest.shortDesc)}</p>
+                    <span class="text-[9px] font-bold text-[#038DAE] tracking-[0.25em] uppercase">ACCESS_FULL_REPORT →</span>
                 </div>
             </a>
         `;
-    });
+    }
+
+    container.innerHTML = rest.map((item) => `
+        <a href="article.html?id=${item.id}" class="home-news-row group">
+            <div class="thumb relative overflow-hidden">
+                <img src="${newsImgPath(item.id, 400)}" alt="" class="w-full h-full object-cover min-h-[88px] transition duration-300 group-hover:scale-105"
+                     onerror="handleNewsImageError(this, '${item.id}')">
+            </div>
+            <div class="p-3 sm:p-4 flex flex-col justify-center flex-1 min-w-0 border-l-2 border-transparent group-hover:border-[#038DAE] transition-colors">
+                <span class="text-[9px] font-mono text-slate-400 font-bold uppercase mb-1">${item.date}</span>
+                <h3 class="text-[13px] font-bold text-[#012A4F] uppercase leading-snug line-clamp-2 group-hover:text-[#038DAE] transition-colors">
+                    ${t(item.title)}
+                </h3>
+            </div>
+        </a>
+    `).join('');
 }
 
 /**

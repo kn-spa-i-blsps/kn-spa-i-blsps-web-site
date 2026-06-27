@@ -54,6 +54,83 @@
             perspective: 1000;
             image-rendering: -webkit-optimize-contrast;
         }
+
+        /* ── Homepage: News (compact) ── */
+        .home-news-featured {
+            display: grid;
+            grid-template-columns: 1fr;
+            background: white;
+            border: 1px solid #cbd5e1;
+            overflow: hidden;
+            transition: border-color 0.25s, box-shadow 0.25s;
+        }
+        @media (min-width: 768px) { .home-news-featured { grid-template-columns: 1.1fr 1fr; } }
+        .home-news-featured:hover {
+            border-color: #038DAE;
+            box-shadow: 0 12px 40px rgba(1, 42, 79, 0.1);
+        }
+        .home-news-featured .feat-img { min-height: 200px; }
+        @media (min-width: 768px) { .home-news-featured .feat-img { min-height: 260px; } }
+
+        .home-news-row {
+            display: flex;
+            gap: 0;
+            background: white;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+        .home-news-row:hover {
+            border-color: #038DAE;
+            box-shadow: 0 4px 16px rgba(1, 42, 79, 0.06);
+        }
+        .home-news-row .thumb {
+            width: 112px;
+            min-height: 88px;
+            flex-shrink: 0;
+            background: #f1f5f9;
+        }
+        @media (min-width: 640px) { .home-news-row .thumb { width: 128px; } }
+
+        /* ── Homepage: Projects (bold) ── */
+        .home-project-card {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(3, 141, 174, 0.35);
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+        .home-project-card:hover {
+            transform: translateY(-4px);
+            border-color: #038DAE;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+        }
+        .home-project-card.featured { min-height: 300px; }
+        @media (min-width: 1024px) {
+            .home-project-card.featured { min-height: 340px; }
+        }
+        .home-project-card img.bg-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.55;
+            transition: opacity 0.4s, transform 0.6s;
+        }
+        .home-project-card:hover img.bg-img {
+            opacity: 0.75;
+            transform: scale(1.05);
+        }
+        .home-project-card .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, #012A4F 0%, #012A4Fcc 35%, transparent 100%);
+        }
+        .home-project-card .body { position: relative; z-index: 2; padding: 1.25rem; }
     </style>
 </head>
 <body class="selection:bg-[#038DAE] selection:text-white">
@@ -175,28 +252,33 @@
         </div>
     </header>
 
-    <section id="news" class="py-16 md:py-24 max-w-7xl mx-auto px-6 border-x border-slate-200">
-        <div class="mb-16 flex justify-between items-end">
+    <section id="news" class="py-14 md:py-20 max-w-7xl mx-auto px-6 border-x border-slate-200">
+        <div class="mb-8 flex justify-between items-end gap-4">
             <h2 class="t-translate text-2xl font-bold uppercase tracking-tighter flex items-center gap-4 text-[#012A4F]"
                 data-pl="<span class='text-[#038DAE]'>[00]</span> Aktualności"
                 data-en="<span class='text-[#038DAE]'>[00]</span> News">
                 <span class="text-[#038DAE]">[00]</span> Aktualności
             </h2>
+            <span class="text-[9px] text-slate-400 uppercase tracking-[0.3em] hidden sm:block">LIVE_FEED</span>
         </div>
-        <div id="news-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            </div>
+        <div id="news-featured" class="mb-6"></div>
+        <div id="news-container" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
     </section>
 
-    <section id="projects" class="py-24 max-w-7xl mx-auto px-6 border-x border-slate-200">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-16">
-                <h2 class="t-translate text-2xl font-bold uppercase tracking-tighter flex items-center gap-4 text-[#012A4F]"
+    <section id="projects" class="py-20 relative overflow-hidden bg-[#012A4F] border-y border-[#038DAE]/40">
+        <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(#038DAE 0.5px, transparent 0.5px); background-size: 20px 20px;"></div>
+        <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(#038DAE 1px, transparent 1px), linear-gradient(90deg, #038DAE 1px, transparent 1px); background-size: 80px 80px;"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="mb-10 flex items-end justify-between gap-4">
+                <h2 class="t-translate text-2xl md:text-3xl font-black uppercase tracking-tighter text-white italic"
                     data-pl="<span class='text-[#038DAE]'>[01]</span> Aktywne Operacje"
                     data-en="<span class='text-[#038DAE]'>[01]</span> Active Operations">
                     <span class="text-[#038DAE]">[01]</span> Aktywne Operacje
                 </h2>
+                <a href="projects.html" class="t-translate text-[9px] font-bold text-[#038DAE] uppercase tracking-[0.25em] hover:text-white transition border border-[#038DAE]/50 px-3 py-2"
+                   data-pl="Pełna lista →" data-en="Full list →">Pełna lista →</a>
             </div>
-            <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+            <div id="projects-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </div>
     </section>
 
