@@ -1,20 +1,133 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Artykuł | KN SPA i BLSPS</title>
-  <link rel="icon" href="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/logo3.png">
-  <link rel="preconnect" href="https://res.cloudinary.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/main.css">
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artykuł | KN SPA i BLSPS</title>
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/logo3.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'JetBrains Mono', monospace; 
+            background-color: #F8FAFC; 
+            background-image: radial-gradient(#cbd5e1 1.2px, transparent 1.2px); 
+            background-size: 25px 25px;
+            color: #012A4F;
+        }
+        /* Płynne przejście zdjęć w sliderze */
+        .gallery-fade { transition: opacity 0.7s ease-in-out; }
+        
+        /* Styl dla treści artykułu (odstępy, czcionki) */
+        #article-content p { margin-bottom: 1.5rem; line-height: 1.8; }
+        #article-content h2, #article-content h3 { 
+            color: #012A4F; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            margin-top: 2rem; 
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
-<body>
-  <div id="nav"></div>
-  <main class="container" id="content"><div class="loading">LOADING...</div></main>
-  <div id="footer"></div>
-  <div class="lightbox" id="lightbox"><button class="lightbox-close" id="lb-close">×</button><img id="lb-img" alt=""></div>
-  <script type="module" src="/js/article.js"></script>
+<body class="selection:bg-[#038DAE] selection:text-white">
+
+    <nav class="sticky top-0 z-50 bg-white border-b border-slate-200 px-6 py-2">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-6 group">
+                <div class="h-12 w-auto"> 
+                    <img src="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/logo3.png" alt="Logo" class="h-full w-auto object-contain transition-transform group-hover:scale-105">
+                </div>
+                <div class="hidden lg:flex flex-col border-l border-slate-200 pl-6">
+                    <div class="flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 bg-[#038DAE] rounded-sm animate-pulse"></div>
+                        <span class="font-bold tracking-[0.2em] text-[10px] uppercase text-[#012A4F]">KN SPA I BLSPS // REPORT_ARCHIVE</span>
+                    </div>
+                </div>
+            </a>
+
+            <div class="flex items-center gap-4 md:gap-8 text-[11px] font-bold tracking-[0.2em]">
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="t-translate text-[#012A4F] hover:text-[#038DAE] transition uppercase" data-pl="GŁÓWNA" data-en="HOME">GŁÓWNA</a>
+                    <a href="team.html" class="t-translate text-[#012A4F] hover:text-[#038DAE] transition uppercase" data-pl="ZESPÓŁ" data-en="TEAM">ZESPÓŁ</a>
+                </div>
+                <a href="contact.html" class="t-translate border border-[#038DAE] text-[#038DAE] px-5 py-2 hover:bg-[#038DAE] hover:text-white transition duration-300 font-bold uppercase" data-pl="KONTAKT" data-en="CONTACT">KONTAKT</a>
+                <button onclick="toggleLanguage()" class="flex items-center gap-2 px-3 py-2 border border-slate-200 hover:border-[#038DAE] transition-all bg-slate-50 group/lang">
+                    <span id="lang-flag" class="text-base leading-none">🇵🇱</span>
+                    <span id="lang-label" class="text-[9px] text-slate-400 group-hover/lang:text-[#038DAE]">PL</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header id="main-header" style="height: 75vh; min-height: 500px;" class="relative bg-slate-900 overflow-hidden border-b-2 border-[#038DAE]">
+        <img id="article-main-img" src="" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#012A4F]/90 via-[#012A4F]/20 to-transparent pointer-events-none"></div>
+        
+        <div class="absolute bottom-0 left-0 w-full p-8 md:p-16 pointer-events-none z-10">
+            <div class="max-w-7xl mx-auto">
+                <div id="article-date" class="text-[#038DAE] font-mono text-[11px] md:text-[14px] tracking-[0.5em] mb-4 font-bold bg-white/10 w-fit px-3 py-1 backdrop-blur-md border-l-2 border-[#038DAE]">
+                    LOADING_TIMESTAMP...
+                </div>
+                <h1 id="article-title" class="text-4xl md:text-6xl lg:text-7xl font-black text-white uppercase tracking-tighter leading-[0.85] italic max-w-5xl drop-shadow-2xl">
+                    LOADING_TITLE...
+                </h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-16">
+        <div class="grid lg:grid-cols-12 gap-16">
+            <div class="lg:col-span-8">
+                <div id="article-content" class="text-slate-600 leading-relaxed text-sm md:text-base prose prose-slate max-w-none mb-16"></div>
+
+                <section id="article-gallery-section" class="border-t border-slate-200 pt-16">
+                <div class="flex items-center gap-4 mb-10">
+                    <div class="w-12 h-[2px] bg-[#038DAE]"></div>
+                    <h2 class="text-[#012A4F] font-bold text-[14px] tracking-[0.4em] uppercase">
+                        <span class="t-translate" 
+                            data-pl="Dokumentacja_Wizualna" 
+                            data-en="Visual_Documentation">
+                            Dokumentacja_Wizualna
+                        </span>
+                    </h2>
+                </div>
+                <div id="article-gallery-grid" class="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
+                    </div>
+            </section>
+            </div>
+
+            <aside class="lg:col-span-4">
+                <div class="sticky top-24">
+                    <div class="p-8 border border-slate-200 bg-white relative">
+                        <div class="absolute -top-[1px] -left-[1px] w-4 h-4 border-t-2 border-l-2 border-[#038DAE]"></div>
+                        <div class="absolute -bottom-[1px] -right-[1px] w-4 h-4 border-b-2 border-r-2 border-[#038DAE]"></div>
+                        <h3 class="text-[#012A4F] font-bold text-[12px] tracking-[0.3em] uppercase mb-6">External_Resources</h3>
+                        <div id="article-links" class="space-y-4"></div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <div id="lightbox" class="fixed inset-0 bg-[#012A4F]/95 z-[100] hidden flex-col items-center justify-center p-4 backdrop-blur-md">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-4xl font-light hover:text-[#038DAE] transition-colors">&times;</button>
+        
+        <div class="relative max-w-5xl w-full flex items-center justify-center">
+            <button onclick="changeLightboxSlide(-1)" class="absolute -left-4 md:-left-16 text-white text-5xl hover:text-[#038DAE] transition-all p-4">‹</button>
+            <img id="lightbox-img" src="" class="max-h-[85vh] max-w-full object-contain border border-white/10 shadow-2xl">
+            <button onclick="changeLightboxSlide(1)" class="absolute -right-4 md:-right-16 text-white text-5xl hover:text-[#038DAE] transition-all p-4">›</button>
+        </div>
+
+        <div id="lightbox-counter" class="mt-8 text-[#038DAE] font-mono text-[10px] tracking-[0.5em] uppercase"></div>
+    </div>
+
+    <footer class="py-10 text-center text-[10px] text-slate-400 uppercase tracking-[0.5em] font-bold border-t border-slate-100">
+        &copy; KN SPA I BLSPS // DATA_TRANSMISSION_SECURED
+    </footer>
+
+    <script>window.__pageScripts = ['/src/article.js'];</script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="/src/language.js"></script>
+    <script src="/src/loader.js"></script>
 </body>
 </html>

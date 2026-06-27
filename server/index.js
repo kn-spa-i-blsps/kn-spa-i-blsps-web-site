@@ -49,14 +49,14 @@ Object.entries(sitePages).forEach(([route, file]) => {
   });
 });
 
-// Legacy static files (fallback for old URLs during transition)
-const legacyFiles = ['projects.html', 'project.html', 'article.html', 'team.html', 'member.html', 'contact.html'];
+// Legacy static files — original HTML from site/
+const legacyFiles = ['index.html', 'projects.html', 'project.html', 'article.html', 'team.html', 'member.html', 'contact.html'];
 legacyFiles.forEach((file) => {
   app.get(`/${file}`, (_req, res) => {
-    res.sendFile(path.join(ROOT, file));
+    res.sendFile(path.join(ROOT, 'site', file));
   });
 });
-app.use('/src', express.static(path.join(ROOT, 'src')));
+app.use('/src', express.static(path.join(ROOT, 'site', 'src')));
 
 // New fast site static assets
 app.use(express.static(path.join(ROOT, 'site')));

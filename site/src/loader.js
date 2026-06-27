@@ -1,0 +1,41 @@
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    const s = document.createElement('script');
+    s.src = src;
+    s.onload = resolve;
+    s.onerror = reject;
+    document.body.appendChild(s);
+  });
+}
+
+(async function boot() {
+  try {
+    const res = await fetch('/api/content');
+    if (!res.ok) throw new Error('API error');
+    const data = await res.json();
+    window.members = data.members;
+    window.projects = data.projects;
+    window.news = data.news;
+    window.partners = data.partners;
+
+    for (const src of window.__pageScripts || []) {
+      await loadScript(src);
+    }
+
+    if (typeof updateLangUI === 'function') updateLangUI();
+
+    if (typeof bootHome === 'function') await bootHome();
+    if (typeof bootPartners === 'function') bootPartners();
+    if (typeof bootArticle === 'function') await bootArticle();
+    if (typeof bootProject === 'function') bootProject();
+    if (typeof bootTeam === 'function') bootTeam();
+    if (typeof bootMember === 'function') await bootMember();
+    if (typeof window.__afterLoad === 'function') window.__afterLoad();
+  } catch (err) {
+    console.error('[loader]', err);
+    document.body.insertAdjacentHTML(
+      'afterbegin',
+      '<div style="background:#012A4F;color:#fff;padding:1rem;text-align:center;font-family:monospace;font-size:12px">Błąd ładowania danych. Odśwież stronę.</div>'
+    );
+  }
+})();
