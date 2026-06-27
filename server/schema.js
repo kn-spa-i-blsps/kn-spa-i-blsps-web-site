@@ -8,4 +8,7 @@ export function runSchemaMigrations() {
   if (!newsCols.includes('gallery')) {
     db.exec('ALTER TABLE news ADD COLUMN gallery TEXT DEFAULT "[]"');
   }
+  if (!newsCols.includes('featured')) {
+    db.exec('ALTER TABLE news ADD COLUMN featured INTEGER DEFAULT 0');
+  }
 }

@@ -66,6 +66,7 @@ export function formatNews(row) {
     cover: row.cover_image || newsCover(row.id),
     coverImage: row.cover_image || '',
     gallery,
+    featured: !!row.featured,
   };
 }
 

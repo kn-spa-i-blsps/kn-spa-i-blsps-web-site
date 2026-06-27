@@ -140,7 +140,7 @@ async function loadNews() {
   document.getElementById('news-table').innerHTML = rows.map((r) => `
     <tr>
       <td class="mono">${r.date}</td>
-      <td>${r.title_pl}</td>
+      <td>${r.featured ? '<span title="Wyróżniony na stronie głównej">★</span> ' : ''}${r.title_pl}</td>
       <td class="mono" style="color:var(--fg-muted)">${r.id}</td>
       <td>
         <button class="btn btn-sm" onclick="editNews('${r.id}')">Edytuj</button>
@@ -284,6 +284,8 @@ function articleFormHTML(r = {}, isNew = false) {
     ${bilingualFields('full_desc', r)}
     ${mediaFieldsHTML(r)}
     ${linksEditorHTML(r.links)}
+    <div class="form-group"><label><input type="checkbox" name="featured" value="1" ${r.featured ? 'checked' : ''}> Wyróżniony na stronie głównej (duża karta)</label></div>
+    <p class="form-hint" style="margin-top:-0.5rem;margin-bottom:1rem;font-size:12px;color:var(--fg-muted)">Najnowszy artykuł dostaje badge LATEST — wyróżniony trafia na dużą kartę nawet jeśli nie jest najnowszy.</p>
     <div class="form-group"><label><input type="checkbox" name="published" value="1" ${r.published !== 0 ? 'checked' : ''}> Opublikowany</label></div>
     ${isNew ? '' : `<input type="hidden" name="_id" value="${esc(r.id)}">`}
   `;
@@ -418,6 +420,7 @@ function collectNewsPayload(fd) {
     gallery: getGalleryFromForm(),
     links: collectLinks(),
     published: fd.get('published') === '1',
+    featured: fd.get('featured') === '1',
   };
 }
 

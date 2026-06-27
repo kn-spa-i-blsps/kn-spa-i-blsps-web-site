@@ -66,6 +66,7 @@ db.exec(`
     gallery TEXT DEFAULT '[]',
     links TEXT DEFAULT '[]',
     published INTEGER DEFAULT 1,
+    featured INTEGER DEFAULT 0,
     created_at TEXT DEFAULT (datetime('now')),
     updated_at TEXT DEFAULT (datetime('now'))
   );

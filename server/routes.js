@@ -230,8 +230,8 @@ router.post('/admin/news', authMiddleware, (req, res) => {
   if (!b.date || !b.title_pl) return res.status(400).json({ error: 'Data i tytuł PL są wymagane' });
 
   db.prepare(`
-    INSERT INTO news (id, date, title_pl, title_en, short_desc_pl, short_desc_en, full_desc_pl, full_desc_en, content_format, cover_image, gallery, links, published, updated_at)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
+    INSERT INTO news (id, date, title_pl, title_en, short_desc_pl, short_desc_en, full_desc_pl, full_desc_en, content_format, cover_image, gallery, links, published, featured, updated_at)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
   `).run(
     id, b.date, b.title_pl, b.title_en || '',
     b.short_desc_pl || '', b.short_desc_en || '',
@@ -240,7 +240,8 @@ router.post('/admin/news', authMiddleware, (req, res) => {
     b.cover_image || '',
     JSON.stringify(parseBodyJson(b.gallery, [])),
     JSON.stringify(parseBodyJson(b.links, [])),
-    b.published !== undefined ? (b.published ? 1 : 0) : 1
+    b.published !== undefined ? (b.published ? 1 : 0) : 1,
+    b.featured ? 1 : 0
   );
   res.status(201).json({ id });
 });
@@ -248,7 +249,7 @@ router.post('/admin/news', authMiddleware, (req, res) => {
 router.put('/admin/news/:id', authMiddleware, (req, res) => {
   const b = req.body;
   const result = db.prepare(`
-    UPDATE news SET date=?, title_pl=?, title_en=?, short_desc_pl=?, short_desc_en=?, full_desc_pl=?, full_desc_en=?, content_format=?, cover_image=?, gallery=?, links=?, published=?, updated_at=datetime('now')
+    UPDATE news SET date=?, title_pl=?, title_en=?, short_desc_pl=?, short_desc_en=?, full_desc_pl=?, full_desc_en=?, content_format=?, cover_image=?, gallery=?, links=?, published=?, featured=?, updated_at=datetime('now')
     WHERE id=?
   `).run(
     b.date, b.title_pl, b.title_en || '',
@@ -259,6 +260,7 @@ router.put('/admin/news/:id', authMiddleware, (req, res) => {
     JSON.stringify(parseBodyJson(b.gallery, [])),
     JSON.stringify(parseBodyJson(b.links, [])),
     b.published !== undefined ? (b.published ? 1 : 0) : 1,
+    b.featured ? 1 : 0,
     req.params.id
   );
   if (result.changes === 0) return res.status(404).json({ error: 'Not found' });

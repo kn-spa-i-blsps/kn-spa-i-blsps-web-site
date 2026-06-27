@@ -22,22 +22,22 @@ function toggleLanguage() {
     location.reload(); 
 }
 
-function renderProjectCards(container, { featuredId = 'bluespark' } = {}) {
+function renderProjectCards(container, { featuredId = 'bluespark', layout = 'home' } = {}) {
     if (!container || typeof projects === 'undefined') return;
     container.innerHTML = '';
 
     const sorted = sortProjectsForDisplay(projects);
+    const isPageLayout = layout === 'page';
 
     sorted.forEach((proj, index) => {
         const id = t(proj.id);
         const href = id === 'bluespark' ? '/bluespark/' : `project.html?id=${id}`;
         const mainImgPath = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_900,c_limit/kn-spa-i-blsps/projects/${id}/main.jpg`;
-        const isFeatured = id === featuredId;
-        const featured = isFeatured ? ' featured lg:col-span-2' : '';
+        const isFeatured = !isPageLayout && id === featuredId;
+        const cardClass = isPageLayout ? ' page-card' : (isFeatured ? ' featured lg:col-span-2' : '');
 
         container.innerHTML += `
-            <a href="${href}" class="home-project-card group${featured}">
-                ${isFeatured ? '<div class="featured-badge">FLAGSHIP</div>' : ''}
+            <a href="${href}" class="home-project-card group${cardClass}">
                 <img src="${mainImgPath}" alt="" class="bg-img" loading="lazy"
                      onerror="handleHomeProjectImageError(this, '${id}', '${proj.image || ''}')">
                 <div class="overlay"></div>
@@ -62,7 +62,7 @@ function renderProjectCards(container, { featuredId = 'bluespark' } = {}) {
 }
 
 function renderHomeProjects() {
-    renderProjectCards(document.getElementById('projects-container'), { featuredId: 'bluespark' });
+    renderProjectCards(document.getElementById('projects-container'), { featuredId: 'bluespark', layout: 'home' });
 }
 
 // Obsługa błędów formatów dla małych kafelków projektów
@@ -270,6 +270,22 @@ function newsImgPath(id, w = 800) {
     return `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_${w},c_limit/kn-spa-i-blsps/news/${id}/main.jpg`;
 }
 
+function newsCoverSrc(item, w = 800) {
+    if (item.coverImage) return item.coverImage;
+    if (item.cover && !item.cover.endsWith(`/news/${item.id}/main.jpg`)) return item.cover;
+    return newsImgPath(item.id, w);
+}
+
+function spotlightNewsBadge(item, { isLatest }) {
+    if (isLatest) {
+        return '<div class="news-badge news-badge-latest">LATEST</div>';
+    }
+    if (item.featured) {
+        return '<div class="news-badge news-badge-featured">FEATURED</div>';
+    }
+    return '';
+}
+
 function renderHomeNews() {
     const featuredEl = document.getElementById('news-featured');
     const container = document.getElementById('news-container');
@@ -278,33 +294,42 @@ function renderHomeNews() {
     const sortedNews = [...news].sort((a, b) => new Date(b.date) - new Date(a.date));
     if (!sortedNews.length) return;
 
-    const [latest, ...rest] = sortedNews;
+    const latest = sortedNews[0];
+    const featuredNews = sortedNews.filter((n) => n.featured);
+    const spotlight = featuredNews.length ? featuredNews[0] : latest;
+    const rest = sortedNews.filter((n) => n.id !== spotlight.id);
+    const spotlightIsLatest = spotlight.id === latest.id;
 
     if (featuredEl) {
         featuredEl.innerHTML = `
-            <a href="article.html?id=${latest.id}" class="home-news-featured group">
+            <a href="article.html?id=${spotlight.id}" class="home-news-featured group">
                 <div class="feat-img relative overflow-hidden bg-slate-100">
-                    <img src="${newsImgPath(latest.id, 1000)}" alt="" class="w-full h-full object-cover min-h-[200px] md:min-h-full transition duration-500 group-hover:scale-105"
-                         onerror="handleNewsImageError(this, '${latest.id}')">
-                    <div class="absolute top-3 left-3 bg-[#038DAE] text-white text-[8px] font-bold px-2 py-1 tracking-widest uppercase">LATEST</div>
+                    <img src="${newsCoverSrc(spotlight, 1000)}" alt="" class="w-full h-full object-cover min-h-[200px] md:min-h-full transition duration-500 group-hover:scale-105"
+                         onerror="handleNewsImageError(this, '${spotlight.id}')">
+                    <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                        ${spotlightNewsBadge(spotlight, { isLatest: spotlightIsLatest })}
+                    </div>
                 </div>
                 <div class="p-5 md:p-8 flex flex-col justify-center border-l-0 md:border-l border-slate-100">
-                    <span class="text-[10px] font-mono text-[#038DAE] font-bold tracking-widest mb-2">${latest.date}</span>
+                    <span class="text-[10px] font-mono text-[#038DAE] font-bold tracking-widest mb-2">${spotlight.date}</span>
                     <h3 class="text-xl md:text-2xl font-black text-[#012A4F] uppercase italic leading-tight mb-3 group-hover:text-[#038DAE] transition-colors">
-                        ${t(latest.title)}
+                        ${t(spotlight.title)}
                     </h3>
-                    <p class="text-[11px] text-slate-500 leading-relaxed line-clamp-3 mb-4">${t(latest.shortDesc)}</p>
+                    <p class="text-[11px] text-slate-500 leading-relaxed line-clamp-3 mb-4">${t(spotlight.shortDesc)}</p>
                     <span class="text-[9px] font-bold text-[#038DAE] tracking-[0.25em] uppercase">ACCESS_FULL_REPORT →</span>
                 </div>
             </a>
         `;
     }
 
-    container.innerHTML = rest.map((item) => `
+    container.innerHTML = rest.map((item) => {
+        const isLatest = item.id === latest.id;
+        return `
         <a href="article.html?id=${item.id}" class="home-news-row group">
             <div class="thumb relative overflow-hidden">
-                <img src="${newsImgPath(item.id, 500)}" alt="" class="w-full h-full object-cover transition duration-300 group-hover:scale-105"
+                <img src="${newsCoverSrc(item, 500)}" alt="" class="w-full h-full object-cover transition duration-300 group-hover:scale-105"
                      onerror="handleNewsImageError(this, '${item.id}')">
+                ${isLatest ? '<div class="news-badge news-badge-latest news-badge-sm">LATEST</div>' : ''}
             </div>
             <div class="row-body">
                 <span class="text-[8px] font-mono text-slate-400 font-bold uppercase mb-1">${item.date}</span>
@@ -313,7 +338,8 @@ function renderHomeNews() {
                 </h3>
             </div>
         </a>
-    `).join('');
+    `;
+    }).join('');
 }
 
 /**
