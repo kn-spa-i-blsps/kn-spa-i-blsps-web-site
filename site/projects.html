@@ -7,37 +7,16 @@
     <link rel="icon" type="image/png" href="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/logo3.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/subpages.css?v=3">
+    <link rel="stylesheet" href="/css/subpages.css?v=4">
     <style>
         body { 
             font-family: 'JetBrains Mono', monospace; 
-            background-color: #F8FAFC; 
-            background-image: radial-gradient(#cbd5e1 1.2px, transparent 1.2px); 
-            background-size: 25px 25px;
+            background-color: #012A4F;
             color: #012A4F;
-        }
-
-        .tech-card {
-            background: white;
-            border: 1px solid #cbd5e1;
-            transition: all 0.3s ease;
-        }
-        
-        .tech-card:hover {
-            border-color: #038DAE;
-            box-shadow: 0 10px 30px rgba(1, 42, 79, 0.05);
-            transform: translateY(-2px);
         }
 
         .status-blink { animation: blink 1.5s infinite; }
         @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
-
-        .blueprint-header {
-            background-color: #012A4F;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 1px solid rgba(3, 141, 174, 0.5);
-        }
     </style>
 </head>
 <body class="selection:bg-[#038DAE] selection:text-white flex flex-col min-h-screen">
@@ -89,33 +68,21 @@
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-6 py-16 w-full flex-grow">
-        <div class="sp-divider"><span>Data_Output</span></div>
-        <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    <main class="sp-projects-main py-16 w-full">
+        <div class="sp-projects-inner max-w-7xl mx-auto px-6">
+            <div class="sp-divider sp-divider-dark mb-10"><span>Data_Output</span></div>
+            <div id="projects-container" class="sp-projects-grid"></div>
+        </div>
     </main>
 
-    <footer class="py-10 text-center text-[10px] text-slate-400 uppercase tracking-[0.5em] font-bold border-t border-slate-200 bg-white">
+    <footer class="py-10 text-center text-[10px] text-slate-500 uppercase tracking-[0.5em] font-bold border-t border-[#038DAE]/30 bg-[#011f3a] text-slate-400">
         &copy; KN SPA I BLSPS // 2026
     </footer>
 
     <script>
       window.__pageScripts = ['/src/home.js'];
       window.__afterLoad = function () {
-        const container = document.getElementById('projects-container');
-        if (!container) return;
-        container.innerHTML = projects.map((proj, index) => {
-          const href = proj.id === 'bluespark' ? '/bluespark/' : `project.html?id=${proj.id}`;
-          const img = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_900,c_limit/kn-spa-i-blsps/projects/${proj.id}/main.jpg`;
-          return `<a href="${href}" class="sp-panel sp-project-card overflow-hidden group">
-            <div class="img-wrap"><img src="${img}" alt="" loading="lazy" onerror="handleHomeProjectImageError(this,'${proj.id}','${proj.image || ''}')"></div>
-            <div class="p-5 flex flex-col flex-grow">
-              <span class="text-[9px] font-bold text-[#038DAE] tracking-widest uppercase mb-2">SYS_0${index + 1} // ${proj.id}</span>
-              <h3 class="text-lg font-bold text-[#012A4F] uppercase mb-2 group-hover:text-[#038DAE] transition">${t(proj.title)}</h3>
-              <p class="text-[11px] text-slate-500 leading-relaxed flex-grow">${t(proj.shortDesc)}</p>
-              <span class="text-[10px] font-bold text-[#038DAE]/70 mt-4 uppercase tracking-tighter">DECRYPT_DATA >></span>
-            </div>
-          </a>`;
-        }).join('');
+        renderProjectCards(document.getElementById('projects-container'), { featuredId: 'bluespark' });
       };
     </script>
     <script src="/src/language.js"></script>

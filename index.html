@@ -74,7 +74,7 @@
 
         .home-news-row {
             display: flex;
-            gap: 0;
+            height: 104px;
             background: white;
             border: 1px solid #e2e8f0;
             overflow: hidden;
@@ -85,32 +85,62 @@
             box-shadow: 0 4px 16px rgba(1, 42, 79, 0.06);
         }
         .home-news-row .thumb {
-            width: 112px;
-            min-height: 88px;
+            width: 148px;
+            height: 104px;
             flex-shrink: 0;
             background: #f1f5f9;
         }
-        @media (min-width: 640px) { .home-news-row .thumb { width: 128px; } }
+        @media (min-width: 640px) { .home-news-row .thumb { width: 168px; } }
+        .home-news-row .row-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 1;
+            min-width: 0;
+            height: 104px;
+            padding: 0.65rem 0.85rem;
+            border-left: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .home-news-row:hover .row-body { border-left-color: #038DAE; }
 
         /* ── Homepage: Projects (bold) ── */
         .home-project-card {
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(3, 141, 174, 0.35);
-            min-height: 260px;
+            border: 1px solid rgba(3, 141, 174, 0.45);
+            min-height: 280px;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
         }
         .home-project-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-5px);
             border-color: #038DAE;
-            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 20px 56px rgba(0, 0, 0, 0.45);
         }
-        .home-project-card.featured { min-height: 300px; }
+        .home-project-card.featured {
+            min-height: 320px;
+            border-width: 2px;
+            border-color: #038DAE;
+            box-shadow: 0 0 0 1px rgba(3, 141, 174, 0.25), 0 12px 40px rgba(3, 141, 174, 0.2);
+        }
         @media (min-width: 1024px) {
-            .home-project-card.featured { min-height: 340px; }
+            .home-project-card.featured { min-height: 400px; }
+        }
+        .home-project-card .featured-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 3;
+            background: #038DAE;
+            color: white;
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            padding: 0.35rem 0.6rem;
+            text-transform: uppercase;
         }
         .home-project-card img.bg-img {
             position: absolute;
@@ -118,17 +148,20 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.55;
+            opacity: 0.88;
             transition: opacity 0.4s, transform 0.6s;
         }
         .home-project-card:hover img.bg-img {
-            opacity: 0.75;
-            transform: scale(1.05);
+            opacity: 1;
+            transform: scale(1.06);
         }
         .home-project-card .overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, #012A4F 0%, #012A4Fcc 35%, transparent 100%);
+            background: linear-gradient(to top, #012A4F 0%, #012A4Fbb 28%, transparent 72%);
+        }
+        .home-project-card.featured .overlay {
+            background: linear-gradient(to top, #012A4F 0%, #012A4F99 32%, transparent 78%);
         }
         .home-project-card .body { position: relative; z-index: 2; padding: 1.25rem; }
     </style>
@@ -278,7 +311,7 @@
                 <a href="projects.html" class="t-translate text-[9px] font-bold text-[#038DAE] uppercase tracking-[0.25em] hover:text-white transition border border-[#038DAE]/50 px-3 py-2"
                    data-pl="Pełna lista →" data-en="Full list →">Pełna lista →</a>
             </div>
-            <div id="projects-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+            <div id="projects-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
         </div>
     </section>
 

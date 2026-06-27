@@ -1,8 +1,18 @@
 // home.js
 
 /**
- * 1. RENDEROWANIE PROJEKTÓW NA STRONIE GŁÓWNEJ
+ * 1. RENDEROWANIE PROJEKTÓW
  */
+
+const PROJECT_DISPLAY_ORDER = ['bluespark', 'musc', 'flysearch', 'hawk-eye', 'snows-eye'];
+
+function sortProjectsForDisplay(list) {
+    return [...list].sort((a, b) => {
+        const ai = PROJECT_DISPLAY_ORDER.indexOf(a.id);
+        const bi = PROJECT_DISPLAY_ORDER.indexOf(b.id);
+        return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
+    });
+}
 
 let currentLang = localStorage.getItem('siteLang') || 'pl';
 
@@ -12,33 +22,34 @@ function toggleLanguage() {
     location.reload(); 
 }
 
-function renderHomeProjects() {
-    const container = document.getElementById('projects-container');
-    if (!container) return;
-    container.innerHTML = "";
+function renderProjectCards(container, { featuredId = 'bluespark' } = {}) {
+    if (!container || typeof projects === 'undefined') return;
+    container.innerHTML = '';
 
-    const sorted = [...projects].sort((a, b) => (a.ordering || 999) - (b.ordering || 999));
+    const sorted = sortProjectsForDisplay(projects);
 
     sorted.forEach((proj, index) => {
         const id = t(proj.id);
         const href = id === 'bluespark' ? '/bluespark/' : `project.html?id=${id}`;
         const mainImgPath = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_900,c_limit/kn-spa-i-blsps/projects/${id}/main.jpg`;
-        const featured = index === 0 ? ' featured lg:col-span-2' : '';
+        const isFeatured = id === featuredId;
+        const featured = isFeatured ? ' featured lg:col-span-2' : '';
 
         container.innerHTML += `
             <a href="${href}" class="home-project-card group${featured}">
+                ${isFeatured ? '<div class="featured-badge">FLAGSHIP</div>' : ''}
                 <img src="${mainImgPath}" alt="" class="bg-img" loading="lazy"
                      onerror="handleHomeProjectImageError(this, '${id}', '${proj.image || ''}')">
                 <div class="overlay"></div>
                 <div class="body">
                     <div class="flex items-center justify-between mb-2">
                         <span class="text-[8px] font-bold text-[#038DAE] tracking-[0.35em] uppercase">SYS_0${index + 1}</span>
-                        <span class="text-[8px] text-white/40 font-mono">${id}</span>
+                        <span class="text-[8px] text-white/50 font-mono">${id}</span>
                     </div>
                     <h3 class="text-xl lg:text-2xl font-black text-white uppercase italic tracking-tight group-hover:text-[#038DAE] transition-colors leading-none">
                         ${t(proj.title)}
                     </h3>
-                    <p class="text-[10px] text-slate-300 leading-relaxed mt-3 line-clamp-2 opacity-90">
+                    <p class="text-[10px] text-slate-200 leading-relaxed mt-3 line-clamp-2">
                         ${t(proj.shortDesc)}
                     </p>
                     <span class="inline-flex items-center gap-2 mt-4 text-[9px] font-bold text-[#038DAE] tracking-[0.2em] uppercase">
@@ -48,6 +59,10 @@ function renderHomeProjects() {
             </a>
         `;
     });
+}
+
+function renderHomeProjects() {
+    renderProjectCards(document.getElementById('projects-container'), { featuredId: 'bluespark' });
 }
 
 // Obsługa błędów formatów dla małych kafelków projektów
@@ -288,12 +303,12 @@ function renderHomeNews() {
     container.innerHTML = rest.map((item) => `
         <a href="article.html?id=${item.id}" class="home-news-row group">
             <div class="thumb relative overflow-hidden">
-                <img src="${newsImgPath(item.id, 400)}" alt="" class="w-full h-full object-cover min-h-[88px] transition duration-300 group-hover:scale-105"
+                <img src="${newsImgPath(item.id, 500)}" alt="" class="w-full h-full object-cover transition duration-300 group-hover:scale-105"
                      onerror="handleNewsImageError(this, '${item.id}')">
             </div>
-            <div class="p-3 sm:p-4 flex flex-col justify-center flex-1 min-w-0 border-l-2 border-transparent group-hover:border-[#038DAE] transition-colors">
-                <span class="text-[9px] font-mono text-slate-400 font-bold uppercase mb-1">${item.date}</span>
-                <h3 class="text-[13px] font-bold text-[#012A4F] uppercase leading-snug line-clamp-2 group-hover:text-[#038DAE] transition-colors">
+            <div class="row-body">
+                <span class="text-[8px] font-mono text-slate-400 font-bold uppercase mb-1">${item.date}</span>
+                <h3 class="text-[12px] font-bold text-[#012A4F] uppercase leading-snug line-clamp-2 group-hover:text-[#038DAE] transition-colors">
                     ${t(item.title)}
                 </h3>
             </div>
