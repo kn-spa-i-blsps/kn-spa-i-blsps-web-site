@@ -10,5 +10,6 @@ export function runSchemaMigrations() {
   }
   if (!newsCols.includes('featured')) {
     db.exec('ALTER TABLE news ADD COLUMN featured INTEGER DEFAULT 0');
+    console.log('[schema] Added news.featured column');
   }
 }

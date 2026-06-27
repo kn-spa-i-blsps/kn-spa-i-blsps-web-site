@@ -276,14 +276,58 @@ function newsCoverSrc(item, w = 800) {
     return newsImgPath(item.id, w);
 }
 
+function isNewsFeatured(item) {
+    return item.featured === true || item.featured === 1 || item.featured === '1';
+}
+
 function spotlightNewsBadge(item, { isLatest }) {
-    if (isLatest) {
-        return '<div class="news-badge news-badge-latest">LATEST</div>';
-    }
-    if (item.featured) {
-        return '<div class="news-badge news-badge-featured">FEATURED</div>';
-    }
-    return '';
+    const badges = [];
+    if (isLatest) badges.push('<div class="news-badge news-badge-latest">LATEST</div>');
+    if (isNewsFeatured(item) && !isLatest) badges.push('<div class="news-badge news-badge-featured">FEATURED</div>');
+    return badges.join('');
+}
+
+function renderFeaturedHeroCard(item, isLatest) {
+    return `
+        <a href="article.html?id=${item.id}" class="home-news-featured group">
+            <div class="feat-img relative overflow-hidden bg-slate-100">
+                <img src="${newsCoverSrc(item, 1000)}" alt="" class="w-full h-full object-cover min-h-[200px] md:min-h-full transition duration-500 group-hover:scale-105"
+                     onerror="handleNewsImageError(this, '${item.id}')">
+                <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                    ${spotlightNewsBadge(item, { isLatest })}
+                </div>
+            </div>
+            <div class="p-5 md:p-8 flex flex-col justify-center border-l-0 md:border-l border-slate-100">
+                <span class="text-[10px] font-mono text-[#038DAE] font-bold tracking-widest mb-2">${item.date}</span>
+                <h3 class="text-xl md:text-2xl font-black text-[#012A4F] uppercase italic leading-tight mb-3 group-hover:text-[#038DAE] transition-colors">
+                    ${t(item.title)}
+                </h3>
+                <p class="text-[11px] text-slate-500 leading-relaxed line-clamp-3 mb-4">${t(item.shortDesc)}</p>
+                <span class="text-[9px] font-bold text-[#038DAE] tracking-[0.25em] uppercase">ACCESS_FULL_REPORT →</span>
+            </div>
+        </a>
+    `;
+}
+
+function renderFeaturedTileCard(item, isLatest) {
+    return `
+        <a href="article.html?id=${item.id}" class="home-news-featured-tile group">
+            <div class="tile-img relative overflow-hidden bg-slate-100">
+                <img src="${newsCoverSrc(item, 800)}" alt="" class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                     onerror="handleNewsImageError(this, '${item.id}')">
+                <div class="absolute top-2 left-2 flex flex-wrap gap-1">
+                    ${spotlightNewsBadge(item, { isLatest })}
+                </div>
+            </div>
+            <div class="tile-body">
+                <span class="text-[9px] font-mono text-[#038DAE] font-bold tracking-widest mb-1.5 block">${item.date}</span>
+                <h3 class="text-sm md:text-base font-black text-[#012A4F] uppercase italic leading-snug mb-2 line-clamp-3 group-hover:text-[#038DAE] transition-colors">
+                    ${t(item.title)}
+                </h3>
+                <p class="text-[10px] text-slate-500 leading-relaxed line-clamp-2">${t(item.shortDesc)}</p>
+            </div>
+        </a>
+    `;
 }
 
 function renderHomeNews() {
@@ -295,31 +339,22 @@ function renderHomeNews() {
     if (!sortedNews.length) return;
 
     const latest = sortedNews[0];
-    const featuredNews = sortedNews.filter((n) => n.featured);
-    const spotlight = featuredNews.length ? featuredNews[0] : latest;
-    const rest = sortedNews.filter((n) => n.id !== spotlight.id);
-    const spotlightIsLatest = spotlight.id === latest.id;
+    const featuredNews = sortedNews.filter(isNewsFeatured);
+    const displayFeatured = featuredNews.length ? featuredNews : [latest];
+    const featuredIds = new Set(displayFeatured.map((n) => n.id));
+    const rest = sortedNews.filter((n) => !featuredIds.has(n.id));
 
     if (featuredEl) {
-        featuredEl.innerHTML = `
-            <a href="article.html?id=${spotlight.id}" class="home-news-featured group">
-                <div class="feat-img relative overflow-hidden bg-slate-100">
-                    <img src="${newsCoverSrc(spotlight, 1000)}" alt="" class="w-full h-full object-cover min-h-[200px] md:min-h-full transition duration-500 group-hover:scale-105"
-                         onerror="handleNewsImageError(this, '${spotlight.id}')">
-                    <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
-                        ${spotlightNewsBadge(spotlight, { isLatest: spotlightIsLatest })}
-                    </div>
-                </div>
-                <div class="p-5 md:p-8 flex flex-col justify-center border-l-0 md:border-l border-slate-100">
-                    <span class="text-[10px] font-mono text-[#038DAE] font-bold tracking-widest mb-2">${spotlight.date}</span>
-                    <h3 class="text-xl md:text-2xl font-black text-[#012A4F] uppercase italic leading-tight mb-3 group-hover:text-[#038DAE] transition-colors">
-                        ${t(spotlight.title)}
-                    </h3>
-                    <p class="text-[11px] text-slate-500 leading-relaxed line-clamp-3 mb-4">${t(spotlight.shortDesc)}</p>
-                    <span class="text-[9px] font-bold text-[#038DAE] tracking-[0.25em] uppercase">ACCESS_FULL_REPORT →</span>
-                </div>
-            </a>
-        `;
+        if (displayFeatured.length === 1) {
+            featuredEl.className = 'mb-6';
+            featuredEl.innerHTML = renderFeaturedHeroCard(displayFeatured[0], displayFeatured[0].id === latest.id);
+        } else {
+            const cols = displayFeatured.length >= 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-2';
+            featuredEl.className = `grid grid-cols-1 sm:grid-cols-2 ${cols} gap-4 mb-6`;
+            featuredEl.innerHTML = displayFeatured
+                .map((item) => renderFeaturedTileCard(item, item.id === latest.id))
+                .join('');
+        }
     }
 
     container.innerHTML = rest.map((item) => {

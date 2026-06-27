@@ -16,6 +16,7 @@ const router = Router();
 // ─── Public API ───────────────────────────────────────────────
 
 router.get('/content', (_req, res) => {
+  res.set('Cache-Control', 'no-store');
   res.json(getAllContent());
 });
 

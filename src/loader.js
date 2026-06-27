@@ -10,7 +10,7 @@ function loadScript(src) {
 
 async function fetchSiteData() {
   try {
-    const res = await fetch('/api/content');
+    const res = await fetch('/api/content', { cache: 'no-store' });
     if (!res.ok) throw new Error('API unavailable');
     return await res.json();
   } catch {

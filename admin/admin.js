@@ -143,6 +143,7 @@ async function loadNews() {
       <td>${r.featured ? '<span title="Wyróżniony na stronie głównej">★</span> ' : ''}${r.title_pl}</td>
       <td class="mono" style="color:var(--fg-muted)">${r.id}</td>
       <td>
+        <button type="button" class="btn btn-sm ${r.featured ? 'btn-primary' : ''}" title="Wyróżnij na stronie głównej" onclick="toggleNewsFeatured('${r.id}')">${r.featured ? '★' : '☆'}</button>
         <button class="btn btn-sm" onclick="editNews('${r.id}')">Edytuj</button>
         <button class="btn btn-sm btn-danger" onclick="deleteItem('news','${r.id}')">Usuń</button>
       </td>
@@ -284,8 +285,8 @@ function articleFormHTML(r = {}, isNew = false) {
     ${bilingualFields('full_desc', r)}
     ${mediaFieldsHTML(r)}
     ${linksEditorHTML(r.links)}
-    <div class="form-group"><label><input type="checkbox" name="featured" value="1" ${r.featured ? 'checked' : ''}> Wyróżniony na stronie głównej (duża karta)</label></div>
-    <p class="form-hint" style="margin-top:-0.5rem;margin-bottom:1rem;font-size:12px;color:var(--fg-muted)">Najnowszy artykuł dostaje badge LATEST — wyróżniony trafia na dużą kartę nawet jeśli nie jest najnowszy.</p>
+    <div class="form-group"><label><input type="checkbox" name="featured" value="1" ${r.featured ? 'checked' : ''}> Wyróżniony na stronie głównej (duża karta / siatka)</label></div>
+    <p class="form-hint" style="margin-top:-0.5rem;margin-bottom:1rem;font-size:12px;color:var(--fg-muted)">Możesz wyróżnić kilka artykułów (np. 3) — pojawią się u góry sekcji Aktualności. Badge <strong>LATEST</strong> zawsze na najnowszym po dacie. Szybka gwiazdka: ☆/★ w tabeli.</p>
     <div class="form-group"><label><input type="checkbox" name="published" value="1" ${r.published !== 0 ? 'checked' : ''}> Opublikowany</label></div>
     ${isNew ? '' : `<input type="hidden" name="_id" value="${esc(r.id)}">`}
   `;
@@ -423,6 +424,37 @@ function collectNewsPayload(fd) {
     featured: fd.get('featured') === '1',
   };
 }
+
+function newsRowToPayload(r, overrides = {}) {
+  return {
+    date: r.date,
+    title_pl: r.title_pl,
+    title_en: r.title_en || '',
+    short_desc_pl: r.short_desc_pl || '',
+    short_desc_en: r.short_desc_en || '',
+    full_desc_pl: r.full_desc_pl || '',
+    full_desc_en: r.full_desc_en || '',
+    content_format: r.content_format || 'html',
+    cover_image: r.cover_image || '',
+    gallery: parseJsonField(r.gallery),
+    links: parseJsonField(r.links),
+    published: r.published !== 0,
+    featured: !!r.featured,
+    ...overrides,
+  };
+}
+
+window.toggleNewsFeatured = async (id) => {
+  const rows = await api('/admin/news');
+  const r = rows.find((x) => x.id === id);
+  if (!r) return;
+  await api(`/admin/news/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(newsRowToPayload(r, { featured: !r.featured })),
+  });
+  loadNews();
+  toast(r.featured ? 'Usunięto wyróżnienie' : 'Dodano wyróżnienie ★');
+};
 
 // ─── News CRUD ───────────────────────────────────────────────
 
