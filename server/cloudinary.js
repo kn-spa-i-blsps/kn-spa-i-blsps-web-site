@@ -33,3 +33,12 @@ export function galleryUrl(type, id, index, w = 600) {
   const folder = type === 'news' ? 'news' : 'projects';
   return cld(`${folder}/${id}/${index}.jpg`, `f_auto,q_auto,w_${w}`);
 }
+
+/** Placeholdery z data.js (Unsplash itd.) — nie powinny nadpisywać Cloudinary. */
+export function isPlaceholderImage(url) {
+  if (!url || !String(url).trim()) return true;
+  const u = String(url).toLowerCase();
+  return u.includes('images.unsplash.com')
+    || u.includes('via.placeholder.com')
+    || u.includes('placeholder.com');
+}

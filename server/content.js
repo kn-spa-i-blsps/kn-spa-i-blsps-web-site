@@ -1,5 +1,5 @@
 import db from './db.js';
-import { memberPhoto, projectCover, newsCover } from './cloudinary.js';
+import { memberPhoto, projectCover, newsCover, isPlaceholderImage } from './cloudinary.js';
 
 function parseJson(str, fallback = []) {
   try {
@@ -39,6 +39,7 @@ export function formatMember(row) {
 }
 
 export function formatProject(row) {
+  const customImage = row.image_url && !isPlaceholderImage(row.image_url) ? row.image_url : '';
   return {
     id: row.id,
     title: row.title,
@@ -48,7 +49,8 @@ export function formatProject(row) {
     fullDesc: bilingual(row.full_desc_pl, row.full_desc_en),
     teamIds: parseJson(row.team_ids),
     spec: parseJson(row.spec),
-    image: row.image_url || projectCover(row.id),
+    image: customImage || projectCover(row.id),
+    imageUrl: customImage,
     cover: projectCover(row.id),
     logo: row.id,
   };

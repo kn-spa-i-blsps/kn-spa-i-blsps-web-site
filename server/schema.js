@@ -18,4 +18,13 @@ export function runSchemaMigrations() {
     db.exec('ALTER TABLE members ADD COLUMN photo_url TEXT DEFAULT ""');
     console.log('[schema] Added members.photo_url column');
   }
+
+  const cleared = db.prepare(`
+    UPDATE projects SET image_url = ''
+    WHERE image_url LIKE '%images.unsplash.com%'
+       OR image_url LIKE '%via.placeholder.com%'
+  `).run();
+  if (cleared.changes > 0) {
+    console.log(`[schema] Cleared ${cleared.changes} placeholder project image_url values`);
+  }
 }

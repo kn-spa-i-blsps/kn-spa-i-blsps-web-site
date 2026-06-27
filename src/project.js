@@ -64,7 +64,7 @@ async function renderProjectGallery(project) {
     if (!container) return;
     
     const projId = t(project.id);
-    const mainImgUrl = Img.srcForApiImage(project.image, 1200) || Img.cld(`projects/${projId}/main`, 'f_auto,q_auto,w_1200');
+    const mainImgUrl = Img.resolveProjectImage(project, projId, 1200);
     
     allProjectImages = [mainImgUrl];
 

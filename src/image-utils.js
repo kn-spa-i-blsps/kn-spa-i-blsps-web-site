@@ -90,10 +90,21 @@
     onConventionError(img, relPath, transforms, fallback);
   }
 
-  function srcForApiImage(url, width) {
-    if (!url) return '';
-    if (publicPath(url)) return optimize(url, width);
-    return url;
+  function isPlaceholderUrl(url) {
+    if (!url || !String(url).trim()) return true;
+    const u = String(url).toLowerCase();
+    return u.includes('images.unsplash.com')
+      || u.includes('via.placeholder.com')
+      || u.includes('placeholder.com');
+  }
+
+  function projectCover(id, width = 900) {
+    return cld(`projects/${id}/main`, `f_auto,q_auto,w_${width},c_limit`);
+  }
+
+  function resolveProjectImage(proj, id, width) {
+    if (!proj?.image || isPlaceholderUrl(proj.image)) return projectCover(id, width);
+    return srcForApiImage(proj.image, width) || projectCover(id, width);
   }
 
   global.Img = {
@@ -109,6 +120,9 @@
     probeSequential,
     onConventionError,
     onImageError,
+    isPlaceholderUrl,
+    projectCover,
+    resolveProjectImage,
     srcForApiImage,
   };
 

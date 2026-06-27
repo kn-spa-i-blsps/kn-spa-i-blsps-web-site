@@ -32,8 +32,8 @@ function renderProjectCards(container, { featuredId = 'bluespark', layout = 'hom
     sorted.forEach((proj, index) => {
         const id = t(proj.id);
         const href = id === 'bluespark' ? '/bluespark/' : `project.html?id=${id}`;
-        const mainImgPath = Img.srcForApiImage(proj.image, 900) || Img.cld(`projects/${id}/main`, 'f_auto,q_auto,w_900,c_limit');
-        const isConvention = !proj.image || Img.isConventionUrl(proj.image, `projects/${id}/main`);
+        const mainImgPath = Img.resolveProjectImage(proj, id, 900);
+        const isConvention = !proj.image || Img.isPlaceholderUrl(proj.image) || Img.isConventionUrl(proj.image, `projects/${id}/main`);
         const isFeatured = !isPageLayout && id === featuredId;
         const cardClass = isPageLayout ? ' page-card' : (isFeatured ? ' featured lg:col-span-2' : '');
 
