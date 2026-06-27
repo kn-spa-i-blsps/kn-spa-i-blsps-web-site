@@ -34,7 +34,7 @@ async function fetchSiteData() {
     window.partners = data.partners;
     if (data.heroSlides) window.heroSlides = data.heroSlides;
 
-    await loadScript('/src/image-utils.js');
+    await loadScript('/src/image-utils.js?v=7');
     for (const src of window.__pageScripts || []) {
       await loadScript(src);
     }
@@ -50,9 +50,10 @@ async function fetchSiteData() {
     if (typeof window.__afterLoad === 'function') window.__afterLoad();
   } catch (err) {
     console.error('[loader]', err);
+    const msg = err?.message ? `Błąd: ${err.message}` : 'Błąd ładowania danych. Odśwież stronę.';
     document.body.insertAdjacentHTML(
       'afterbegin',
-      '<div style="background:#012A4F;color:#fff;padding:1rem;text-align:center;font-family:monospace;font-size:12px">Błąd ładowania danych. Odśwież stronę.</div>'
+      `<div style="background:#012A4F;color:#fff;padding:1rem;text-align:center;font-family:monospace;font-size:12px">${msg}</div>`
     );
   }
 })();

@@ -90,6 +90,12 @@
     onConventionError(img, relPath, transforms, fallback);
   }
 
+  function srcForApiImage(url, width) {
+    if (!url) return '';
+    if (publicPath(url)) return optimize(url, width);
+    return url;
+  }
+
   function isPlaceholderUrl(url) {
     if (!url || !String(url).trim()) return true;
     const u = String(url).toLowerCase();
