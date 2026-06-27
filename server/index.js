@@ -6,6 +6,7 @@ import { ensureAdminUser } from './auth.js';
 import { runMigration } from './migrate.js';
 import { runSchemaMigrations } from './schema.js';
 import apiRouter from './routes.js';
+import { createBluesparkHandler } from './bluespark.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -18,7 +19,7 @@ app.use(cookieParser());
 
 app.use('/api', apiRouter);
 app.use('/admin', express.static(path.join(ROOT, 'admin')));
-app.use('/bluespark', express.static(path.join(ROOT, 'bluespark')));
+app.use('/bluespark', createBluesparkHandler(path.join(ROOT, 'bluespark')));
 app.use('/css', express.static(path.join(ROOT, 'css')));
 app.use('/src', express.static(path.join(ROOT, 'src')));
 
