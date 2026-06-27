@@ -103,4 +103,4 @@ function renderTeam() {
     }).join('');
 }
 
-document.addEventListener('DOMContentLoaded', renderTeam);
+window.bootTeam = renderTeam;

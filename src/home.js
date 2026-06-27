@@ -319,9 +319,10 @@ function handleNewsImageError(img, id) {
 }
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    initHeroGallery();
+
+window.bootHome = async function () {
+    await initHeroGallery();
     renderHomeNews();
     renderHomeProjects();
     renderHomeTeam();
-});
+};

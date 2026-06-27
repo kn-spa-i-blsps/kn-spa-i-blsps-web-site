@@ -6,9 +6,12 @@ let mainSliderInterval;
 const MAX_GALLERY_IMAGES = 10; 
 const SLIDE_DURATION = 5000; 
 
-document.addEventListener('DOMContentLoaded', () => {
+window.bootProject = function bootProject() {
     const urlParams = new URLSearchParams(window.location.search);
-    const projId = urlParams.get('id');
+    let projId = urlParams.get('id');
+    if (!projId && location.pathname.includes('/project/')) {
+        projId = location.pathname.split('/').filter(Boolean).pop();
+    }
     const project = projects.find(p => p.id === projId);
 
     if (!project) return;
@@ -16,12 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
     allProjectImages = [];
     clearInterval(mainSliderInterval);
 
-    // Render bazy HTML
     renderHeader(project);
-    renderProjectGallery(project); 
+    renderProjectGallery(project);
     renderDescription(project);
     renderTeamSection(project);
-});
+};
+
 
 /**
  * 1. NAGŁÓWEK

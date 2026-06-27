@@ -2,10 +2,13 @@
 
 async function renderProfile() {
     const urlParams = new URLSearchParams(window.location.search);
-    const userId = urlParams.get('user');
+    let userId = urlParams.get('user');
+    if (!userId && location.pathname.includes('/member/')) {
+        userId = location.pathname.split('/').filter(Boolean).pop();
+    }
     
     if (!userId) {
-        window.location.href = 'index.html';
+        window.location.href = '/';
         return;
     }
 
@@ -150,4 +153,4 @@ function handleMemberImageError(img, memberId) {
     else { img.onerror = null; img.src = 'https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/default.jpg'; }
 }
 
-document.addEventListener('DOMContentLoaded', renderProfile);
+window.bootMember = renderProfile;

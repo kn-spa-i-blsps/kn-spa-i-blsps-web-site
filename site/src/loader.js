@@ -8,15 +8,31 @@ function loadScript(src) {
   });
 }
 
-(async function boot() {
+async function fetchSiteData() {
   try {
     const res = await fetch('/api/content');
-    if (!res.ok) throw new Error('API error');
-    const data = await res.json();
+    if (!res.ok) throw new Error('API unavailable');
+    return await res.json();
+  } catch {
+    await loadScript('/src/data.js');
+    return {
+      members: window.members,
+      projects: window.projects,
+      news: window.news,
+      partners: window.partners,
+      heroSlides: window.heroSlides || [],
+    };
+  }
+}
+
+(async function boot() {
+  try {
+    const data = await fetchSiteData();
     window.members = data.members;
     window.projects = data.projects;
     window.news = data.news;
     window.partners = data.partners;
+    if (data.heroSlides) window.heroSlides = data.heroSlides;
 
     for (const src of window.__pageScripts || []) {
       await loadScript(src);
