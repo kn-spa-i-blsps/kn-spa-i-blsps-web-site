@@ -1182,6 +1182,28 @@ const news = [
             // { label: { pl: ``, en: `` }, url: `` },
             // { label: { pl: ``, en: `` }, url: `` }
         ]
+    },
+    {
+        id: `konferencja-mlodzi-dzialaja-2026`,
+        date: `2026-06-23`,
+        title: {
+            pl: `Udział w konferencji „Młodzi działają” oraz grant na warsztaty w liceach – relacja`,
+            en: `Participation in the "Youth in Action" conference and a grant for high school workshops – report`
+        },
+        shortDesc: {
+            pl: `Wzięliśmy udział w konferencji „Młodzi działają. Konferencja Aktywizacji Młodzieży w Życiu Publicznym 2026”. Wydarzenie było dla nas wyjątkowo udane, ponieważ oficjalnie odebraliśmy tam mini grant na realizację naszego projektu społecznego „Warsztaty kompetencji inżynierskich”, które będziemy przeprowadzać w liceach.`,
+            en: `We participated in the conference "Youth in Action. Conference on Youth Activation in Public Life 2026." The event proved highly successful for us, as we officially secured a mini-grant to fund our social project, "Engineering Competence Workshops", which we will be conducting in high schools.`
+        },
+        fullDesc: {
+            pl: `Wzięliśmy udział w konferencji „Młodzi działają. Konferencja Aktywizacji Młodzieży w Życiu Publicznym 2026”, skupiającej młodych aktywistów, organizacje społeczne oraz przedstawicieli sektora publicznego. Dla naszego koła ten dzień przyniósł przede wszystkim ogromny sukces – podczas oficjalnej części wydarzenia odebraliśmy mini grant przeznaczony na realizację naszego autorskiego projektu społecznego „Warsztaty kompetencji inżynierskich”. Przyznane nam dofinansowanie pozwoli na sfinansowanie i organizację cyklu zajęć praktycznych, które przeprowadzimy w szkołach średnich. Naszym celem jest wsparcie licealistów w rozwijaniu technicznego myślenia i przybliżenie im realiów pracy nad projektami inżynierskimi jeszcze przed rozpoczęciem studiów. Udział w samej konferencji był też okazją do dyskusji o roli młodych ludzi w życiu publicznym, wymiany doświadczeń z innymi zespołami oraz zebrania uwag od praktyków zajmujących się wspieraniem oddolnych inicjatyw w Polsce. Wracamy z pełnym budżetem i gotowością do startu z pracami organizacyjnymi w szkołach.`,
+            en: `We participated in the conference "Youth in Action". Conference on Youth Activation in Public Life 2026", which brought together young activists, social organizations, and public sector representatives. For our scientific club, this day turned out to be a major financial and operational milestone – during the official ceremony, we formally received a mini-grant dedicated to executing our proprietary social project, "Engineering Competence Workshops". The awarded funding will allow us to finance and organize a series of practical classes that we plan to conduct in secondary schools. Our main objective is to support high school students in developing technical thinking and to introduce them to the realities of working on engineering projects even before they enter university. Attending the conference itself also provided an platform for discussing the impact of young individuals on public life, exchanging ideas with other teams driving their own initiatives, and gathering insights from professionals skilled in supporting grassroots projects in Poland. We are heading back with a fully secured budget and complete readiness to launch the organizational work in schools.`
+        },
+        links: [
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` },
+            // { label: { pl: ``, en: `` }, url: `` }
+        ]
     }
 ];
 
