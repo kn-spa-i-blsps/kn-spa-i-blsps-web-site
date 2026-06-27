@@ -85,8 +85,9 @@ async function renderProfile() {
                 <div class="w-64 flex-shrink-0 mx-auto lg:mx-0">
                     <div class="img-container mb-8 shadow-2xl transform -rotate-1 group">
                         <div class="overflow-hidden h-80">
-                            <img src="${user.photo ? Img.optimize(user.photo, 800) : Img.cld(`members/${t(user.id)}`, 'f_auto,q_auto,w_800,c_limit')}" 
+                            <img src="${Img.srcForApiImage(user.photo, 800) || Img.cld(`members/${t(user.id)}`, 'f_auto,q_auto,w_800,c_limit')}" 
                                  class="w-full h-full object-cover img-content"
+                                 data-custom-url="${user.photo && !Img.isConventionUrl(user.photo, `members/${t(user.id)}`) ? '1' : '0'}"
                                  onerror="handleConventionImageError(this, 'members/${t(user.id)}', 'f_auto,q_auto,w_800,c_limit', '${Img.cld('members/default', 'f_auto,q_auto,w_800,c_limit')}')">
                         </div>
                     </div>

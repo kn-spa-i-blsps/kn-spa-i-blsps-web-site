@@ -13,7 +13,7 @@ function formatArticleContent(item) {
 }
 
 function optimizeImg(url, width) {
-  return typeof Img !== 'undefined' ? Img.optimize(url, width) : url;
+  return typeof Img !== 'undefined' ? Img.srcForApiImage(url, width) || Img.optimize(url, width) : url;
 }
 
 async function initArticle() {
@@ -33,11 +33,15 @@ async function initArticle() {
   document.getElementById('article-content').classList.add('article-prose');
 
   const fallbackCover = Img.cld(`news/${id}/main`, 'f_auto,q_auto,w_1600');
-  const mainImgUrl = optimizeImg(item.cover || item.coverImage || fallbackCover, 1600);
+  const hasCustomCover = Boolean(item.coverImage || (item.cover && !Img.isConventionUrl(item.cover, `news/${id}/main`)));
+  const mainImgUrl = hasCustomCover
+    ? optimizeImg(item.coverImage || item.cover, 1600)
+    : fallbackCover;
 
   const mainImgEl = document.getElementById('article-main-img');
   if (mainImgEl) {
     mainImgEl.src = mainImgUrl;
+    mainImgEl.dataset.customUrl = hasCustomCover ? '1' : '0';
     mainImgEl.onerror = function onCoverErr() {
       handleConventionImageError(this, `news/${id}/main`, 'f_auto,q_auto,w_1600', fallbackCover);
     };
@@ -45,10 +49,10 @@ async function initArticle() {
   }
 
   renderArticleLinks(item);
-  await loadAndRenderGridGallery(item, id, mainImgUrl);
+  await loadAndRenderGridGallery(item, id, mainImgUrl, fallbackCover, hasCustomCover);
 }
 
-async function loadAndRenderGridGallery(item, id, mainImgUrl) {
+async function loadAndRenderGridGallery(item, id, mainImgUrl, fallbackCover, hasCustomCover) {
   const gridContainer = document.getElementById('article-gallery-grid');
   const section = document.getElementById('article-gallery-section');
   if (!gridContainer) return;
@@ -62,25 +66,23 @@ async function loadAndRenderGridGallery(item, id, mainImgUrl) {
   if (dbGallery.length > 0) {
     images = dbGallery.map((u) => optimizeImg(u, 1600));
   } else {
-    images = [mainImgUrl];
-    for (let i = 1; i <= 15; i++) {
-      let found = false;
-      for (const ext of Img.EXT) {
-        const url = Img.cldExt(`news/${id}/${i}`, ext, 'f_auto,q_auto,w_600');
-        if (await Img.checkExists(url)) {
-          images.push(url.replace('w_600', 'w_1600'));
-          found = true;
-          break;
-        }
-      }
-      if (!found) break;
-    }
+    const coverForGallery = hasCustomCover ? mainImgUrl : fallbackCover;
+    images = [coverForGallery];
+    const probed = await Img.probeSequential(
+      (i, ext) => Img.cldExt(`news/${id}/${i}`, ext, 'f_auto,q_auto,w_1600'),
+      15
+    );
+    images.push(...probed);
   }
+
+  images = [...new Set(images.filter(Boolean))];
 
   if (images.length === 0) {
     if (section) section.style.display = 'none';
     return;
   }
+
+  if (section) section.style.display = '';
 
   images.forEach((url, index) => {
     allArticleImages.push(url);

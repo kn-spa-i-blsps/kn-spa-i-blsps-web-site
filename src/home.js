@@ -32,16 +32,16 @@ function renderProjectCards(container, { featuredId = 'bluespark', layout = 'hom
     sorted.forEach((proj, index) => {
         const id = t(proj.id);
         const href = id === 'bluespark' ? '/bluespark/' : `project.html?id=${id}`;
-        const mainImgPath = proj.image
-            ? Img.optimize(proj.image, 900)
-            : Img.cld(`projects/${id}/main`, 'f_auto,q_auto,w_900,c_limit');
+        const mainImgPath = Img.srcForApiImage(proj.image, 900) || Img.cld(`projects/${id}/main`, 'f_auto,q_auto,w_900,c_limit');
+        const isConvention = !proj.image || Img.isConventionUrl(proj.image, `projects/${id}/main`);
         const isFeatured = !isPageLayout && id === featuredId;
         const cardClass = isPageLayout ? ' page-card' : (isFeatured ? ' featured lg:col-span-2' : '');
 
         container.innerHTML += `
             <a href="${href}" class="home-project-card group${cardClass}">
                 <img src="${mainImgPath}" alt="" class="bg-img" loading="lazy"
-                     onerror="handleConventionImageError(this, 'projects/${id}/main', 'f_auto,q_auto,w_800,c_limit', '${proj.image ? Img.optimize(proj.image, 800) : ''}')">
+                     data-custom-url="${isConvention ? '0' : '1'}"
+                     onerror="handleConventionImageError(this, 'projects/${id}/main', 'f_auto,q_auto,w_800,c_limit', '')">
                 <div class="overlay"></div>
                 <div class="body">
                     <div class="flex items-center justify-between mb-2">
@@ -93,10 +93,9 @@ function renderHomeTeam() {
     const membersHTML = sortedMembers.map(person => {
         const memberId = t(person.id);
         const defaultMember = Img.cld('members/default', 'f_auto,q_auto,w_800,c_limit');
-        const primarySrc = person.photo
-            ? Img.optimize(person.photo, 800)
-            : Img.cld(`members/${memberId}`, 'f_auto,q_auto,w_800,c_limit');
-        const fallbackSrc = person.img ? Img.optimize(person.img, 800) : defaultMember;
+        const primarySrc = Img.srcForApiImage(person.photo, 800) || Img.cld(`members/${memberId}`, 'f_auto,q_auto,w_800,c_limit');
+        const isConvention = !person.photo || Img.isConventionUrl(person.photo, `members/${memberId}`);
+        const fallbackSrc = person.img ? Img.srcForApiImage(person.img, 800) : defaultMember;
 
         const customBadges = (person.customTags || []).map(tag => `
             <span class="text-[8px] px-1.5 py-0.5 border border-[#038DAE]/20 bg-[#038DAE]/5 text-[#038DAE] uppercase font-bold tracking-tighter">
@@ -117,6 +116,7 @@ function renderHomeTeam() {
             <a href="member.html?user=${t(person.id)}" class="min-w-[240px] tech-card p-4 snap-center group transition-transform duration-300 shadow-sm hover:shadow-md bg-white">
                 <div class="relative mb-4 overflow-hidden bg-slate-100 aspect-[3/4]">
                     <img src="${primarySrc}" loading="lazy" class="w-full h-full object-cover"
+                        data-custom-url="${isConvention ? '0' : '1'}"
                         onerror="handleConventionImageError(this, 'members/${memberId}', 'f_auto,q_auto,w_800,c_limit', '${fallbackSrc}')">
                 </div>
                 <h3 class="text-sm font-bold text-[#012A4F] uppercase tracking-tight group-hover:text-[#038DAE] transition-colors">${t(person.name)}</h3>
@@ -244,8 +244,10 @@ function newsImgPath(id, w = 800) {
 }
 
 function newsCoverSrc(item, w = 800) {
-    if (item.coverImage) return Img.optimize(item.coverImage, w);
-    if (item.cover && !item.cover.endsWith(`/news/${item.id}/main.jpg`)) return Img.optimize(item.cover, w);
+    if (item.coverImage) return Img.srcForApiImage(item.coverImage, w);
+    if (item.cover && !Img.isConventionUrl(item.cover, `news/${item.id}/main`)) {
+        return Img.srcForApiImage(item.cover, w);
+    }
     return newsImgPath(item.id, w);
 }
 

@@ -16,17 +16,19 @@ export function ensureAdminUser() {
   console.log('[auth] Default admin account created.');
 }
 
-/** Na Renderze hasło z env działa tylko przy pierwszym starcie — ta funkcja to naprawia. */
+/** Synchronizuje login/hasło z env tylko gdy jawnie włączone lub brak konta. */
 export function syncAdminFromEnv() {
   const envUser = process.env.ADMIN_USERNAME?.trim();
   const envPass = process.env.ADMIN_PASSWORD;
+  const force = process.env.ADMIN_SYNC_PASSWORD === 'true';
+  const hasHash = Boolean(getSetting('admin_password_hash'));
 
   if (envUser) {
     setSetting('admin_username', envUser);
     console.log(`[auth] Admin username synced from env: ${envUser}`);
   }
 
-  if (envPass) {
+  if (envPass && (!hasHash || force)) {
     setSetting('admin_password_hash', bcrypt.hashSync(envPass, 12));
     console.log('[auth] Admin password synced from ADMIN_PASSWORD env');
   }
@@ -82,5 +84,17 @@ export function changePassword(currentPassword, newPassword) {
     return { ok: false, error: 'Nieprawidłowe obecne hasło' };
   }
   setSetting('admin_password_hash', bcrypt.hashSync(newPassword, 12));
+  return { ok: true };
+}
+
+export function emergencyResetPassword(key, password) {
+  const resetKey = process.env.ADMIN_RESET_KEY;
+  if (!resetKey || key !== resetKey) {
+    return { ok: false, status: 403, error: 'Forbidden' };
+  }
+  if (!password || String(password).length < 8) {
+    return { ok: false, status: 400, error: 'Hasło musi mieć min. 8 znaków' };
+  }
+  setSetting('admin_password_hash', bcrypt.hashSync(String(password), 12));
   return { ok: true };
 }

@@ -64,9 +64,7 @@ async function renderProjectGallery(project) {
     if (!container) return;
     
     const projId = t(project.id);
-    const mainImgUrl = project.image
-        ? Img.optimize(project.image, 1200)
-        : Img.cld(`projects/${projId}/main`, 'f_auto,q_auto,w_1200');
+    const mainImgUrl = Img.srcForApiImage(project.image, 1200) || Img.cld(`projects/${projId}/main`, 'f_auto,q_auto,w_1200');
     
     allProjectImages = [mainImgUrl];
 
@@ -178,7 +176,7 @@ function renderTeamSection(project) {
         if (!person) return "";
         const memberId = t(person.id);
         const defaultMember = Img.cld('members/default', 'f_auto,q_auto,w_400');
-        const photoSrc = person.photo ? Img.optimize(person.photo, 400) : Img.cld(`members/${memberId}`, 'f_auto,q_auto,w_400');
+        const photoSrc = Img.srcForApiImage(person.photo, 400) || Img.cld(`members/${memberId}`, 'f_auto,q_auto,w_400');
         return `<a href="member.html?user=${memberId}" class="flex items-center gap-4 p-4 data-block hover:border-[#038DAE] transition-all group mb-4 bg-white">
             <div class="w-12 h-16 flex-shrink-0 overflow-hidden bg-slate-100 border border-slate-200">
                 <img src="${photoSrc}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="handleConventionImageError(this, 'members/${memberId}', 'f_auto,q_auto,w_400', '${defaultMember}')">

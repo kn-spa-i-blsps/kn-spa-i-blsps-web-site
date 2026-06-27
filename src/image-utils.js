@@ -1,8 +1,8 @@
 (function (global) {
   const CLOUD = 'dsrdp5vrr';
   const CLOUD_BASE = `https://res.cloudinary.com/${CLOUD}/image/upload`;
+  const FOLDER = 'kn-spa-i-blsps/';
 
-  /** Kolejność próbowania — HEIC zaraz po JPG/JPEG (częste na iPhone). */
   const IMAGE_EXTENSIONS = [
     'jpg', 'jpeg', 'heic', 'heif', 'png', 'webp', 'avif', 'gif', 'bmp', 'tiff', 'tif', 'svg',
   ];
@@ -15,20 +15,31 @@
     return cldExt(relPath, IMAGE_EXTENSIONS[extIndex], transforms);
   }
 
-  /** Cloudinary f_auto konwertuje HEIC do formatu obsługiwanego przez przeglądarkę. */
+  /** Wyciąga ścieżkę publiczną z URL Cloudinary (bez transformacji). */
+  function publicPath(url) {
+    if (!url || !url.includes(FOLDER)) return null;
+    return url.slice(url.indexOf(FOLDER));
+  }
+
+  /** Bezpiecznie podmienia transformacje — nie duplikuje f_auto,w_800 itd. */
   function optimize(url, width) {
     if (!url) return url;
-    if (url.includes('cloudinary.com') && url.includes('/upload/')) {
-      if (url.includes('f_auto')) {
-        if (width && !new RegExp(`w_${width}\\b`).test(url)) {
-          return url.replace('/upload/', `/upload/f_auto,q_auto,w_${width},c_limit/`);
-        }
-        return url;
-      }
-      const tw = width ? `f_auto,q_auto,w_${width},c_limit` : 'f_auto,q_auto';
-      return url.replace('/upload/', `/upload/${tw}/`);
-    }
-    return url;
+    if (!url.includes('cloudinary.com') || !url.includes('/upload/')) return url;
+
+    const pub = publicPath(url);
+    if (!pub) return url;
+
+    const uploadBase = url.slice(0, url.indexOf('/upload/') + '/upload/'.length);
+    const transforms = width ? `f_auto,q_auto,w_${width},c_limit` : 'f_auto,q_auto';
+    return `${uploadBase}${transforms}/${pub}`;
+  }
+
+  function isConventionUrl(url, relPath) {
+    if (!url || !url.includes(FOLDER)) return false;
+    const pub = publicPath(url);
+    if (!pub) return false;
+    const base = pub.replace(/\.[a-z0-9]+$/i, '');
+    return base === `${FOLDER}${relPath}` || base.endsWith(`/${relPath}`);
   }
 
   function checkExists(url) {
@@ -70,17 +81,37 @@
     }
   }
 
+  function onImageError(img, relPath, transforms, fallback) {
+    if (img.dataset.customUrl === '1') {
+      img.onerror = null;
+      if (fallback) img.src = fallback;
+      return;
+    }
+    onConventionError(img, relPath, transforms, fallback);
+  }
+
+  function srcForApiImage(url, width) {
+    if (!url) return '';
+    if (publicPath(url)) return optimize(url, width);
+    return url;
+  }
+
   global.Img = {
     EXT: IMAGE_EXTENSIONS,
     CLOUD_BASE,
+    FOLDER,
     cld,
     cldExt,
     optimize,
+    publicPath,
+    isConventionUrl,
     checkExists,
     probeSequential,
     onConventionError,
+    onImageError,
+    srcForApiImage,
   };
 
   global.handleConventionImageError = (img, relPath, transforms, fallback) =>
-    onConventionError(img, relPath, transforms, fallback);
+    onImageError(img, relPath, transforms, fallback);
 })(window);

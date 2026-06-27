@@ -29,8 +29,9 @@ function renderTeam() {
     container.innerHTML = sortedMembers.map((person, index) => {
         const memberId = t(person.id);
         const defaultMember = Img.cld('members/default', 'f_auto,q_auto,w_800,c_limit');
-        const primarySrc = person.photo ? Img.optimize(person.photo, 800) : Img.cld(`members/${memberId}`, 'f_auto,q_auto,w_800,c_limit');
-        const fallbackSrc = person.img ? Img.optimize(person.img, 800) : defaultMember;
+        const primarySrc = Img.srcForApiImage(person.photo, 800) || Img.cld(`members/${memberId}`, 'f_auto,q_auto,w_800,c_limit');
+        const isConvention = !person.photo || Img.isConventionUrl(person.photo, `members/${memberId}`);
+        const fallbackSrc = person.img ? Img.srcForApiImage(person.img, 800) : defaultMember;
 
         // --- LOGIKA ZBIERANIA WSZYSTKICH TAGÓW ---
         const allTags = [];
@@ -74,6 +75,7 @@ function renderTeam() {
                     <img src="${primarySrc}" 
                          loading="lazy"
                          class="w-full h-full object-cover"
+                         data-custom-url="${isConvention ? '0' : '1'}"
                          onerror="handleImageError(this, 'members/${memberId}', '${fallbackSrc}')">
                 </div>
 

@@ -7,6 +7,7 @@ import {
   setAuthCookie,
   clearAuthCookie,
   changePassword,
+  emergencyResetPassword,
 } from './auth.js';
 import { getAllContent, formatMember, formatProject, formatNews, formatPartner, slugify } from './content.js';
 import { upload, persistImage, isCloudinaryConfigured } from './upload.js';
@@ -59,6 +60,13 @@ router.get('/partners', (_req, res) => {
 });
 
 // ─── Auth ─────────────────────────────────────────────────────
+
+router.post('/auth/emergency-reset', (req, res) => {
+  const { key, password } = req.body || {};
+  const result = emergencyResetPassword(key, password);
+  if (!result.ok) return res.status(result.status || 400).json({ error: result.error });
+  res.json({ ok: true });
+});
 
 router.post('/auth/login', (req, res) => {
   const { username, password } = req.body || {};
