@@ -110,6 +110,7 @@ function openModal(title, html, onSave) {
   document.getElementById('modal-title').textContent = title;
   document.getElementById('modal-form').innerHTML = html;
   modal.classList.add('open');
+  if (!currentEdit) currentEdit = {};
   currentEdit.onSave = onSave;
 }
 
@@ -195,6 +196,7 @@ async function loadPartners() {
     <tr>
       <td>${r.name}</td>
       <td>${r.category}</td>
+      <td>${r.sort_order}</td>
       <td>
         <button class="btn btn-sm" onclick="editPartner(${r.id})">Edytuj</button>
         <button class="btn btn-sm btn-danger" onclick="deleteItem('partners',${r.id})">Usuń</button>
@@ -694,10 +696,13 @@ document.getElementById('add-partner-btn').onclick = () => {
     <div class="form-group"><label>URL</label><input name="url" type="url"></div>
     <div class="form-group"><label>Logo URL</label><input name="logo"></div>
     <div class="form-group"><label>Kategoria</label><select name="category"><option value="partner">Partner</option><option value="support">Wsparcie</option></select></div>
+    <div class="form-group"><label>Kolejność</label><input name="sort_order" type="number" value="999"></div>
   `, async (fd) => {
+    const body = Object.fromEntries(fd);
+    body.sort_order = parseInt(body.sort_order, 10) || 999;
     await api('/admin/partners', {
       method: 'POST',
-      body: JSON.stringify(Object.fromEntries(fd)),
+      body: JSON.stringify(body),
     });
   });
 };
@@ -711,8 +716,11 @@ window.editPartner = async (id) => {
     <div class="form-group"><label>URL</label><input name="url" value="${esc(r.url)}"></div>
     <div class="form-group"><label>Logo URL</label><input name="logo" value="${esc(r.logo)}"></div>
     <div class="form-group"><label>Kategoria</label><select name="category"><option value="partner" ${r.category === 'partner' ? 'selected' : ''}>Partner</option><option value="support" ${r.category === 'support' ? 'selected' : ''}>Wsparcie</option></select></div>
+    <div class="form-group"><label>Kolejność</label><input name="sort_order" type="number" value="${r.sort_order ?? 999}"></div>
   `, async (fd) => {
-    await api(`/admin/partners/${id}`, { method: 'PUT', body: JSON.stringify(Object.fromEntries(fd)) });
+    const body = Object.fromEntries(fd);
+    body.sort_order = parseInt(body.sort_order, 10) || 999;
+    await api(`/admin/partners/${id}`, { method: 'PUT', body: JSON.stringify(body) });
   });
 };
 
