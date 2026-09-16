@@ -53,8 +53,8 @@ app.get('/health', (_req, res) => res.json({ ok: true }));
 
 ensureAdminUser();
 syncAdminFromEnv();
-runSchemaMigrations();
 runMigration();
+runSchemaMigrations();
 
 app.listen(PORT, () => {
   console.log(`[server] KN SPA i BLSPS running on http://localhost:${PORT}`);
