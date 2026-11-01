@@ -6,6 +6,7 @@
     <title>Koło Naukowe SPA i BLSPS</title>
     <meta name="description" content="Oficjalna strona Koła Naukowego SPA i BLSPS – rozwój lotniczych systemów pomiarowych, automatyki oraz projekty badawcze studentów.">
     <link rel="icon" type="image/png" href="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/logo3.png">
+    <link rel="preconnect" href="https://res.cloudinary.com">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
@@ -53,12 +54,146 @@
             perspective: 1000;
             image-rendering: -webkit-optimize-contrast;
         }
+
+        /* ── Homepage: News (compact) ── */
+        .home-news-featured {
+            display: grid;
+            grid-template-columns: 1fr;
+            background: white;
+            border: 1px solid #cbd5e1;
+            overflow: hidden;
+            transition: border-color 0.25s, box-shadow 0.25s;
+        }
+        @media (min-width: 768px) { .home-news-featured { grid-template-columns: 1.1fr 1fr; } }
+        .home-news-featured:hover {
+            border-color: #038DAE;
+            box-shadow: 0 12px 40px rgba(1, 42, 79, 0.1);
+        }
+        .home-news-featured .feat-img { min-height: 200px; }
+        @media (min-width: 768px) { .home-news-featured .feat-img { min-height: 260px; } }
+
+        .home-news-featured-tile {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border: 1px solid #cbd5e1;
+            overflow: hidden;
+            min-height: 340px;
+            transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+        }
+        .home-news-featured-tile:hover {
+            border-color: #038DAE;
+            box-shadow: 0 12px 36px rgba(1, 42, 79, 0.1);
+            transform: translateY(-2px);
+        }
+        .home-news-featured-tile .tile-img { height: 200px; flex-shrink: 0; }
+        @media (min-width: 768px) { .home-news-featured-tile .tile-img { height: 220px; } }
+        .home-news-featured-tile .tile-body { padding: 1rem 1.15rem 1.25rem; flex: 1; }
+
+        .home-news-row {
+            display: flex;
+            height: 104px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+        .home-news-row:hover {
+            border-color: #038DAE;
+            box-shadow: 0 4px 16px rgba(1, 42, 79, 0.06);
+        }
+        .home-news-row .thumb {
+            width: 148px;
+            height: 104px;
+            flex-shrink: 0;
+            background: #f1f5f9;
+        }
+        @media (min-width: 640px) { .home-news-row .thumb { width: 168px; } }
+        .home-news-row .row-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 1;
+            min-width: 0;
+            height: 104px;
+            padding: 0.65rem 0.85rem;
+            border-left: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .home-news-row:hover .row-body { border-left-color: #038DAE; }
+
+        .news-badge {
+            background: #038DAE;
+            color: white;
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            padding: 0.25rem 0.45rem;
+            text-transform: uppercase;
+        }
+        .news-badge-featured { background: #012A4F; border: 1px solid #038DAE; }
+        .news-badge-sm {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            font-size: 7px;
+            padding: 0.15rem 0.35rem;
+            letter-spacing: 0.15em;
+        }
+
+        /* ── Homepage: Projects (bold) ── */
+        .home-project-card {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(3, 141, 174, 0.45);
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+        .home-project-card:hover {
+            transform: translateY(-5px);
+            border-color: #038DAE;
+            box-shadow: 0 20px 56px rgba(0, 0, 0, 0.45);
+        }
+        .home-project-card.featured {
+            min-height: 320px;
+            border-width: 2px;
+            border-color: #038DAE;
+            box-shadow: 0 0 0 1px rgba(3, 141, 174, 0.25), 0 12px 40px rgba(3, 141, 174, 0.2);
+        }
+        @media (min-width: 1024px) {
+            .home-project-card.featured { min-height: 400px; }
+        }
+        .home-project-card img.bg-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.88;
+            transition: opacity 0.4s, transform 0.6s;
+        }
+        .home-project-card:hover img.bg-img {
+            opacity: 1;
+            transform: scale(1.06);
+        }
+        .home-project-card .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, #012A4F 0%, #012A4Fbb 28%, transparent 72%);
+        }
+        .home-project-card.featured .overlay {
+            background: linear-gradient(to top, #012A4F 0%, #012A4F99 32%, transparent 78%);
+        }
+        .home-project-card .body { position: relative; z-index: 2; padding: 1.25rem; }
     </style>
 </head>
 <body class="selection:bg-[#038DAE] selection:text-white">
 
-    <nav class="sticky top-0 z-50 bg-white border-b border-slate-200 px-6 py-2">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <nav class="sticky top-0 z-50 bg-white border-b border-slate-200 px-4 sm:px-5 py-2">
+        <div class="max-w-[88rem] mx-auto flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-6 group">
                 <div class="h-12 w-auto"> 
                     <img src="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/logo3.png" alt="Logo" class="h-full w-auto object-contain transition-transform group-hover:scale-105">
@@ -99,7 +234,7 @@
             SHEET: 01/0A
         </div>
 
-        <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+        <div class="max-w-[88rem] mx-auto px-4 sm:px-5 relative z-10 w-full">
             <div class="flex flex-col lg:grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                 
                 <div class="lg:col-span-5 relative">
@@ -174,32 +309,37 @@
         </div>
     </header>
 
-    <section id="news" class="py-16 md:py-24 max-w-7xl mx-auto px-6 border-x border-slate-200">
-        <div class="mb-16 flex justify-between items-end">
+    <section id="news" class="py-14 md:py-20 max-w-[88rem] mx-auto px-4 sm:px-5 border-x border-slate-200">
+        <div class="mb-8 flex justify-between items-end gap-4">
             <h2 class="t-translate text-2xl font-bold uppercase tracking-tighter flex items-center gap-4 text-[#012A4F]"
                 data-pl="<span class='text-[#038DAE]'>[00]</span> Aktualności"
                 data-en="<span class='text-[#038DAE]'>[00]</span> News">
                 <span class="text-[#038DAE]">[00]</span> Aktualności
             </h2>
+            <span class="text-[9px] text-slate-400 uppercase tracking-[0.3em] hidden sm:block">LIVE_FEED</span>
         </div>
-        <div id="news-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            </div>
+        <div id="news-featured" class="mb-6"></div>
+        <div id="news-container" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
     </section>
 
-    <section id="projects" class="py-24 max-w-7xl mx-auto px-6 border-x border-slate-200">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-16">
-                <h2 class="t-translate text-2xl font-bold uppercase tracking-tighter flex items-center gap-4 text-[#012A4F]"
+    <section id="projects" class="py-20 relative overflow-hidden bg-[#012A4F] border-y border-[#038DAE]/40">
+        <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(#038DAE 0.5px, transparent 0.5px); background-size: 20px 20px;"></div>
+        <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(#038DAE 1px, transparent 1px), linear-gradient(90deg, #038DAE 1px, transparent 1px); background-size: 80px 80px;"></div>
+        <div class="max-w-[88rem] mx-auto px-4 sm:px-5 relative z-10">
+            <div class="mb-10 flex items-end justify-between gap-4">
+                <h2 class="t-translate text-2xl md:text-3xl font-black uppercase tracking-tighter text-white italic"
                     data-pl="<span class='text-[#038DAE]'>[01]</span> Aktywne Operacje"
                     data-en="<span class='text-[#038DAE]'>[01]</span> Active Operations">
                     <span class="text-[#038DAE]">[01]</span> Aktywne Operacje
                 </h2>
+                <a href="projects.html" class="t-translate text-[9px] font-bold text-[#038DAE] uppercase tracking-[0.25em] hover:text-white transition border border-[#038DAE]/50 px-3 py-2"
+                   data-pl="Pełna lista →" data-en="Full list →">Pełna lista →</a>
             </div>
-            <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+            <div id="projects-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
         </div>
     </section>
 
-    <section id="team" class="py-24 max-w-7xl mx-auto px-6 border-x border-slate-200">
+    <section id="team" class="py-24 max-w-[88rem] mx-auto px-4 sm:px-5 border-x border-slate-200">
         <div class="flex justify-between items-end mb-12">
             <h2 class="t-translate text-2xl font-bold uppercase tracking-tighter flex items-center gap-4 text-[#012A4F]"
                 data-pl="<span class='text-[#038DAE]'>[02]</span> Jednostki"
@@ -212,15 +352,15 @@
     </section>
 
     <section id="partners" class="py-24 border-y border-slate-200" style="background-color: #F8FAFC; background-image: radial-gradient(#cbd5e1 1.2px, transparent 1.2px); background-size: 25px 25px;">
-        <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-[88rem] mx-auto px-4 sm:px-5">
             <div id="partners-container" class="space-y-24"></div>
         </div>
     </section>
 
-    <section id="kontakt" class="bg-[#012A4F] relative overflow-hidden py-24 px-6 border-t border-[#038DAE]/50">
+    <section id="kontakt" class="bg-[#012A4F] relative overflow-hidden py-24 px-4 sm:px-5 border-t border-[#038DAE]/50">
         <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(#038DAE 1px, transparent 1px), linear-gradient(90deg, #038DAE 1px, transparent 1px); background-size: 50px 50px;"></div>
         
-        <div class="max-w-7xl mx-auto relative z-10">
+        <div class="max-w-[88rem] mx-auto relative z-10">
             <div class="flex flex-col lg:flex-row justify-between items-center gap-12 text-center lg:text-left">
                 
                 <div class="relative">
@@ -274,9 +414,8 @@
         &copy; KN SPA I BLSPS // 2026
     </footer>
 
-    <script src="src/data.js"></script>
-    <script src="src/home.js"></script>
-    <script src="src/partners.js"></script>
-    <script src="src/language.js"></script>
+    <script>window.__pageScripts = ['/src/home.js?v=8', '/src/partners.js?v=8'];</script>
+    <script src="/src/language.js"></script>
+    <script src="/src/loader.js?v=9"></script>
 </body>
 </html>

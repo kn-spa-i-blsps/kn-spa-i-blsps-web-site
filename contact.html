@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" href="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/logo3.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/subpages.css?v=3">
     <style>
         body { 
             font-family: 'JetBrains Mono', monospace; 
@@ -148,23 +149,25 @@
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-6 py-16 flex-grow">
-        
-        <div class="mb-16 border-b-4 border-[#012A4F] pb-8">
-            <div class="inline-block px-3 py-1 border border-[#038DAE] text-[#038DAE] text-[10px] font-bold tracking-[0.3em] uppercase mb-4">
-                Partnership_Protocol_v2.0
-            </div>
-            <h1 class="t-translate text-5xl md:text-8xl font-black text-[#012A4F] uppercase tracking-tighter italic leading-none"
+    <header class="sp-hero py-16">
+        <div class="sp-hero-inner max-w-7xl mx-auto px-6">
+            <span class="sp-badge">Partnership_Protocol_v2.0</span>
+            <h1 class="t-translate text-4xl md:text-6xl font-black text-white uppercase tracking-tighter italic leading-none"
                 data-pl="WSPÓŁPRACA <br><span class='text-[#038DAE]'>& KONTAKT</span>"
                 data-en="PARTNERSHIP <br><span class='text-[#038DAE]'>& CONTACT</span>">
                 WSPÓŁPRACA <br><span class="text-[#038DAE]">& KONTAKT</span>
             </h1>
-            <p class="t-translate mt-6 text-xl max-w-2xl font-light leading-relaxed"
-               data-pl="Łączymy akademicką precyzję z inżynierską odwagą. Sprawdź, jak Twój biznes może wesprzeć misję <span class='font-bold'>naszego koła</span>."
-               data-en="We bridge academic precision with engineering courage. See how your business can support <span class='font-bold'>our mission</span>.">
-                Łączymy akademicką precyzję z inżynierską odwagą. Sprawdź, jak Twój biznes może wesprzeć misję <span class="font-bold">naszego koła</span>.
+            <p class="t-translate mt-6 text-slate-400 max-w-2xl text-sm leading-relaxed"
+               data-pl="Łączymy akademicką precyzję z inżynierską odwagą."
+               data-en="We bridge academic precision with engineering courage.">
+                Łączymy akademicką precyzję z inżynierską odwagą.
             </p>
         </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-16 flex-grow">
+        
+        <div class="mb-12 sp-divider"><span>Collaboration_Tracks</span></div>
 
         <div class="grid md:grid-cols-3 gap-6 mb-20">
             <div class="track-card p-8">
@@ -296,9 +299,8 @@
         &copy; KN SPA I BLSPS // 2026
     </footer>
 
-    <script src="src/data.js"></script>
-    <script src="src/language.js"></script>
-    <script src="src/formspree.js"></script>
-    <script src="src/partners.js"></script>
+    <script>window.__pageScripts = ['/src/formspree.js', '/src/partners.js'];</script>
+    <script src="/src/language.js"></script>
+    <script src="/src/loader.js?v=9"></script>
 </body>
 </html>

@@ -6,9 +6,12 @@ let mainSliderInterval;
 const MAX_GALLERY_IMAGES = 10; 
 const SLIDE_DURATION = 5000; 
 
-document.addEventListener('DOMContentLoaded', () => {
+window.bootProject = function bootProject() {
     const urlParams = new URLSearchParams(window.location.search);
-    const projId = urlParams.get('id');
+    let projId = urlParams.get('id');
+    if (!projId && location.pathname.includes('/project/')) {
+        projId = location.pathname.split('/').filter(Boolean).pop();
+    }
     const project = projects.find(p => p.id === projId);
 
     if (!project) return;
@@ -16,12 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
     allProjectImages = [];
     clearInterval(mainSliderInterval);
 
-    // Render bazy HTML
     renderHeader(project);
-    renderProjectGallery(project); 
+    renderProjectGallery(project);
     renderDescription(project);
     renderTeamSection(project);
-});
+};
+
 
 /**
  * 1. NAGŁÓWEK
@@ -32,10 +35,11 @@ function renderHeader(project) {
     
     const logoHTML = `
         <div id="logo-wrap-${projId}" class="hidden flex-shrink-0 mb-4 md:mb-0">
-             <img src="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800/kn-spa-i-blsps/projects/${projId}/logo.jpg" 
+             <img src="${Img.cld(`projects/${projId}/logo`, 'f_auto,q_auto,w_800')}" 
+                  data-hide-on-fail="1"
                   class="h-20 md:h-28 w-auto object-contain border-r border-[#038DAE]/30 pr-8 mr-2"
                   onload="this.parentElement.classList.remove('hidden')"
-                  onerror="handleLogoError(this, '${projId}')">
+                  onerror="handleConventionImageError(this, 'projects/${projId}/logo', 'f_auto,q_auto,w_800', '')">
         </div>`;
 
     headerContainer.innerHTML = `
@@ -60,7 +64,7 @@ async function renderProjectGallery(project) {
     if (!container) return;
     
     const projId = t(project.id);
-    const mainImgUrl = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1200/kn-spa-i-blsps/projects/${projId}/main.jpg`;
+    const mainImgUrl = Img.resolveProjectImage(project, projId, 1200);
     
     allProjectImages = [mainImgUrl];
 
@@ -91,15 +95,12 @@ async function renderProjectGallery(project) {
         </div>
     `;
 
-    // SEKWENCYJNE SZUKANIE (jeśli 1 nie istnieje, nie szuka 2)
-    const extensions = ['jpg', 'jpeg', 'png', 'webp'];
-    
     for (let i = 1; i <= MAX_GALLERY_IMAGES; i++) {
         let foundAnyFormat = false;
-        
-        for (const ext of extensions) {
-            const url = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1200/kn-spa-i-blsps/projects/${projId}/${i}.${ext}`;
-            const exists = await checkIfFileExists(url);
+
+        for (const ext of Img.EXT) {
+            const url = Img.cldExt(`projects/${projId}/${i}`, ext, 'f_auto,q_auto,w_1200');
+            const exists = await Img.checkExists(url);
             
             if (exists) {
                 allProjectImages.push(url);
@@ -151,14 +152,6 @@ function updateSliderDots() {
     `).join('');
 }
 
-function checkIfFileExists(url) {
-    return new Promise((resolve) => {
-        const img = new Image();
-        img.onload = () => resolve(true);
-        img.onerror = () => resolve(false);
-        img.src = url;
-    });
-}
 
 /**
  * 3. OPIS I ZESPÓŁ
@@ -181,9 +174,12 @@ function renderTeamSection(project) {
     teamContainer.innerHTML = project.teamIds.map(mId => {
         const person = members.find(m => m.id.trim() === mId.trim());
         if (!person) return "";
-        return `<a href="member.html?user=${t(person.id)}" class="flex items-center gap-4 p-4 data-block hover:border-[#038DAE] transition-all group mb-4 bg-white">
+        const memberId = t(person.id);
+        const defaultMember = Img.cld('members/default', 'f_auto,q_auto,w_400');
+        const photoSrc = Img.srcForApiImage(person.photo, 400) || Img.cld(`members/${memberId}`, 'f_auto,q_auto,w_400');
+        return `<a href="member.html?user=${memberId}" class="flex items-center gap-4 p-4 data-block hover:border-[#038DAE] transition-all group mb-4 bg-white">
             <div class="w-12 h-16 flex-shrink-0 overflow-hidden bg-slate-100 border border-slate-200">
-                <img src="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_400/kn-spa-i-blsps/members/${t(person.id)}.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_400/kn-spa-i-blsps/members/default.jpg'">
+                <img src="${photoSrc}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="handleConventionImageError(this, 'members/${memberId}', 'f_auto,q_auto,w_400', '${defaultMember}')">
             </div>
             <div>
                 <p class="text-[14px] font-bold text-[#012A4F] uppercase group-hover:text-[#038DAE]">${t(person.name)}</p>
@@ -192,13 +188,6 @@ function renderTeamSection(project) {
     }).join('');
 }
 
-function handleLogoError(img, projId) {
-    const exts = ['png', 'jpeg', 'webp'];
-    let currentExt = img.src.split('.').pop().toLowerCase();
-    let nextIdx = exts.indexOf(currentExt === 'jpg' ? 'jpg' : currentExt) + 1;
-    if (nextIdx < exts.length) img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800/kn-spa-i-blsps/projects/${projId}/logo.${exts[nextIdx]}`;
-    else img.parentElement.classList.add('hidden');
-}
 
 /**
  * 4. LIGHTBOX

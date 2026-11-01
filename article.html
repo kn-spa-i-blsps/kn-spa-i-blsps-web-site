@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" href="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/logo3.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/subpages.css?v=3">
     <style>
         body { 
             font-family: 'JetBrains Mono', monospace; 
@@ -15,18 +16,7 @@
             background-size: 25px 25px;
             color: #012A4F;
         }
-        /* Płynne przejście zdjęć w sliderze */
         .gallery-fade { transition: opacity 0.7s ease-in-out; }
-        
-        /* Styl dla treści artykułu (odstępy, czcionki) */
-        #article-content p { margin-bottom: 1.5rem; line-height: 1.8; }
-        #article-content h2, #article-content h3 { 
-            color: #012A4F; 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            margin-top: 2rem; 
-            margin-bottom: 1rem;
-        }
     </style>
 </head>
 <body class="selection:bg-[#038DAE] selection:text-white">
@@ -78,7 +68,7 @@
     <main class="max-w-7xl mx-auto px-6 py-16">
         <div class="grid lg:grid-cols-12 gap-16">
             <div class="lg:col-span-8">
-                <div id="article-content" class="text-slate-600 leading-relaxed text-sm md:text-base prose prose-slate max-w-none mb-16"></div>
+                <div id="article-content" class="article-prose mb-16"></div>
 
                 <section id="article-gallery-section" class="border-t border-slate-200 pt-16">
                 <div class="flex items-center gap-4 mb-10">
@@ -98,9 +88,7 @@
 
             <aside class="lg:col-span-4">
                 <div class="sticky top-24">
-                    <div class="p-8 border border-slate-200 bg-white relative">
-                        <div class="absolute -top-[1px] -left-[1px] w-4 h-4 border-t-2 border-l-2 border-[#038DAE]"></div>
-                        <div class="absolute -bottom-[1px] -right-[1px] w-4 h-4 border-b-2 border-r-2 border-[#038DAE]"></div>
+                    <div class="p-8 sp-panel sticky top-24">
                         <h3 class="text-[#012A4F] font-bold text-[12px] tracking-[0.3em] uppercase mb-6">External_Resources</h3>
                         <div id="article-links" class="space-y-4"></div>
                     </div>
@@ -125,8 +113,9 @@
         &copy; KN SPA I BLSPS // DATA_TRANSMISSION_SECURED
     </footer>
 
-    <script src="src/data.js"></script>
-    <script src="src/language.js"></script>
-    <script src="src/article.js"></script>
+    <script>window.__pageScripts = ['/src/article.js?v=2'];</script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="/src/language.js"></script>
+    <script src="/src/loader.js?v=9"></script>
 </body>
 </html>

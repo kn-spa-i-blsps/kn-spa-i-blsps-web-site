@@ -2,10 +2,13 @@
 
 async function renderProfile() {
     const urlParams = new URLSearchParams(window.location.search);
-    const userId = urlParams.get('user');
+    let userId = urlParams.get('user');
+    if (!userId && location.pathname.includes('/member/')) {
+        userId = location.pathname.split('/').filter(Boolean).pop();
+    }
     
     if (!userId) {
-        window.location.href = 'index.html';
+        window.location.href = '/';
         return;
     }
 
@@ -82,9 +85,10 @@ async function renderProfile() {
                 <div class="w-64 flex-shrink-0 mx-auto lg:mx-0">
                     <div class="img-container mb-8 shadow-2xl transform -rotate-1 group">
                         <div class="overflow-hidden h-80">
-                            <img src="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/${t(user.id)}.jpg" 
+                            <img src="${Img.srcForApiImage(user.photo, 800) || Img.cld(`members/${t(user.id)}`, 'f_auto,q_auto,w_800,c_limit')}" 
                                  class="w-full h-full object-cover img-content"
-                                 onerror="handleMemberImageError(this, '${t(user.id)}')">
+                                 data-custom-url="${user.photo && !Img.isConventionUrl(user.photo, `members/${t(user.id)}`) ? '1' : '0'}"
+                                 onerror="handleConventionImageError(this, 'members/${t(user.id)}', 'f_auto,q_auto,w_800,c_limit', '${Img.cld('members/default', 'f_auto,q_auto,w_800,c_limit')}')">
                         </div>
                     </div>
 
@@ -144,10 +148,5 @@ async function renderProfile() {
     `;
 }
 
-function handleMemberImageError(img, memberId) {
-    if (img.src.includes('.jpg')) img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/${memberId}.jpeg`;
-    else if (img.src.includes('.jpeg')) img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/${memberId}.png`;
-    else { img.onerror = null; img.src = 'https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/default.jpg'; }
-}
 
-document.addEventListener('DOMContentLoaded', renderProfile);
+window.bootMember = renderProfile;

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt | KN SPA i BLSPS</title>
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/logo3.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/subpages.css?v=3">
+    <style>
+        body { 
+            font-family: 'JetBrains Mono', monospace; 
+            background-color: #FFFFFF; 
+            background-image: radial-gradient(#cbd5e1 1.2px, transparent 1.2px); 
+            background-size: 25px 25px;
+            color: #012A4F;
+        }
+        .glass-panel {
+            background: rgba(1, 42, 79, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(1, 42, 79, 0.2);
+            color: white;
+        }
+        .input-cyber {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(3, 141, 174, 0.4);
+            padding: 12px;
+            color: white;
+            outline: none;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        .input-cyber:focus { border-color: #038DAE; background: rgba(255, 255, 255, 0.1); }
+        .track-card {
+            border: 1px solid #012A4F;
+            transition: all 0.3s;
+            cursor: pointer;
+            background: white;
+        }
+        .track-card:hover {
+            background: #012A4F;
+            color: white;
+            transform: translateY(-5px);
+        }
+        .status-blink { animation: blink 1.5s infinite; }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+        /* Styl dla paska/znaku wodnego */
+        .dev-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                #038DAE,
+                #038DAE 10px,
+                #012A4F 10px,
+                #012A4F 20px
+            );
+            color: white;
+            text-align: center;
+            padding: 5px 0;
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 0.3em;
+            z-index: 9999;
+            text-transform: uppercase;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            pointer-events: none; /* Pozwala klikać w elementy pod spodem */
+            opacity: 0.9;
+        }
+
+        /* Opcjonalny duży znak wodny w tle (ukośny) */
+        .watermark-bg {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 8vw;
+            font-weight: 900;
+            color: rgba(1, 42, 79, 0.03); /* Bardzo subtelny kolor */
+            white-space: nowrap;
+            z-index: -1; /* Pod treścią */
+            pointer-events: none;
+            user-select: none;
+            text-transform: uppercase;
+        }
+        .construction-header {
+            background: repeating-linear-gradient(
+                -45deg,
+                #012A4F,
+                #012A4F 15px,
+                #038DAE 15px,
+                #038DAE 30px
+            );
+            color: white;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            border-bottom: 2px solid #038DAE;
+            position: relative;
+            z-index: 60; /* Wyżej niż Twój nav, który ma z-index 50 */
+        }
+    </style>
+</head>
+<body class="selection:bg-[#038DAE] selection:text-white flex flex-col min-h-screen">
+    <!-- <div class="construction-header">
+        <div class="flex justify-center items-center gap-4">
+            <span class="opacity-50 hidden md:inline">///</span>
+            <span class="t-translate" data-pl="STATUS: W BUDOWIE // PROTOKÓŁ TESTOWY" data-en="STATUS: UNDER CONSTRUCTION // TEST PROTOCOL">
+                STATUS: W BUDOWIE // PROTOKÓŁ TESTOWY
+            </span>
+            <span class="opacity-50 hidden md:inline">///</span>
+        </div>
+    </div> -->
+    <nav class="sticky top-0 z-50 bg-white border-b border-slate-200 px-6 py-2">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-6 group">
+                <div class="h-12 w-auto"> 
+                    <img src="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/logo3.png" alt="Logo" class="h-full w-auto object-contain transition-transform group-hover:scale-105">
+                </div>
+                <div class="hidden lg:flex flex-col border-l border-slate-200 pl-6">
+                    <div class="flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 bg-[#038DAE] rounded-sm status-blink"></div>
+                        <span class="font-bold tracking-[0.2em] text-[10px] uppercase text-[#012A4F]">KN SPA I BLSPS // ACTIVE</span>
+                    </div>
+                </div>
+            </a>
+
+            <div class="flex items-center gap-4 md:gap-8 text-[11px] font-bold tracking-[0.2em]">
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="projects.html" class="t-translate text-[#012A4F] hover:text-[#038DAE] transition uppercase" data-pl="PROJEKTY" data-en="PROJECTS">PROJEKTY</a>
+                    <a href="team.html" class="t-translate text-[#012A4F] hover:text-[#038DAE] transition uppercase" data-pl="ZESPÓŁ" data-en="TEAM">ZESPÓŁ</a>
+                </div>
+
+                <a href="contact.html" class="t-translate border border-[#038DAE] text-[#038DAE] px-5 py-2 hover:bg-[#038DAE] hover:text-white transition duration-300 font-bold uppercase" data-pl="KONTAKT" data-en="CONTACT">
+                    KONTAKT
+                </a>
+
+                <button onclick="toggleLanguage()" class="flex items-center gap-2 px-3 py-2 border border-slate-200 hover:border-[#038DAE] transition-all bg-slate-50 group/lang">
+                    <span id="lang-flag" class="text-base leading-none group-hover/lang:scale-110 transition-transform">🇵🇱</span>
+                    <span id="lang-label" class="text-[9px] text-slate-400 group-hover/lang:text-[#038DAE]">PL</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="sp-hero py-16">
+        <div class="sp-hero-inner max-w-7xl mx-auto px-6">
+            <span class="sp-badge">Partnership_Protocol_v2.0</span>
+            <h1 class="t-translate text-4xl md:text-6xl font-black text-white uppercase tracking-tighter italic leading-none"
+                data-pl="WSPÓŁPRACA <br><span class='text-[#038DAE]'>& KONTAKT</span>"
+                data-en="PARTNERSHIP <br><span class='text-[#038DAE]'>& CONTACT</span>">
+                WSPÓŁPRACA <br><span class="text-[#038DAE]">& KONTAKT</span>
+            </h1>
+            <p class="t-translate mt-6 text-slate-400 max-w-2xl text-sm leading-relaxed"
+               data-pl="Łączymy akademicką precyzję z inżynierską odwagą."
+               data-en="We bridge academic precision with engineering courage.">
+                Łączymy akademicką precyzję z inżynierską odwagą.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-16 flex-grow">
+        
+        <div class="mb-12 sp-divider"><span>Collaboration_Tracks</span></div>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-20">
+            <div class="track-card p-8">
+                <span class="text-[10px] font-bold text-[#038DAE]">TRACK_01</span>
+                <h3 class="t-translate text-2xl font-black mt-2 uppercase italic" data-pl="Partner Technologiczny" data-en="Tech Partner">Partner Technologiczny</h3>
+                <p class="t-translate mt-4 text-sm opacity-80" 
+                   data-pl="Dostarczasz komponenty, my testujemy je w warunkach ekstremalnych (stratosfera, woda, wysokie przeciążenia)."
+                   data-en="You provide components, we test them in extreme conditions (stratosphere, water, high G-force).">
+                    Dostarczasz komponenty, my testujemy je w warunkach ekstremalnych.
+                </p>
+            </div>
+            <div class="track-card p-8">
+                <span class="text-[10px] font-bold text-[#038DAE]">TRACK_02</span>
+                <h3 class="t-translate text-2xl font-black mt-2 uppercase italic" data-pl="Mecenat Badań" data-en="Research Patronage">Mecenat Badań</h3>
+                <p class="t-translate mt-4 text-sm opacity-80"
+                   data-pl="Finansujesz kluczowe etapy projektów, zyskując dostęp do wyników badań i promocję marki."
+                   data-en="Finance key project stages, gaining access to research results and brand promotion.">
+                    Finansujesz kluczowe etapy projektów, zyskując dostęp do wyników badań.
+                </p>
+            </div>
+            <div class="track-card p-8 border-dashed">
+                <span class="text-[10px] font-bold text-[#038DAE]">TRACK_03</span>
+                <h3 class="t-translate text-2xl font-black mt-2 uppercase italic" data-pl="Talent Sourcing" data-en="Talent Sourcing">Talent Sourcing</h3>
+                <p class="t-translate mt-4 text-sm opacity-80"
+                   data-pl="Dostęp do najlepszych studentów informatyki, inżynierii, oraz automatyki i robotyki."
+                   data-en="Direct access to top students in Computer Science, Engineering, and Automation & Robotics.">
+                    Dostęp do najlepszych studentów informatyki, inżynierii, oraz automatyki i robotyki.
+                </p>
+            </div>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-12">
+            <div class="lg:col-span-7">
+                <div class="relative glass-panel p-10 shadow-2xl">
+                    <div class="absolute -top-[1px] -left-[1px] w-8 h-8 border-t-4 border-l-4 border-[#038DAE]"></div>
+                    <h2 class="t-translate text-3xl font-black uppercase italic mb-8 tracking-tight" data-pl="Wyślij Zapytanie_" data-en="Send Inquiry_">Wyślij Zapytanie_</h2>
+                    
+                    <form action="https://formspree.io/f/xdalrpjb" method="POST" id="contact-form" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="flex flex-col">
+                                <label class="t-translate text-[10px] font-bold text-[#038DAE] uppercase mb-2" data-pl="Firma / Instytucja" data-en="Company / Institution">Firma / Instytucja</label>
+                                <input type="text" name="firma" placeholder="NAME" class="input-cyber" required>
+                            </div>
+                            <div class="flex flex-col">
+                                <label class="t-translate text-[10px] font-bold text-[#038DAE] uppercase mb-2" data-pl="Kontakt Bezpośredni" data-en="Direct Contact">Kontakt Bezpośredni</label>
+                                <input type="email" name="email" placeholder="EMAIL" class="input-cyber" required>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col">
+                            <label class="t-translate text-[10px] font-bold text-[#038DAE] uppercase mb-2" data-pl="Temat wiadomości" data-en="Subject">Temat wiadomości</label>
+                            <input type="text" name="subject" placeholder="SUBJECT" class="input-cyber" required>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <label class="t-translate text-[10px] font-bold text-[#038DAE] uppercase mb-2" data-pl="Opis propozycji" data-en="Proposal description">Opis propozycji</label>
+                            <textarea name="wiadomosc" rows="4" class="input-cyber resize-none" required></textarea>
+                        </div>
+
+                        <input type="text" name="_gotcha" style="display:none">
+
+                        <button type="submit" class="w-full bg-[#038DAE] text-[#011627] py-5 font-black uppercase tracking-[0.4em] hover:bg-white transition-all shadow-lg flex justify-center items-center gap-4">
+                            <span class="t-translate" data-pl="INICJUJ PROTOKÓŁ" data-en="INITIATE PROTOCOL">INICJUJ PROTOKÓŁ</span>
+                        </button>
+                        <div id="form-status" class="text-center text-[10px] font-bold uppercase tracking-widest mt-4"></div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 space-y-6">
+                <div class="bg-[#012A4F] p-8 text-white relative group overflow-hidden border-2 border-[#038DAE]">
+                    <div class="relative z-10">
+                        <span class="text-[#038DAE] text-[10px] font-bold tracking-[0.3em]">OFFICIAL_DOCUMENTATION</span>
+                        <h3 class="t-translate text-3xl font-black italic mt-2 uppercase" data-pl="Brief dla Partnerów" data-en="Partner Brief">Brief dla Partnerów</h3>
+                        <p class="t-translate text-sm opacity-70 mt-4 leading-relaxed"
+                        data-pl="Pobierz pełną ofertę koła w formacie PDF. Znajdziesz tam harmonogram projektów oraz pakiety sponsorskie."
+                        data-en="Download the full club offer in PDF format. You will find the project schedule and sponsorship packages there.">
+                            Pobierz pełną ofertę koła w formacie PDF.
+                        </p>
+                        
+                        <a href="pdf/KN SPA I BLSPS - Oferta współpracy.pdf" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="t-translate inline-block mt-8 bg-white text-[#011627] px-6 py-3 font-bold text-sm uppercase tracking-widest hover:bg-[#038DAE] hover:text-white transition-all"
+                        data-pl="Pobierz PDF [2.4MB]"
+                        data-en="Download PDF [2.4MB]"
+                        data-pl-href="pdf/KN SPA I BLSPS - Oferta współpracy.pdf"
+                        data-en-href="pdf/KN SPA I BLSPS - Partnership opportunities.pdf">
+                            Pobierz PDF [2.4MB]
+                        </a>
+                    </div>
+                    <div class="absolute -right-4 -bottom-4 text-9xl font-black text-white/5 italic">PDF</div>
+                </div>
+
+                <div class="border border-[#012A4F] p-8 bg-white/50">
+                    <h4 class="text-[10px] font-bold uppercase tracking-widest text-[#038DAE] mb-6">Quick_Connect</h4>
+                    <div class="space-y-6">
+                        <div>
+                            <p class="text-[9px] uppercase opacity-50 font-bold">Email_Official:</p>
+                            <p class="text-lg font-bold">kontakt@knspaiblsps.pl</p>
+                        </div>
+                        <div>
+                            <p class="text-[9px] uppercase opacity-50 font-bold">Location_Node:</p>
+                            <p class="text-sm font-bold uppercase">Warszawa, Rektorska 4 <br> Sala 3.09 (PW)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section id="partners" class="py-20 border-y border-slate-200" style="background-color: #FFFFFF; background-image: radial-gradient(#cbd5e1 1.2px, transparent 1.2px); background-size: 25px 25px;">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center gap-4 mb-12">
+                <div class="h-[1px] w-12 bg-[#038DAE]"></div>
+                <h2 class="t-translate text-[10px] text-slate-400 uppercase tracking-[0.4em] font-bold whitespace-nowrap"
+                    data-pl="Współpracują z nami" 
+                    data-en="Our partners">
+                    Współpracują z nami
+                </h2>
+                <div class="h-[1px] flex-grow bg-slate-100"></div>
+            </div>
+            
+            <div id="partners-container" class="flex flex-wrap justify-center items-center gap-4 md:gap-8 opacity-90 transition-all duration-500"></div>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center text-[10px] text-slate-400 uppercase tracking-[0.5em] font-bold border-t border-slate-200 bg-white">
+        &copy; KN SPA I BLSPS // 2026
+    </footer>
+
+    <script>window.__pageScripts = ['/src/formspree.js', '/src/partners.js'];</script>
+    <script src="/src/language.js"></script>
+    <script src="/src/loader.js"></script>
+</body>
+</html>

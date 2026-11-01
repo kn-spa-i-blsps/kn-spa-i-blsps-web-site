@@ -1,8 +1,18 @@
 // home.js
 
 /**
- * 1. RENDEROWANIE PROJEKTÓW NA STRONIE GŁÓWNEJ
+ * 1. RENDEROWANIE PROJEKTÓW
  */
+
+const PROJECT_DISPLAY_ORDER = ['bluespark', 'musc', 'flysearch', 'hawk-eye', 'snows-eye'];
+
+function sortProjectsForDisplay(list) {
+    return [...list].sort((a, b) => {
+        const ai = PROJECT_DISPLAY_ORDER.indexOf(a.id);
+        const bi = PROJECT_DISPLAY_ORDER.indexOf(b.id);
+        return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
+    });
+}
 
 let currentLang = localStorage.getItem('siteLang') || 'pl';
 
@@ -12,61 +22,52 @@ function toggleLanguage() {
     location.reload(); 
 }
 
-function renderHomeProjects() {
-    const container = document.getElementById('projects-container');
-    if (!container) return;
-    container.innerHTML = "";
+function renderProjectCards(container, { featuredId = 'bluespark', layout = 'home' } = {}) {
+    if (!container || typeof projects === 'undefined') return;
+    container.innerHTML = '';
 
-    projects.forEach((proj, index) => {
-        // Dynamiczna ścieżka do zdjęcia głównego projektu
-        const mainImgPath = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/projects/${t(proj.id)}/main.jpg`;
+    const sorted = sortProjectsForDisplay(projects);
+    const isPageLayout = layout === 'page';
+
+    sorted.forEach((proj, index) => {
+        const id = t(proj.id);
+        const href = id === 'bluespark' ? '/bluespark/' : `project.html?id=${id}`;
+        const mainImgPath = Img.resolveProjectImage(proj, id, 900);
+        const isConvention = !proj.image || Img.isPlaceholderUrl(proj.image) || Img.isConventionUrl(proj.image, `projects/${id}/main`);
+        const isFeatured = !isPageLayout && id === featuredId;
+        const cardClass = isPageLayout ? ' page-card' : (isFeatured ? ' featured lg:col-span-2' : '');
 
         container.innerHTML += `
-            <a href="project.html?id=${t(proj.id)}" class="tech-card overflow-hidden group flex flex-col h-full shadow-sm">
-                <div class="relative h-40 overflow-hidden border-b border-slate-100">
-                    <img src="${mainImgPath}" 
-                         class="w-full h-full object-cover transition duration-700 group-hover:scale-110"
-                         onerror="handleHomeProjectImageError(this, '${t(proj.id)}', '${t(proj.image)}')">
-                    <div class="absolute top-2 left-2 bg-[#038DAE] px-2 py-1 text-[9px] text-white font-bold border border-[#038DAE]/30 shadow-lg">
-                        IMG_REF_0${index + 1}
+            <a href="${href}" class="home-project-card group${cardClass}">
+                <img src="${mainImgPath}" alt="" class="bg-img" loading="lazy"
+                     data-custom-url="${isConvention ? '0' : '1'}"
+                     onerror="handleConventionImageError(this, 'projects/${id}/main', 'f_auto,q_auto,w_800,c_limit', '')">
+                <div class="overlay"></div>
+                <div class="body">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-[8px] font-bold text-[#038DAE] tracking-[0.35em] uppercase">SYS_0${index + 1}</span>
+                        <span class="text-[8px] text-white/50 font-mono">${id}</span>
                     </div>
-                </div>
-
-                <div class="p-5 flex flex-col flex-grow">
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="text-[9px] font-bold text-slate-400 tracking-widest uppercase italic">SYS_LOG: ${t(proj.id)}</span>
-                    </div>
-                    
-                    <h3 class="text-md font-bold text-[#012A4F] mb-2 uppercase group-hover:text-[#038DAE] transition">
+                    <h3 class="text-xl lg:text-2xl font-black text-white uppercase italic tracking-tight group-hover:text-[#038DAE] transition-colors leading-none">
                         ${t(proj.title)}
                     </h3>
-                    
-                    <p class="text-[11px] text-slate-500 leading-relaxed mb-6 flex-grow">
+                    <p class="text-[10px] text-slate-200 leading-relaxed mt-3 line-clamp-2">
                         ${t(proj.shortDesc)}
                     </p>
-                    
-                    <div class="text-[10px] font-bold text-[#038DAE]/70 group-hover:text-[#038DAE] flex items-center gap-2 uppercase tracking-tighter">
-                        DECRYPT_DATA <span class="group-hover:translate-x-1 transition">>></span>
-                    </div>
+                    <span class="inline-flex items-center gap-2 mt-4 text-[9px] font-bold text-[#038DAE] tracking-[0.2em] uppercase">
+                        DECRYPT_DATA <span class="group-hover:translate-x-1 transition-transform">→</span>
+                    </span>
                 </div>
             </a>
         `;
     });
 }
 
-// Obsługa błędów formatów dla małych kafelków projektów
-function handleHomeProjectImageError(img, id, fallback) {
-    if (img.src.includes('main.jpg')) {
-        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/projects/${id}/main.jpeg`;
-    } else if (img.src.includes('main.jpeg')) {
-        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/projects/${id}/main.png`;
-    } else if (img.src.includes('main.png') && fallback) {
-        img.src = fallback;
-    } else {
-        img.onerror = null;
-        img.src = 'https://via.placeholder.com/600x400?text=NO_IMAGE';
-    }
+function renderHomeProjects() {
+    renderProjectCards(document.getElementById('projects-container'), { featuredId: 'bluespark', layout: 'home' });
 }
+
+// Obsługa błędów formatów — patrz image-utils.js (handleConventionImageError)
 
 /**
  * 2. RENDEROWANIE SEKCOJI TEAM (SCROLL)
@@ -90,9 +91,11 @@ function renderHomeTeam() {
     });
 
     const membersHTML = sortedMembers.map(person => {
-        const primarySrc = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/${t(person.id)}.jpg`;
-        const secondarySrc = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/${t(person.id)}.jpeg`;
-        const fallbackSrc = person.img || "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/members/default.jpg";
+        const memberId = t(person.id);
+        const defaultMember = Img.cld('members/default', 'f_auto,q_auto,w_800,c_limit');
+        const primarySrc = Img.srcForApiImage(person.photo, 800) || Img.cld(`members/${memberId}`, 'f_auto,q_auto,w_800,c_limit');
+        const isConvention = !person.photo || Img.isConventionUrl(person.photo, `members/${memberId}`);
+        const fallbackSrc = person.img ? Img.srcForApiImage(person.img, 800) : defaultMember;
 
         const customBadges = (person.customTags || []).map(tag => `
             <span class="text-[8px] px-1.5 py-0.5 border border-[#038DAE]/20 bg-[#038DAE]/5 text-[#038DAE] uppercase font-bold tracking-tighter">
@@ -113,7 +116,8 @@ function renderHomeTeam() {
             <a href="member.html?user=${t(person.id)}" class="min-w-[240px] tech-card p-4 snap-center group transition-transform duration-300 shadow-sm hover:shadow-md bg-white">
                 <div class="relative mb-4 overflow-hidden bg-slate-100 aspect-[3/4]">
                     <img src="${primarySrc}" loading="lazy" class="w-full h-full object-cover"
-                        onerror="handleImageError(this, '${secondarySrc}', '${fallbackSrc}')">
+                        data-custom-url="${isConvention ? '0' : '1'}"
+                        onerror="handleConventionImageError(this, 'members/${memberId}', 'f_auto,q_auto,w_800,c_limit', '${fallbackSrc}')">
                 </div>
                 <h3 class="text-sm font-bold text-[#012A4F] uppercase tracking-tight group-hover:text-[#038DAE] transition-colors">${t(person.name)}</h3>
                 <p class="text-[9px] text-[#038DAE] font-bold mt-1 tracking-widest uppercase italic mb-3">${t(person.role)}</p>
@@ -125,18 +129,9 @@ function renderHomeTeam() {
     container.innerHTML = membersHTML;
 }
 
-function handleImageError(imgElement, nextSrc, finalFallback) {
-    if (!imgElement.dataset.triedJpeg) {
-        imgElement.dataset.triedJpeg = "true";
-        imgElement.src = nextSrc;
-    } else {
-        imgElement.onerror = null;
-        imgElement.src = finalFallback;
-    }
-}
 
 /**
- * 3. DYNAMICZNY HERO SLIDER (SEKWENCYJNE SZUKANIE W MAIN/)
+ * 3. DYNAMICZNY HERO SLIDER
  */
 let currentSlide = 0;
 let slideInterval;
@@ -148,16 +143,14 @@ async function initHeroGallery() {
     if (!galleryContainer) return;
 
     detectedHeroSlides = [];
-    const extensions = ['jpg', 'jpeg', 'png', 'webp'];
-    const MAX_HERO_FILES = 12; // Maksymalny dopuszczalny limit
+    const MAX_HERO_FILES = 12;
 
-    // SEKWENCYJNE SZUKANIE: jeśli brakuje numeru "i", przerywamy sprawdzanie kolejnych
     for (let i = 1; i <= MAX_HERO_FILES; i++) {
         let foundThisIndex = false;
-        
-        for (const ext of extensions) {
-            const path = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1200/kn-spa-i-blsps/main/${i}.${ext}`;
-            const exists = await checkIfFileExists(path);
+
+        for (const ext of Img.EXT) {
+            const path = Img.cldExt(`main/${i}`, ext, 'f_auto,q_auto,w_1200');
+            const exists = await Img.checkExists(path);
             
             if (exists) {
                 // Dopasowanie metadanych z data.js (jeśli istnieją pod tym indeksem)
@@ -207,15 +200,6 @@ async function initHeroGallery() {
     startHeroLogic();
 }
 
-function checkIfFileExists(url) {
-    return new Promise((resolve) => {
-        const img = new Image();
-        img.onload = () => resolve(true);
-        img.onerror = () => resolve(false);
-        img.src = url;
-    });
-}
-
 function startHeroLogic() {
     const labelEl = document.getElementById('gallery-label');
     const titleEl = document.getElementById('gallery-title');
@@ -255,73 +239,128 @@ function startHeroLogic() {
 /**
  * 4. RENDEROWANIE AKTUALNOŚCI NA STRONIE GŁÓWNEJ
  */
+function newsImgPath(id, w = 800) {
+    return Img.cld(`news/${id}/main`, `f_auto,q_auto,w_${w},c_limit`);
+}
+
+function newsCoverSrc(item, w = 800) {
+    if (item.coverImage) return Img.srcForApiImage(item.coverImage, w);
+    if (item.cover && !Img.isConventionUrl(item.cover, `news/${item.id}/main`)) {
+        return Img.srcForApiImage(item.cover, w);
+    }
+    return newsImgPath(item.id, w);
+}
+
+function isNewsFeatured(item) {
+    return item.featured === true || item.featured === 1 || item.featured === '1';
+}
+
+function spotlightNewsBadge(item, { isLatest }) {
+    const badges = [];
+    if (isLatest) badges.push('<div class="news-badge news-badge-latest">LATEST</div>');
+    if (isNewsFeatured(item) && !isLatest) badges.push('<div class="news-badge news-badge-featured">FEATURED</div>');
+    return badges.join('');
+}
+
+function renderFeaturedHeroCard(item, isLatest) {
+    return `
+        <a href="article.html?id=${item.id}" class="home-news-featured group">
+            <div class="feat-img relative overflow-hidden bg-slate-100">
+                <img src="${newsCoverSrc(item, 1000)}" alt="" class="w-full h-full object-cover min-h-[200px] md:min-h-full transition duration-500 group-hover:scale-105"
+                     onerror="handleConventionImageError(this, 'news/${item.id}/main', 'f_auto,q_auto,w_800,c_limit', '')">
+                <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                    ${spotlightNewsBadge(item, { isLatest })}
+                </div>
+            </div>
+            <div class="p-5 md:p-8 flex flex-col justify-center border-l-0 md:border-l border-slate-100">
+                <span class="text-[10px] font-mono text-[#038DAE] font-bold tracking-widest mb-2">${item.date}</span>
+                <h3 class="text-xl md:text-2xl font-black text-[#012A4F] uppercase italic leading-tight mb-3 group-hover:text-[#038DAE] transition-colors">
+                    ${t(item.title)}
+                </h3>
+                <p class="text-[11px] text-slate-500 leading-relaxed line-clamp-3 mb-4">${t(item.shortDesc)}</p>
+                <span class="text-[9px] font-bold text-[#038DAE] tracking-[0.25em] uppercase">ACCESS_FULL_REPORT →</span>
+            </div>
+        </a>
+    `;
+}
+
+function renderFeaturedTileCard(item, isLatest) {
+    return `
+        <a href="article.html?id=${item.id}" class="home-news-featured-tile group">
+            <div class="tile-img relative overflow-hidden bg-slate-100">
+                <img src="${newsCoverSrc(item, 800)}" alt="" class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                     onerror="handleConventionImageError(this, 'news/${item.id}/main', 'f_auto,q_auto,w_800,c_limit', '')">
+                <div class="absolute top-2 left-2 flex flex-wrap gap-1">
+                    ${spotlightNewsBadge(item, { isLatest })}
+                </div>
+            </div>
+            <div class="tile-body">
+                <span class="text-[9px] font-mono text-[#038DAE] font-bold tracking-widest mb-1.5 block">${item.date}</span>
+                <h3 class="text-sm md:text-base font-black text-[#012A4F] uppercase italic leading-snug mb-2 line-clamp-3 group-hover:text-[#038DAE] transition-colors">
+                    ${t(item.title)}
+                </h3>
+                <p class="text-[10px] text-slate-500 leading-relaxed line-clamp-2">${t(item.shortDesc)}</p>
+            </div>
+        </a>
+    `;
+}
+
 function renderHomeNews() {
+    const featuredEl = document.getElementById('news-featured');
     const container = document.getElementById('news-container');
     if (!container || typeof news === 'undefined') return;
 
-    container.innerHTML = "";
-
-    // Sortujemy aktualności od najnowszej (zakładając format daty YYYY-MM-DD)
     const sortedNews = [...news].sort((a, b) => new Date(b.date) - new Date(a.date));
+    if (!sortedNews.length) return;
 
-    sortedNews.forEach((item, index) => {
-        // Ścieżka bazowa do zdjęcia głównego (szukamy id-main.jpg)
-        const mainImgPath = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/${item.id}/main.jpg`;
+    const latest = sortedNews[0];
+    const featuredNews = sortedNews.filter(isNewsFeatured);
+    const displayFeatured = featuredNews.length ? featuredNews : [latest];
+    const featuredIds = new Set(displayFeatured.map((n) => n.id));
+    const rest = sortedNews.filter((n) => !featuredIds.has(n.id));
 
-        container.innerHTML += `
-            <a href="article.html?id=${item.id}" class="tech-card group flex flex-col h-full bg-white shadow-sm hover:shadow-md transition-all">
-                <div class="relative h-48 overflow-hidden border-b border-slate-100 bg-slate-50">
-                    <img src="${mainImgPath}" 
-                         class="w-full h-full object-cover transition duration-700 group-hover:scale-110"
-                         onerror="handleNewsImageError(this, '${item.id}')">
-                    <div class="absolute top-3 left-3 bg-[#012A4F] px-2 py-1 text-[8px] text-white font-bold tracking-widest uppercase">
-                        NEWS_FEED_0${index + 1}
-                    </div>
-                </div>
+    if (featuredEl) {
+        if (displayFeatured.length === 1) {
+            featuredEl.className = 'mb-6';
+            featuredEl.innerHTML = renderFeaturedHeroCard(displayFeatured[0], displayFeatured[0].id === latest.id);
+        } else {
+            const cols = displayFeatured.length >= 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-2';
+            featuredEl.className = `grid grid-cols-1 sm:grid-cols-2 ${cols} gap-4 mb-6`;
+            featuredEl.innerHTML = displayFeatured
+                .map((item) => renderFeaturedTileCard(item, item.id === latest.id))
+                .join('');
+        }
+    }
 
-                <div class="p-6 flex flex-col flex-grow">
-                    <div class="flex items-center gap-2 mb-3">
-                        <div class="w-1 h-1 bg-[#038DAE] rounded-full"></div>
-                        <span class="text-[10px] font-mono text-slate-400 font-bold uppercase">${item.date}</span>
-                    </div>
-                    
-                    <h3 class="text-lg font-bold text-[#012A4F] mb-3 uppercase italic group-hover:text-[#038DAE] transition-colors leading-tight">
-                        ${t(item.title)}
-                    </h3>
-                    
-                    <p class="text-[12px] text-slate-500 leading-relaxed mb-6 flex-grow line-clamp-3">
-                        ${t(item.shortDesc)}
-                    </p>
-                    
-                    <div class="flex items-center justify-between mt-auto pt-4 border-t border-slate-50">
-                        <span class="text-[9px] font-black text-[#038DAE] tracking-[0.2em] uppercase group-hover:gap-3 flex items-center gap-2 transition-all">
-                            ACCESS_FULL_REPORT <span>→</span>
-                        </span>
-                    </div>
-                </div>
-            </a>
-        `;
-    });
+    container.innerHTML = rest.map((item) => {
+        const isLatest = item.id === latest.id;
+        return `
+        <a href="article.html?id=${item.id}" class="home-news-row group">
+            <div class="thumb relative overflow-hidden">
+                <img src="${newsCoverSrc(item, 500)}" alt="" class="w-full h-full object-cover transition duration-300 group-hover:scale-105"
+                     onerror="handleConventionImageError(this, 'news/${item.id}/main', 'f_auto,q_auto,w_800,c_limit', '')">
+                ${isLatest ? '<div class="news-badge news-badge-latest news-badge-sm">LATEST</div>' : ''}
+            </div>
+            <div class="row-body">
+                <span class="text-[8px] font-mono text-slate-400 font-bold uppercase mb-1">${item.date}</span>
+                <h3 class="text-[12px] font-bold text-[#012A4F] uppercase leading-snug line-clamp-2 group-hover:text-[#038DAE] transition-colors">
+                    ${t(item.title)}
+                </h3>
+            </div>
+        </a>
+    `;
+    }).join('');
 }
 
 /**
- * Obsługa błędów dla zdjęć aktualności (id-main + rozszerzenia)
+ * Obsługa błędów dla zdjęć aktualności — patrz image-utils.js
  */
-function handleNewsImageError(img, id) {
-    if (img.src.includes('main.jpg')) {
-        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/${id}/main.jpeg`;
-    } else if (img.src.includes('main.jpeg')) {
-        img.src = `https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/${id}/main.png`;
-    } else {
-        img.onerror = null;
-        img.src = 'https://via.placeholder.com/800x600?text=IMAGE_NOT_FOUND';
-    }
-}
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    initHeroGallery();
+
+window.bootHome = async function () {
+    await initHeroGallery();
     renderHomeNews();
     renderHomeProjects();
     renderHomeTeam();
-});
+};

@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" href="https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto/kn-spa-i-blsps/logo3.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/subpages.css?v=3">
     <style>
         body { 
             font-family: 'JetBrains Mono', monospace; 
@@ -101,17 +102,16 @@
         </div>
     </nav>
 
-    <header class="py-16 max-w-7xl mx-auto px-6 w-full">
-        <div class="border-l-4 border-[#038DAE] pl-6">
-            <h1 class="t-translate text-5xl md:text-7xl font-black uppercase tracking-tighter text-[#012A4F] italic"
-                data-pl="ZESPÓŁ" data-en="TEAM">
-                ZESPÓŁ
-            </h1>
-            <p class="text-[#038DAE] font-bold text-[10px] uppercase tracking-[0.5em]">Active_Duty_Roster_2026</p>
+    <header class="sp-hero py-16">
+        <div class="sp-hero-inner max-w-7xl mx-auto px-6">
+            <span class="sp-badge">Personnel_Database</span>
+            <h1 class="t-translate text-5xl md:text-7xl font-black uppercase tracking-tighter text-white italic leading-none"
+                data-pl="ZESPÓŁ" data-en="TEAM">ZESPÓŁ</h1>
+            <p class="text-[#038DAE] font-bold text-[10px] uppercase tracking-[0.5em] mt-4">Active_Duty_Roster_2026</p>
         </div>
     </header>
 
-    <main class="flex-grow py-8 max-w-7xl mx-auto px-6 w-full">
+    <main class="flex-grow py-12 max-w-7xl mx-auto px-6 w-full">
         <div id="team-container" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             </div>
     </main>
@@ -173,8 +173,8 @@
         <div class="text-[9px] uppercase tracking-[0.5em] font-bold">KN_UNIT_SYSTEM_v2.0</div>
     </footer>
 
-    <script src="src/data.js"></script>
-    <script src="src/language.js"></script>
-    <script src="src/team.js"></script>
+    <script>window.__pageScripts = ['/src/team.js'];</script>
+    <script src="/src/language.js"></script>
+    <script src="/src/loader.js?v=9"></script>
 </body>
 </html>

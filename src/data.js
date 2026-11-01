@@ -574,10 +574,8 @@ const projects = [
         id: "flysearch",
         title: "Flysearch",
         ordering: 2,
-        image: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=1200&h=800&fit=crop",
-        gallery: [
-            "https://images.unsplash.com/photo-1473960104502-8a63c8ef7e82?w=800&h=600&fit=crop"
-        ],
+        image: "",
+        gallery: [],
         shortDesc: {
     		pl: "Projekt badawczo-rozwojowy budujący API do komunikacji UAV z modelami VLM. System przesyła obraz i telemetrię do analizy w czasie rzeczywistym, działając w pętli „percepcja → decyzja → ruch”.",
             en: "An R&D project developing an API for UAV-to-VLM communication. It enables drones to stream imagery and telemetry for real-time scene interpretation and autonomous mission guidance."
@@ -634,10 +632,8 @@ const projects = [
         id: "bluespark",
         title: "Bluespark",
         ordering: 3,
-        image: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=1200&h=800&fit=crop",
-        gallery: [
-            "https://images.unsplash.com/photo-1473960104502-8a63c8ef7e82?w=800&h=600&fit=crop"
-        ],
+        image: "",
+        gallery: [],
         shortDesc: {
             pl: "Skalowalny system roju podwodnych robotów klasy AUV do autonomicznego mapowania dna i inspekcji infrastruktury. Jednostki wykonują równoległe misje bez udziału operatora i statku-matki.",
             en: "A scalable AUV swarm system for autonomous seabed mapping and infrastructure inspection. Independent units perform parallel missions without an operator or mother ship."
@@ -670,10 +666,8 @@ const projects = [
         id: "hawk-eye",
         title: "Hawk Eye",
         ordering: 4,
-        image: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=1200&h=800&fit=crop",
-        gallery: [
-            "https://images.unsplash.com/photo-1473960104502-8a63c8ef7e82?w=800&h=600&fit=crop"
-        ],
+        image: "",
+        gallery: [],
         shortDesc: {
             pl: "Platforma badawcza klasy HAPS przeznaczona do misji na pułapie 20–25 km. System wynoszony balonem realizuje w pełni autonomiczny lot powrotny, prowadząc ciągłe pomiary w ekstremalnych warunkach stratosferycznych.",
             en: "A HAPS-class research platform designed for missions at altitudes of 20–25 km. Balloon-launched and capable of autonomous return flight, it conducts continuous environmental monitoring in extreme conditions."
@@ -705,10 +699,8 @@ const projects = [
         id: "snows-eye",
         title: "Snow's Eye",
         ordering: 5,
-        image: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=1200&h=800&fit=crop",
-        gallery: [
-            "https://images.unsplash.com/photo-1473960104502-8a63c8ef7e82?w=800&h=600&fit=crop"
-        ],
+        image: "",
+        gallery: [],
         shortDesc: {
             pl: "Autonomiczna platforma UAV do operacji polarnych w warunkach braku GNSS. Wykorzystuje wielowarstwową lokalizację (VIO/SLAM, UWB), zapewniając nawigację i bezpieczny powrót w skrajnie trudnych warunkach pogodowych i elektromagnetycznych.",
             en: "An autonomous UAV platform for polar operations in GNSS-denied environments. It features multi-layered localization (VIO/SLAM, UWB) to ensure navigation and safe return despite extreme weather and electromagnetic interference."
