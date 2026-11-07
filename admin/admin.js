@@ -35,6 +35,9 @@ function showLogin() {
 }
 
 async function showAdmin(username) {
+  if(new URLSearchParams(location.search).get('next')==='/test/index.html'){
+    location.replace('/test/index.html');return;
+  }
   document.getElementById('login-screen').style.display = 'none';
   document.getElementById('admin-layout').classList.add('active');
   document.getElementById('user-info').textContent = username;

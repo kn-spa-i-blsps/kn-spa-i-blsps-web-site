@@ -1,0 +1,8 @@
+Options -Indexes
+RewriteEngine On
+RewriteRule ^test(?:/|$) test-gate.cgi [END]
+RewriteRule (^|/)\. - [F,END]
+RewriteRule ^(?:server|data|node_modules|scripts|site)(?:/|$) - [F,END]
+RewriteRule ^(?:package(?:-lock)?\.json|render\.yaml|README\.md)$ - [F,END]
+RewriteCond %{REQUEST_FILENAME} !gateway\.cgi$
+RewriteRule ^ gateway.cgi [END]

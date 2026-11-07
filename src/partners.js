@@ -22,19 +22,14 @@ function renderPartners() {
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
                     ${items.map(partner => `
                         <a href="${partner.url}" target="_blank" rel="noopener noreferrer" 
-                        class="group relative flex items-center justify-center p-10 rounded-2xl 
-                                bg-black/20 border border-black/20 
-                                transition-all duration-500 
-                                hover:bg-black/65 hover:border-black hover:-translate-y-2 aspect-[16/9]">
-                            
-                            <img 
-                                src="${partner.logo}" 
-                                alt="${partner.name}" 
-                                class="max-h-full max-w-full w-auto h-auto object-contain 
-                                    transition-all duration-500 
-                                    filter brightness(0) invert(1) 
-                                    group-hover:filter-none group-hover:opacity-100 group-hover:scale-105"
-                            >
+                        class="group relative flex flex-col items-center justify-center rounded-2xl border border-slate-200 transition-all duration-300 hover:-translate-y-1"
+                        style="padding:20px;background:#fff;gap:16px;min-width:0;box-shadow:0 4px 16px rgba(1,42,79,.06)">
+                            <div style="width:100%;height:150px;display:flex;align-items:center;justify-content:center;border-radius:12px;padding:18px;background:${/ncbr|ptak/i.test(partner.name) ? '#012A4F' : '#fff'}">
+                                <img src="${partner.logo}" alt="${partner.name}" loading="lazy"
+                                    style="max-height:100%;max-width:100%;width:auto;height:auto;object-fit:contain;filter:none"
+                                    onerror="this.hidden=true">
+                            </div>
+                            <span style="color:#012A4F;font-size:14px;font-weight:700;text-align:center;line-height:1.5">${partner.name}</span>
                         </a>
                     `).join('')}
                 </div>

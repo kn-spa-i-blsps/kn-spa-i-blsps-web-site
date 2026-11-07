@@ -1,0 +1,128 @@
+[
+  {
+    "id": 1,
+    "name": "Politechnika Warszawska",
+    "url": "https://www.pw.edu.pl/",
+    "logo": "https://www.ch.pw.edu.pl/var/ch/storage/images/media/images/logo-pw/14895-2-pol-PL/logo-PW_imagelarge.png",
+    "category": "partner"
+  },
+  {
+    "id": 2,
+    "name": "Uniwersytet Warszawski",
+    "url": "https://www.uw.edu.pl/",
+    "logo": "https://www.uw.edu.pl/wp-content/uploads/2017/07/logo-2-11.png",
+    "category": "partner"
+  },
+  {
+    "id": 3,
+    "name": "Creotech GEO",
+    "url": "https://creotech.pl/",
+    "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1775328864/kn-spa-i-blsps/logos/Creotech_GEO.png",
+    "category": "partner"
+  },
+  {
+    "id": 4,
+    "name": "Inkubator UW",
+    "url": "https://iuw.edu.pl/",
+    "logo": "https://iuw.edu.pl/wp-content/uploads/2022/07/logo-inkubator.svg",
+    "category": "partner"
+  },
+  {
+    "id": 5,
+    "name": "Botland",
+    "url": "https://botland.com.pl",
+    "logo": "https://botland.com.pl/img/polska-logo-1603126632.jpg",
+    "category": "partner"
+  },
+  {
+    "id": 6,
+    "name": "Siemens",
+    "url": "https://www.siemens.com/en-us/",
+    "logo": "https://press.siemens.com/profiles/c2_base/modules/c2cms_instance_logo/assets/sag-logo.png",
+    "category": "support"
+  },
+  {
+    "id": 7,
+    "name": "Fundacja Orlen",
+    "url": "https://fundacja.orlen.pl/pl",
+    "logo": "https://mojemiejscenaziemi.pl/wp-content/uploads/2022/07/Logo-ORLEN.png",
+    "category": "support"
+  },
+  {
+    "id": 8,
+    "name": "Our Future Foundation",
+    "url": "https://off.org.pl/",
+    "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1775329364/kn-spa-i-blsps/logos/OFF.png",
+    "category": "support"
+  },
+  {
+    "id": 9,
+    "name": "Instytut Geofizyki PAN",
+    "url": "https://www.igf.edu.pl/",
+    "logo": "https://www.igf.edu.pl/app/uploads/2025/05/igf-pl-colour-scaled.png",
+    "category": "support"
+  },
+  {
+    "id": 10,
+    "name": "IDUB",
+    "url": "https://inicjatywadoskonalosci.uw.edu.pl/en/",
+    "logo": "https://inicjatywadoskonalosci.uw.edu.pl/wp-content/uploads/sites/11/2021/07/logotyp-IDUB-EN-poziom-kolor.svg",
+    "category": "support"
+  },
+  {
+    "id": 11,
+    "name": "NCBR",
+    "url": "https://www.gov.pl/web/ncbr",
+    "logo": "https://www.gov.pl/logo/3fe4125e-947b-4513-bdcd-cf161ce5871d",
+    "category": "support"
+  },
+  {
+    "id": 12,
+    "name": "Uczelnie przyszłości",
+    "url": "https://www.gov.pl/web/ncbr/projekt-uczelnie-przyszlosci",
+    "logo": "https://p.lodz.pl/sites/default/files/styles/max_250x250/public/2025-02/uczelenie_przyszlosci_logo.png",
+    "category": "support"
+  },
+  {
+    "id": 13,
+    "name": "PTAK Warsaw Expo",
+    "url": "https://warsawexpo.eu/",
+    "logo": "https://warsawexpo.eu/wp-content/uploads/2019/07/logo-white.png",
+    "category": "support"
+  },
+  {
+    "id": 14,
+    "name": "Ministerstwo Nauki i Szkolnictwa Wyższego",
+    "url": "https://www.gov.pl/web/nauka",
+    "logo": "https://www.gov.pl/img/units/nauka/05_znak_uproszczony_kolor_biale_tlo.png",
+    "category": "support"
+  },
+  {
+    "id": 15,
+    "name": "Urząd Patentowy RP",
+    "url": "https://uprp.gov.pl/pl",
+    "logo": "https://uprp.gov.pl/sites/default/files/2020-03/logo%20uprp_1.png",
+    "category": "partner"
+  },
+  {
+    "id": 16,
+    "name": "Solidexpert",
+    "url": "https://solidexpert.com/",
+    "logo": "https://solidexpert.com/wp-content/themes/solidexpert/images/solidexpert-visiativ.webp",
+    "category": "partner"
+  },
+  {
+    "id": 17,
+    "name": "Fundacja UV",
+    "url": "https://fundacjauv.org.pl/",
+    "logo": "https://fundacjauv.org.pl/wp-content/uploads/2019/02/logo.png",
+    "category": "support"
+  },
+  {
+    "id": 18,
+    "name": "WB Group",
+    "url": "https://www.wbgroup.pl/",
+    "logo": "/bluespark/sponsors/wb-group.png",
+    "category": "partner"
+  }
+]

@@ -47,7 +47,9 @@ Object.entries(pages).forEach(([route, file]) => {
 });
 
 // Static assets at root (favicon etc.)
-app.use(express.static(ROOT, { index: false }));
+for (const dir of ['photo', 'pdf']) {
+  app.use('/' + dir, express.static(path.join(ROOT, dir)));
+}
 
 app.get('/health', (_req, res) => res.json({ ok: true }));
 
@@ -56,7 +58,7 @@ syncAdminFromEnv();
 runMigration();
 runSchemaMigrations();
 
-app.listen(PORT, () => {
+app.listen(PORT, '127.0.0.1', () => {
   console.log(`[server] KN SPA i BLSPS running on http://localhost:${PORT}`);
   console.log(`[server] Admin panel: http://localhost:${PORT}/admin`);
 });

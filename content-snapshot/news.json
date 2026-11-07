@@ -1,0 +1,512 @@
+[
+  {
+    "id": "eccv-2026-malmo",
+    "date": "2026-09-08",
+    "title": {
+      "pl": "Nasz zespół na ECCV 2026: Prezentacja wyników badań nad podwodnym Computer Vision w Malmö",
+      "en": "Our Team at ECCV 2026: Presenting Research on Underwater Computer Vision in Malmö"
+    },
+    "shortDesc": {
+      "pl": "W dniach 8–12 września reprezentacja naszego zespołu wzięła udział w prestiżowej konferencji European Conference on Computer Vision (ECCV 2026) w Malmö. Podczas wydarzenia zaprezentowaliśmy publikację pt. „Gaussian-Splat Synthetic Augmentation for Underwater Anomaly Detection: A Substitution Feasibility Study”. Praca dotyczy wykorzystania technologii Gaussian Splatting do syntezy danych i usprawnienia algorytmów detekcji anomalii w trudnych warunkach podwodnych. Udział w konferencji był okazją do zaprezentowania wyników naszych badań międzynarodowemu środowisku naukowemu oraz zebrania wartościowego feedbacku, który wykorzystamy przy kolejnych projektach R&D.",
+      "en": "From September 8–12, our team attended the European Conference on Computer Vision (ECCV 2026) in Malmö, Sweden. We presented our research paper, \"Gaussian-Splat Synthetic Augmentation for Underwater Anomaly Detection: A Substitution Feasibility Study\". The study focuses on leveraging Gaussian Splatting techniques to generate synthetic data and enhance anomaly detection systems operating in complex underwater environments. Participating in ECCV allowed us to share our R&D outcomes with the global computer vision community and gather technical feedback to drive our ongoing developments."
+    },
+    "fullDesc": {
+      "pl": "<p>W dniach 8–12 września w Malmömässan oraz Malmö Arenie odbyła się 19. edycja European Conference on Computer Vision (ECCV 2026) — jednego z najważniejszych światowych wydarzeń poświęconych sztucznej inteligencji, uczeniu maszynowemu i analizie obrazu. Wśród badaczy z całego świata nie zabrakło również przedstawicieli naszego zespołu.</p>\n<h3>Prezentacja publikacji i posteru</h3>\n<p>Głównym punktem naszej obecności na konferencji była prezentacja artykułu naukowego zatytułowanego „Gaussian-Splat Synthetic Augmentation for Underwater Anomaly Detection: A Substitution Feasibility Study”.</p>\n<p>Praca koncentruje się na wyzwaniach związanych z pozyskiwaniem danych i precyzyjną detekcją obiektów oraz anomalii w podwodnym środowisku operacyjnym. W badaniu przeanalizowaliśmy wykonalność zastosowania technologii Gaussian Splatting do generowania syntetycznych zbiorów danych, oceniając stopień, w jakim mogą one zastąpić lub uzupełnić tradycyjne dane pomiarowe.</p>\n<h3>Wymiana doświadczeń i dalsze kroki</h3>\n<p>Sesja posterowa stworzyła przestrzeń do dyskusji z inżynierami i naukowcami zajmującymi się zaawansowaną analizą obrazu. Rozmowy z uczestnikami pozwoliły na walidację naszego podejścia oraz skonsultowanie metodologicznych szczegółów z ekspertami z branży. Udział w ECCV 2026 był cenny nie tylko ze względu na możliwość zaprezentowania wyników prac R&D, ale także jako źródło nowej wiedzy technicznej, którą wdrożymy w kolejnych iteracjach naszych systemów.</p>",
+      "en": "<p>From September 8 to 12, the 19th European Conference on Computer Vision (ECCV 2026) took place at Malmömässan and Malmö Arena, bringing together leading global researchers in machine learning, AI, and visual computing. Our team attended the event to contribute to the technical program and engage with the international academic community.</p>\n<h3>Paper Presentation &amp; Poster Session</h3>\n<p>Our main contribution to the conference was the presentation of our research paper, titled \"Gaussian-Splat Synthetic Augmentation for Underwater Anomaly Detection: A Substitution Feasibility Study\".</p>\n<p>The research addresses the operational challenges of data acquisition and accurate object detection in underwater environments. In this study, we evaluated the feasibility of applying 3D Gaussian Splatting for synthetic data augmentation, testing how effectively generated visual data can substitute for or complement real-world datasets in anomaly detection pipelines.</p>\n<h3>Technical Feedback and Next Steps</h3>\n<p>The poster sessions provided an opportunity for direct technical exchange with researchers and developers specializing in computer vision and robotics. The discussions yielded valuable insights into our current pipeline and highlighted potential areas for further optimization. Attending ECCV 2026 reinforced our R&D roadmap and provided actionable feedback that will directly inform our upcoming projects.</p>"
+    },
+    "contentFormat": "html",
+    "links": [],
+    "cover": "/photo/szwecja/32780d8c-879c-4c35-bbc6-7be2ab709cba.jpg",
+    "coverImage": "/photo/szwecja/32780d8c-879c-4c35-bbc6-7be2ab709cba.jpg",
+    "gallery": [
+      "/photo/szwecja/32780d8c-879c-4c35-bbc6-7be2ab709cba.jpg",
+      "/photo/szwecja/369c75b3-a526-4af7-8082-4f5d048656e7.jpg",
+      "/photo/szwecja/389d73aa-a315-4d26-b405-67d502aea86d.jpg",
+      "/photo/szwecja/b5b41814-12b2-43be-ae8a-22d186485396.jpg",
+      "/photo/szwecja/eb06daa5-38cf-4fbc-bac0-105bba1e4916.jpg"
+    ],
+    "featured": false
+  },
+  {
+    "id": "wccm-eccomas-2026-monachium",
+    "date": "2026-07-19",
+    "title": {
+      "pl": "Nasz zespół na WCCM-ECCOMAS 2026: Prezentacja wyników badań w projekcie NATO SPS w Monachium",
+      "en": "Our Team at WCCM-ECCOMAS 2026: Presenting NATO SPS Research Outcomes in Munich"
+    },
+    "shortDesc": {
+      "pl": "W dniach 19–24 lipca 2026 roku reprezentacja naszego zespołu wzięła udział w prestiżowej konferencji WCCM-ECCOMAS 2026 (17th World Congress on Computational Mechanics oraz 10th European Congress on Computational Methods in Applied Sciences and Engineering) w Monachium. Podczas wydarzenia przedstawiliśmy naszą prezentację przygotowaną w ramach projektu NATO Science for Peace and Security (SPS). Udział w konferencji był okazją do zaprezentowania wyników naszych prac międzynarodowemu środowisku naukowemu oraz zebrania wartościowego feedbacku od ekspertów z branży.",
+      "en": "From July 19–24, 2026, our team attended the WCCM-ECCOMAS 2026 conference (17th World Congress on Computational Mechanics and 10th European Congress on Computational Methods in Applied Sciences and Engineering) in Munich, Germany. During the event, we delivered a presentation developed under the NATO Science for Peace and Security (SPS) Programme. Participating in the congress allowed us to share our R&D outcomes with the global scientific community and gather technical feedback from industry experts."
+    },
+    "fullDesc": {
+      "pl": "<p>W dniach 19–24 lipca 2026 roku w Monachium odbyła się połączona konferencja WCCM-ECCOMAS 2026 (17th World Congress on Computational Mechanics oraz 10th European Congress on Computational Methods in Applied Sciences and Engineering) — jedno z najważniejszych międzynarodowych wydarzeń gromadzących badaczy, inżynierów i ekspertów z zakresu metod obliczeniowych i nauk inżynieryjnych. Wśród uczestników nie zabrakło również reprezentacji naszego zespołu. Głównym punktem naszej obecności była prezentacja podsumowująca prace badawcze realizowane w ramach projektu finansowanego ze środków programu NATO Science for Peace and Security (SPS). Wydarzenie stworzyło przestrzeń do merytorycznej dyskusji z naukowcami oraz praktykami zajmującymi się zaawansowaną technologią. Rozmowy kuluarowe i wymiana doświadczeń po wystąpieniu pozwoliły na skonsultowanie naszych rozwiązań z międzynarodowym środowiskiem naukowym, a zdobyta wiedza i feedback bezpośrednio zasilą kolejne etapy naszych prac badawczo-rozwojowych.</p>",
+      "en": "<p>From July 19 to 24, 2026, the joint WCCM-ECCOMAS 2026 congress (17th World Congress on Computational Mechanics and 10th European Congress on Computational Methods in Applied Sciences and Engineering) took place in Munich, Germany, bringing together leading global researchers, engineers, and experts in computational methods and engineering sciences. Our team attended the event to contribute to the technical program and engage with the international academic community. Our main contribution was a presentation showcasing outcomes from research conducted within the framework of a project supported by the NATO Science for Peace and Security (SPS) Programme. The congress provided a valuable platform for direct technical exchange with international specialists. The discussions following our presentation validated our approaches and provided actionable insights that will directly inform our upcoming R&D iterations.</p>"
+    },
+    "contentFormat": "html",
+    "links": [],
+    "cover": "/photo/monachium/download.jpg",
+    "coverImage": "/photo/monachium/download.jpg",
+    "gallery": [
+      "/photo/monachium/download.jpg",
+      "/photo/monachium/download-1.jpg"
+    ],
+    "featured": false
+  },
+  {
+    "id": "robosub-2026-post-event",
+    "date": "2026-07-15",
+    "title": {
+      "pl": "Sukces projektu BlueSpark na zawodach RoboSub 2026 w Kalifornii. Nagroda specjalna dla reprezentacji z Polski",
+      "en": "BlueSpark Project Awarded at RoboSub 2026 in California"
+    },
+    "shortDesc": {
+      "pl": "Polski zespół rozwijający autonomiczny pojazd podwodny BlueSpark wziął udział w międzynarodowych zawodach RoboSub 2026 w Kalifornii. Jako jedyna reprezentacja z Europy, studenci Uniwersytetu Warszawskiego zaprezentowali autorską konstrukcję zbudowaną w ciągu ostatniego roku. Wyjazd przyniósł zespołowi sukces w części naukowej – pojazd BlueSpark został wyróżniony nagrodą specjalną w kategorii Research za wykorzystanie technologii Gaussian splatting do generowania modeli 3D. Pomyślnie przeprowadzono również serię testów basenowych. Projekt zrealizowano przy wsparciu Grupy WB, Creotech Geo, Fundacji Universitatis Varsoviensis oraz Uniwersytetu Warszawskiego (Wydziału Fizyki, Wydziału MIM i Wydziału Zarządzania).",
+      "en": "The team behind the BlueSpark autonomous underwater vehicle participated in the international RoboSub 2026 competition in California. As the only European team in attendance, the University of Warsaw students presented a custom vehicle built over the past year. The team achieved scientific recognition by winning the Special Award for Research for applying Gaussian splatting to 3D model generation, alongside completing planned pool tests. The initiative was supported by WB Group, Creotech Geo, Fundacja Universitatis Varsoviensis, and the University of Warsaw (Faculty of Physics, Faculty of MIM, and Faculty of Management)."
+    },
+    "fullDesc": {
+      "pl": "<p>W lipcu 2026 roku zespół reprezentujący Uniwersytet Warszawski wziął udział w międzynarodowych zawodach robotów podwodnych RoboSub 2026, odbywających się w Kalifornii (USA). Projekt BlueSpark – autonomiczny pojazd podwodny (AUV) rozwijany przez ostatni rok – był jedynym reprezentantem Europy w tegorocznej edycji wydarzenia.</p>\n<p>Start w zawodach był dla debiutującego zespołu okazją do weryfikacji rozwiązań konstrukcyjnych i programistycznych w warunkach basenowych. Zebrane podczas testów dane inżynieryjne stanowią podstawę do dalszych prac nad rozwojem platformy. Kluczowym momentem wydarzenia było zaprezentowanie sędziom części badawczo-rozwojowej projektu.</p>\n<p>Zespół otrzymał nagrodę specjalną w kategorii Research (Special Award for Research). Uznanie sędziów zyskało innowacyjne podejście do generowania zbiorów danych modeli 3D z wykorzystaniem technologii Gaussian splatting, zrealizowane na bazie autorskiej, studenckiej konstrukcji.</p>\n<p>Realizacja projektu oraz udział w zawodach w USA były możliwe dzięki wsparciu partnerów biznesowych i akademickich. Głównym partnerem wyjazdu została Grupa WB. Projekt wsparły również firma Creotech Geo, Fundacja Universitatis Varsoviensis oraz Uniwersytet Warszawski, w tym Wydział Fizyki, Wydział Matematyki, Informatyki i Mechaniki oraz Wydział Zarządzania.</p>\n<p>Pełna relacja z wyjazdu wraz z galerią zdjęć dostępna jest na stronie projektu: <a href=\"/bluespark/competitions/robosub-2026/\" target=\"_blank\" rel=\"noopener\">BlueSpark – RoboSub 2026</a>.</p>",
+      "en": "<p>In July 2026, the team representing the University of Warsaw participated in the RoboSub 2026 international underwater robotics competition in California, USA. The BlueSpark project—an autonomous underwater vehicle (AUV) developed over the past year—was the sole representative from Europe in this year's competition.</p>\n<p>For the rookie team, the event provided an opportunity to validate hardware and software systems under operational pool conditions. The technical data collected during testing will form the foundation for future platform development. A key outcome of the event was the evaluation of the project's research and development component by the judging panel.</p>\n<p>The team received the Special Award for Research. The judges recognized the innovative approach to generating 3D model datasets using Gaussian splatting, implemented within a student-developed robotic platform.</p>\n<p>The execution of the project and participation in the US event were supported by industry and academic partners. WB Group served as the Key Partner for the expedition. Additional support was provided by Creotech Geo, Fundacja Universitatis Varsoviensis, and the University of Warsaw, including the Faculty of Physics, the Faculty of Mathematics, Informatics and Mechanics, and the Faculty of Management.</p>\n<p>The full report with a photo gallery is available on the project page: <a href=\"/bluespark/en/competitions/robosub-2026/\" target=\"_blank\" rel=\"noopener\">BlueSpark – RoboSub 2026</a>.</p>"
+    },
+    "contentFormat": "html",
+    "links": [
+      {
+        "label": {
+          "pl": "Pełna relacja BlueSpark",
+          "en": "Full BlueSpark report"
+        },
+        "url": "/bluespark/competitions/robosub-2026/"
+      },
+      {
+        "label": {
+          "pl": "RoboSub 2026",
+          "en": "RoboSub 2026"
+        },
+        "url": "https://robosub.org/"
+      }
+    ],
+    "cover": "/bluespark/photos/robosub/team-celebration.jpg",
+    "coverImage": "/bluespark/photos/robosub/team-celebration.jpg",
+    "gallery": [
+      "/bluespark/photos/robosub/team-flags.jpg",
+      "/bluespark/photos/robosub/team-parking-banner.jpg",
+      "/bluespark/photos/robosub/team-celebration.jpg",
+      "/bluespark/photos/robosub/pit-diagnostics.jpg",
+      "/bluespark/photos/robosub/pit-vehicle-prep.jpg",
+      "/bluespark/photos/robosub/pit-presenting.jpg"
+    ],
+    "featured": true
+  },
+  {
+    "id": "konferencja-mlodzi-dzialaja-2026",
+    "date": "2026-06-23",
+    "title": {
+      "pl": "Udział w konferencji „Młodzi działają” oraz grant na warsztaty w liceach – relacja",
+      "en": "Participation in the \"Youth in Action\" conference and a grant for high school workshops – report"
+    },
+    "shortDesc": {
+      "pl": "Wzięliśmy udział w konferencji „Młodzi działają. Konferencja Aktywizacji Młodzieży w Życiu Publicznym 2026”. Wydarzenie było dla nas wyjątkowo udane, ponieważ oficjalnie odebraliśmy tam mini grant na realizację naszego projektu społecznego „Warsztaty kompetencji inżynierskich”, które będziemy przeprowadzać w liceach.",
+      "en": "We participated in the conference \"Youth in Action. Conference on Youth Activation in Public Life 2026.\" The event proved highly successful for us, as we officially secured a mini-grant to fund our social project, \"Engineering Competence Workshops\", which we will be conducting in high schools."
+    },
+    "fullDesc": {
+      "pl": "Wzięliśmy udział w konferencji „Młodzi działają. Konferencja Aktywizacji Młodzieży w Życiu Publicznym 2026”, skupiającej młodych aktywistów, organizacje społeczne oraz przedstawicieli sektora publicznego. Dla naszego koła ten dzień przyniósł przede wszystkim ogromny sukces – podczas oficjalnej części wydarzenia odebraliśmy mini grant przeznaczony na realizację naszego autorskiego projektu społecznego „Warsztaty kompetencji inżynierskich”. Przyznane nam dofinansowanie pozwoli na sfinansowanie i organizację cyklu zajęć praktycznych, które przeprowadzimy w szkołach średnich. Naszym celem jest wsparcie licealistów w rozwijaniu technicznego myślenia i przybliżenie im realiów pracy nad projektami inżynierskimi jeszcze przed rozpoczęciem studiów. Udział w samej konferencji był też okazją do dyskusji o roli młodych ludzi w życiu publicznym, wymiany doświadczeń z innymi zespołami oraz zebrania uwag od praktyków zajmujących się wspieraniem oddolnych inicjatyw w Polsce. Wracamy z pełnym budżetem i gotowością do startu z pracami organizacyjnymi w szkołach.",
+      "en": "We participated in the conference \"Youth in Action\". Conference on Youth Activation in Public Life 2026\", which brought together young activists, social organizations, and public sector representatives. For our scientific club, this day turned out to be a major financial and operational milestone – during the official ceremony, we formally received a mini-grant dedicated to executing our proprietary social project, \"Engineering Competence Workshops\". The awarded funding will allow us to finance and organize a series of practical classes that we plan to conduct in secondary schools. Our main objective is to support high school students in developing technical thinking and to introduce them to the realities of working on engineering projects even before they enter university. Attending the conference itself also provided an platform for discussing the impact of young individuals on public life, exchanging ideas with other teams driving their own initiatives, and gathering insights from professionals skilled in supporting grassroots projects in Poland. We are heading back with a fully secured budget and complete readiness to launch the organizational work in schools."
+    },
+    "contentFormat": "html",
+    "links": [],
+    "cover": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/konferencja-mlodzi-dzialaja-2026/main.jpg",
+    "coverImage": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/konferencja-mlodzi-dzialaja-2026/main.jpg",
+    "gallery": [
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/konferencja-mlodzi-dzialaja-2026/1.jpg",
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/konferencja-mlodzi-dzialaja-2026/2.jpg"
+    ],
+    "featured": false
+  },
+  {
+    "id": "gala-finalowa-uprp-2026",
+    "date": "2026-06-22",
+    "title": {
+      "pl": "Nasza historia na 10. Jubileuszowej Gali w Urzędzie Patentowym RP – relacja",
+      "en": "Our story at the 10th Anniversary Gala of the Patent Office of the Republic of Poland – report"
+    },
+    "shortDesc": {
+      "pl": "Zostaliśmy zaproszeni przez Urząd Patentowy RP na 10. Jubileuszową Galę Finałową konkursu „Ambasador Szkolnej Wynalazczości”. Urząd wskazał historię naszego koła jako przykład dla nowego pokolenia twórców, dzięki czemu mogliśmy zaprezentować nasze projekty i udowodnić, że działalność wynalazczą oraz innowacyjne projekty można z powodzeniem realizować już w wieku studenckim.",
+      "en": "We were invited by the Patent Office of the Republic of Poland to participate in the 10th Anniversary Final Gala of the \"School Invention Ambassador\" competition. The office highlighted our club's history as a model for the new generation of creators, allowing us to showcase our projects and prove that inventive activity and innovative projects can be successfully achieved at a student age."
+    },
+    "fullDesc": {
+      "pl": "Wzięliśmy udział w 10. Jubileuszowej Gali Finałowej konkursu „Ambasador Szkolnej Wynalazczości”, która odbyła się w siedzibie Urzędu Patentowego Rzeczypospolitej Polskiej. Trafiliśmy tam na oficjalne zaproszenie ze strony samego urzędu, który uznał naszą historię za świetny wzór do naśladowania dla młodych twórców. Dostaliśmy idealną przestrzeń, aby opowiedzieć o tym, jak rozwijaliśmy nasze koło, jak wyglądają realia pracy nad technologiami w środowisku studenckim oraz z czym wiąże się to w praktyce. Pokazaliśmy strukturę naszej działalności oraz nasze projekty, nad którymi regularnie pracujemy, chcąc bez zbędnego dystansu i prosto z mostu udowodnić rówieśnikom oraz zaproszonym gościom, że status studenta w żaden sposób nie ogranicza możliwości technologicznych. Na własnym przykładzie pokazaliśmy, że świeże podejście, pasja i zgrany zespół to kapitał, który w zupełności wystarcza do opracowywania autorskich rozwiązań technicznych. Całe wydarzenie i rozmowy z młodymi innowatorami dały nam mnóstwo energii do dalszego działania, a sam wyjazd pozwolił nam mocniej zakorzenić się w środowisku związanszym z nowoczesnymi technologiami i innowacjami.",
+      "en": "We participated in the 10th Anniversary Final Gala of the \"School Invention Ambassador\" competition, held at the headquarters of the Patent Office of the Republic of Poland. We attended upon an official invitation from the office itself, which recognized our story as an excellent blueprint for young creators. We were given the perfect platform to share how we developed our scientific club, what the realities of working on technologies within a student environment look like, and what it entails in practice. We presented our operational structure and our projects that we regularly work on, aiming to prove directly and without unnecessary distance to both peers and guests that student status in no way limits technological capabilities. Using our own journey, we demonstrated that a fresh perspective, passion, and a tight-knit team provide more than enough capital to develop proprietary technical solutions. The whole event and the discussions with young innovators gave us a ton of energy for our next steps, and the trip allowed us to strengthen our roots within the community connected with modern technologies and innovation."
+    },
+    "contentFormat": "html",
+    "links": [],
+    "cover": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/gala-finalowa-uprp-2026/main.jpg",
+    "coverImage": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/gala-finalowa-uprp-2026/main.jpg",
+    "gallery": [
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/gala-finalowa-uprp-2026/1.jpg",
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/gala-finalowa-uprp-2026/2.jpg",
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/gala-finalowa-uprp-2026/3.jpg"
+    ],
+    "featured": false
+  },
+  {
+    "id": "sanya-oceans-2026",
+    "date": "2026-05-25",
+    "title": {
+      "pl": "Sanya OCEANS 2026 – relacja z udziału w konferencji",
+      "en": "Sanya OCEANS 2026 – conference recap"
+    },
+    "shortDesc": {
+      "pl": "W maju wzięliśmy udział w konferencji IEEE OCEANS 2026 w Sanya, gdzie mieliśmy zaszczyt zaprezentować własną pracę naukową „Joint Optimization of Fleet Size, Localization Infrastructure, and Trajectories for Multi-AUV Persistent Monitoring\". Udział w wydarzeniu pozwolił nam skonfrontować nasze wyniki z pracami zespołów z całego świata, śledzić aktualne trendy w robotyce podwodnej i nawiązać wartościowe kontakty z przedstawicielami uczelni i instytutów badawczych. Wracamy z nowymi inspiracjami i motywacją do dalszego rozwoju.",
+      "en": "In May, we attended IEEE OCEANS 2026 in Sanya, where we had the honour of presenting our research paper „Joint Optimization of Fleet Size, Localization Infrastructure, and Trajectories for Multi-AUV Persistent Monitoring\". The conference gave us the chance to benchmark our work against teams from around the world, follow the latest trends in underwater robotics, and connect with representatives of universities and research institutes. We're returning with new inspiration and motivation to keep moving forward."
+    },
+    "fullDesc": {
+      "pl": "W maju mieliśmy okazję wziąć udział w konferencji IEEE OCEANS 2026 w Sanya, jednym z najważniejszych wydarzeń naukowych poświęconych technologiom morskim i podwodnym, gromadzącym co roku badaczy, inżynierów oraz zespoły studenckie z całego świata. Wyjazd był dla nas przede wszystkim szansą na zaprezentowanie efektów własnej pracy badawczej, mieliśmy zaszczyt przedstawić pracę naukową „Joint Optimization of Fleet Size, Localization Infrastructure, and Trajectories for Multi-AUV Persistent Monitoring\".\n        Udział w konferencji umożliwił nam bezpośrednie zetknięcie się z aktualnymi kierunkami rozwoju robotyki podwodnej, systemów pomiarowych oraz technologii autonomicznych na poziomie międzynarodowym. Wśród prezentowanych badań szczególną uwagę zwracały innowacje w zakresie nawigacji podwodnej, integracji systemów sensorycznych oraz zastosowań autonomicznych pojazdów podwodnych w środowiskach ekstremalnych. Tego rodzaju konfrontacja z pracami innych zespołów badawczych daje perspektywę, której nie sposób uzyskać wyłącznie w oparciu o literaturę naukową.\n        Równie wartościowy okazał się wymiar networkingowy wyjazdu, rozmowy z przedstawicielami uczelni i instytutów badawczych z różnych krajów pozwoliły nam lepiej zrozumieć, w jakim miejscu jako koło się znajdujemy i w jakim kierunku warto się rozwijać. Udział w IEEE OCEANS był też okazją do spojrzenia na naszą pracę z zewnątrz, z perspektywy środowiska oceniającego ją na tle globalnych standardów. Wracamy z Sanya z nowymi kontaktami, inspiracjami oraz motywacją do dalszego rozwijania projektów badawczych i pogłębiania kompetencji w obszarze systemów pomiarowych i automatyki.",
+      "en": "In May, we had the opportunity to attend IEEE OCEANS 2026 in Sanya, one of the most important scientific events dedicated to marine and underwater technologies, gathering researchers, engineers, and student teams from around the world every year. The trip was above all a chance to present the results of our own research, we had the honour of presenting our paper „Joint Optimization of Fleet Size, Localization Infrastructure, and Trajectories for Multi-AUV Persistent Monitoring\". \n        Attending the conference allowed us to engage directly with the latest directions in underwater robotics, measurement systems, and autonomous technologies at an international level. Among the presented research, we were particularly drawn to innovations in underwater navigation, sensor system integration, and AUV applications in extreme environments. This kind of confrontation with the work of other research teams offers a perspective that simply cannot be gained through literature alone. The networking aspect of the trip proved equally valuable, conversations with representatives of universities and research institutes from various countries helped us better understand where we stand as a student organisation and which direction is worth pursuing. IEEE OCEANS was also an opportunity to look at our work from the outside, through the lens of a community evaluating it against global standards. We're returning from Sanya with new contacts, fresh inspiration, and motivation to continue developing our research projects and deepening our competencies in the field of measurement systems and automation."
+    },
+    "contentFormat": "html",
+    "links": [],
+    "cover": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/sanya-oceans-2026/main.jpg",
+    "coverImage": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/sanya-oceans-2026/main.jpg",
+    "gallery": [
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/sanya-oceans-2026/1.jpg",
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/sanya-oceans-2026/2.jpg",
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/sanya-oceans-2026/3.jpg",
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/sanya-oceans-2026/4.jpg"
+    ],
+    "featured": false
+  },
+  {
+    "id": "solidexpert-2026",
+    "date": "2026-05-23",
+    "title": {
+      "pl": "Od pomysłu do modelu!  Współpraca z SolidExpert. ",
+      "en": "From concept to 3D model! Our new partnership with SolidExpert"
+    },
+    "shortDesc": {
+      "pl": "Nasze koło naukowe nawiązało współpracę z firmą SolidExpert - oficjalnym dystrybutorem oprogramowania SOLIDWORKS w Polsce. To dla nas ogromna szansa na rozwój umiejętności inżynierskich i realizację jeszcze bardziej zaawansowanych projektów technicznych ",
+      "en": "Our scientific club has established a partnership with SolidExpert - the official distributor of SOLIDWORKS software in Poland. This is a tremendous opportunity for us to advance our engineering skills and take on even more sophisticated technical projects."
+    },
+    "fullDesc": {
+      "pl": "Z ogromną radością ogłaszamy nawiązanie oficjalnej współpracy pomiędzy naszym kołem naukowym a firmą SolidExpert - oficjalnym dystrybutorem rozwiązań SOLIDWORKS na Polskę. To dla nas wyjątkowe wydarzenie, które otwiera przed naszym zespołem zupełnie nowe możliwości w zakresie projektowania inżynierskiego. SolidExpert chętnie wspiera młodych inżynierów i pasjonatów w niekomercyjnych projektach, dostarczając kołom naukowym wsparcie informatyczne, techniczne oraz merytoryczne z zakresu rozwiązań SOLIDWORKS.  \n        Dzięki tej współpracy nasi członkowie uzyskają dostęp do profesjonalnego oprogramowania CAD/CAE/CAM klasy przemysłowej, które pozwoli nam tworzyć zaawansowane modele 3D, przeprowadzać symulacje oraz sprawnie zarządzać dokumentacją projektową. Współpraca z SolidExpert to także możliwość nawiązania nowych relacji z inżynierami oraz firmami z całej Polski, co daje szansę na zbudowanie sieci kontaktów i pozyskanie potencjalnych pracodawców w przyszłości. Zachęcamy do śledzenia naszych działań i odwiedzenia strony partnera pod adresem solidexpert.com. \n        ",
+      "en": "We are thrilled to announce an official partnership between our scientific club and SolidExpert - the official distributor of SOLIDWORKS solutions in Poland, operating in the market since 2002. This is a milestone event for our team, opening up entirely new possibilities in the field of engineering design. SolidExpert actively supports young engineers and enthusiasts in non-commercial projects, providing student scientific clubs with technical, IT, and substantive support within the SOLIDWORKS ecosystem.\n        Through this collaboration, our members will gain access to professional CAD/CAE/CAM software of industrial grade, enabling us to create advanced 3D models, run simulations, and efficiently manage project documentation. The partnership with SolidExpert also presents an invaluable networking opportunity, connecting us with engineers and companies from across Poland, opening doors to future sponsors and potential employers. We encourage you to follow our progress and visit our partner's website at solidexpert.com.\n        "
+    },
+    "contentFormat": "html",
+    "links": [
+      {
+        "label": {
+          "pl": "SolidExpert",
+          "en": "SolidExpert"
+        },
+        "url": "https://solidexpert.com"
+      }
+    ],
+    "cover": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/solidexpert-2026/main.jpg",
+    "coverImage": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/solidexpert-2026/main.jpg",
+    "gallery": [],
+    "featured": false
+  },
+  {
+    "id": "noc-muzeow-2026",
+    "date": "2026-05-16",
+    "title": {
+      "pl": "Noc Muzeów w Urzędzie Patentowym i Ministerstwie Rozwoju i Technologii",
+      "en": "Museum Night at the Patent Office and the Ministry of Economic Development and Technology"
+    },
+    "shortDesc": {
+      "pl": "Dwa stanowiska, dwie lokalizacje i setki ciekawskich odwiedzających – tak wyglądała tegoroczna Noc Muzeów dla naszego koła naukowego. Dzięki współpracy z Urzędem Patentowym RP mieliśmy okazję zaprezentować naszą działalność w dwóch wyjątkowych miejscach w sercu Warszawy, stając się częścią jednego z największych wydarzeń kulturalnych w stolicy.",
+      "en": "Two stands, two venues, and hundreds of curious visitors – that was this year's Museum Night for our student research group. Thanks to our collaboration with the Patent Office of the Republic of Poland, we had the opportunity to showcase our work at two remarkable locations in the heart of Warsaw, becoming part of one of the city's biggest cultural events."
+    },
+    "fullDesc": {
+      "pl": "W tym roku Noc Muzeów nabrała dla nas wyjątkowego wymiaru. Nasze koło naukowe miało zaszczyt wziąć w niej udział jako wystawca zaproszony przez Urząd Patentowy RP, i to od razu w dwóch miejscach: w samym Urzędzie Patentowym oraz w gmachu Ministerstwa Rozwoju i Technologii. To właśnie dzięki zaproszeniu Urzędu Patentowego mogliśmy zaprezentować się w tym prestiżowym miejscu, gdzie na co dzień tworzy się historia polskiej innowacyjności. Tegoroczna edycja zgromadziła w Warszawie ponad 300 instytucji i przyciągnęła setki tysięcy zwiedzających. \n        Przez całą noc prowadziliśmy dwa stanowiska jednocześnie, prezentując nasze projekty i badania ramię w ramię z ekspertami Urzędu Patentowego. Odwiedzający mogli dowiedzieć się, czym zajmuje się nasze koło, porozmawiać z nami bezpośrednio i zobaczyć, jak młodzi naukowcy podchodzą do rozwiązywania realnych problemów. Wiele osób zatrzymywało się na dłużej, zadając pytania i dzieląc się własnymi doświadczeniami. Atmosfera w obu miejscach była pełna ciekawości, inspirujących rozmów i spotkań z ludźmi, którzy na co dzień stykają się ze światem wynalazków i nowych technologii.\n        Udział w Nocy Muzeów to dla nas nie tylko powód do dumy, ale też cenne doświadczenie, które pokazało, jak wiele można zyskać na otwartym dialogu z mieszkańcami miasta. Przekonaliśmy się, że nauka nie musi być zamknięta w murach uczelni, może wychodzić do ludzi, angażować i zachwycać. Serdecznie dziękujemy Urzędowi Patentowemu za zaproszenie i zaufanie, a wszystkim odwiedzającym za rozmowy i zainteresowanie naszą działalnością. Do zobaczenia za rok!\n        ",
+      "en": "This year's Museum Night took on a truly special meaning for us. Our student research group had the honour of taking part as exhibitors, invited by the Patent Office of the Republic of Poland, and at two locations at once: at the Patent Office itself and at the seat of the Ministry of Economic Development and Technology. It was precisely thanks to the Patent Office's invitation that we were able to present ourselves at such a prestigious venue, where the history of Polish innovation is shaped every day. This year's edition brought together over 300 institutions across Warsaw and attracted hundreds of thousands of visitors, and we are proud to have been part of it.\n        Throughout the night, we ran two stands simultaneously, presenting our projects and research side by side with experts from the Patent Office. Visitors had the chance to learn about our group's work, speak with us directly, and see first-hand how young researchers approach real-world problems. Many people stopped for longer conversations, asking questions and sharing their own experiences. The atmosphere at both venues was brimming with curiosity, stimulating conversations, and encounters with people who work at the forefront of invention and emerging technology.\n        Participating in Museum Night is not only a source of immense pride for us, but also an invaluable experience that showed us how much can be gained from an open dialogue with the local community. We were reminded that science need not be confined to lecture halls and laboratories, it can reach out to people, engage them, and inspire wonder. We extend our heartfelt thanks to the Patent Office for their invitation and trust, and to every visitor who stopped by for a conversation and showed interest in what we do. See you next year!\n        "
+    },
+    "contentFormat": "html",
+    "links": [],
+    "cover": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/noc-muzeow-2026/main.jpg",
+    "coverImage": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/noc-muzeow-2026/main.jpg",
+    "gallery": [
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/noc-muzeow-2026/1.jpg",
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/noc-muzeow-2026/2.jpg"
+    ],
+    "featured": false
+  },
+  {
+    "id": "aero-2026",
+    "date": "2026-04-22",
+    "title": {
+      "pl": "AERO Friedrichshafen 2026 – relacja z jednego z kluczowych wydarzeń branży lotniczej",
+      "en": "AERO Friedrichshafen 2026 – Insights from One of Europe’s Key Aviation Events"
+    },
+    "shortDesc": {
+      "pl": "Jak naprawdę wygląda przyszłość lotnictwa i jakie kierunki dziś wyznaczają jej rozwój? Podczas AERO Friedrichshafen 2026 mieliśmy okazję zobaczyć to z bliska — od innowacyjnych technologii po nowe modele funkcjonowania branży aviation. To doświadczenie pozwoliło nam lepiej zrozumieć, jak teoria łączy się z praktyką w dynamicznie zmieniającym się sektorze.",
+      "en": "What does the future of aviation really look like, and what are the trends shaping its development today? At AERO Friedrichshafen 2026, we had the opportunity to see it up close — from cutting-edge technologies to new models shaping the aviation industry. This experience helped us better understand how theory translates into practice in a rapidly evolving sector."
+    },
+    "fullDesc": {
+      "pl": "W dniach targowych mieliśmy okazję uczestniczyć w AERO Friedrichshafen 2026 — jednym z najważniejszych wydarzeń europejskiego sektora lotniczego, które co roku gromadzi setki wystawców oraz tysiące uczestników z całego świata.\n\n        Obecność na targach była dla nas przede wszystkim szansą na bezpośrednie zetknięcie się z aktualnymi trendami w branży aviation. Wśród prezentowanych rozwiązań szczególną uwagę zwracały innowacje technologiczne, rozwój zrównoważonego lotnictwa oraz rosnące znaczenie integracji nowych modeli biznesowych w sektorze.\n\n        Udział w wydarzeniu umożliwił nam również nawiązanie wartościowych kontaktów z przedstawicielami branży — od firm technologicznych, przez operatorów, aż po organizacje rozwijające rozwiązania przyszłości dla lotnictwa. Tego typu networking stanowi istotny element budowania kompetencji i zrozumienia realiów rynku już na etapie studiów.\n\n        Nie bez znaczenia była także możliwość obserwacji, w jaki sposób teoria przekazywana w trakcie zajęć akademickich znajduje swoje odzwierciedlenie w praktyce rynkowej. Udział w AERO pozwolił nam spojrzeć szerzej na wyzwania i kierunki rozwoju współczesnego lotnictwa.\n\n        Wracamy z nową wiedzą, inspiracjami oraz motywacją do dalszego rozwoju w obszarze aviation i business.",
+      "en": "During this year’s edition of AERO Friedrichshafen 2026, we had the opportunity to take part in one of the most important events in the European aviation industry, bringing together hundreds of exhibitors and thousands of participants from around the world.\n\n        Our presence at the event was, above all, a chance to directly engage with current trends shaping the aviation sector. Among the showcased solutions, particular attention was drawn to technological innovation, the development of sustainable aviation, and the growing importance of new business models within the industry.\n\n        Participating in AERO also enabled us to establish valuable connections with industry representatives — from technology companies and operators to organizations working on future-oriented aviation solutions. This type of networking plays a key role in building practical understanding of the market already at the academic stage.\n\n        Equally important was the opportunity to observe how academic knowledge translates into real-world applications. Attending AERO allowed us to gain a broader perspective on the challenges and future directions of modern aviation.\n\n        We return with new insights, inspiration, and strong motivation to further develop in the field of aviation and business."
+    },
+    "contentFormat": "html",
+    "links": [],
+    "cover": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/aero-2026/main.jpg",
+    "coverImage": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/aero-2026/main.jpg",
+    "gallery": [
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/aero-2026/1.jpg",
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/aero-2026/2.jpg",
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/aero-2026/3.jpg"
+    ],
+    "featured": false
+  },
+  {
+    "id": "world-of-hydrogen-expo-2026",
+    "date": "2026-04-14",
+    "title": {
+      "pl": "World of Hydrogen Expo 2026 – relacja z targów",
+      "en": "World of Hydrogen Expo 2026 – Event Report\n        "
+    },
+    "shortDesc": {
+      "pl": "World of Hydrogen Expo 2026 za nami i był to dla naszego koła wyjątkowy udział. Wystąpiliśmy w roli partnera merytorycznego targów, zaprezentowaliśmy własne stoisko, a dwoje naszych członków stanęło na scenie jako prelegenci przed ekspertami z całej Europy. Relacjonujemy, jak przebiegło jedno z najważniejszych wydarzeń wodorowych w Polsce.",
+      "en": "World of Hydrogen Expo 2026 is behind us and it was an extraordinary edition for our organisation. We took on the role of substantive partner of the expo, presented our own stand, and two of our members took to the stage as speakers before an audience of experts from across Europe. Here is our account of one of the most significant hydrogen-focused events in Poland."
+    },
+    "fullDesc": {
+      "pl": "Wzięliśmy udział w World of Hydrogen Expo 2026 – jednym z najważniejszych w Polsce wydarzeń poświęconych nowoczesnym technologiom energetycznym, gromadzącym ekspertów, przedstawicieli przemysłu oraz środowiska akademickiego. Tegoroczna edycja była dla nas wyjątkowa, ponieważ uczestniczyliśmy w niej nie tylko jako goście, ale również jako partner merytoryczny targów, aktywnie współtworząc ich ekspercki charakter. Zaprezentowaliśmy się również na własnym stoisku, które stało się miejscem spotkań z przedstawicielami branży i przestrzenią do rozmów o naszej działalności.\n        Program targów oraz towarzyszącego im Hydrogen Solutions Summit skupiał się na praktycznych aspektach wdrażania technologii wodorowych i ich rosnącej roli w przemyśle oraz energetyce. Wydarzenie stworzyło wyjątkową platformę do wymiany doświadczeń między środowiskiem naukowym a rynkiem. Szczególnym wyróżnieniem dla całego koła był udział dwojga naszych członków w roli prelegentów: Jana Mikołajczyka oraz Jakuba Bałenkowskiego którzy podzielili się swoją wiedzą i doświadczeniem przed gronem specjalistów z całej Europy.\n        Udział w targach przyniósł nam wiele cennych doświadczeń – bezpośredni kontakt z aktualnymi trendami, rozmowy z firmami, instytucjami i ośrodkami badawczymi, a przede wszystkim nowe znajomości, które mogą zaowocować w przyszłych projektach. \n        ",
+      "en": "Our student research group attended World of Hydrogen Expo 2026 – one of Poland's most prominent events dedicated to cutting-edge energy technologies, bringing together experts, industry professionals, and members of the academic community. This year's edition proved particularly significant for us: we participated not merely as attendees, but as a substantive partner of the expo, actively contributing to its expert-driven character. We also hosted our own stand, which served as a meeting point for industry representatives and an opportunity for in-depth conversations about our work.\n        The programme of the expo and the accompanying Hydrogen Solutions Summit centred on the practical implementation of hydrogen technologies and their growing relevance within industry and the energy sector. The event provided an exceptional platform for the exchange of experience between the academic world and the market – an opportunity we embraced to the fullest. A particular distinction for our organisation was the participation of two of our members as speakers: Jan Mikołajczyk and Jakub Bałenkowski, who shared their expertise and insights with an audience of specialists from across Europe.\n        Our involvement in the expo proved immensely rewarding – affording us direct exposure to the latest industry trends, meaningful conversations with companies, institutions, and research centres, and above all, new connections that may well bear fruit in future projects. \n        "
+    },
+    "contentFormat": "html",
+    "links": [],
+    "cover": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/world-of-hydrogen-expo-2026/main.jpg",
+    "coverImage": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/world-of-hydrogen-expo-2026/main.jpg",
+    "gallery": [
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/world-of-hydrogen-expo-2026/1.jpg",
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/world-of-hydrogen-expo-2026/2.jpg",
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/world-of-hydrogen-expo-2026/3.jpg",
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/world-of-hydrogen-expo-2026/4.jpg"
+    ],
+    "featured": false
+  },
+  {
+    "id": "botland-2026",
+    "date": "2026-04-10",
+    "title": {
+      "pl": "Wspólnie dla innowacji: Partnerstwo naszego Koła Naukowego z firmą Botland",
+      "en": "Powering Innovation: Our Student Research Group Partners with Botland"
+    },
+    "shortDesc": {
+      "pl": "Z ogromną radością ogłaszamy nawiązanie współpracy partnerskiej pomiędzy naszym kołem a firmą Botland. Jako czołowy polski dystrybutor drukarek 3D, elektroniki i technologii dla pasjonatów, Botland wesprze nasze koło w realizacji najbardziej ambitnych projektów inżynierskich. Zapraszamy do zapoznania się ze szczegółami tego technologicznego partnerstwa oraz ofertą naszego partnera na stronie https://botland.com.pl/.",
+      "en": "We are thrilled to announce a strategic partnership between our student research group and Botland. As a premier Polish distributor of 3D printers, electronics, and cutting-edge technology for enthusiasts, Botland will support our most ambitious engineering endeavors. We invite you to explore the details of this technological alliance and browse our partner's extensive portfolio at https://botland.com.pl/ "
+    },
+    "fullDesc": {
+      "pl": "Z wielką przyjemnością ogłaszamy nawiązanie oficjalnej współpracy pomiędzy naszym kołem naukowym a firmą Botland. Jest to dla nas wyjątkowe wydarzenie, ponieważ łączymy siły z uznanym, polskim dystrybutorem drukarek 3D, elektroniki i nowoczesnych technologii stworzonych z myślą o pasjonatach. Wsparcie tak doświadczonego partnera otwiera przed nami zupełnie nowe możliwości w zakresie realizacji zaawansowanych projektów technicznych oraz prototypowania innowacyjnych rozwiązań.\n        Współpraca z Botland to przede wszystkim dostęp do najwyższej jakości komponentów i narzędzi, które są niezbędne w codziennej pracy naszych konstruktorów. Jako marka silnie zakorzeniona w środowisku twórców i inżynierów, nasz nowy partner doskonale rozumie potrzeby ambitnych projektów studenckich. Jesteśmy przekonani, że ta współpraca zaowocuje wieloma ciekawymi konstrukcjami, które już niedługo zaprezentujemy szerszej publiczności. Zachęcamy wszystkich do odwiedzenia strony internetowej naszego partnera pod adresem https://botland.com.pl/ i śledzenia efektów naszych wspólnych działań technologicznych.\n        ",
+      "en": "It is with great pleasure that we announce the commencement of an official partnership between our student research group and Botland. This collaboration marks a significant milestone for us, as we join forces with a renowned Polish distributor of 3D printers, electronic components, and cutting-edge technologies specifically designed for tech enthusiasts. Securing the support of such an experienced partner unlocks a wealth of new opportunities for us, particularly in executing advanced technical projects and prototyping innovative solutions.\n        Our collaboration with Botland primarily ensures seamless access to high-fidelity components and specialized tools, which are indispensable for the day-to-day operations of our engineers and designers. As a brand deeply rooted in the maker and engineering communities, our new partner possesses a profound understanding of the requirements inherent in ambitious student-led initiatives. We are confident that this synergy will result in numerous sophisticated constructions, which we look forward to unveiling to a wider audience in the near future. We encourage everyone to visit our partner’s website at https://botland.com.pl/  and follow the progress of our collaborative technological ventures.\n        "
+    },
+    "contentFormat": "html",
+    "links": [
+      {
+        "label": {
+          "pl": "BOTLAND",
+          "en": "BOTLAND"
+        },
+        "url": "https://botland.com.pl/"
+      }
+    ],
+    "cover": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/botland-2026/main.jpg",
+    "coverImage": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/botland-2026/main.jpg",
+    "gallery": [],
+    "featured": false
+  },
+  {
+    "id": "european-drone-forum-2026",
+    "date": "2026-03-24",
+    "title": {
+      "pl": "W centrum europejskiej debaty o dronach: Relacja z European Drone Forum",
+      "en": "At the Forefront of UAS Innovation: Insights from the European Drone Forum"
+    },
+    "shortDesc": {
+      "pl": "Reprezentant naszego koła naukowego wizytował European Drone Forum, kluczowe wydarzenie skupiające liderów branży i organów regulacyjnych z całej Europy. Udział w prelekcjach dotyczących certyfikacji oraz integracji systemów bezzałogowych w cywilnej przestrzeni powietrznej pozwolił nam na konfrontację naszych działań z najnowszymi światowymi standardami. Zdobyta wiedza merytoryczna oraz wgląd w procesy standaryzacji technicznej stanowią dla nas strategiczny fundament do dalszej optymalizacji realizowanych projektów inżynieryjnych.",
+      "en": "A representative of our science club recently attended the European Drone Forum, a premier event gathering industry leaders and regulatory bodies from across Europe. Engaging in high-level discussions on certification and the integration of unmanned systems into civil airspace allowed us to align our current initiatives with the latest global benchmarks. The technical insights and firsthand exposure to standardization processes will serve as a strategic foundation for the further optimization of our ongoing engineering projects."
+    },
+    "fullDesc": {
+      "pl": "Niedawno przedstawiciel naszego koła naukowego miał okazję uczestniczyć w European Drone Forum – jednym z najbardziej prestiżowych wydarzeń branżowych w Europie, skupiającym kluczowych ekspertów, liderów przemysłu oraz przedstawicieli organów regulacyjnych. Udział w forum w roli wizytującego zapewnił nam bezpośredni wgląd w najnowsze trendy i priorytety rozwojowe, które obecnie kształtują rynek systemów autonomicznych. Podczas licznych prelekcji nasz reprezentant analizował zagadnienia dotyczące ewoluujących przepisów bezpieczeństwa, certyfikacji oraz integracji bezzałogowców w cywilnej przestrzeni powietrznej, co stanowi obecnie jedno z największych wyzwań dla inżynierów i operatorów na całym świecie.\n        Wizyta ta była niezwykle cennym doświadczeniem merytorycznym, pozwalającym skonfrontować naszą wiedzę z wizjami największych graczy technologicznych. Obserwacja prezentowanych innowacji oraz kierunków, w jakich zmierzają europejskie regulacje, utwierdziła nas w przekonaniu, że nasza codzienna praca badawczo-rozwojowa trafnie wpisuje się w nowoczesne standardy i odpowiada na realne potrzeby rynku. Możliwość przyjrzenia się z bliska procesom standaryzacji oraz wymiana doświadczeń z praktykami z całej Europy dostarczyły nam strategicznych informacji, które realnie wpłyną na optymalizację naszych procesów projektowych i podniesienie jakości realizowanych inicjatyw.\n        Udział w tak znaczącym międzynarodowym wydarzeniu to kolejny krok w stronę budowania profesjonalnego zaplecza wiedzy, niezbędnego do operowania w dynamicznym środowisku wysokich technologii. Wyjazd ten traktujemy jako kluczowy element rozwoju, dzięki któremu jesteśmy w stanie jeszcze precyzyjniej definiować nasze cele inżynieryjne i naukowe. Wracamy z forum z nowym spojrzeniem na przyszłość technologii autonomicznych oraz solidnym przygotowaniem teoretycznym, które pozwoli nam dbać o to, by każda podejmowana przez nas inicjatywa była zawsze w pełni zgodna z najbardziej aktualnymi wymogami panującymi w branży bezzałogowej.\n        ",
+      "en": "A representative of our science club recently had the privilege of attending the European Drone Forum, one of the most prestigious industry events in Europe, bringing together key experts, industry leaders, and regulatory representatives. Participating in the forum as a visiting observer provided us with direct insight into the emerging trends and developmental priorities currently shaping the autonomous systems market. Throughout numerous presentations, our representative analysed critical issues surrounding evolving safety regulations, certification, and the integration of Unmanned Aircraft Systems (UAS) into civil airspace – one of the foremost challenges currently facing engineers and operators worldwide.\n        This visit proved to be an invaluable scholarly experience, allowing us to benchmark our expertise against the visions of major technological stakeholders. Observing the showcased innovations and the trajectory of European regulations reinforced our confidence that our daily research and development efforts are firmly aligned with modern global standards and effectively address real-world market demands. Gaining a closer look at technical standardization processes and exchanging experiences with practitioners from across Europe provided us with strategic data that will tangibly influence the optimization of our design workflows and enhance the quality of our initiatives.\n        Participating in such a significant international event marks another milestone in building the professional knowledge base essential for operating within the dynamic high-tech landscape. We view this involvement as a pivotal element of our development, enabling us to define our engineering and scientific objectives with even greater precision. We return from the forum with a renewed perspective on the future of autonomous technologies and a robust theoretical foundation, ensuring that every initiative we undertake remains fully compliant with the most current requirements and trends prevailing in the global unmanned industry.\n        "
+    },
+    "contentFormat": "html",
+    "links": [],
+    "cover": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/european-drone-forum-2026/main.jpg",
+    "coverImage": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/european-drone-forum-2026/main.jpg",
+    "gallery": [
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/european-drone-forum-2026/1.jpg",
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/european-drone-forum-2026/2.jpg",
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/european-drone-forum-2026/3.jpg",
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/european-drone-forum-2026/4.jpg",
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/european-drone-forum-2026/5.jpg"
+    ],
+    "featured": false
+  },
+  {
+    "id": "tvp3-2026",
+    "date": "2026-03-23",
+    "title": {
+      "pl": "Nasze koło naukowe gościem programu „Dobrego dnia” w TVP3 Warszawa!",
+      "en": "Our Science Club Featured on TVP3 Warsaw"
+    },
+    "shortDesc": {
+      "pl": "Członkowie naszego koła naukowego byli gośćmi programu \"Dobrego dnia\" w TVP3 Warszawa, gdzie zaprezentowali nasze najnowsze osiągnięcia w dziedzinie technologii bezzałogowych. Podczas rozmowy przybliżyliśmy kulisy prac nad dronem stratosferycznym Hawk Eye oraz podwodnym systemem Blue Spark, podkreślając ich realny potencjał wdrożeniowy w nauce i przemyśle. To wystąpienie było doskonałą okazją do pokazania, jak w ramach ogólnopolskiej współpracy studenckiej skutecznie przekuwamy innowacyjne idee w działające rozwiązania technologiczne.",
+      "en": "Members of our science club appeared on TVP3 Warsaw’s \"Dobrego dnia\" to showcase our latest advancements in unmanned technology. During the interview, they shared insights into the development of the Hawk Eye stratospheric drone and the Blue Spark underwater system, emphasizing their real-world application potential in both science and industry. This broadcast served as a perfect platform to demonstrate how our nationwide student collaboration effectively transforms innovative ideas into functional technological solutions."
+    },
+    "fullDesc": {
+      "pl": "Członkowie naszego koła naukowego – Jan Mikołajczyk (prezes koła i lider projektu), Stanisław Świecki (lider zespołu konstrukcyjnego) oraz Maciej Domagalski (główny inżynier projektu) – niedawno wystąpili w programie „Dobrego dnia” w TVP3 Warszawa, gdzie opowiedzieli o naszej codziennej działalności oraz kierunkach rozwoju technologii bezzałogowych. Podczas rozmowy nasi reprezentanci podkreślili, że z powodzeniem zrzeszamy ambitne osoby z różnych uczelni w całej Polsce, które wspólnie z nami chcą rozwijać swoje kompetencje poprzez pracę nad nowoczesnymi rozwiązaniami technologicznymi. Jednym z głównych tematów wystąpienia był projekt Hawk Eye, czyli zaawansowany dron stratosferyczny, nad którym obecnie pracujemy. Zaprezentowaliśmy zarówno ambitne założenia tego systemu, jak i jego aktualny stan rozwoju oparty na już działającym prototypie, który stanowi dla nas fundament dalszych prac badawczych w zakresie monitoringu środowiska i wsparcia nauki.\n                Duże zainteresowanie widzów wzbudził również Blue Spark – nasz autonomiczny dron podwodny, którego potencjał w badaniach akwenów, przemyśle oraz misjach eksploracyjnych udowadnia, że rozwijane przez nas technologie nie ograniczają się wyłącznie do przestrzeni powietrznej. W trakcie programu mocno zaznaczyliśmy nasze nadrzędne założenie, wedle którego tworzone przez nas rozwiązania nie są jedynie akademickimi koncepcjami, lecz dążymy do tego, aby posiadały realny potencjał wdrożeniowy poza murami uczelni. Katalog prezentowanych inicjatyw uzupełniliśmy o inne projekty, takie jak MUSC oparty na technologii roju dronów, FlySearch oraz system Snow’s Eye, które wspólnie budują spójny i wszechstronny kierunek rozwoju technologii bezzałogowych o szerokim spektrum zastosowań.\n                Udział w programie był dla nas nie tylko szansą na zaprezentowanie efektów naszej pracy szerszej publiczności, ale również ważnym krokiem w budowaniu świadomości na temat roli nowoczesnych systemów autonomicznych w nauce i przemyśle. Całe wystąpienie stało się dla nas doskonałym potwierdzeniem tego, jak skutecznie potrafimy przekładać śmiałe idee na konkretne rozwiązania technologiczne, które wkrótce mogą realnie wpłynąć na oblicze współczesnej techniki. Udział w programie był dla nas ważnym doświadczeniem, które motywuje do dalszego rozwoju naszych systemów oraz podejmowania kolejnych wyzwań inżynieryjnych.\n        ",
+      "en": "Members of our science club – Jan Mikołajczyk (President and Project Leader), Stanisław Świecki (Construction Team Lead), and Maciej Domagalski (Chief Project Engineer) – were recently invited to the \"Dobrego dnia\" program on TVP3 Warsaw, where they discussed our daily operations and the strategic directions of unmanned technology development. During the interview, our representatives emphasized that we successfully unite ambitious individuals from various universities across Poland who wish to enhance their competencies by working on cutting-edge technological solutions. A central theme of the appearance was the Hawk Eye project – an advanced stratospheric drone currently under development. We presented both the ambitious objectives of this system and its current stage of development, centred around a fully functional prototype that serves as the foundation for our ongoing research into environmental monitoring and scientific support.\n                The audience also showed significant interest in Blue Spark – our autonomous underwater vehicle (AUV). Its potential applications in aquatic research, industrial inspections, and exploration missions demonstrate that our technological innovations extend far beyond the aerial domain. Throughout the broadcast, we firmly highlighted our core principle: the solutions we develop are not merely academic concepts. Instead, we strive to ensure they possess genuine implementation potential outside the university environment. Our portfolio of initiatives was further supplemented by other projects, such as MUSC, based on drone swarm technology, as well as FlySearch and the Snow’s Eye system, which together form a cohesive and versatile trajectory for unmanned systems across a broad spectrum of applications.\n                Participating in the program was not only an opportunity to showcase the results of our work to a wider audience but also a vital step in raising awareness regarding the role of modern autonomous systems in science and industry. The appearance served as a powerful testament to our ability to translate bold ideas into tangible technological solutions that could soon have a profound impact on the landscape of modern engineering. Our involvement in the broadcast was a significant milestone, further motivating us to refine our systems and tackle the next generation of engineering challenges.\n        "
+    },
+    "contentFormat": "html",
+    "links": [],
+    "cover": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/tvp3-2026/main.jpg",
+    "coverImage": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/tvp3-2026/main.jpg",
+    "gallery": [
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/tvp3-2026/1.jpg",
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/tvp3-2026/2.jpg"
+    ],
+    "featured": false
+  },
+  {
+    "id": "drone-world-expo-2026",
+    "date": "2026-03-03",
+    "title": {
+      "pl": "Relacja z DroneWorld Expo 2026",
+      "en": "DroneWorld Expo 2026 Report"
+    },
+    "shortDesc": {
+      "pl": "Drone World Expo 2026 było okazją do zaprezentowania projektów rozwijanych w naszym kole naukowym. Wydarzenie zgromadziło przedstawicieli branży technologii bezzałogowych z całego świata. Spotkania i rozmowy podczas targów pozwoliły na nawiązanie nowych kontaktów oraz poznanie najnowszych rozwiązań technologicznych.",
+      "en": "Drone World Expo 2026 provided an opportunity to present the projects developed within our student scientific club. The event brought together representatives of the unmanned technologies industry from around the world. Meetings and discussions held during the expo enabled us to establish new connections and explore the latest technological solutions in the field."
+    },
+    "fullDesc": {
+      "pl": "W marcu 2026 roku nasze Koło Naukowe uczestniczyło w Drone World Expo – jednym z ważniejszych wydarzeń poświęconych technologiom bezzałogowych systemów powietrznych oraz rozwojowi systemów autonomicznych. Wydarzenie zgromadziło firmy technologiczne, instytucje badawcze oraz zespoły projektowe zajmujące się tworzeniem nowoczesnych rozwiązań w obszarze dronów i technologii UAV.\n        Podczas targów prezentowaliśmy projekty rozwijane w naszym kole, przedstawiając rezultaty pracy naszych zespołów oraz kierunki badań, nad którymi obecnie pracujemy. Była to także okazja do bezpośrednich rozmów z przedstawicielami branży technologicznej, naukowcami oraz innymi zespołami badawczymi zainteresowanymi rozwojem systemów bezzałogowych.\n        Udział w wydarzeniu pozwolił nam zapoznać się z najnowszymi trendami w technologii UAV, w tym z nowymi rozwiązaniami sprzętowymi, systemami sensorów oraz innowacyjnymi podejściami do projektowania i wykorzystania systemów autonomicznych. Targi stworzyły przestrzeń do wymiany doświadczeń, inspirujących dyskusji oraz prezentacji pomysłów rozwijanych w środowisku akademickim.\n        Dla naszego zespołu udział w Drone World Expo był również ważną okazją do promocji działalności koła oraz prezentacji projektów realizowanych przez naszych studentów. Spotkania z przedstawicielami branży i środowiska naukowego umożliwiły nawiązanie nowych kontaktów oraz stworzyły potencjał do przyszłej współpracy badawczej i technologicznej.",
+      "en": "In March 2026 our student scientific club participated in Drone World Expo, an international event dedicated to the development and application of unmanned aerial systems and emerging drone technologies. The expo brought together technology companies, research institutions, engineers and innovators working at the forefront of autonomous and unmanned systems.\n        During the event we presented projects developed within our club, showcasing the outcomes of our student-led research and engineering activities. The exhibition provided an opportunity to highlight the scope of our work and the technological solutions currently being developed by our teams.\n        Drone World Expo also created a valuable space for discussions with industry professionals, researchers and representatives of organizations involved in the development of UAV technologies. These interactions enabled us to exchange ideas, gain insights into current technological trends and learn more about innovative approaches to the design and operation of unmanned systems.\n        For our team, participation in the event was not only an opportunity to present our projects but also to promote the activities of our scientific club and demonstrate the potential of student-driven research initiatives. The meetings and discussions held during the expo opened the door to new connections and potential future collaborations within the broader drone technology community."
+    },
+    "contentFormat": "html",
+    "links": [],
+    "cover": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/drone-world-expo-2026/main.jpg",
+    "coverImage": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/drone-world-expo-2026/main.jpg",
+    "gallery": [
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/drone-world-expo-2026/1.jpg",
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/drone-world-expo-2026/2.jpg",
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/drone-world-expo-2026/3.jpg"
+    ],
+    "featured": false
+  },
+  {
+    "id": "siemens-tech-2026",
+    "date": "2026-02-27",
+    "title": {
+      "pl": "Wyróżnienie nagrodą Siemens – projekt Hawk Eye",
+      "en": "Hawk Eye Project Recognized with a Siemens Award"
+    },
+    "shortDesc": {
+      "pl": "Zostaliśmy wyróżnieni nagrodą firmy Siemens w postaci produktów o wartości 10 000 zł na rozwój projektu Hawk Eye. Projekt dotyczy wielofunkcyjnego drona stratosferycznego rozwijanego w naszym kole naukowym. Wsparcie pozwoli nam kontynuować prace nad rozwojem tej platformy.",
+      "en": "Our scientific club received an award from Siemens in the form of products worth 10,000 PLN to support the development of the Hawk Eye project. The project focuses on a multifunctional stratospheric drone developed by our team. This support will allow us to continue advancing the platform."
+    },
+    "fullDesc": {
+      "pl": "Nasze Koło Naukowe zostało wyróżnione nagrodą firmy Siemens w postaci produktów o łącznej wartości 10 000 zł, które zostały przeznaczone na rozwój projektu Hawk Eye. Wsparcie to stanowi ważny krok w dalszym rozwijaniu naszej działalności badawczej oraz realizacji projektów związanych z nowoczesnymi technologiami bezzałogowymi.\n        Hawk Eye to projekt wielofunkcyjnego drona stratosferycznego, którego celem jest stworzenie platformy zdolnej do długotrwałego lotu nad wybranym obszarem. Koncepcja ta łączy wybrane zalety systemów satelitarnych z elastycznością operacyjną bezzałogowych platform latających działających na niższych wysokościach.\n        Tego typu rozwiązania mogą w przyszłości znaleźć zastosowanie w wielu obszarach, takich jak obserwacja Ziemi, monitoring środowiska, wczesne wykrywanie pożarów, monitoring granic czy zapewnianie łączności w regionach dotkniętych klęskami żywiołowymi. Rozwijane w projekcie technologie mają na celu zwiększenie możliwości prowadzenia badań i monitoringu w trudno dostępnych regionach.\n        Otrzymane wsparcie pozwoli nam kontynuować rozwój kluczowych elementów platformy, testować nowe rozwiązania technologiczne oraz prowadzić dalsze prace badawcze w ramach działalności naszego koła. Wyróżnienie ze strony firmy Siemens stanowi dla naszego zespołu istotne docenienie pracy studentów zaangażowanych w rozwój projektu oraz potwierdzenie potencjału prowadzonych przez nas działań badawczych.\n        ",
+      "en": "Our student scientific club has been recognized with an award from Siemens in the form of products worth 10,000 PLN, supporting the further development of the Hawk Eye project. This distinction represents an important milestone for our team and highlights the potential of the technologies being developed within our research activities.\n        Hawk Eye is a project focused on the development of a multifunctional stratospheric drone designed for long-endurance missions over selected areas. The concept aims to combine certain advantages of satellite-based observation with the flexibility and accessibility of lower-altitude unmanned aerial platforms.\n        Such systems have the potential to support a wide range of applications, including Earth observation, environmental monitoring, early detection of wildfires, border surveillance and the provision of communication support in areas affected by natural disasters. By exploring these possibilities, the project seeks to contribute to the development of innovative aerial monitoring solutions.\n        The support provided by Siemens will allow our team to continue developing key components of the platform, test new technological solutions and further expand the research conducted within our scientific club. Receiving this award is also a significant recognition of the dedication and work of the students involved in the project.\n        "
+    },
+    "contentFormat": "html",
+    "links": [],
+    "cover": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/siemens-tech-2026/main.jpg",
+    "coverImage": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/siemens-tech-2026/main.jpg",
+    "gallery": [],
+    "featured": false
+  },
+  {
+    "id": "arctic-frontiers-2026",
+    "date": "2026-02-02",
+    "title": {
+      "pl": "Arctic Frontiers 2026",
+      "en": "Arctic Frontiers 2026"
+    },
+    "shortDesc": {
+      "pl": "W lutym 2026 roku wzięliśmy udział w konferencji Arctic Frontiers w Tromsø, prezentując projekt Snow’s Eye. Wydarzenie zgromadziło naukowców, przedstawicieli przemysłu oraz decydentów zajmujących się tematyką regionów arktycznych. Była to doskonała okazja do zaprezentowania naszych badań i wymiany doświadczeń.",
+      "en": "In February 2026 we took part in the Arctic Frontiers conference in Tromsø, where we presented the Snow’s Eye project. The event brought together scientists, industry representatives and policymakers focused on Arctic research and development. \n        It provided an excellent opportunity to showcase our work and exchange insights with experts from around the world.\n        "
+    },
+    "fullDesc": {
+      "pl": "W lutym 2026 roku braliśmy udział w międzynarodowej konferencji Arctic Frontiers, która odbyła się w Tromsø w Norwegii. Jest to jedno z najważniejszych wydarzeń poświęconych badaniom Arktyki, skupiające naukowców, przedstawicieli instytucji badawczych, przemysłu oraz administracji publicznej z całego świata. Konferencja stanowi platformę do dyskusji na temat zmian klimatycznych, nowych technologii wykorzystywanych w badaniach polarnych oraz wyzwań związanych z funkcjonowaniem w ekstremalnych warunkach środowiskowych.\n        Podczas wydarzenia zaprezentowaliśmy projekt Snow’s Eye – autonomiczną platformę UAV zaprojektowaną do pracy w trudnych warunkach arktycznych. Projekt koncentruje się na wykorzystaniu technologii bezzałogowych do wspierania badań naukowych w regionach o ograniczonym dostępie do infrastruktury oraz w miejscach, gdzie prowadzenie tradycyjnych pomiarów jest szczególnie wymagające.\n        Udział w konferencji był dla nas ważną okazją do zaprezentowania efektów naszej pracy międzynarodowej społeczności naukowej. Prezentacja projektu pozwoliła również na wymianę doświadczeń z badaczami zajmującymi się tematyką systemów autonomicznych, technologii pomiarowych oraz badań środowiskowych w regionach polarnych.\n        Konferencja Arctic Frontiers stworzyła przestrzeń do rozmów o przyszłości badań arktycznych oraz o roli nowoczesnych technologii w monitorowaniu zmian zachodzących w tych wyjątkowo wrażliwych ekosystemach. Udział w wydarzeniu umożliwił nam także nawiązanie nowych kontaktów naukowych i potencjalnych współprac badawczych.\n        Szczegółowy opis projektu Snow’s Eye można znaleźć w sekcji projektów na naszej stronie.\n        ",
+      "en": "In February 2026 we participated in the international Arctic Frontiers conference held in Tromsø, Norway. The conference is widely regarded as one of the leading platforms dedicated to Arctic research, bringing together scientists, research institutions, industry representatives and policymakers from across the globe. It serves as an important forum for discussing climate change, technological innovation and the challenges associated with conducting research and operations in polar environments.\n        During the event we presented the Snow’s Eye project – an autonomous UAV platform designed to operate in demanding Arctic conditions. The project explores the potential of unmanned aerial technologies to support scientific research in remote regions where access to infrastructure is limited, and environmental conditions make traditional measurement campaigns particularly challenging.\n        Presenting our work at Arctic Frontiers allowed us to share the outcomes of our research with the international scientific community. It also created valuable opportunities to exchange perspectives with researchers working on autonomous systems, environmental monitoring technologies and field research in polar regions.\n        The conference further emphasized the growing importance of advanced technologies in studying climate processes and monitoring environmental change in the Arctic. Our participation enabled us to establish new professional connections and explore potential future collaborations with research groups and institutions engaged in polar science.\n        A detailed description of the Snow’s Eye project can be found in the projects section of our website.\n        "
+    },
+    "contentFormat": "html",
+    "links": [],
+    "cover": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/arctic-frontiers-2026/main.jpg",
+    "coverImage": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/arctic-frontiers-2026/main.jpg",
+    "gallery": [
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/arctic-frontiers-2026/1.jpg",
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/arctic-frontiers-2026/2.jpg"
+    ],
+    "featured": false
+  },
+  {
+    "id": "bit-ai-2026",
+    "date": "2026-01-03",
+    "title": {
+      "pl": "Udział w programie naukowym o AI w Chinach ",
+      "en": "Participation in the AI academic program in China"
+    },
+    "shortDesc": {
+      "pl": "W styczniu 2026 jeden z naszych członków wziął udział w programie naukowym o sztucznej inteligencji w Chinach, na campusie Beijing Institute of Technology w Zhuhai. Była to okazja, aby poznać podstawowe zagadnienia związane z tą dziedziną, jak również poznać lepiej ten kraj poprzez liczne wycieczki i warsztaty kulturalne. Podczas finałowej prezentacji o zastosowaniu sztucznej inteligencji w Polsce nie zabrakło okazji do promowania działalności Koła.",
+      "en": "In January 2026, one of our members attended an AI scientific program at the Beijing Institute of Technology in Zhuhai, China. The experience combined deep dives into AI fundamentals with rich cultural workshops and tours. The final presentation on AI in Poland provided a perfect platform to showcase our Research Club's latest projects to an international audience."
+    },
+    "fullDesc": {
+      "pl": "W styczniu 2026 jeden z członków naszego Koła, student Politechniki Gdańskiej Jan Matusiak, wziął udział w dwutygodniowym \"Study in BIT\" Artificial Intelligence Winter Program na campusie Beijing Institute of Technology w Zhuhai. Otrzymał on nominację do stypendium z Wydziału Elektroniki, Telekomunikacji i Informatyki swojej uczelni, dzięki czemu mógł w pełni korzystać w oferty programu.\n        Główną część programu stanowiły codzienne wykłady o podstawach sztucznej inteligencji - jej zastosowaniach, etyce, a także agentach AI i uczeniu przez wzmacnianie. Nie brakowało również zajęć kulturowych, podczas których mogliśmy spróbować tradycyjnej kaligrafii oraz wycinanek.\n        Była to również okazja by pozwiedzać - nie tylko Zhuhai, ale również Shenzen i Guanghzou, wiodące miasta regionu GBA i jedne z największych miast nie tylko Chin, ale i na całym świecie. \n        Zwieńczeniem programu była prezentacja końcowa, podczas której cały zespół z Politechniki Gdańskiej opowiedział o zastosowaniach w sztucznej inteligencji w Polsce. Janek opowiadał między innymi o swoim udziale w projekcie FlySearch w naszym Kole, w którym bada wpływ sztucznej inteligencji na nawigację dronem.",
+      "en": "In January 2026, Jan Matusiak, a member of our Research Club and a student at Gdańsk University of Technology, participated in the two-week 'Study in BIT' Artificial Intelligence Winter Program at the Beijing Institute of Technology campus in Zhuhai. Having received a scholarship nomination from the Faculty of Electronics, Telecommunications, and Informatics, he was able to fully engage in the program's offerings.\n\n                The core of the program consisted of daily lectures on AI fundamentals – including its applications, ethics, AI agents, and reinforcement learning. The experience was enriched by cultural workshops where participants practiced traditional calligraphy and paper-cutting.\n\n                The trip also provided an opportunity to explore Zhuhai, Shenzhen, and Guangzhou – leading cities of the Greater Bay Area and some of the largest metropolises in the world. The program culminated in a final presentation, where the team from Gdańsk University of Technology discussed AI applications in Poland. Jan highlighted his involvement in our FlySearch project, focusing on the impact of AI on autonomous drone navigation."
+    },
+    "contentFormat": "html",
+    "links": [],
+    "cover": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/bit-ai-2026/main.jpg",
+    "coverImage": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/bit-ai-2026/main.jpg",
+    "gallery": [
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/bit-ai-2026/1.jpg",
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/bit-ai-2026/2.jpg",
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/bit-ai-2026/3.jpg",
+      "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_1600,c_limit/kn-spa-i-blsps/news/bit-ai-2026/4.jpg"
+    ],
+    "featured": false
+  },
+  {
+    "id": "orlen-foundation-2025",
+    "date": "2025-12-01",
+    "title": {
+      "pl": "Grant Fundacji ORLEN dla projektu Hawk Eye Stratospheric Drone",
+      "en": "ORLEN Foundation Grant for the Hawk Eye Stratospheric Drone Project"
+    },
+    "shortDesc": {
+      "pl": "Nasze koło naukowe otrzymało grant Fundacji ORLEN w ramach programu „Od cząsteczki do galaktyki”. Wsparcie zostało przyznane na rozwój projektu Hawk Eye Stratospheric Drone – autonomicznej platformy stratosferycznej typu HAPS. Projekt koncentruje się na opracowaniu wielokrotnego użytku systemu do badań atmosfery, monitoringu środowiska oraz zapewniania łączności w trudno dostępnych regionach.",
+      "en": "Our student scientific club has been awarded a grant from the ORLEN Foundation as part of the “From Molecule to Galaxy” program. The funding supports the development of the Hawk Eye Stratospheric Drone project – an autonomous high-altitude platform of the HAPS type. The project focuses on creating a reusable system for atmospheric research, environmental monitoring, and communication in hard-to-reach areas."
+    },
+    "fullDesc": {
+      "pl": "Nasze koło naukowe działające na Wydziale Mechaniki, Energetyki i Lotnictwa Politechniki Warszawskiej zostało laureatem programu grantowego Fundacji ORLEN „Od cząsteczki do galaktyki”. Program ten wspiera działalność studenckich kół naukowych prowadzących projekty badawcze z zakresu chemii, fizyki oraz nauk pokrewnych, umożliwiając rozwój innowacyjnych inicjatyw naukowych i technologicznych.\n        Nagrodzony projekt, realizowany pod opieką dr hab. inż. Elżbiety Jarzębowskiej, prof. PW, nosi nazwę „Hawk Eye Stratospheric Drone” i koncentruje się na opracowaniu autonomicznego drona stratosferycznego typu HAPS (High Altitude Pseudo-Satellite). Planowana platforma ma operować na wysokościach od 10 do 30 km, stanowiąc elastyczną i bardziej ekonomiczną alternatywę dla tradycyjnych systemów satelitarnych.\n        Jednym z kluczowych celów projektu jest ograniczenie problemu elektroodpadów powstających w wyniku wykorzystywania jednorazowych radiosond meteorologicznych. W odpowiedzi na to wyzwanie opracowywany jest system wielokrotnego użytku, zdolny do bezpiecznego powrotu i lądowania po zakończeniu misji.\n        Innowacyjność projektu opiera się między innymi na wykorzystaniu ogniw fotowoltaicznych oraz zdolności platformy do długotrwałego, autonomicznego lotu, który może trwać co najmniej 24 godziny. Dron ma pełnić funkcję stratosferycznej stacji bazowej SMBS, zapewniając łączność w promieniu do 100 km, zwłaszcza w regionach o ograniczonej infrastrukturze komunikacyjnej. Platforma może także wspierać działania ratownicze typu SAR oraz monitoring klęsk żywiołowych dzięki zastosowaniu kamer wielospektralnych.\n        Realizacja projektu została zaplanowana w kilku etapach, obejmujących budowę prototypu testowego, przeprowadzenie testów sterowania w warunkach stratosferycznych oraz stworzenie pełnej platformy zdolnej do pracy z zerowym bilansem energetycznym. Projekt rozwijany jest we współpracy z ekspertami z Creotech Instruments S.A. oraz Instytutu Geofizyki Polskiej Akademii Nauk.\n        Otrzymany grant stanowi istotne wsparcie dla dalszego rozwoju projektu oraz umożliwia realizację kolejnych etapów badań nad autonomicznymi platformami stratosferycznymi rozwijanymi w naszym kole naukowym.\n        ",
+      "en": "Our student research club operating at the Faculty of Power and Aeronautical Engineering of the Warsaw University of Technology has been awarded a grant from the ORLEN Foundation under the “From Molecule to Galaxy” program. The initiative supports student research groups working in the fields of chemistry, physics, and related scientific disciplines, promoting innovative academic and technological projects.\n        The awarded project, supervised by Professor Elżbieta Jarzębowska, is titled “Hawk Eye Stratospheric Drone” and focuses on the development of an autonomous stratospheric UAV platform of the HAPS (High Altitude Pseudo-Satellite) type. The system is designed to operate at altitudes between 10 and 30 km, offering a flexible and cost-effective alternative to traditional satellite systems.\n        One of the key objectives of the project is to address the environmental issue associated with disposable meteorological radiosondes, which generate electronic waste after a single use. The proposed solution involves the development of a reusable platform capable of safely returning and landing after completing its mission.\n        The innovative character of the system is based on the integration of photovoltaic cells and the platform’s capability to perform long-endurance autonomous flights lasting at least 24 hours. The platform is intended to function as a stratospheric mobile base station (SMBS), providing communication coverage within a radius of up to 100 km, particularly in regions with limited communication infrastructure. Additionally, the system may support search-and-rescue (SAR) operations and disaster monitoring through the use of multispectral imaging systems.\n        The implementation of the project includes several development stages, including the construction of a test prototype, control system testing in stratospheric conditions, and the development of a full platform capable of operating with a zero-energy balance. The project is being developed in collaboration with experts from Creotech Instruments S.A. and the Institute of Geophysics of the Polish Academy of Sciences.\n        The grant awarded by the ORLEN Foundation provides significant support for the continued development of the project and enables further research on autonomous stratospheric platforms conducted within our student scientific club.\n        "
+    },
+    "contentFormat": "html",
+    "links": [],
+    "cover": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/orlen-foundation-2025/main.jpg",
+    "coverImage": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/orlen-foundation-2025/main.jpg",
+    "gallery": [],
+    "featured": false
+  },
+  {
+    "id": "stypendium-ncn",
+    "date": "-",
+    "title": {
+      "pl": "Stypendium NCN dla członków naszego koła",
+      "en": "NCN Scholarship for Our Members"
+    },
+    "shortDesc": {
+      "pl": "Z przyjemnością informujemy, że trzech przedstawicieli naszego koła pracujących nad projektem FlySearch otrzymało stypendium naukowe w ramach projektu badawczego NCN SONATA BIS „Uniwersalny robot - rozwijanie uczenia robotów poprzez uczenie ze wzmocnieniem i modele VLA\", kierowanego przez prof. Marka Cygana. To wyróżnienie potwierdza realny wkład naszych członków w badania naukowe i stanowi dla nich wyjątkową szansę na rozwój w bezpośrednim kontakcie z doświadczoną kadrą akademicką. Serdecznie gratulujemy stypendystom!",
+      "en": "We are pleased to announce that three members of our circle working on the FlySearch project have been awarded a scientific scholarship as part of the NCN SONATA BIS research project „Universal Robot - Advancing Robot Learning through Reinforcement Learning and VLA Models\", led by Prof. Marek Cygan. This honour confirms the real contribution our members make to scientific research and gives them an exceptional opportunity to grow in direct collaboration with experienced academics. Congratulations!"
+    },
+    "fullDesc": {
+      "pl": "Z przyjemnością informujemy, że trzech przedstawicieli naszego koła pracujących nad projektem FlySearch otrzymało stypendium naukowe w ramach projektu badawczego NCN SONATA BIS „Uniwersalny robot - rozwijanie uczenia robotów poprzez uczenie ze wzmocnieniem i modele VLA\", kierowanego przez prof. Marka Cygana. To dla nas powód do ogromnej dumy i potwierdzenie, że praca wykonywana w ramach koła przekłada się na realne osiągnięcia naukowe.\n        Przyznane stypendia są wyrazem uznania komisji konkursowej dla zaangażowania i kompetencji naszych członków. Udział w projekcie NCN SONATA BIS to dla stypendystów nie tylko prestiż, ale przede wszystkim wyjątkowa szansa na rozwój, możliwość czynnego uczestnictwa w badaniach na wysokim poziomie, bezpośredni kontakt z doświadczoną kadrą akademicką oraz praca w środowisku stawiającym konkretne, niebanalne wyzwania badawcze. Projekt ten wpisuje się w szerszy nurt badań nad autonomicznymi systemami uczącymi się, a jego interdyscyplinarny charakter stwarza przestrzeń do rozwijania kompetencji wykraczających daleko poza ramy standardowej ścieżki akademickiej. Tego rodzaju doświadczenie, zdobywane już na etapie studiów, ma trudną do przecenienia wartość zarówno naukową, jak i zawodową.\n        Serdecznie gratulujemy stypendystom i życzymy owocnej współpracy w nadchodzących miesiącach, jesteśmy przekonani, że to dopiero początek wielu wspólnych sukcesów.",
+      "en": "We are delighted to announce that three members of our circle working on the FlySearch project have been awarded a scientific scholarship as part of the NCN SONATA BIS research project „Universal Robot -  Advancing Robot Learning through Reinforcement Learning and VLA Models\", led by Prof. Marek Cygan. This is a source of great pride for us and a confirmation that the work carried out within our circle translates into real scientific achievements.\n        The scholarships reflect the jury's recognition of our members' dedication and competence. Participation in the NCN SONATA BIS project is not only a distinction, but above all an exceptional opportunity for growth, a chance to actively contribute to high-level research, work in direct contact with experienced academics, and engage with a environment that poses concrete, non-trivial scientific challenges. The project itself sits within the broader field of autonomous learning systems, and its interdisciplinary nature creates space for developing competencies that go well beyond the standard academic path. This kind of experience, gained already during one's studies, carries immense value, both scientifically and professionally.\n        We extend our warmest congratulations to the scholarship recipients and wish them a fruitful collaboration in the months ahead, we are certain this is just the beginning of many shared successes."
+    },
+    "contentFormat": "html",
+    "links": [],
+    "cover": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/stypendium-ncn/main.jpg",
+    "coverImage": "https://res.cloudinary.com/dsrdp5vrr/image/upload/f_auto,q_auto,w_800,c_limit/kn-spa-i-blsps/news/stypendium-ncn/main.jpg",
+    "gallery": [],
+    "featured": false
+  }
+]
