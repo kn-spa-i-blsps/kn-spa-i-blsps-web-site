@@ -81,6 +81,18 @@ db.exec(`
     sort_order INTEGER DEFAULT 999
   );
 
+  CREATE TABLE IF NOT EXISTS contact_messages (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL,
+    subject TEXT NOT NULL,
+    message TEXT NOT NULL,
+    language TEXT NOT NULL DEFAULT 'pl',
+    is_read INTEGER NOT NULL DEFAULT 0 CHECK(is_read IN (0,1)),
+    created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now'))
+  );
+  CREATE INDEX IF NOT EXISTS contact_messages_created ON contact_messages(created_at DESC, id DESC);
+
   CREATE TABLE IF NOT EXISTS hero_slides (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     sort_order INTEGER NOT NULL,

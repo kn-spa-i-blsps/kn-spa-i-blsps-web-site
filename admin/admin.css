@@ -377,3 +377,8 @@ body::before {
   .admin-layout.active { flex-direction: column; }
   .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
 }
+
+.messages-badge{display:inline-block;background:var(--accent);color:#fff;padding:0 7px;margin-left:6px;border-radius:999px;font-size:12px}.messages-badge[hidden]{display:none}
+.messages-summary{color:var(--fg-muted);margin:0 0 20px}.message-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:22px;margin:0 0 16px}.message-card.unread{border-left:4px solid var(--accent)}
+.message-header{display:flex;justify-content:space-between;gap:16px}.message-header h3{font-size:18px;overflow-wrap:anywhere}.message-header>span{font-size:12px;color:var(--accent);white-space:nowrap}.message-meta{margin:10px 0;color:var(--fg-muted);font-size:13px;overflow-wrap:anywhere}.message-meta a{color:var(--accent)}
+.message-body{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.7}.message-actions,.messages-pagination{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:20px}.messages-empty{padding:24px 0;color:var(--fg-muted)}.messages-pagination{justify-content:space-between}.messages-pagination button:disabled{opacity:.45;cursor:default}

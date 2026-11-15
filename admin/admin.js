@@ -100,6 +100,7 @@ document.querySelectorAll('.sidebar-nav a[data-section]').forEach((a) => {
     a.classList.add('active');
     document.querySelectorAll('.section-panel').forEach((p) => p.classList.add('hidden'));
     document.getElementById(`section-${section}`).classList.remove('hidden');
+    if (section === 'messages') loadMessages().catch(ex => toast(ex.message, true));
   });
 });
 
@@ -146,7 +147,7 @@ function bilingualFields(prefix, data = {}) {
 // ─── Load tables ─────────────────────────────────────────────
 
 async function loadAll() {
-  await Promise.all([loadNews(), loadMembers(), loadProjects(), loadPartners()]);
+  await Promise.all([loadNews(), loadMembers(), loadProjects(), loadPartners(), loadMessages()]);
 }
 
 async function loadNews() {
@@ -744,6 +745,40 @@ document.getElementById('password-form').addEventListener('submit', async (e) =>
   } catch (ex) {
     toast(ex.message, true);
   }
+});
+
+
+// Contact inbox. Render submitted text as escaped content, never HTML.
+let messageOffset = 0;
+const MESSAGE_PAGE_SIZE = 25;
+async function loadMessages() {
+  const result = await api(`/admin/messages?limit=${MESSAGE_PAGE_SIZE}&offset=${messageOffset}`);
+  if (messageOffset && messageOffset >= result.total) { messageOffset = 0; return loadMessages(); }
+  const badge = document.getElementById('messages-badge');
+  badge.textContent = String(result.unread); badge.hidden = result.unread === 0;
+  document.getElementById('messages-summary').textContent = `${result.total} wiadomości · ${result.unread} nieprzeczytanych`;
+  document.getElementById('messages-list').innerHTML = result.items.length ? result.items.map(row => `
+    <article class="message-card${row.is_read ? '' : ' unread'}">
+      <div class="message-header"><h3>${esc(row.subject)}</h3><span>${row.is_read ? 'Przeczytana' : 'Nowa'}</span></div>
+      <p class="message-meta"><strong>${esc(row.name)}</strong> · <a href="mailto:${encodeURIComponent(row.email)}">${esc(row.email)}</a> · ${esc(new Date(row.created_at).toLocaleString('pl-PL'))}</p>
+      <p class="message-body">${esc(row.message)}</p>
+      <div class="message-actions"><button type="button" class="btn" data-message-id="${row.id}" data-message-read="${row.is_read ? 'false' : 'true'}">${row.is_read ? 'Oznacz jako nieprzeczytaną' : 'Oznacz jako przeczytaną'}</button><a class="btn" href="mailto:${encodeURIComponent(row.email)}">Odpowiedz e-mailem</a><button type="button" class="btn" data-message-id="${row.id}" data-message-delete="true">Usuń</button></div>
+    </article>`).join('') : '<p class="messages-empty">Nie ma jeszcze wiadomości z formularza.</p>';
+  document.getElementById('messages-prev').disabled = messageOffset === 0;
+  document.getElementById('messages-next').disabled = messageOffset + MESSAGE_PAGE_SIZE >= result.total;
+  document.getElementById('messages-page').textContent = result.total ? `${messageOffset + 1}–${Math.min(messageOffset + MESSAGE_PAGE_SIZE, result.total)} z ${result.total}` : '0';
+}
+document.getElementById('messages-refresh').addEventListener('click', () => loadMessages().catch(ex => toast(ex.message, true)));
+document.getElementById('messages-prev').addEventListener('click', () => { messageOffset = Math.max(0, messageOffset - MESSAGE_PAGE_SIZE); loadMessages().catch(ex => toast(ex.message, true)); });
+document.getElementById('messages-next').addEventListener('click', () => { messageOffset += MESSAGE_PAGE_SIZE; loadMessages().catch(ex => toast(ex.message, true)); });
+document.getElementById('messages-list').addEventListener('click', async event => {
+  const button = event.target.closest('button[data-message-id]'); if (!button) return;
+  if (button.dataset.messageDelete && !confirm('Usunąć tę wiadomość? Tej operacji nie można cofnąć.')) return;
+  button.disabled = true;
+  try {
+    await api(`/admin/messages/${button.dataset.messageId}`, button.dataset.messageDelete ? { method: 'DELETE' } : { method: 'PATCH', body: JSON.stringify({ is_read: button.dataset.messageRead === 'true' }) });
+    await loadMessages();
+  } catch (ex) { toast(ex.message, true); button.disabled = false; }
 });
 
 checkAuth();

@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Admin | KN SPA i BLSPS</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/admin/admin.css">
+  <link rel="stylesheet" href="/admin/admin.css?v=contact-protection-20261115">
 </head>
 <body>
   <!-- Login -->
@@ -45,6 +45,7 @@
         <li><a href="#" data-section="members">Członkowie</a></li>
         <li><a href="#" data-section="projects">Projekty</a></li>
         <li><a href="#" data-section="partners">Partnerzy</a></li>
+        <li><a href="#" data-section="messages">Wiadomości <span id="messages-badge" class="messages-badge" hidden></span></a></li>
         <li><a href="#" data-section="settings">Ustawienia</a></li>
         <li><a href="#" id="logout-btn" style="margin-top:2rem;color:var(--danger)">Wyloguj</a></li>
       </ul>
@@ -108,6 +109,13 @@
         </table>
       </section>
 
+      <section id="section-messages" class="section-panel hidden">
+        <div class="page-header"><h2>Wiadomości z formularza</h2><button type="button" class="btn" id="messages-refresh">Odśwież</button></div>
+        <p id="messages-summary" class="messages-summary" aria-live="polite"></p>
+        <div id="messages-list" aria-live="polite"></div>
+        <div class="messages-pagination"><button type="button" class="btn" id="messages-prev">← Poprzednie</button><span id="messages-page"></span><button type="button" class="btn" id="messages-next">Następne →</button></div>
+      </section>
+
       <!-- Settings -->
       <section id="section-settings" class="section-panel hidden">
         <div class="page-header"><h2>Ustawienia</h2></div>
@@ -146,6 +154,6 @@
   </div>
 
   <div class="toast" id="toast"></div>
-  <script src="/admin/admin.js?v=browser-session-20261108"></script>
+  <script src="/admin/admin.js?v=contact-protection-20261115"></script>
 </body>
 </html>

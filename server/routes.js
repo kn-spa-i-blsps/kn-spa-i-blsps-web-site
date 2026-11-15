@@ -1,3 +1,4 @@
+import { randomBytes } from 'node:crypto';
 import { Router } from 'express';
 import db, { getSetting } from './db.js';
 import {
@@ -321,6 +322,81 @@ router.put('/admin/partners/:id', authMiddleware, (req, res) => {
 router.delete('/admin/partners/:id', authMiddleware, (req, res) => {
   const result = db.prepare('DELETE FROM partners WHERE id = ?').run(req.params.id);
   if (result.changes === 0) return res.status(404).json({ error: 'Not found' });
+  res.json({ ok: true });
+});
+
+// Contact inbox. Messages are private; only submission is public.
+const contactAttempts = new Map();
+const CONTACT_WINDOW_MS = 15 * 60 * 1000;
+const contactChallenges = new Map();
+router.get('/contact/challenge', (req, res) => {
+  res.set('Cache-Control', 'no-store');
+  const now = Date.now();
+  for (const [token, item] of contactChallenges) if (now - item.created > 7200000) contactChallenges.delete(token);
+  if (contactChallenges.size >= 5000) return res.status(429).json({ error: 'Try later' });
+  const existing = [...contactChallenges].find(([,item]) => item.ip === req.ip);
+  if (existing) return res.json({ token: existing[0] });
+  const token = randomBytes(32).toString('hex');
+  contactChallenges.set(token, { created: now, ip: req.ip });
+  res.json({ token });
+});
+router.post('/contact', (req, res) => {
+  res.set('Cache-Control', 'no-store');
+  if (req.get('origin')) {
+    try { if (new URL(req.get('origin')).host !== req.get('host')) return res.status(403).json({ error: 'Forbidden origin' }); }
+    catch { return res.status(403).json({ error: 'Forbidden origin' }); }
+  }
+  if (!req.is('application/json')) return res.status(415).json({ error: 'JSON required' });
+  const body = req.body || {};
+  if (typeof body.website === 'string' && body.website.trim()) return res.status(202).json({ ok: true });
+  const challenge = contactChallenges.get(body.challenge);
+  if (!challenge || challenge.ip !== req.ip || Date.now() - challenge.created < 2000 || Date.now() - challenge.created > 7200000) return res.status(400).json({ error: 'Invalid form challenge' });
+  const limits = { name: 120, email: 254, subject: 160, message: 10000 };
+  const values = {};
+  for (const [key, max] of Object.entries(limits)) {
+    if (typeof body[key] !== 'string' || !body[key].trim() || body[key].trim().length > max) return res.status(400).json({ error: 'Invalid contact fields' });
+    values[key] = body[key].trim();
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email) || /[\r\n]/.test(values.email)) return res.status(400).json({ error: 'Invalid email' });
+  const now = Date.now();
+  for (const [ip, attempt] of contactAttempts) if (now - attempt.start >= CONTACT_WINDOW_MS) contactAttempts.delete(ip);
+  const key = req.ip || 'unknown';
+  const attempt = contactAttempts.get(key) || { start: now, count: 0 };
+  if (attempt.count >= 5 || (!contactAttempts.has(key) && contactAttempts.size >= 5000)) {
+    res.set('Retry-After', String(Math.max(1, Math.ceil((CONTACT_WINDOW_MS - (now - attempt.start)) / 1000))));
+    return res.status(429).json({ error: 'Too many messages' });
+  }
+  const recent = db.prepare("SELECT COUNT(*) AS count FROM contact_messages WHERE lower(email)=lower(?) AND created_at >= ?").get(values.email, new Date(now - CONTACT_WINDOW_MS).toISOString()).count;
+  const duplicate = db.prepare('SELECT id FROM contact_messages WHERE lower(email)=lower(?) AND message=? AND created_at >= ?').get(values.email, values.message, new Date(now - 86400000).toISOString());
+  if (recent >= 3 || duplicate) { res.set('Retry-After', '900'); return res.status(429).json({ error: 'Too many messages' }); }
+  contactChallenges.delete(body.challenge);
+  db.prepare('INSERT INTO contact_messages (name,email,subject,message,language) VALUES (?,?,?,?,?)')
+    .run(values.name, values.email, values.subject, values.message, body.language === 'en' ? 'en' : 'pl');
+  attempt.count++; contactAttempts.set(key, attempt);
+  return res.status(201).json({ ok: true });
+});
+router.get('/admin/messages', authMiddleware, (req, res) => {
+  res.set('Cache-Control', 'no-store');
+  const limit = Math.min(100, Math.max(1, parseInt(req.query.limit, 10) || 25));
+  const offset = Math.max(0, parseInt(req.query.offset, 10) || 0);
+  const items = db.prepare('SELECT * FROM contact_messages ORDER BY created_at DESC,id DESC LIMIT ? OFFSET ?').all(limit, offset);
+  const total = db.prepare('SELECT COUNT(*) AS count FROM contact_messages').get().count;
+  const unread = db.prepare('SELECT COUNT(*) AS count FROM contact_messages WHERE is_read=0').get().count;
+  res.json({ items, total, unread });
+});
+router.patch('/admin/messages/:id', authMiddleware, (req, res) => {
+  res.set('Cache-Control', 'no-store');
+  if (!/^\d+$/.test(req.params.id) || typeof req.body?.is_read !== 'boolean') return res.status(400).json({ error: 'Invalid message status' });
+  const result = db.prepare('UPDATE contact_messages SET is_read=? WHERE id=?').run(req.body.is_read ? 1 : 0, req.params.id);
+  if (!result.changes) return res.status(404).json({ error: 'Not found' });
+  res.json({ ok: true });
+});
+
+router.delete('/admin/messages/:id', authMiddleware, (req, res) => {
+  res.set('Cache-Control', 'no-store');
+  if (!/^\d+$/.test(req.params.id)) return res.status(400).json({ error: 'Invalid message ID' });
+  const result = db.prepare('DELETE FROM contact_messages WHERE id=?').run(req.params.id);
+  if (!result.changes) return res.status(404).json({ error: 'Not found' });
   res.json({ ok: true });
 });
 
