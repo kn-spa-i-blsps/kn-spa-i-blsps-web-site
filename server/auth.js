@@ -3,7 +3,6 @@ import jwt from 'jsonwebtoken';
 import db, { getSetting, setSetting } from './db.js';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'change-me-in-production-kn-spa';
-const TOKEN_MAX_AGE = 7 * 24 * 60 * 60 * 1000;
 
 export function ensureAdminUser() {
   const existing = getSetting('admin_password_hash');
@@ -49,7 +48,7 @@ export function createToken(username) {
 
 export function authMiddleware(req, res, next) {
   const header = req.headers.authorization;
-  const cookieToken = req.cookies?.admin_token;
+  const cookieToken = req.cookies?.admin_session;
   const token = header?.startsWith('Bearer ') ? header.slice(7) : cookieToken;
 
   if (!token) {
@@ -65,17 +64,16 @@ export function authMiddleware(req, res, next) {
 }
 
 export function setAuthCookie(res, token) {
-  res.cookie('admin_token', token, {
+  res.cookie('admin_session', token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'lax',
-    maxAge: TOKEN_MAX_AGE,
     path: '/',
   });
 }
 
 export function clearAuthCookie(res) {
-  res.clearCookie('admin_token', {
+  res.clearCookie('admin_session', {
     path: '/',
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'lax',

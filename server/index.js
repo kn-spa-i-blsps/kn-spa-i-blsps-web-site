@@ -6,6 +6,7 @@ import { ensureAdminUser, syncAdminFromEnv } from './auth.js';
 import { runMigration } from './migrate.js';
 import { runSchemaMigrations } from './schema.js';
 import apiRouter from './routes.js';
+import db from './db.js';
 import { createBluesparkHandler } from './bluespark.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -27,10 +28,26 @@ app.use('/bluespark', createBluesparkHandler(path.join(ROOT, 'bluespark')));
 app.use('/css', express.static(path.join(ROOT, 'css')));
 app.use('/src', express.static(path.join(ROOT, 'src')));
 
-// Clean URLs
-app.get('/news/:id', (_req, res) => res.sendFile(path.join(ROOT, 'article.html')));
-app.get('/project/:id', (_req, res) => res.sendFile(path.join(ROOT, 'project.html')));
-app.get('/member/:id', (_req, res) => res.sendFile(path.join(ROOT, 'member.html')));
+// Resolve detail pages before returning their HTML shell.
+const detailPages = [
+  { route: '/news/:id', file: 'article.html', query: 'id', sql: 'SELECT 1 FROM news WHERE id = ? AND published = 1' },
+  { route: '/project/:id', file: 'project.html', query: 'id', sql: 'SELECT 1 FROM projects WHERE id = ?' },
+  { route: '/member/:id', file: 'member.html', query: 'user', sql: 'SELECT 1 FROM members WHERE id = ?' },
+];
+for (const detail of detailPages) {
+  const exists = db.prepare(detail.sql);
+  const handler = (req, res) => {
+    const value = req.params.id ?? req.query[detail.query];
+    const id = typeof value === 'string' ? (detail.query === 'user' ? value.trim() : value) : '';
+    if (!id || !exists.get(id)) {
+      res.set('Cache-Control', 'no-store');
+      return res.status(404).sendFile(path.join(ROOT, '404.html'));
+    }
+    return res.sendFile(path.join(ROOT, detail.file));
+  };
+  app.get(detail.route, handler);
+  app.get('/' + detail.file, handler);
+}
 
 const pages = {
   '/': 'index.html',
@@ -42,7 +59,7 @@ Object.entries(pages).forEach(([route, file]) => {
   app.get(route, (_req, res) => res.sendFile(path.join(ROOT, file)));
 });
 
-['index.html', 'projects.html', 'project.html', 'article.html', 'team.html', 'member.html', 'contact.html'].forEach((file) => {
+['index.html', 'projects.html', 'team.html', 'contact.html'].forEach((file) => {
   app.get(`/${file}`, (_req, res) => res.sendFile(path.join(ROOT, file)));
 });
 

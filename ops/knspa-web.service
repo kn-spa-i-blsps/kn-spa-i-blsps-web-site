@@ -1,0 +1,13 @@
+[Unit]
+Description=KN SPA website
+After=network.target
+[Service]
+WorkingDirectory=/home/misc/knspa/knspa-web-source
+EnvironmentFile=/home/misc/knspa/.config/knspa/app.env
+ExecStart=/usr/bin/python3 /home/misc/knspa/.local/lib/knspa/run-app.py
+Restart=always
+RestartPreventExitStatus=75
+RestartSec=3
+UMask=0077
+[Install]
+WantedBy=default.target

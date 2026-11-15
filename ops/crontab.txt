@@ -1,0 +1,2 @@
+
+* * * * * /usr/bin/python3 /home/misc/knspa/.local/lib/knspa/watchdog.py >/dev/null 2>&1 # knspa-web-recovery

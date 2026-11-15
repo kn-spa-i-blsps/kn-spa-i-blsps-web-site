@@ -1,5 +1,6 @@
 const API = '/api';
-let token = localStorage.getItem('admin_token');
+let token = null;
+localStorage.removeItem('admin_token');
 let currentEdit = null;
 let currentType = null;
 let cloudinaryEnabled = false;
@@ -50,7 +51,6 @@ async function showAdmin(username) {
 }
 
 async function checkAuth() {
-  if (!token) return showLogin();
   try {
     const me = await api('/auth/me');
     showAdmin(me.username);
@@ -82,7 +82,6 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
       }),
     });
     token = data.token;
-    localStorage.setItem('admin_token', token);
     showAdmin(data.username || String(fd.get('username') || '').trim());
   } catch (ex) {
     err.textContent = ex.message || 'Błąd logowania';
