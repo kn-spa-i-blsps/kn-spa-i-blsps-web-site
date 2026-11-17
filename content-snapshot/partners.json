@@ -1,128 +1,128 @@
 [
   {
-    "id": 1,
+    "id": 20,
     "name": "Politechnika Warszawska",
     "url": "https://www.pw.edu.pl/",
-    "logo": "https://www.ch.pw.edu.pl/var/ch/storage/images/media/images/logo-pw/14895-2-pol-PL/logo-PW_imagelarge.png",
+    "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770965/kn-spa-i-blsps/test/da6390d13e3f95c314a5d2713de51cabe47295984f3bfe52a8cf9ad5da3db96c.png",
     "category": "partner"
   },
   {
-    "id": 2,
+    "id": 21,
     "name": "Uniwersytet Warszawski",
     "url": "https://www.uw.edu.pl/",
-    "logo": "https://www.uw.edu.pl/wp-content/uploads/2017/07/logo-2-11.png",
+    "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770961/kn-spa-i-blsps/test/9699e53e6ae9dc04906921bf91e620c43e3d286ff701ff2bf97f61d2ae33772f.png",
     "category": "partner"
   },
   {
-    "id": 3,
+    "id": 22,
     "name": "Creotech GEO",
     "url": "https://creotech.pl/",
-    "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1775328864/kn-spa-i-blsps/logos/Creotech_GEO.png",
+    "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770961/kn-spa-i-blsps/test/66004172a115b6447616435fbc3a72cb52c3afb055dd4e7d713ac4bb29ceb5be.png",
     "category": "partner"
   },
   {
-    "id": 4,
+    "id": 23,
     "name": "Inkubator UW",
     "url": "https://iuw.edu.pl/",
-    "logo": "https://iuw.edu.pl/wp-content/uploads/2022/07/logo-inkubator.svg",
+    "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770962/kn-spa-i-blsps/test/771dbfd0c643a03bd096c13cbdff99fc87606c19f8418b185436ce1b1c83e03c.svg",
     "category": "partner"
   },
   {
-    "id": 5,
+    "id": 24,
     "name": "Botland",
     "url": "https://botland.com.pl",
-    "logo": "https://botland.com.pl/img/polska-logo-1603126632.jpg",
+    "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770961/kn-spa-i-blsps/test/49958b6264c37c6f0fe1d6df9e1fd1ef3debaae671d3049dd2d32d4e09f7b2cd.png",
     "category": "partner"
   },
   {
-    "id": 6,
-    "name": "Siemens",
-    "url": "https://www.siemens.com/en-us/",
-    "logo": "https://press.siemens.com/profiles/c2_base/modules/c2cms_instance_logo/assets/sag-logo.png",
-    "category": "support"
-  },
-  {
-    "id": 7,
-    "name": "Fundacja Orlen",
-    "url": "https://fundacja.orlen.pl/pl",
-    "logo": "https://mojemiejscenaziemi.pl/wp-content/uploads/2022/07/Logo-ORLEN.png",
-    "category": "support"
-  },
-  {
-    "id": 8,
-    "name": "Our Future Foundation",
-    "url": "https://off.org.pl/",
-    "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1775329364/kn-spa-i-blsps/logos/OFF.png",
-    "category": "support"
-  },
-  {
-    "id": 9,
-    "name": "Instytut Geofizyki PAN",
-    "url": "https://www.igf.edu.pl/",
-    "logo": "https://www.igf.edu.pl/app/uploads/2025/05/igf-pl-colour-scaled.png",
-    "category": "support"
-  },
-  {
-    "id": 10,
-    "name": "IDUB",
-    "url": "https://inicjatywadoskonalosci.uw.edu.pl/en/",
-    "logo": "https://inicjatywadoskonalosci.uw.edu.pl/wp-content/uploads/sites/11/2021/07/logotyp-IDUB-EN-poziom-kolor.svg",
-    "category": "support"
-  },
-  {
-    "id": 11,
-    "name": "NCBR",
-    "url": "https://www.gov.pl/web/ncbr",
-    "logo": "https://www.gov.pl/logo/3fe4125e-947b-4513-bdcd-cf161ce5871d",
-    "category": "support"
-  },
-  {
-    "id": 12,
-    "name": "Uczelnie przyszłości",
-    "url": "https://www.gov.pl/web/ncbr/projekt-uczelnie-przyszlosci",
-    "logo": "https://p.lodz.pl/sites/default/files/styles/max_250x250/public/2025-02/uczelenie_przyszlosci_logo.png",
-    "category": "support"
-  },
-  {
-    "id": 13,
-    "name": "PTAK Warsaw Expo",
-    "url": "https://warsawexpo.eu/",
-    "logo": "https://warsawexpo.eu/wp-content/uploads/2019/07/logo-white.png",
-    "category": "support"
-  },
-  {
-    "id": 14,
-    "name": "Ministerstwo Nauki i Szkolnictwa Wyższego",
-    "url": "https://www.gov.pl/web/nauka",
-    "logo": "https://www.gov.pl/img/units/nauka/05_znak_uproszczony_kolor_biale_tlo.png",
-    "category": "support"
-  },
-  {
-    "id": 15,
+    "id": 25,
     "name": "Urząd Patentowy RP",
     "url": "https://uprp.gov.pl/pl",
-    "logo": "https://uprp.gov.pl/sites/default/files/2020-03/logo%20uprp_1.png",
+    "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770963/kn-spa-i-blsps/test/a740c68ef481075c718e4d125aadba73997795273a38742a05d69f55569983d0.png",
     "category": "partner"
   },
   {
-    "id": 16,
+    "id": 26,
     "name": "Solidexpert",
     "url": "https://solidexpert.com/",
-    "logo": "https://solidexpert.com/wp-content/themes/solidexpert/images/solidexpert-visiativ.webp",
+    "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770964/kn-spa-i-blsps/test/a25e46c4603ed3da82fa0e679a4879f72c91aaedee8a3aad5deab96e5f93cb45.webp",
     "category": "partner"
   },
   {
-    "id": 17,
-    "name": "Fundacja UV",
-    "url": "https://fundacjauv.org.pl/",
-    "logo": "https://fundacjauv.org.pl/wp-content/uploads/2019/02/logo.png",
-    "category": "support"
-  },
-  {
-    "id": 18,
+    "id": 27,
     "name": "WB Group",
     "url": "https://www.wbgroup.pl/",
-    "logo": "/bluespark/sponsors/wb-group.png",
+    "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770964/kn-spa-i-blsps/test/bec9e601cb3f616077794b81b7262d8693d05a1226c7f3253e56a38313102452.png",
+    "category": "partner"
+  },
+  {
+    "id": 28,
+    "name": "Siemens",
+    "url": "https://www.siemens.com/en-us/",
+    "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770965/kn-spa-i-blsps/test/15e94796aa5b26bdf767ad581cfa156727d6a2d68a488371a6c25b87d3c3b285.png",
+    "category": "partner"
+  },
+  {
+    "id": 29,
+    "name": "Fundacja Orlen",
+    "url": "https://fundacja.orlen.pl/pl",
+    "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770962/kn-spa-i-blsps/test/5a52ca9a5022c1899f2a24b8e313ca294a06d51136f005d28d8f7a5d772a34cc.png",
+    "category": "partner"
+  },
+  {
+    "id": 30,
+    "name": "Our Future Foundation",
+    "url": "https://off.org.pl/",
+    "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770962/kn-spa-i-blsps/test/10b2b65fc9eb9b56e6c59d777cddcac8586e485891a27d3082022e021e927c66.png",
+    "category": "partner"
+  },
+  {
+    "id": 31,
+    "name": "Instytut Geofizyki PAN",
+    "url": "https://www.igf.edu.pl/",
+    "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770964/kn-spa-i-blsps/test/039dac3906a683cdf16ca4f0f2ac572a718e0cea2cf36fa526a3d6b6ede6e874.png",
+    "category": "partner"
+  },
+  {
+    "id": 32,
+    "name": "IDUB",
+    "url": "https://inicjatywadoskonalosci.uw.edu.pl/en/",
+    "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770962/kn-spa-i-blsps/test/d3e27c86853ff46ea8c945fd863c26f1e697191e069c680bcbdc248e2af4e3d1.svg",
+    "category": "partner"
+  },
+  {
+    "id": 33,
+    "name": "NCBR",
+    "url": "https://www.gov.pl/web/ncbr",
+    "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770965/kn-spa-i-blsps/test/75a4c8c3af290832b10f7e2b97661d2d2d396091d03d7618bf4c9359699e5772.svg",
+    "category": "partner"
+  },
+  {
+    "id": 34,
+    "name": "Uczelnie przyszłości",
+    "url": "https://www.gov.pl/web/ncbr/projekt-uczelnie-przyszlosci",
+    "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770963/kn-spa-i-blsps/test/c7582e3b3180ea9cbe90e40edd0aee8c2d383e3e4dd91aa77148947168de0f94.png",
+    "category": "partner"
+  },
+  {
+    "id": 35,
+    "name": "PTAK Warsaw Expo",
+    "url": "https://warsawexpo.eu/",
+    "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770962/kn-spa-i-blsps/test/7af20fc52e308c2e6e78c20376aca244dbf3082fae913af37b1b2be5d5230737.png",
+    "category": "partner"
+  },
+  {
+    "id": 36,
+    "name": "Ministerstwo Nauki i Szkolnictwa Wyższego",
+    "url": "https://www.gov.pl/web/nauka",
+    "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770965/kn-spa-i-blsps/test/b9f0478d6ca2b697c981270ee5a4c6a0de5574049fa9253594e1f404b3b0edf2.png",
+    "category": "partner"
+  },
+  {
+    "id": 37,
+    "name": "Fundacja UV",
+    "url": "https://fundacjauv.org.pl/",
+    "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770964/kn-spa-i-blsps/test/bc5b79ccf00d03ed02a2a3e1fcf4a36d2aa217657411ea074805bfee464d175b.png",
     "category": "partner"
   }
 ]

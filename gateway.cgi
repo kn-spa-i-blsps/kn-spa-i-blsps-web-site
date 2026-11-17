@@ -2,7 +2,7 @@
 import os,sys,http.client
 uri=os.environ.get('REQUEST_URI','/')
 length=int(os.environ.get('CONTENT_LENGTH') or 0)
-if length>32*1024*1024:
+if length>64*1024*1024:
     sys.stdout.write('Status: 413 Payload Too Large\r\nContent-Type: text/plain\r\n\r\nUpload too large')
     sys.exit()
 body=sys.stdin.buffer.read(length) if length else None

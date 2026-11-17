@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Admin | KN SPA i BLSPS</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/admin/admin.css?v=contact-protection-20261115">
+  <link rel="stylesheet" href="/admin/admin.css?v=member-privacy-zero-20261115">
 </head>
 <body>
   <!-- Login -->
@@ -40,12 +40,13 @@
         <p style="font-size:0.75rem;color:var(--fg-muted);margin-top:0.25rem" id="user-info"></p>
       </div>
       <ul class="sidebar-nav">
-        <li><a href="/test/index.html">Test &rarr;</a></li>
+        <li><a href="/" target="_blank" rel="noopener">Strona główna &rarr;</a></li>
         <li><a href="#" data-section="news" class="active">Aktualności</a></li>
         <li><a href="#" data-section="members">Członkowie</a></li>
         <li><a href="#" data-section="projects">Projekty</a></li>
         <li><a href="#" data-section="partners">Partnerzy</a></li>
         <li><a href="#" data-section="messages">Wiadomości <span id="messages-badge" class="messages-badge" hidden></span></a></li>
+        <li><a href="#" data-section="site">Strona i kontakt</a></li>
         <li><a href="#" data-section="settings">Ustawienia</a></li>
         <li><a href="#" id="logout-btn" style="margin-top:2rem;color:var(--danger)">Wyloguj</a></li>
       </ul>
@@ -116,6 +117,7 @@
         <div class="messages-pagination"><button type="button" class="btn" id="messages-prev">← Poprzednie</button><span id="messages-page"></span><button type="button" class="btn" id="messages-next">Następne →</button></div>
       </section>
 
+      <section id="section-site" class="section-panel hidden"><div class="page-header"><h2>Strona główna i kontakt</h2></div><div id="site-editor"></div></section>
       <!-- Settings -->
       <section id="section-settings" class="section-panel hidden">
         <div class="page-header"><h2>Ustawienia</h2></div>
@@ -154,6 +156,6 @@
   </div>
 
   <div class="toast" id="toast"></div>
-  <script src="/admin/admin.js?v=contact-protection-20261115"></script>
+  <script src="/admin/admin.js?v=member-privacy-zero-20261115"></script>
 </body>
 </html>

@@ -36,7 +36,7 @@ function showLogin() {
 }
 
 async function showAdmin(username) {
-  if(new URLSearchParams(location.search).get('next')==='/test/index.html'){
+  if(false){
     location.replace('/test/index.html');return;
   }
   document.getElementById('login-screen').style.display = 'none';
@@ -110,6 +110,7 @@ document.getElementById('modal-close').onclick = closeModal;
 document.getElementById('modal-cancel').onclick = closeModal;
 
 function openModal(title, html, onSave) {
+  document.getElementById('modal-form').onchange=null;document.getElementById('modal-form').onclick=null;
   document.getElementById('modal-title').textContent = title;
   document.getElementById('modal-form').innerHTML = html;
   modal.classList.add('open');
@@ -139,15 +140,15 @@ document.getElementById('modal-form').addEventListener('submit', async (e) => {
 function bilingualFields(prefix, data = {}) {
   return `
     <div class="form-row">
-      <div class="form-group"><label>${prefix} (PL)</label><textarea name="${prefix}_pl" class="tall">${data[`${prefix}_pl`] || ''}</textarea></div>
-      <div class="form-group"><label>${prefix} (EN)</label><textarea name="${prefix}_en">${data[`${prefix}_en`] || ''}</textarea></div>
+      <div class="form-group"><label>${prefix} (PL)</label><textarea name="${prefix}_pl" class="tall">${esc(data[`${prefix}_pl`] || '')}</textarea></div>
+      <div class="form-group"><label>${prefix} (EN)</label><textarea name="${prefix}_en">${esc(data[`${prefix}_en`] || '')}</textarea></div>
     </div>`;
 }
 
 // ─── Load tables ─────────────────────────────────────────────
 
 async function loadAll() {
-  await Promise.all([loadNews(), loadMembers(), loadProjects(), loadPartners(), loadMessages()]);
+  await Promise.all([loadNews(), loadMembers(), loadProjects(), loadPartners(), loadMessages(), loadSiteEditor()]);
 }
 
 async function loadNews() {
@@ -155,7 +156,7 @@ async function loadNews() {
   document.getElementById('news-table').innerHTML = rows.map((r) => `
     <tr>
       <td class="mono">${r.date}</td>
-      <td>${r.featured ? '<span title="Wyróżniony na stronie głównej">★</span> ' : ''}${r.title_pl}</td>
+      <td>${r.featured ? '<span title="Wyróżniony na stronie głównej">★</span> ' : ''}${esc(r.title_pl)}</td>
       <td class="mono" style="color:var(--fg-muted)">${r.id}</td>
       <td>
         <button type="button" class="btn btn-sm ${r.featured ? 'btn-primary' : ''}" title="Wyróżnij na stronie głównej" onclick="toggleNewsFeatured('${r.id}')">${r.featured ? '★' : '☆'}</button>
@@ -169,8 +170,8 @@ async function loadMembers() {
   const rows = await api('/admin/members');
   document.getElementById('members-table').innerHTML = rows.map((r) => `
     <tr>
-      <td>${r.name}</td>
-      <td>${r.role_pl}</td>
+      <td>${esc(r.name)}</td>
+      <td>${esc(r.role_pl)}</td>
       <td class="mono" style="color:var(--fg-muted)">${r.id}</td>
       <td>
         <button class="btn btn-sm" onclick="editMember('${r.id}')">Edytuj</button>
@@ -181,9 +182,10 @@ async function loadMembers() {
 
 async function loadProjects() {
   const rows = await api('/admin/projects');
+  projectChoices=rows;
   document.getElementById('projects-table').innerHTML = rows.map((r) => `
     <tr>
-      <td>${r.title}</td>
+      <td>${esc(r.title)}</td>
       <td class="mono" style="color:var(--fg-muted)">${r.id}</td>
       <td>${r.ordering}</td>
       <td>
@@ -197,8 +199,8 @@ async function loadPartners() {
   const rows = await api('/admin/partners');
   document.getElementById('partners-table').innerHTML = rows.map((r) => `
     <tr>
-      <td>${r.name}</td>
-      <td>${r.category}</td>
+      <td>${esc(r.name)}</td>
+      <td>${esc(r.category)}</td>
       <td>${r.sort_order}</td>
       <td>
         <button class="btn btn-sm" onclick="editPartner(${r.id})">Edytuj</button>
@@ -215,7 +217,7 @@ window.deleteItem = async (type, id) => {
 };
 
 function esc(s) {
-  return String(s || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+  return String(s ?? '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 }
 
 function parseJsonField(val, fallback = []) {
@@ -232,7 +234,7 @@ function formatOptions(selected) {
 }
 
 function linkRowHTML(link = {}, idx = 0) {
-  const label = link.label || {};
+  const label = typeof link.label === 'string' ? {pl:link.label,en:link.label} : link.label || {};
   return `
     <div class="link-row">
       <div class="form-row">
@@ -318,6 +320,7 @@ function articleFormHTML(r = {}, isNew = false) {
       <div class="form-group"><label>Tytuł PL *</label><input name="title_pl" required value="${esc(r.title_pl || '')}"></div>
       <div class="form-group"><label>Tytuł EN</label><input name="title_en" value="${esc(r.title_en || '')}"></div>
     </div>
+    <div class="form-group"><label>Projekt / kategoria</label><select name="project_id">${projectOptions(r.project_id||'kn')}</select></div>
     ${bilingualFields('short_desc', r)}
     <div class="form-group">
       <label>Format treści</label>
@@ -516,6 +519,7 @@ function collectNewsPayload(fd) {
     links: collectLinks(),
     published: fd.get('published') === '1',
     featured: fd.get('featured') === '1',
+    project_id: fd.get('project_id')||'kn',
   };
 }
 
@@ -534,6 +538,7 @@ function newsRowToPayload(r, overrides = {}) {
     links: parseJsonField(r.links),
     published: r.published !== 0,
     featured: !!r.featured,
+    project_id: r.project_id||'kn',
     ...overrides,
   };
 }
@@ -567,7 +572,7 @@ window.editNews = async (id) => {
   if (!r) return;
   currentEdit = r;
   currentType = 'news';
-  openModal(`Edytuj: ${r.title_pl}`, articleFormHTML(r, false), async (fd) => {
+  openModal(`Edytuj: ${esc(r.title_pl)}`, articleFormHTML(r, false), async (fd) => {
     await api(`/admin/news/${r.id}`, { method: 'PUT', body: JSON.stringify(collectNewsPayload(fd)) });
   });
   setTimeout(initArticleMediaHandlers, 50);
@@ -609,7 +614,7 @@ window.editMember = async (id) => {
   const rows = await api('/admin/members');
   const r = rows.find((x) => x.id === id);
   if (!r) return;
-  openModal(`Edytuj: ${r.name}`, `
+  openModal(`Edytuj: ${esc(r.name)}`, `
     <div class="form-group"><label>Imię</label><input name="name" required value="${esc(r.name)}"></div>
     <div class="form-row">
       <div class="form-group"><label>Rola PL</label><input name="role_pl" value="${esc(r.role_pl)}"></div>
@@ -667,7 +672,7 @@ window.editProject = async (id) => {
   const rows = await api('/admin/projects');
   const r = rows.find((x) => x.id === id);
   if (!r) return;
-  openModal(`Edytuj: ${r.title}`, `
+  openModal(`Edytuj: ${esc(r.title)}`, `
     <div class="form-group"><label>Nazwa</label><input name="title" required value="${esc(r.title)}"></div>
     <div class="form-group"><label>Pełny tytuł</label><input name="full_title" value="${esc(r.full_title)}"></div>
     <div class="form-group"><label>Kolejność</label><input type="number" name="ordering" value="${r.ordering}"></div>
@@ -714,7 +719,7 @@ window.editPartner = async (id) => {
   const rows = await api('/admin/partners');
   const r = rows.find((x) => x.id === id);
   if (!r) return;
-  openModal(`Edytuj: ${r.name}`, `
+  openModal(`Edytuj: ${esc(r.name)}`, `
     <div class="form-group"><label>Nazwa</label><input name="name" required value="${esc(r.name)}"></div>
     <div class="form-group"><label>URL</label><input name="url" value="${esc(r.url)}"></div>
     <div class="form-group"><label>Logo URL</label><input name="logo" value="${esc(r.logo)}"></div>
@@ -780,5 +785,108 @@ document.getElementById('messages-list').addEventListener('click', async event =
     await loadMessages();
   } catch (ex) { toast(ex.message, true); button.disabled = false; }
 });
+
+// Redesign editors: all values below feed the same database as the public site.
+let projectChoices=[];
+const inputField=(label,name,value='',type='text')=>`<div class="form-group"><label>${esc(label)}</label><input type="${type}" name="${esc(name)}" value="${esc(value)}"></div>`;
+const textField=(label,name,value='')=>`<div class="form-group"><label>${esc(label)}</label><textarea name="${esc(name)}" class="tall">${esc(value)}</textarea></div>`;
+const pairFields=(label,prefix,data={})=>`<div class="form-row">${textField(label+' PL',prefix+'_pl',data[prefix+'_pl']||'')}${textField(label+' EN',prefix+'_en',data[prefix+'_en']||'')}</div>`;
+const checkboxField=(label,name,value=true)=>`<div class="form-group"><label><input type="checkbox" name="${esc(name)}" ${value?'checked':''}> ${esc(label)}</label></div>`;
+const mediaField=(label,name,value='',video=false)=>`${inputField(label,name,value)}<label class="btn btn-sm">Wgraj ${video?'film':'obraz'} do Cloudinary<input type="file" hidden data-upload-field="${esc(name)}" accept="${video?'video/mp4,video/webm':'image/*,.heic,.heif'}"></label><p class="form-hint">Po przesłaniu pliku zapisz formularz.</p>`;
+function projectOptions(value='kn'){return `<option value="kn" ${value==='kn'?'selected':''}>KN SPA</option>`+projectChoices.map(p=>`<option value="${esc(p.id)}" ${value===p.id?'selected':''}>${esc(p.title)}</option>`).join('');}
+function aboutRow(a={}){return `<fieldset class="editor-row project-about"><legend>Sekcja opisu</legend>${pairFields('Nagłówek','heading',a)}${pairFields('Treść','text',a)}<button type="button" class="btn btn-sm" data-remove-row>Usuń sekcję</button></fieldset>`;}
+function photoRow(p={},layout=false){return `<fieldset class="editor-row photo-row">${mediaField('URL zdjęcia','photo-url',p.url||'')}${inputField('Podpis PL','caption_pl',p.caption_pl||'')}${inputField('Podpis EN','caption_en',p.caption_en||'')}${layout?inputField('Rozmiar w siatce (np. w2 h2)','layout',p.layout||''):''}<button type="button" class="btn btn-sm" data-remove-row>Usuń zdjęcie</button></fieldset>`;}
+function readPhotos(container){return [...document.querySelectorAll(container+' .photo-row')].map(row=>({url:row.querySelector('[name="photo-url"]').value,caption_pl:row.querySelector('[name="caption_pl"]').value,caption_en:row.querySelector('[name="caption_en"]').value,layout:row.querySelector('[name="layout"]')?.value||''})).filter(p=>p.url);}
+function getModalId(){
+ const form=document.getElementById('modal-form'),id=form.querySelector('[name="id"]');
+ if(id&&!id.value){const source=form.querySelector('[name="name"],[name="title"]')?.value||'';id.value=source.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ł/g,'l').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');if(!id.value)throw Error('Najpierw podaj nazwę lub ID');}
+ return id?.value||currentEdit?.id||'website';
+}
+function bindEnhancedUploads(category){
+ const form=document.getElementById('modal-form');
+ form.onchange=async event=>{
+  const fileInput=event.target;if(!fileInput.matches('[data-upload-field]')||!fileInput.files?.length)return;
+  const field=fileInput.dataset.uploadField;
+  const scope=fileInput.closest('.photo-row')||form;
+  const urlInput=scope.querySelector(`[name="${field}"]`);
+  const save=document.getElementById('modal-save');save.disabled=true;fileInput.disabled=true;
+  try{
+   const role=fileInput.closest('.photo-row')?'gallery':field.replace(/_/g,'-');
+   const url=await uploadMediaFile(fileInput.files[0],{category,entityId:getModalId(),role,index:Date.now()});
+   urlInput.value=url;
+   if(category==='member'){const show=form.querySelector('[name="show_photo"]');if(show)show.checked=true;}
+   toast('Plik w Cloudinary. Zapisz formularz.');
+  }catch(ex){toast(ex.message,true);}finally{save.disabled=false;fileInput.disabled=false;fileInput.value='';}
+ };
+ form.onclick=event=>{
+  const remove=event.target.closest('[data-remove-row]');if(remove){remove.closest('fieldset').remove();return;}
+  const add=event.target.closest('[data-add-row]');if(!add)return;
+  const target=form.querySelector('#'+add.dataset.addRow);
+  target.insertAdjacentHTML('beforeend',add.dataset.kind==='about'?aboutRow():photoRow({},add.dataset.layout==='true'));
+ };
+}
+async function editRedesignMember(id){
+ const [rows,projects,site]=await Promise.all([api('/admin/members'),api('/admin/projects'),api('/admin/site')]);
+ const r=id?rows.find(r=>r.id===id):{};if(!r)return;currentEdit=r;
+ const assigned=parseJsonField(r.assignments);const groups=[...site.groups];for(const p of projects)if(!groups.some(g=>g.id===p.id))groups.push({id:p.id,g:p.title});
+ openModal(id?'Edytuj: '+r.name:'Nowy członek',`
+ ${inputField('Imię i nazwisko','name',r.name)}${!id?inputField('ID (np. jan-kowalski)','id'):''}
+ ${inputField('Główna rola PL','role_pl',r.role_pl)}${inputField('Główna rola EN','role_en',r.role_en)}
+ ${checkboxField('Widoczny w zespole','is_active',r.is_active!==0)}${checkboxField('Pokazuj zdjęcie','show_photo',r.show_photo!==0)}
+ ${mediaField('Zdjęcie','photo_url',r.photo_url||'')}
+ <h3>Przypisania do zespołów</h3><p class="form-hint">Zaznacz zespoły i wpisz rolę danej osoby w każdym z nich.</p>
+ ${groups.map(g=>{const a=assigned.find(a=>a.group===g.id)||{};return `<fieldset class="editor-row member-assignment" data-group="${esc(g.id)}">${checkboxField(g.g,'assigned',!!a.group)}${inputField('Rola PL','assignment-role-pl',a.role_pl||r.role_pl)}${inputField('Rola EN','assignment-role-en',a.role_en||r.role_en)}</fieldset>`;}).join('')}
+ ${pairFields('Opis profilu — zachowany, ukryty publicznie','bio',r)}${textField('Linki profilu (JSON) — ukryte publicznie','socials',r.socials||'[]')}${inputField('Kolejność','sort_order',r.sort_order??999,'number')}
+ `,async fd=>{
+  const assignments=[...document.querySelectorAll('.member-assignment')].filter(row=>row.querySelector('[name="assigned"]').checked).map(row=>({group:row.dataset.group,role_pl:row.querySelector('[name="assignment-role-pl"]').value||fd.get('role_pl'),role_en:row.querySelector('[name="assignment-role-en"]').value||fd.get('role_en')}));
+  if(fd.has('is_active')&&!assignments.length)throw Error('Przypisz widoczną osobę do przynajmniej jednego zespołu');
+  const payload={...Object.fromEntries(fd),assignments,is_active:fd.has('is_active'),show_photo:fd.has('show_photo'),sort_order:Number(fd.get('sort_order'))||0};
+  await api('/admin/members'+(id?'/'+id:''),{method:id?'PUT':'POST',body:JSON.stringify(payload)});
+ });bindEnhancedUploads('member');
+}
+async function editRedesignProject(id){
+ const [projects,members]=await Promise.all([api('/admin/projects'),api('/admin/members')]);const r=id?projects.find(p=>p.id===id):{};if(!r)return;currentEdit=r;
+ const w=parseJsonField(r.website,{}),team=parseJsonField(r.team_ids);
+ openModal(id?'Edytuj: '+r.title:'Nowy projekt',`
+ ${inputField('Nazwa','title',r.title)}${!id?inputField('ID projektu (np. nowy-projekt)','id'):''}${inputField('Kolejność','ordering',r.ordering??999,'number')}
+ ${pairFields('Krótki opis karty','short_desc',r)}${pairFields('Hasło projektu','title',w)}${pairFields('Wprowadzenie','lead',w)}
+ ${inputField('Kolor (#RRGGBB lub var(--bs))','color',w.color||'var(--kn)')}${pairFields('Kategoria','tag',w)}${pairFields('Środowisko','where',w)}${inputField('Wysokość / głębokość','alt',w.alt)}
+ ${mediaField('Logo projektu (przezroczyste)','logo_url',w.logo_url)}${mediaField('Ikona karty (opcjonalna)','favicon_url',w.favicon_url)}${mediaField('Ilustracja na karcie','illustration_url',w.illustration_url)}
+ <h3>Opis projektu</h3><div id="project-about-rows">${(w.about||[{}]).map(aboutRow).join('')}</div><button type="button" class="btn" data-add-row="project-about-rows" data-kind="about">+ Sekcja opisu</button>
+ ${inputField('Etap: 0 — koncepcja, 1 — prototyp, 2 — testy, 3 — wdrożenie','stage',w.stage??0,'number')}${checkboxField('Projekt zakończony','finished',w.finished)}
+ ${mediaField('Zdjęcie stanu projektu','image_url',r.image_url)}${pairFields('Podpis zdjęcia','done_caption',w)}${pairFields('Co już działa','done',w)}${pairFields('Następne kroki','plan',w)}
+ <h3>Galeria projektu</h3><div id="project-gallery-rows">${(w.gallery||[]).map(p=>photoRow(p)).join('')}</div><button type="button" class="btn" data-add-row="project-gallery-rows">+ Zdjęcie</button>
+ ${checkboxField('Sekcja Research','research',w.research)}${pairFields('Research (HTML)','research_html',w)}
+ <h3>Zespół projektu</h3>${members.filter(m=>m.is_active!==0).map(m=>checkboxField(m.name,'team:'+m.id,team.includes(m.id))).join('')}
+ `,async fd=>{
+  const website={...w};for(const key of ['color','alt','logo_url','illustration_url','favicon_url'])website[key]=fd.get(key)||'';
+  for(const key of ['title','lead','tag','where','done_caption','done','plan','research_html'])for(const lang of ['pl','en'])website[key+'_'+lang]=fd.get(key+'_'+lang)||'';
+  website.stage=Number(fd.get('stage'))||0;website.finished=fd.has('finished');website.research=fd.has('research');
+  website.about=[...document.querySelectorAll('.project-about')].map(row=>Object.fromEntries([...row.querySelectorAll('textarea')].map(input=>[input.name,input.value])));
+  website.gallery=readPhotos('#project-gallery-rows');
+  const payload={id:fd.get('id')||undefined,title:fd.get('title'),full_title:website.title_pl,ordering:Number(fd.get('ordering'))||0,short_desc_pl:fd.get('short_desc_pl'),short_desc_en:fd.get('short_desc_en'),website,image_url:fd.get('image_url')||'',team_ids:members.filter(m=>fd.has('team:'+m.id)).map(m=>m.id)};
+  await api('/admin/projects'+(id?'/'+id:''),{method:id?'PUT':'POST',body:JSON.stringify(payload)});
+ });bindEnhancedUploads('project');
+}
+async function editRedesignPartner(id){
+ const rows=await api('/admin/partners');const r=id?rows.find(p=>p.id===id):{};if(!r)return;currentEdit={...r,id:String(id||'partner-'+Date.now())};
+ openModal(id?'Edytuj: '+r.name:'Nowy partner',`${inputField('Nazwa','name',r.name)}${inputField('Adres strony partnera','url',r.url)}${mediaField('Logo','logo',r.logo)}<div class="form-group"><label>Kategoria</label><select name="category"><option value="partner">Partner</option><option value="support" ${r.category==='support'?'selected':''}>Wsparcie</option></select></div>${inputField('Kolejność','sort_order',r.sort_order??999,'number')}`,async fd=>api('/admin/partners'+(id?'/'+id:''),{method:id?'PUT':'POST',body:JSON.stringify({...Object.fromEntries(fd),sort_order:Number(fd.get('sort_order'))||0})}));bindEnhancedUploads('partner');
+}
+async function loadSiteEditor(){
+ const site=await api('/admin/site');window.currentSite=site;
+ document.getElementById('site-editor').innerHTML=`<button type="button" class="btn btn-primary" id="edit-site-button">Edytuj stronę główną i kontakt</button><p class="form-hint">Teksty PL/EN, adres e-mail, adres koła, zdjęcie sekcji „Kim jesteśmy” i galeria strony głównej.</p>`;
+ document.getElementById('edit-site-button').onclick=()=>{
+  currentEdit={id:'website'};
+  openModal('Strona główna i kontakt',`${inputField('Adres e-mail','email',site.contact.email)}${textField('Adres koła — bez tłumaczenia (może zawierać <br>)','address',site.contact.address)}${mediaField('Zdjęcie Kim jesteśmy','homeAboutImage',site.homeAboutImage||'')}${mediaField('Ikona karty koła','club-icon',site.icons.club)}${mediaField('Film Research','research-video',site.researchVideo||'',true)}<h3>Media społecznościowe</h3>${(site.socials||[]).map((social,i)=>inputField(social.name+' — URL','social-url-'+i,social.url)+inputField(social.name+' — opis','social-handle-'+i,social.handle)).join('')}
+  ${site.texts.map((item,i)=>`<fieldset class="editor-row"> <legend>${esc(item.label)}</legend>${textField('PL','copy-pl-'+i,item.pl)}${textField('EN','copy-en-'+i,item.en)}</fieldset>`).join('')}
+  <h3>Galeria strony głównej</h3><div id="site-gallery-rows">${site.homeGallery.map(p=>photoRow(p,true)).join('')}</div><button type="button" class="btn" data-add-row="site-gallery-rows" data-layout="true">+ Zdjęcie</button>`,async fd=>{
+   const next={...site,icons:{...site.icons,club:fd.get('club-icon')},researchVideo:fd.get('research-video'),socials:(site.socials||[]).map((social,i)=>({...social,url:fd.get('social-url-'+i),handle:fd.get('social-handle-'+i)})),contact:{email:fd.get('email'),address:fd.get('address')},homeAboutImage:fd.get('homeAboutImage'),homeGallery:readPhotos('#site-gallery-rows'),texts:site.texts.map((item,i)=>({...item,pl:fd.get('copy-pl-'+i),en:fd.get('copy-en-'+i)}))};
+   await api('/admin/site',{method:'PUT',body:JSON.stringify(next)});loadSiteEditor();
+  });bindEnhancedUploads('site');
+ };
+}
+document.getElementById('add-member-btn').onclick=()=>editRedesignMember();window.editMember=editRedesignMember;
+document.getElementById('add-project-btn').onclick=()=>editRedesignProject();window.editProject=editRedesignProject;
+document.getElementById('add-partner-btn').onclick=()=>editRedesignPartner();window.editPartner=editRedesignPartner;
 
 checkAuth();

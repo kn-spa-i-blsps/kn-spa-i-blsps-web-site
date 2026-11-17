@@ -1,5 +1,5 @@
 import db from './db.js';
-import { memberPhoto, projectCover, newsCover, isPlaceholderImage, probeNumberedGallery } from './cloudinary.js';
+import { projectCover, newsCover, isPlaceholderImage, probeNumberedGallery } from './cloudinary.js';
 
 function parseJson(str, fallback = []) {
   try {
@@ -14,7 +14,7 @@ function bilingual(pl, en) {
 }
 
 export async function getAllContent() {
-  const members = db.prepare('SELECT * FROM members ORDER BY sort_order, name').all().map(formatMember);
+  const members = db.prepare('SELECT * FROM members WHERE is_active=1 ORDER BY sort_order, name').all().map(formatMember);
   const projects = db.prepare('SELECT * FROM projects ORDER BY ordering, title').all().map(formatProject);
   const newsRows = db.prepare('SELECT * FROM news WHERE published = 1 ORDER BY date DESC').all();
   const news = await Promise.all(newsRows.map(enrichNewsGallery));
@@ -32,18 +32,15 @@ async function enrichNewsGallery(row) {
   return item;
 }
 
+// Public allowlist: biography, socials and profile-only metadata stay in admin.
 export function formatMember(row) {
+  const photo=row.show_photo===1 ? (row.photo_url||'') : '';
   return {
-    id: row.id,
-    name: row.name,
-    role: bilingual(row.role_pl, row.role_en),
-    bio: bilingual(row.bio_pl, row.bio_en),
-    customTags: parseJson(row.custom_tags).map((t) =>
-      typeof t === 'string' ? { pl: t, en: t } : t
-    ),
-    socials: parseJson(row.socials),
-    photo: row.photo_url || memberPhoto(row.id),
-    photoUrl: row.photo_url || '',
+    id:row.id,
+    name:row.name,
+    role:bilingual(row.role_pl,row.role_en),
+    photo,
+    photoUrl:photo,
   };
 }
 

@@ -65,7 +65,7 @@ function signParams(params) {
   return crypto.createHash('sha1').update(sorted + API_SECRET).digest('hex');
 }
 
-async function uploadToCloudinary(buffer, { folder, publicId, filename }) {
+async function uploadToCloudinary(buffer, { folder, publicId, filename, resource = 'image' }) {
   const timestamp = Math.round(Date.now() / 1000);
   const params = { folder, timestamp };
   if (publicId) params.public_id = publicId;
@@ -79,7 +79,7 @@ async function uploadToCloudinary(buffer, { folder, publicId, filename }) {
   form.append('folder', folder);
   if (publicId) form.append('public_id', publicId);
 
-  const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD}/image/upload`, {
+  const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD}/${resource}/upload`, {
     method: 'POST',
     body: form,
   });
@@ -103,7 +103,8 @@ function buildRelativePath(category, entityId, role, index, ext) {
     return `news/${entityId}/${n}.${ext}`;
   }
   if (category === 'member') return `members/${entityId}.${ext}`;
-  if (category === 'project') return `projects/${entityId}/main.${ext}`;
+  if (category === 'project') return `projects/${entityId}/${role === 'cover' ? 'main' : role === 'gallery' ? String(index || 1) : role}.${ext}`;
+  if (['site','partner'].includes(category)) return `${category}/${entityId}/${role || 'main'}.${ext}`;
   throw new Error('Nieznana kategoria uploadu');
 }
 
@@ -116,14 +117,15 @@ function cloudinaryTarget(category, entityId, role, index) {
     return { folder: 'kn-spa-i-blsps/members', publicId: entityId };
   }
   if (category === 'project') {
-    return { folder: 'kn-spa-i-blsps/projects', publicId: `${entityId}/main` };
+    return { folder: 'kn-spa-i-blsps/projects', publicId: `${entityId}/${role === 'cover' ? 'main' : role === 'gallery' ? String(index || 1) : role}` };
   }
+  if (['site','partner'].includes(category)) return { folder: `kn-spa-i-blsps/${category}`, publicId: `${entityId}/${role || 'main'}` };
   throw new Error('Nieznana kategoria uploadu');
 }
 
 /** Zapisuje obraz na Cloudinary (jeśli skonfigurowane) lub lokalnie na dysku serwera. */
 export async function persistImage(buffer, mimetype, { category, entityId, role = 'cover', index, originalname }) {
-  if (!entityId) throw new Error('entityId jest wymagane');
+  if (!/^[a-z0-9][a-z0-9-]{0,100}$/i.test(String(entityId)) || !/^[a-z0-9-]+$/i.test(role)) throw new Error('Niepoprawne ID lub rola pliku');
 
   const ext = extFromMime(mimetype, originalname);
   const relativePath = buildRelativePath(category, entityId, role, index, ext);
@@ -138,4 +140,14 @@ export async function persistImage(buffer, mimetype, { category, entityId, role 
 
 export function defaultNewsFolder(articleId) {
   return `kn-spa-i-blsps/news/${articleId}`;
+}
+
+export const mediaUpload=multer({storage:multer.memoryStorage(),limits:{fileSize:50*1024*1024},fileFilter:(_req,file,cb)=>{
+ if(file.mimetype?.startsWith('image/')||['video/mp4','video/webm'].includes(file.mimetype))return cb(null,true);
+ cb(new Error('Dozwolone są obrazy oraz filmy MP4/WebM'));
+}});
+export async function persistVideo(buffer,mimetype,{entityId,role='video'}){
+ if(!/^[a-z0-9][a-z0-9-]{0,100}$/i.test(String(entityId))||!/^[a-z0-9-]+$/i.test(role))throw new Error('Niepoprawne ID pliku');
+ if(!isCloudinaryConfigured())throw new Error('Przesyłanie filmu wymaga Cloudinary');
+ return uploadToCloudinary(buffer,{folder:'kn-spa-i-blsps/site',publicId:entityId+'/'+role,filename:mimetype==='video/webm'?'video.webm':'video.mp4',resource:'video'});
 }

@@ -1,0 +1,1765 @@
+{
+  "P": {
+    "bluespark": {
+      "name": "BlueSpark",
+      "c": "var(--bs)",
+      "tag": "POD WODĄ",
+      "where": "pod wodą",
+      "alt": "−10 m",
+      "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770929/kn-spa-i-blsps/test/ab5c151cb0ecd1e68c2bdb46784acd8a5a7aadfd844f266798e598c5ec320998.png",
+      "ill": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770929/kn-spa-i-blsps/test/061cae04e5686ddb1b1222b279b28bdadb0ab40d6f9f51313e1523a3e8386441.png",
+      "short": "Autonomiczny dron podwodny, który nawiguje dzięki wizji komputerowej.",
+      "title": "Robot podwodny, który nawiguje wzrokiem",
+      "lead": "BlueSpark to autonomiczny dron podwodny (AUV), który docelowo stanie się częścią roju, czyli systemu wielu współpracujących ze sobą robotów."
+    },
+    "snows-eye": {
+      "name": "Snow’s Eye",
+      "c": "var(--se)",
+      "tag": "W ARKTYCE",
+      "where": "nad lodowcem",
+      "alt": "78°N",
+      "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770926/kn-spa-i-blsps/test/1ac88959d4631c58be5ca4def7e39c6bc189324c2354bb1efa6a1d41eea7ed9a.png",
+      "ill": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770928/kn-spa-i-blsps/test/da44c20f900e30f6cacc7e69e3b7d93d180499884de7e6686944447d8ba839fe.png",
+      "short": "Zakończony projekt autonomicznego drona do misji w Arktyce.",
+      "title": "Autonomiczny lot tam, gdzie zawodzi GPS",
+      "lead": "Snow’s Eye to autonomiczna platforma UAV zaprojektowana do operacji w warunkach polarnych i tam, gdzie sygnał GNSS jest ograniczony. Projekt zakończyliśmy kampanią terenową na Svalbardzie i pracą naukową zaprezentowaną na konferencji Arctic Frontiers 2026 w Tromsø."
+    },
+    "musc": {
+      "name": "MUSC",
+      "c": "var(--mu)",
+      "tag": "NA LĄDZIE",
+      "where": "rój nisko nad ziemią",
+      "alt": "0–100 m",
+      "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770931/kn-spa-i-blsps/test/ecaaba7b0c727618e2f8ab122e73475f4d54346645caf7eade48e7c0df9e356f.png",
+      "ill": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770931/kn-spa-i-blsps/test/029ee96df31521f75ae72ee247416ed940b4856f5dec401b39ae8f64b555b2d9.png",
+      "short": "Rój dronów bez stacji naziemnej i zewnętrznej nawigacji.",
+      "title": "Rój dronów bez dowódcy",
+      "lead": "MUSC to rozproszony system autonomicznego roju dronów, który działa bez stacji naziemnej i zewnętrznych systemów nawigacyjnych. Projekt realizujemy we współpracy z Uniwersytetem Wrocławskim i Politechniką Wrocławską."
+    },
+    "flysearch": {
+      "name": "FlySearch",
+      "c": "var(--fs)",
+      "tag": "W POWIETRZU",
+      "where": "w powietrzu",
+      "alt": "do 120 m",
+      "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770929/kn-spa-i-blsps/test/d5c9ae41cb2577d35ab8684502dc7408d670900d28213a98c78d8ad799fe50eb.png",
+      "ill": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770926/kn-spa-i-blsps/test/92a4a3942cf63ca8b3dc0b9c2562b5f588f4c623676719e0303425e682f8f712.png",
+      "short": "Dron sterowany przez model AI, któremu misję zlecasz słowami.",
+      "title": "Dron, któremu misję zlecasz słowami",
+      "lead": "Badamy, jak modele językowo-wizyjne (VLM) radzą sobie ze sterowaniem prawdziwym dronem i jak wykorzystują rozumowanie do szukania i rozpoznawania celów."
+    },
+    "hawk-eye": {
+      "name": "Hawk Eye",
+      "c": "var(--he)",
+      "tag": "W STRATOSFERZE",
+      "where": "w stratosferze",
+      "alt": "20–25 km",
+      "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770927/kn-spa-i-blsps/test/41c945b2afa40c4155813ba016c732bc7d4fca0b5604d176335a653fc76c59da.png",
+      "ill": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770929/kn-spa-i-blsps/test/95b194ef908fe4036a1dbb429767b54dae02320426a71045e4bb7ae925199399.png",
+      "short": "Pseudosatelita wynoszony balonem, który sam wraca na ziemię.",
+      "title": "Pseudosatelita, który wraca na ziemię",
+      "lead": "Budujemy stratosferycznego drona typu HAPS. Wynosi go balon meteorologiczny, w stratosferze mierzy parametry atmosfery, a potem autonomicznie wraca na ziemię. Lata wyżej niż drony, a kosztuje mniej niż satelity."
+    }
+  },
+  "X": {
+    "bluespark": {
+      "stage": 2,
+      "finished": false,
+      "research": true,
+      "researchHtml": {
+        "pl": "\n    <div class=\"gs-intro\">\n      <div>\n        <p class=\"eyebrow\">Research</p>\n        <h2 style=\"font-size:clamp(34px,4.4vw,56px);margin-top:10px\">Gaussian Splatting</h2>\n        <p class=\"gs-lead\">Niesamowita metoda, która pozwala tworzyć modele 3D całych scen z zaledwie kilku zdjęć.</p>\n        <p class=\"gs-p\">W naszym zespole badamy zastosowanie podwodnego Gaussian Splattingu do trenowania modeli wizji komputerowej. Z modelu 3D sceny generujemy „sztuczne” zdjęcia, na których robot uczy się rozpoznawać obiekty.</p>\n        <p class=\"gs-award\">Za tę pracę BlueSpark otrzymał Research Award na RoboSub 2026.</p>\n      </div>\n      <figure class=\"gs-fig\"><img src=\"https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770933/kn-spa-i-blsps/test/1a6578d58700518b1e5aa2d823fd793ea454935587d51c9f7b0f295bfdfb2d13.jpg\" alt=\"Prezentacja badań BlueSparka na konferencji OCEANS 2026 w Sanyi\" style=\"width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:16px\" loading=\"lazy\"></figure>\n    </div>\n    <figure class=\"gs-fig\" style=\"margin-top:28px\"><video class=\"gs-vid\" src=\"https://res.cloudinary.com/dsrdp5vrr/video/upload/v1794771434/kn-spa-i-blsps/test/749fe30653e330e6dbd476c64eb4222ebffa8bc001668ee7bc6dd8fe602d4034.mp4\" poster=\"https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770929/kn-spa-i-blsps/test/f788d55f6ff167df74f1e79943efd11928a1843de428d0463b5d029515df77e8.jpg\" autoplay muted loop playsinline controls preload=\"metadata\" aria-label=\"Przelot kamery przez scenę odtworzoną metodą Gaussian Splatting\"></video><figcaption>Przelot kamery przez scenę odtworzoną metodą Gaussian Splatting.</figcaption></figure>\n\n    <h3 class=\"gs-h3\">Od kilku zdjęć do danych treningowych</h3>\n    <ol class=\"gs-flow\">\n      <li><b>Zdjęcia</b><span>kilkadziesiąt ujęć sceny z basenu</span></li>\n      <li><b>Pozycje kamer</b><span>COLMAP sam ustala, skąd zrobiono zdjęcia</span></li>\n      <li><b>Model 3D</b><span>Gaussian Splatting odtwarza scenę razem z wodą</span></li>\n      <li><b>Sztuczne zdjęcia</b><span>nowe ujęcia z automatycznie zaznaczonymi obiektami</span></li>\n      <li><b>Trening AI</b><span>YOLO na zawody i wykrywanie anomalii</span></li>\n    </ol>\n\n\n    <details class=\"gs-tech\">\n      <summary><span>Dla dociekliwych: jak to działa od strony technicznej</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"><path d=\"m6 9 6 6 6-6\" /></svg></summary>\n      <div class=\"gs-tech-body\">\n        <p>Gaussian Splatting to bardzo sprytna metoda rekonstrukcji sceny z pojedynczych zdjęć. Dzięki programowi COLMAP nie potrzebujemy nawet danych o miejscach, z których robiono zdjęcia: na podstawie wspólnych punktów na zdjęciach program sam wyznacza względne pozycje kamer (tzw. camera poses).</p>\n        <p>Znając te pozycje, algorytm optymalizuje ułożenie gaussianów na scenie: tworzy je lub usuwa i dostosowuje ich parametry tak, aby rendery z tych samych miejsc, z których robiono zdjęcia, jak najbardziej przypominały oryginały.</p>\n        <div class=\"gs-stat\"><b>100×</b><span>Gaussian Splatting jest często ponad 100 razy szybszy niż wcześniejsze metody, takie jak NeRF. Efektem są bardzo przekonujące modele 3D.</span></div>\n        <p>Ponieważ gaussiany mają swoją fizyczną pozycję w przestrzeni, obiekty na scenie można łatwo zaznaczyć, oznaczając należące do nich gaussiany. Dzięki temu pomijamy żmudne ręczne oznaczanie danych na zdjęciach: pozycję szukanego obiektu na sztucznym zdjęciu generujemy automatycznie.</p>\n        <p>Używamy podwodnego Gaussian Splattingu, który wzbogaca model o reprezentację medium. W naszym przypadku jest to woda, ale może to być też na przykład mgła. Pracujemy nad zastosowaniem tej metody do skutecznego trenowania modeli wizji komputerowej: wykrywania anomalii oraz dotrenowywania modelu YOLO na zawody.</p>\n      </div>\n    </details>\n  ",
+        "en": "\n    <div class=\"gs-intro\">\n      <div>\n        <p class=\"eyebrow\">Research</p>\n        <h2 style=\"font-size:clamp(34px,4.4vw,56px);margin-top:10px\">Gaussian Splatting</h2>\n        <p class=\"gs-lead\">A remarkable technique that reconstructs entire 3D scenes from just a few photographs.</p>\n        <p class=\"gs-p\">Our team studies underwater Gaussian Splatting for training computer vision models. We generate synthetic images from a 3D scene, allowing a robot to learn to recognise objects.</p>\n        <p class=\"gs-award\">This research earned BlueSpark the Research Award at RoboSub 2026.</p>\n      </div>\n      <figure class=\"gs-fig\"><img src=\"https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770933/kn-spa-i-blsps/test/1a6578d58700518b1e5aa2d823fd793ea454935587d51c9f7b0f295bfdfb2d13.jpg\" alt=\"Presenting BlueSpark research at OCEANS 2026 in Sanya\" style=\"width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:16px\" loading=\"lazy\"></figure>\n    </div>\n    <figure class=\"gs-fig\" style=\"margin-top:28px\"><video class=\"gs-vid\" src=\"https://res.cloudinary.com/dsrdp5vrr/video/upload/v1794771434/kn-spa-i-blsps/test/749fe30653e330e6dbd476c64eb4222ebffa8bc001668ee7bc6dd8fe602d4034.mp4\" poster=\"https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770929/kn-spa-i-blsps/test/f788d55f6ff167df74f1e79943efd11928a1843de428d0463b5d029515df77e8.jpg\" autoplay muted loop playsinline controls preload=\"metadata\" aria-label=\"A camera fly-through of a scene reconstructed using Gaussian Splatting\"></video><figcaption>A camera fly-through of a scene reconstructed using Gaussian Splatting.</figcaption></figure>\n\n    <h3 class=\"gs-h3\">From photographs to training data</h3>\n    <ol class=\"gs-flow\">\n      <li><b>Photos</b><span>dozens of views of a pool scene</span></li>\n      <li><b>Camera poses</b><span>COLMAP automatically estimates where each photo was taken</span></li>\n      <li><b>3D model</b><span>Gaussian Splatting reconstructs the scene, including the water</span></li>\n      <li><b>Synthetic images</b><span>new views with automatically annotated objects</span></li>\n      <li><b>AI training</b><span>YOLO for competitions and anomaly detection</span></li>\n    </ol>\n\n\n    <details class=\"gs-tech\">\n      <summary><span>A closer look: the technical details</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"><path d=\"m6 9 6 6 6-6\" /></svg></summary>\n      <div class=\"gs-tech-body\">\n        <p>Gaussian Splatting is an ingenious technique for reconstructing scenes from individual photographs. With COLMAP, we do not even need to know where the photographs were taken: the software estimates the relative camera positions, known as camera poses, from points shared across the images.</p>\n        <p>Using these poses, the algorithm optimises the Gaussians in the scene: it creates or removes them and adjusts their parameters so that renders from the same viewpoints match the original photographs as closely as possible.</p>\n        <div class=\"gs-stat\"><b>100×</b><span>Gaussian Splatting is often more than 100 times faster than earlier methods such as NeRF. It produces highly convincing 3D reconstructions.</span></div>\n        <p>Because Gaussians have physical positions in space, objects in the scene can be annotated by selecting the Gaussians that belong to them. This removes the need for laborious manual image annotation: the position of an object in a synthetic image is generated automatically.</p>\n        <p>We use underwater Gaussian Splatting, which extends the model with a representation of the surrounding medium. In our case this is water, but it could also be fog, for example. We are exploring how this technique can improve computer vision training, including anomaly detection and fine-tuning YOLO for competitions.</p>\n      </div>\n    </details>\n  "
+      },
+      "about": [
+        [
+          "Opis",
+          "Głównym celem projektu jest dziś udział w renomowanych międzynarodowych zawodach robotów podwodnych, takich jak RoboSub i SAUVC. Rywalizujemy tam z czołowymi uczelniami świata, m.in. MIT, Stanfordem i NUS, choć nasze rozwiązanie kosztuje wielokrotnie mniej. Przygotowania do zawodów pozwalają dopracować szczegóły przed budową systemu wielu robotów, a same zawody są rzetelnym sprawdzianem naszych możliwości."
+        ],
+        [
+          "Jak to działa",
+          "Obecna wersja BlueSparka to sześciosilnikowy dron podwodny, którego konstrukcję w całości zaprojektował nasz zespół. Większość obudowy wydrukowaliśmy w technologii 3D. Zamiast drogich czujników powszechnie stosowanych w nawigacji podwodnej (np. DVL, akustycznego czujnika prędkości względem dna) dron nawiguje przede wszystkim dzięki algorytmom wizji komputerowej."
+        ],
+        [
+          "Zastosowanie",
+          "Tańsza alternatywa dla rozwiązań dostępnych na rynku pozwoli usprawnić lub zautomatyzować wiele zadań: od mapowania dna morskiego, przez monitorowanie infrastruktury krytycznej, po poszukiwanie złóż metali ziem rzadkich."
+        ]
+      ],
+      "doneImg": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770940/kn-spa-i-blsps/test/6e94895e2c5cd016ed5da633b6168f498dbe142e59afda5454d80406b6ddf02f.jpg",
+      "doneCap": "BlueSpark w drodze do basenu na zawodach RoboSub 2026 w Kalifornii.",
+      "done": "Poprzednia wersja drona przeszła test w rzeczywistych warunkach na zawodach RoboSub 2026 w Kalifornii. Choć debiutowaliśmy, jury doceniło nasze prace badawcze nagrodą. Równolegle rozwijamy zaawansowaną symulację, w której regularnie testujemy strategie i kod, zanim trafią na sprzęt. Wyniki badań prezentowaliśmy na konferencjach OCEANS w Sanyi i ECCV w Malmö. Obecnie budujemy trzecią wersję drona.",
+      "plan": "W tym roku zaczynamy prace nad systemem wielu współpracujących robotów i zmierzymy się z problemem komunikacji między nimi pod wodą. Chcemy też umocnić naszą pozycję na arenie międzynarodowej i powtórzyć sukces na zawodach.",
+      "gallery": [
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770939/kn-spa-i-blsps/test/639bd1358147512afe04e1dbf5016b800b1fc2413a9c192a672c1fa8db62d762.jpg",
+          "caption_pl": "Zdjęcie z projektu BlueSpark",
+          "caption_en": "Photo from the BlueSpark project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770941/kn-spa-i-blsps/test/8cfe273b02f56d41e5c75536e6f01374a19fbf64b9e5b8776a0286c848ada14d.jpg",
+          "caption_pl": "Zdjęcie z projektu BlueSpark",
+          "caption_en": "Photo from the BlueSpark project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770939/kn-spa-i-blsps/test/a7b8667a4d53ba0de41d83e2c8dabd5e6c8233b18755e6f12dc6ad4b852edd72.jpg",
+          "caption_pl": "Zdjęcie z projektu BlueSpark",
+          "caption_en": "Photo from the BlueSpark project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770936/kn-spa-i-blsps/test/784ddbd058d521bf877944c876c04f8f43c4f2ad67769d07fb2eafd77115141c.jpg",
+          "caption_pl": "Zdjęcie z projektu BlueSpark",
+          "caption_en": "Photo from the BlueSpark project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770935/kn-spa-i-blsps/test/2738863a71ccff5361ee2ff7de30e24f6867668949e599f46ff29e51c024ab73.jpg",
+          "caption_pl": "Zdjęcie z projektu BlueSpark",
+          "caption_en": "Photo from the BlueSpark project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770935/kn-spa-i-blsps/test/24ae7a5d24e5723a292d53c74ed93057356573636efb08d22ebdb965c48d87c9.jpg",
+          "caption_pl": "Zdjęcie z projektu BlueSpark",
+          "caption_en": "Photo from the BlueSpark project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770936/kn-spa-i-blsps/test/b79b9e8883d08bfe726227121c9494d6a91ab31919ee384eedbadbb0ddc5cb64.jpg",
+          "caption_pl": "Zdjęcie z projektu BlueSpark",
+          "caption_en": "Photo from the BlueSpark project"
+        }
+      ]
+    },
+    "snows-eye": {
+      "stage": 3,
+      "finished": true,
+      "research": false,
+      "researchHtml": {
+        "pl": "",
+        "en": ""
+      },
+      "about": [
+        [
+          "Opis",
+          "Regiony polarne to jedne z najtrudniejszych miejsc dla dronów: zakłócenia elektromagnetyczne, niskie temperatury, silne wiatry i brak infrastruktury wsparcia. Snow’s Eye odpowiada na te wyzwania wielowarstwową architekturą lokalizacji, która łączy GNSS, VIO/SLAM i awaryjny system oparty na UWB. Dzięki niemu dron może bezpiecznie wrócić do punktu startu, nawet gdy zawiedzie nawigacja lub łączność."
+        ],
+        [
+          "Jak to działa",
+          "Platforma jest zoptymalizowana pod autonomiczne misje na niskim pułapie. Precyzyjne dalmierze i algorytmy kontroli lotu pozwalają na stabilne pomiary w trudnym terenie. Zintegrowany system planowania misji odciąża operatora i umożliwia powtarzalne kampanie badawcze. Architektura nie jest przywiązana do jednego modelu drona, więc można ją zintegrować z różnymi klasami UAV i dopasować do konkretnych zadań naukowych."
+        ],
+        [
+          "Zastosowanie",
+          "Autonomiczne misje badawcze w Arktyce i innych miejscach, gdzie GPS i łączność są zawodne. Platforma może przenosić różne specjalistyczne ładunki naukowe, np. sonar do pomiaru pokrywy śnieżnej."
+        ]
+      ],
+      "doneImg": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770943/kn-spa-i-blsps/test/86547a133f2f540af89f7869e1f17fac18e2d1288b7cad23fd2fcdc59e212d66.jpg",
+      "doneCap": "Jan Mikołajczyk z posterem o Snow’s Eye na konferencji Arctic Frontiers 2026 w Tromsø.",
+      "done": "W maju 2025 roku przeprowadziliśmy kampanię terenową na Svalbardzie, na lodowcu i polach śnieżnych, w ujemnych temperaturach i przy silnym wietrze. Dron wykonywał autonomiczne misje po zaplanowanych punktach i mierzył pokrywę śnieżną z wysokości ok. 0,5 m nad powierzchnią, a wyniki porównywaliśmy z pomiarami referencyjnymi. Wyniki opisaliśmy w pracy „Snow’s Eye – UAV based acoustic system for measuring snow water equivalent in polar region”, którą zaprezentowaliśmy w formie posteru na konferencji Arctic Frontiers 2026 w Tromsø. Praca została zakwalifikowana do konkursu Arctic Frontiers–PeerJ Early Career Scientist Award.",
+      "plan": "Snow’s Eye to zakończony projekt. Pomiary na Svalbardzie potwierdziły, że akustyczny pomiar pokrywy śnieżnej z drona jest wykonalny w warunkach polarnych. Pokazaliśmy też, że uniwersalna platforma autonomiczna może przenosić specjalistyczne ładunki naukowe i bezpiecznie pracować tam, gdzie zawodzą GPS i łączność.",
+      "gallery": [
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770932/kn-spa-i-blsps/test/7eb4a0232c258959faa92def361670cc4f42c80914cfed2f6f280817fedfc170.jpg",
+          "caption_pl": "Zdjęcie z projektu Snow’s Eye",
+          "caption_en": "Photo from the Snow’s Eye project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770940/kn-spa-i-blsps/test/fbdaaad29d4ce57d91cd193d13a67c2bb8d8c8958513875cf4389bbb9ca21710.jpg",
+          "caption_pl": "Zdjęcie z projektu Snow’s Eye",
+          "caption_en": "Photo from the Snow’s Eye project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770932/kn-spa-i-blsps/test/bcb7ee53510b9a1a4496ddf758f5a9af16b67495acc66c32581d5c7e0f183101.jpg",
+          "caption_pl": "Zdjęcie z projektu Snow’s Eye",
+          "caption_en": "Photo from the Snow’s Eye project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770932/kn-spa-i-blsps/test/8a0cc60ace222c0486ca979213263a8d47145a68487714a71da7c10b3688823d.jpg",
+          "caption_pl": "Zdjęcie z projektu Snow’s Eye",
+          "caption_en": "Photo from the Snow’s Eye project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770938/kn-spa-i-blsps/test/8afe2918163925fe5083392055917be3876b88e8160316ef525864bba5b65b9e.jpg",
+          "caption_pl": "Zdjęcie z projektu Snow’s Eye",
+          "caption_en": "Photo from the Snow’s Eye project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770943/kn-spa-i-blsps/test/6a547d7b7ba669160b867b57ecffb1327cff14a2525937edbb325dc08babe899.jpg",
+          "caption_pl": "Zdjęcie z projektu Snow’s Eye",
+          "caption_en": "Photo from the Snow’s Eye project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770937/kn-spa-i-blsps/test/394e0e24ec0eaed984de362211777d6354948a74c57b14e59e291d6cd10a9b6e.jpg",
+          "caption_pl": "Zdjęcie z projektu Snow’s Eye",
+          "caption_en": "Photo from the Snow’s Eye project"
+        }
+      ]
+    },
+    "musc": {
+      "stage": 1,
+      "finished": false,
+      "research": false,
+      "researchHtml": {
+        "pl": "",
+        "en": ""
+      },
+      "about": [
+        [
+          "Opis",
+          "MUSC to modułowy system autonomii dla dronów. Rozwiązuje problem uzależnienia rojów od zewnętrznej infrastruktury nawigacyjnej i ich podatności na zakłócenia łączności radiowej. Dane są przetwarzane bezpośrednio na pokładzie, a drony wymieniają tylko minimum informacji, dzięki czemu mogą bezpiecznie współpracować i utrzymywać formację w trudnych warunkach, bez stałego nadzoru człowieka."
+        ],
+        [
+          "Jak to działa",
+          "Architektura jest modułowa, więc czujniki i elementy wykonawcze można dodawać bez przebudowy całego systemu. Drony określają wzajemne położenie dzięki systemom wizyjnym i radiowym pomiarom odległości UWB. Algorytmy zachowania roju, sterowania formacją i unikania kolizji rozwijamy i sprawdzamy w symulacji, a docelowe oprogramowanie uruchomimy na komputerze pokładowym połączonym z kontrolerem lotu."
+        ],
+        [
+          "Zastosowanie",
+          "Autonomiczne misje w wymagającym otoczeniu lub przy ograniczonej łączności radiowej, np. we wnętrzach budynków czy w trudnym terenie. System może też służyć zespołom badawczym, studentom i twórcom dronów jako elastyczna baza do testowania własnych czujników i algorytmów sterowania."
+        ]
+      ],
+      "doneImg": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770928/kn-spa-i-blsps/test/d1044c3c7eb58ee6cde21815fec87f04a986065fa27d915164fa53b4c2c42c6e.png",
+      "doneCap": "Skuteczność bezkolizyjnego przelotu roju 100–200 dronów z opóźnieniami komunikacji (po lewej) i bez nich (po prawej). Wykres pokazuje, jak ważny jest niezależny system unikania kolizji.",
+      "done": "Stworzyliśmy środowisko symulacyjne, które sprawdza zachowanie roju przy opóźnieniach i szumach. Potwierdziliśmy w nim stabilność formacji i skuteczne omijanie przeszkód. Na stanowisku sprzętowym uruchomiliśmy komunikację z kontrolerem lotu: telemetria płynie stabilnie w czasie rzeczywistym, a komendy sterujące są poprawnie przyjmowane i potwierdzane. Trwają testy algorytmów wizyjnych i konfiguracja komputera pokładowego.",
+      "plan": "Celem jest w pełni autonomiczny, skalowalny rój dronów, który realizuje zadania bez nadrzędnego systemu sterowania i zewnętrznej infrastruktury. Najbliższe kroki: uruchomienie oprogramowania na komputerze pokładowym, integracja podsystemu wizyjnego i pierwsze testy modułów UWB do lokalnego pozycjonowania dronów.",
+      "gallery": [
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770939/kn-spa-i-blsps/test/183c11db172f18738349a34d018d14962e0c1a4d7f482b516fcfe6acecb21505.jpg",
+          "caption_pl": "Zdjęcie z projektu MUSC",
+          "caption_en": "Photo from the MUSC project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770944/kn-spa-i-blsps/test/93c86a3045b1d2e8564640491e392d944e2664599c69dc670c7e598acd33a34b.jpg",
+          "caption_pl": "Zdjęcie z projektu MUSC",
+          "caption_en": "Photo from the MUSC project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770934/kn-spa-i-blsps/test/b51be70cb0eb9647d2aa2a8d660248667e297b0835f8be30958ffd55d2d6f7d4.jpg",
+          "caption_pl": "Zdjęcie z projektu MUSC",
+          "caption_en": "Photo from the MUSC project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770934/kn-spa-i-blsps/test/3c17db7fb2545f937f2a67c402e793abda82fd3069e079a60cc9166479941fea.jpg",
+          "caption_pl": "Zdjęcie z projektu MUSC",
+          "caption_en": "Photo from the MUSC project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770933/kn-spa-i-blsps/test/b77b7f2c91f153f08bf0f07a682ce133de782c89fe33c35eac0398f74baffa59.jpg",
+          "caption_pl": "Zdjęcie z projektu MUSC",
+          "caption_en": "Photo from the MUSC project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770935/kn-spa-i-blsps/test/a68b7d7ea79975314a4ab6a8b6d710ad817397d8c8d809b6bb790dda646a5d60.jpg",
+          "caption_pl": "Zdjęcie z projektu MUSC",
+          "caption_en": "Photo from the MUSC project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770937/kn-spa-i-blsps/test/da9237b0b00181090b8ef2f262c0e8ea1c77b289c481998812f8e6dbe1c6ff7c.jpg",
+          "caption_pl": "Zdjęcie z projektu MUSC",
+          "caption_en": "Photo from the MUSC project"
+        }
+      ]
+    },
+    "flysearch": {
+      "stage": 3,
+      "finished": false,
+      "research": false,
+      "researchHtml": {
+        "pl": "",
+        "en": ""
+      },
+      "about": [
+        [
+          "Opis",
+          "Modele językowe potrafią już prawie wszystko, więc sprawdzamy, jak poradzą sobie z nawigacją dronem, szczególnie w nieznanym terenie. FlySearch rozwija pracę naukową współtworzoną m.in. przez opiekuna koła, Marka Cygana, w której analizowano, jak modele językowe sterują dronem w misjach poszukiwawczo-ratowniczych w symulacji. My przenosimy te badania do prawdziwego świata."
+        ],
+        [
+          "Jak to działa",
+          "Projekt sprawdza, jak modele językowe rozumieją przestrzeń i jak wyniki z symulacji przekładają się na rzeczywiste środowisko. Działamy na dwóch frontach. Trenujemy model w symulacji w Unreal Engine, na trójwymiarowych modelach terenu przygotowanych metodą Gaussian Splatting. Równolegle testujemy go na prawdziwym dronie z komputerem pokładowym, który przez sieć GSM łączy się z modelem przez nasze API. Model dostaje opis zadania, szukany obiekt i granice obszaru. Potem w pętli: dron wysyła zdjęcie i wysokość, model analizuje obraz, zwraca swoje rozumowanie i proponowany ruch, a dron go wykonuje."
+        ],
+        [
+          "Zastosowanie",
+          "Misję można zlecić zwykłym językiem, więc przygotować i przeprowadzić ją może nawet osoba, która nie zna się na sterowaniu dronami. To szczególnie obiecujące w poszukiwaniu osób i obiektów w terenie."
+        ]
+      ],
+      "doneImg": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770941/kn-spa-i-blsps/test/8d0430f9f1a8d836bbf9c5ce65713429cc5158d20f5f8204746b2d15171a8a8d.jpg",
+      "doneCap": "Hubert Zientara, Jan Mikołajczyk i Jan Matusiak z posterem pracy FlyLLM na konferencji ML in PL 2026.",
+      "done": "Mamy działający system. Dron z komputerem pokładowym łączy się przez sieć GSM z modelem przez nasze API, wysyła zdjęcia i wysokość, a następnie wykonuje ruchy, które model wybiera na podstawie obrazu. Model trenujemy metodą uczenia ze wzmocnieniem w trójwymiarowych rekonstrukcjach prawdziwych miejsc wykonanych metodą Gaussian Splatting. Dotrenowany przez nas model Qwen3.5-9B osiągnął 51,72% skuteczności w benchmarku FlySearch FS-1 (60,88% w lesie i 42,55% w mieście), czyli o 22,41 pkt proc. więcej niż model bazowy. Wyniki zaprezentowaliśmy w pracy „FlyLLM: training VLMs with RL in Gaussian-splat environments to explore 3D spaces and navigate in the real world” na konferencji ML in PL 2026. Trwa finalna kampania testowa w prawdziwym świecie.",
+      "plan": "Celem jest opublikowanie wraz z zespołem pracy naukowej, która pokaże, jak modele językowo-wizyjne radzą sobie z prawdziwym dronem i jak wyniki z symulacji przekładają się na rzeczywisty świat. Najbliższy krok to zakończenie kampanii testowej i opracowanie jej wyników.",
+      "gallery": [
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770934/kn-spa-i-blsps/test/984b1cd64bb8c88972c1b3f8e8620fae9469d9a8ede5901af3a9316f0f40720c.jpg",
+          "caption_pl": "Zdjęcie z projektu FlySearch",
+          "caption_en": "Photo from the FlySearch project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770942/kn-spa-i-blsps/test/de84fa9d07e079dc0a21cdf9df24e0da2cfb44f796552ddf3eae129955c4a186.jpg",
+          "caption_pl": "Zdjęcie z projektu FlySearch",
+          "caption_en": "Photo from the FlySearch project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770941/kn-spa-i-blsps/test/c186362501762443116c101d3e78882f2174bc7dbdbb0ae2d5bc8eb9da940448.jpg",
+          "caption_pl": "Zdjęcie z projektu FlySearch",
+          "caption_en": "Photo from the FlySearch project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770937/kn-spa-i-blsps/test/28ab54a6e2b97816de17d26861f3163618ed2671e0789618bcddbb5a4045a7de.jpg",
+          "caption_pl": "Zdjęcie z projektu FlySearch",
+          "caption_en": "Photo from the FlySearch project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770942/kn-spa-i-blsps/test/8d0f8debed2eaebd768bb21a3b72e89155f973dda40bd23650434e17e5f41684.jpg",
+          "caption_pl": "Zdjęcie z projektu FlySearch",
+          "caption_en": "Photo from the FlySearch project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770944/kn-spa-i-blsps/test/5f42a0c090d9e2795864576606956878ac11cb8f8a4d460525edb685de9e2787.jpg",
+          "caption_pl": "Zdjęcie z projektu FlySearch",
+          "caption_en": "Photo from the FlySearch project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770943/kn-spa-i-blsps/test/40f21ea7ab6df4786f1b102c84d4ff5f65099c4d7f5634cbf90108e2f7d44dca.jpg",
+          "caption_pl": "Zdjęcie z projektu FlySearch",
+          "caption_en": "Photo from the FlySearch project"
+        }
+      ]
+    },
+    "hawk-eye": {
+      "stage": 2,
+      "finished": false,
+      "research": false,
+      "researchHtml": {
+        "pl": "",
+        "en": ""
+      },
+      "about": [
+        [
+          "Opis",
+          "Hawk Eye to pseudosatelita, czyli HAPS (High Altitude Platform Station): bezzałogowa platforma działająca w stratosferze. Dziś profile atmosfery mierzy się głównie radiosondami, które są jednorazowe i przepadają po każdym starcie. Nasz dron po pomiarach wraca na ziemię i może polecieć ponownie, co wyraźnie obniża koszt codziennego zbierania danych meteorologicznych. Jest też znacznie tańszy od satelity."
+        ],
+        [
+          "Jak to działa",
+          "Balon meteorologiczny wynosi drona na wysokość 20–25 km. Podczas wznoszenia czujniki zbierają profil atmosfery. Po odczepieniu od balonu dron wykonuje autonomiczny, kontrolowany lot powrotny. Kluczowa jest konstrukcja płatowca: duża rozpiętość skrzydeł pozwala zachować sterowność w bardzo rozrzedzonym powietrzu. Skrzydła pokrywamy powłokami przeciwoblodzeniowymi, a elektronika odpowiada za nawigację, autopilota i komunikację."
+        ],
+        [
+          "Zastosowanie",
+          "Platforma może zastąpić jednorazowe radiosondy w codziennym profilowaniu atmosfery, wspierać monitoring infrastruktury krytycznej i pomagać we wczesnym wykrywaniu skutków katastrof naturalnych. Skorzystają z niej służby meteorologiczne, instytucje naukowe, operatorzy infrastruktury i zarządzanie kryzysowe."
+        ]
+      ],
+      "doneImg": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770933/kn-spa-i-blsps/test/a2cfe0589f4bcdf64e88bd352293cd768cc33d74be930c20573f12cd148f5d78.jpg",
+      "doneCap": "Zespół Hawk Eye z pierwszym płatowcem o rozpiętości skrzydeł 3 m.",
+      "done": "Zbudowaliśmy pierwszy płatowiec o rozpiętości skrzydeł 3 m i testujemy go w locie: elektronikę, autonomię lotu i powłoki przeciwoblodzeniowe. Dotychczasowe loty zakończyły się sukcesem. Gondolę z elektroniką pomiarową przebadaliśmy w kriogenicznym tunelu aerodynamicznym w −30°C: zasilanie działało bez zarzutu, czujniki dawały poprawne odczyty, a system odczepiania od balonu zadziałał we wszystkich trzech próbach. Drugi prototyp płatowca jest w budowie.",
+      "plan": "Celem jest w pełni autonomiczna platforma HAPS, która po wyniesieniu balonem prowadzi pomiary w stratosferze, dzięki panelom fotowoltaicznym zostaje w powietrzu jak najdłużej i bezpiecznie wraca na ziemię. Najbliższy krok: lot gondoli do stratosfery, w którym sprawdzimy elektronikę, zasięg łączności i profilowanie atmosfery. Równolegle budujemy kolejny płatowiec i system autonomicznego lotu.",
+      "gallery": [
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770935/kn-spa-i-blsps/test/a61569e8ca6b803c790f35daa68b32c3c6867cd671d70ef05d1568037449c10d.jpg",
+          "caption_pl": "Zdjęcie z projektu Hawk Eye",
+          "caption_en": "Photo from the Hawk Eye project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770942/kn-spa-i-blsps/test/f5008bdd2146d2e16ed98dba00e9111c11fe74486eba1f723147c6b57344661b.jpg",
+          "caption_pl": "Zdjęcie z projektu Hawk Eye",
+          "caption_en": "Photo from the Hawk Eye project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770932/kn-spa-i-blsps/test/745d18c1105092afc0855aaa677c272901a432f2b0f58ed2b4af479deb7b1b77.jpg",
+          "caption_pl": "Zdjęcie z projektu Hawk Eye",
+          "caption_en": "Photo from the Hawk Eye project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770939/kn-spa-i-blsps/test/3ca18b2ead63b57e6cc4b232b8f3dffb3223d1b1813acb90a94cf85b1c7fae42.jpg",
+          "caption_pl": "Zdjęcie z projektu Hawk Eye",
+          "caption_en": "Photo from the Hawk Eye project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770934/kn-spa-i-blsps/test/e8edcf1ee5e2012374592cd2c96a9689dc968640493042366194708cc244228f.jpg",
+          "caption_pl": "Zdjęcie z projektu Hawk Eye",
+          "caption_en": "Photo from the Hawk Eye project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770936/kn-spa-i-blsps/test/da07a438db40bee7ab750ff823f6ca73628beccf176094ba6cdd49dbf19865ae.jpg",
+          "caption_pl": "Zdjęcie z projektu Hawk Eye",
+          "caption_en": "Photo from the Hawk Eye project"
+        },
+        {
+          "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770933/kn-spa-i-blsps/test/a2cfe0589f4bcdf64e88bd352293cd768cc33d74be930c20573f12cd148f5d78.jpg",
+          "caption_pl": "Zdjęcie z projektu Hawk Eye",
+          "caption_en": "Photo from the Hawk Eye project"
+        }
+      ]
+    }
+  },
+  "ORDER": [
+    "bluespark",
+    "snows-eye",
+    "musc",
+    "flysearch",
+    "hawk-eye"
+  ],
+  "TEAM": [
+    {
+      "g": "Zarząd",
+      "id": "zarzad",
+      "c": "var(--kn)",
+      "cols": 5,
+      "people": [
+        [
+          "Jan Mikołajczyk",
+          "Prezes"
+        ],
+        [
+          "Maria Ancerowicz",
+          "Wiceprezes"
+        ],
+        [
+          "Maciej Domagalski",
+          "Wiceprezes"
+        ],
+        [
+          "Igor Rostkowski",
+          "Wiceprezes"
+        ],
+        [
+          "Maciej Borowiecki",
+          "Członek zarządu"
+        ]
+      ]
+    },
+    {
+      "g": "BlueSpark",
+      "id": "bluespark",
+      "c": "var(--bs)",
+      "people": [
+        [
+          "Jan Mikołajczyk",
+          "Lider projektu · Konstrukcja"
+        ],
+        [
+          "Maciej Borowiecki",
+          "Lider projektu · Software"
+        ],
+        [
+          "Antoni Łyżwa",
+          "Konstruktor"
+        ],
+        [
+          "Julian Maleta",
+          "Konstruktor"
+        ],
+        [
+          "Szymon Jezierski",
+          "Konstruktor"
+        ],
+        [
+          "Marcin Wieczorek",
+          "Konstruktor · Administrator Strony"
+        ],
+        [
+          "Bartosz Ogórkiewicz",
+          "Software Engineer"
+        ],
+        [
+          "Hubert Zientara",
+          "Software Engineer"
+        ],
+        [
+          "Jan Ciecierski",
+          "Software Engineer"
+        ],
+        [
+          "Maciej Karwik",
+          "Software Engineer"
+        ],
+        [
+          "Miłosz Koczorowski",
+          "Software Engineer"
+        ]
+      ]
+    },
+    {
+      "g": "Research",
+      "parent": "BlueSpark",
+      "id": "bluespark-research",
+      "c": "var(--bs)",
+      "sub": "Sekcja badawcza BlueSparka",
+      "people": [
+        [
+          "Maciej Malewicz",
+          "Lider projektu · Research"
+        ],
+        [
+          "Aleksandra Lipińska",
+          "Software Engineer & Research"
+        ],
+        [
+          "Jan Matusiak",
+          "Software Engineer & Research"
+        ],
+        [
+          "Maria Turbak",
+          "Software Engineer & Research"
+        ]
+      ]
+    },
+    {
+      "g": "Snow’s Eye",
+      "id": "snows-eye",
+      "c": "var(--se)",
+      "people": [
+        [
+          "Jan Mikołajczyk",
+          "Lider projektu"
+        ],
+        [
+          "Hubert Zientara",
+          "Inżynier · Programista"
+        ]
+      ]
+    },
+    {
+      "g": "MUSC",
+      "id": "musc",
+      "c": "var(--mu)",
+      "people": [
+        [
+          "Jan Mikołajczyk",
+          "Lider sekcji architektury systemów i algorytmów sterowania"
+        ],
+        [
+          "Igor Rostkowski",
+          "Lider projektu · Lider sekcji elektroniki"
+        ],
+        [
+          "Radosław Pałys",
+          "Lider sekcji algorytmów sterowania · Research"
+        ],
+        [
+          "Szymon Skierski",
+          "Lider sekcji wizji komputerowej · Software Engineer"
+        ],
+        [
+          "Jan Gogulski",
+          "Elektronika"
+        ],
+        [
+          "Bartosz Kościołek",
+          "Elektronika"
+        ],
+        [
+          "Andrzej Pijanowski",
+          "Wizja komputerowa · Software Engineer"
+        ],
+        [
+          "Szymon Kowalski",
+          "Wizja komputerowa · Software Engineer"
+        ],
+        [
+          "Marcin Misiewicz",
+          "Architektura systemów · Software Engineer"
+        ],
+        [
+          "Wojciech Rybak",
+          "Algorytmy sterowania · Research"
+        ],
+        [
+          "Mikołaj Sczogel",
+          "Algorytmy sterowania · Research"
+        ],
+        [
+          "Krzysztof Korczak",
+          "Algorytmy sterowania · Research"
+        ],
+        [
+          "Sylwia Opat",
+          "Algorytmy sterowania · Research"
+        ]
+      ]
+    },
+    {
+      "g": "FlySearch",
+      "id": "flysearch",
+      "c": "var(--fs)",
+      "people": [
+        [
+          "Jan Mikołajczyk",
+          "Lider projektu · Elektronika"
+        ],
+        [
+          "Hubert Zientara",
+          "Lider zespołu software"
+        ],
+        [
+          "Jan Matusiak",
+          "Software Engineer"
+        ]
+      ]
+    },
+    {
+      "g": "Hawk Eye",
+      "id": "hawk-eye",
+      "c": "var(--he)",
+      "people": [
+        [
+          "Jan Mikołajczyk",
+          "Lider zespołu software"
+        ],
+        [
+          "Maciej Domagalski",
+          "Lider projektu"
+        ],
+        [
+          "Stanisław Świecki",
+          "Lider zespołu konstrukcyjnego"
+        ],
+        [
+          "Ksawery Radomski",
+          "Lider zespołu elektroniki"
+        ],
+        [
+          "Jakub Kucharski",
+          "Konstruktor"
+        ],
+        [
+          "Mateusz Filipiak",
+          "Konstruktor"
+        ],
+        [
+          "Szymon Gaładyk",
+          "Konstruktor"
+        ],
+        [
+          "Szymon Hejduk",
+          "Elektronik"
+        ],
+        [
+          "Hanna Marszałek",
+          "Programistka"
+        ],
+        [
+          "Anna Szkólska",
+          "Programistka"
+        ],
+        [
+          "Ksawier Krajewski",
+          "Programista"
+        ],
+        [
+          "Patryk Iżbicki",
+          "Programista"
+        ],
+        [
+          "Stanisław Kropiewnicki",
+          "Programista"
+        ]
+      ]
+    },
+    {
+      "g": "Business Team",
+      "id": "business",
+      "c": "#C2CCD8",
+      "sub": "Marketing, partnerstwa, finanse i komunikacja koła",
+      "people": [
+        [
+          "Maria Ancerowicz",
+          "Business Team Lead"
+        ],
+        [
+          "Jakub Gorzelany",
+          "Operations Coordinator"
+        ],
+        [
+          "Maciej Jakubowski",
+          "Finance Manager"
+        ],
+        [
+          "Antoni Just",
+          "PR Manager"
+        ],
+        [
+          "Iga Ochman",
+          "Social Media Manager"
+        ],
+        [
+          "Izabela Gródek",
+          "Visual Designer"
+        ]
+      ]
+    }
+  ],
+  "POSTS": [
+    {
+      "id": "eccv-2026-malmo",
+      "p": "bluespark",
+      "date": "2026-09-08",
+      "big": true,
+      "img": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770946/kn-spa-i-blsps/test/df7bed104381cbc12a00ff64b26caddab477350a05e1810eee7e71c2aedfec9f.jpg",
+      "t": "Nasz zespół na ECCV 2026: Prezentacja wyników badań nad podwodnym Computer Vision w Malmö",
+      "x": "W dniach 8–12 września reprezentacja naszego zespołu wzięła udział w prestiżowej konferencji European Conference on Computer Vision (ECCV 2026) w Malmö. Podczas wydarzenia zaprezentowaliśmy publikację pt. „Gaussian-Splat Synthetic Augmentation for Underwater Anomaly Detection: A Substitution Feasibility Study”. Praca dotyczy wykorzystania technologii Gaussian Splatting do syntezy danych i usprawnienia algorytmów detekcji anomalii w trudnych warunkach podwodnych. Udział w konferencji był okazją do zaprezentowania wyników naszych badań międzynarodowemu środowisku naukowemu oraz zebrania wartościowego feedbacku, który wykorzystamy przy kolejnych projektach R&D.",
+      "html": "<p>W dniach 8–12 września w Malmömässan oraz Malmö Arenie odbyła się 19. edycja European Conference on Computer Vision (ECCV 2026) — jednego z najważniejszych światowych wydarzeń poświęconych sztucznej inteligencji, uczeniu maszynowemu i analizie obrazu. Wśród badaczy z całego świata nie zabrakło również przedstawicieli naszego zespołu.</p>\n<h3>Prezentacja publikacji i posteru</h3>\n<p>Głównym punktem naszej obecności na konferencji była prezentacja artykułu naukowego zatytułowanego „Gaussian-Splat Synthetic Augmentation for Underwater Anomaly Detection: A Substitution Feasibility Study”.</p>\n<p>Praca koncentruje się na wyzwaniach związanych z pozyskiwaniem danych i precyzyjną detekcją obiektów oraz anomalii w podwodnym środowisku operacyjnym. W badaniu przeanalizowaliśmy wykonalność zastosowania technologii Gaussian Splatting do generowania syntetycznych zbiorów danych, oceniając stopień, w jakim mogą one zastąpić lub uzupełnić tradycyjne dane pomiarowe.</p>\n<h3>Wymiana doświadczeń i dalsze kroki</h3>\n<p>Sesja posterowa stworzyła przestrzeń do dyskusji z inżynierami i naukowcami zajmującymi się zaawansowaną analizą obrazu. Rozmowy z uczestnikami pozwoliły na walidację naszego podejścia oraz skonsultowanie metodologicznych szczegółów z ekspertami z branży. Udział w ECCV 2026 był cenny nie tylko ze względu na możliwość zaprezentowania wyników prac R&amp;D, ale także jako źródło nowej wiedzy technicznej, którą wdrożymy w kolejnych iteracjach naszych systemów.</p>",
+      "gallery": [
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770947/kn-spa-i-blsps/test/7a14237aa9ac60767f32d692d0a6d8f158b701eafbcef44023c41547921d08d4.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770947/kn-spa-i-blsps/test/178741b5f5fbd1a5cb0967402e54234e515e6f41516d90debf214594c8415d2b.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770946/kn-spa-i-blsps/test/63a8f1b3bb6c2664940b135f850d7a5a48829e18a29d1779de14c2a2d0e44dd7.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770947/kn-spa-i-blsps/test/07e46419e81e8e9f041340530bcc8a389e68a571d1004931638c74c5d5927947.jpg"
+      ],
+      "links": [],
+      "en": {
+        "t": "Our Team at ECCV 2026: Presenting Research on Underwater Computer Vision in Malmö",
+        "x": "From September 8–12, our team attended the European Conference on Computer Vision (ECCV 2026) in Malmö, Sweden. We presented our research paper, \"Gaussian-Splat Synthetic Augmentation for Underwater Anomaly Detection: A Substitution Feasibility Study\". The study focuses on leveraging Gaussian Splatting techniques to generate synthetic data and enhance anomaly detection systems operating in complex underwater environments. Participating in ECCV allowed us to share our R&D outcomes with the global computer vision community and gather technical feedback to drive our ongoing developments.",
+        "html": "<p>From September 8 to 12, the 19th European Conference on Computer Vision (ECCV 2026) took place at Malmömässan and Malmö Arena, bringing together leading global researchers in machine learning, AI, and visual computing. Our team attended the event to contribute to the technical program and engage with the international academic community.</p>\n<h3>Paper Presentation &amp; Poster Session</h3>\n<p>Our main contribution to the conference was the presentation of our research paper, titled &quot;Gaussian-Splat Synthetic Augmentation for Underwater Anomaly Detection: A Substitution Feasibility Study&quot;.</p>\n<p>The research addresses the operational challenges of data acquisition and accurate object detection in underwater environments. In this study, we evaluated the feasibility of applying 3D Gaussian Splatting for synthetic data augmentation, testing how effectively generated visual data can substitute for or complement real-world datasets in anomaly detection pipelines.</p>\n<h3>Technical Feedback and Next Steps</h3>\n<p>The poster sessions provided an opportunity for direct technical exchange with researchers and developers specializing in computer vision and robotics. The discussions yielded valuable insights into our current pipeline and highlighted potential areas for further optimization. Attending ECCV 2026 reinforced our R&amp;D roadmap and provided actionable feedback that will directly inform our upcoming projects.</p>",
+        "links": []
+      }
+    },
+    {
+      "id": "wccm-eccomas-2026-monachium",
+      "p": "kn",
+      "date": "2026-07-19",
+      "big": false,
+      "img": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770946/kn-spa-i-blsps/test/93973511237f983d3738970d69726f70219f68a152cd95f45fd25cfb9ad8e1a2.jpg",
+      "t": "Nasz zespół na WCCM-ECCOMAS 2026: Prezentacja wyników badań w projekcie NATO SPS w Monachium",
+      "x": "W dniach 19–24 lipca 2026 roku reprezentacja naszego zespołu wzięła udział w prestiżowej konferencji WCCM-ECCOMAS 2026 (17th World Congress on Computational Mechanics oraz 10th European Congress on Computational Methods in Applied Sciences and Engineering) w Monachium. Podczas wydarzenia przedstawiliśmy naszą prezentację przygotowaną w ramach projektu NATO Science for Peace and Security (SPS). Udział w konferencji był okazją do zaprezentowania wyników naszych prac międzynarodowemu środowisku naukowemu oraz zebrania wartościowego feedbacku od ekspertów z branży.",
+      "html": "<p>W dniach 19–24 lipca 2026 roku w Monachium odbyła się połączona konferencja WCCM-ECCOMAS 2026 (17th World Congress on Computational Mechanics oraz 10th European Congress on Computational Methods in Applied Sciences and Engineering) — jedno z najważniejszych międzynarodowych wydarzeń gromadzących badaczy, inżynierów i ekspertów z zakresu metod obliczeniowych i nauk inżynieryjnych. Wśród uczestników nie zabrakło również reprezentacji naszego zespołu. Głównym punktem naszej obecności była prezentacja podsumowująca prace badawcze realizowane w ramach projektu finansowanego ze środków programu NATO Science for Peace and Security (SPS). Wydarzenie stworzyło przestrzeń do merytorycznej dyskusji z naukowcami oraz praktykami zajmującymi się zaawansowaną technologią. Rozmowy kuluarowe i wymiana doświadczeń po wystąpieniu pozwoliły na skonsultowanie naszych rozwiązań z międzynarodowym środowiskiem naukowym, a zdobyta wiedza i feedback bezpośrednio zasilą kolejne etapy naszych prac badawczo-rozwojowych.</p>",
+      "gallery": [
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770945/kn-spa-i-blsps/test/96bc8891bd0cbbe08277005b86f696746d24e65467332dded6417daafe6bfccc.jpg"
+      ],
+      "links": [],
+      "en": {
+        "t": "Our Team at WCCM-ECCOMAS 2026: Presenting NATO SPS Research Outcomes in Munich",
+        "x": "From July 19–24, 2026, our team attended the WCCM-ECCOMAS 2026 conference (17th World Congress on Computational Mechanics and 10th European Congress on Computational Methods in Applied Sciences and Engineering) in Munich, Germany. During the event, we delivered a presentation developed under the NATO Science for Peace and Security (SPS) Programme. Participating in the congress allowed us to share our R&D outcomes with the global scientific community and gather technical feedback from industry experts.",
+        "html": "<p>From July 19 to 24, 2026, the joint WCCM-ECCOMAS 2026 congress (17th World Congress on Computational Mechanics and 10th European Congress on Computational Methods in Applied Sciences and Engineering) took place in Munich, Germany, bringing together leading global researchers, engineers, and experts in computational methods and engineering sciences. Our team attended the event to contribute to the technical program and engage with the international academic community. Our main contribution was a presentation showcasing outcomes from research conducted within the framework of a project supported by the NATO Science for Peace and Security (SPS) Programme. The congress provided a valuable platform for direct technical exchange with international specialists. The discussions following our presentation validated our approaches and provided actionable insights that will directly inform our upcoming R&amp;D iterations.</p>",
+        "links": []
+      }
+    },
+    {
+      "id": "robosub-2026-post-event",
+      "p": "bluespark",
+      "date": "2026-07-15",
+      "big": false,
+      "img": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770945/kn-spa-i-blsps/test/c8011148a5b9b7ecc216b65ad7eaaedbc34b596f8fce5cc52d067712e3dfb06a.jpg",
+      "t": "Sukces projektu BlueSpark na zawodach RoboSub 2026 w Kalifornii. Nagroda specjalna dla reprezentacji z Polski",
+      "x": "Polski zespół rozwijający autonomiczny pojazd podwodny BlueSpark wziął udział w międzynarodowych zawodach RoboSub 2026 w Kalifornii. Jako jedyna reprezentacja z Europy, studenci Uniwersytetu Warszawskiego zaprezentowali autorską konstrukcję zbudowaną w ciągu ostatniego roku. Wyjazd przyniósł zespołowi sukces w części naukowej – pojazd BlueSpark został wyróżniony nagrodą specjalną w kategorii Research za wykorzystanie technologii Gaussian splatting do generowania modeli 3D. Pomyślnie przeprowadzono również serię testów basenowych. Projekt zrealizowano przy wsparciu Grupy WB, Creotech Geo, Fundacji Universitatis Varsoviensis oraz Uniwersytetu Warszawskiego (Wydziału Fizyki, Wydziału MIM i Wydziału Zarządzania).",
+      "html": "<p>W lipcu 2026 roku zespół reprezentujący Uniwersytet Warszawski wziął udział w międzynarodowych zawodach robotów podwodnych RoboSub 2026, odbywających się w Kalifornii (USA). Projekt BlueSpark – autonomiczny pojazd podwodny (AUV) rozwijany przez ostatni rok – był jedynym reprezentantem Europy w tegorocznej edycji wydarzenia.</p>\n<p>Start w zawodach był dla debiutującego zespołu okazją do weryfikacji rozwiązań konstrukcyjnych i programistycznych w warunkach basenowych. Zebrane podczas testów dane inżynieryjne stanowią podstawę do dalszych prac nad rozwojem platformy. Kluczowym momentem wydarzenia było zaprezentowanie sędziom części badawczo-rozwojowej projektu.</p>\n<p>Zespół otrzymał nagrodę specjalną w kategorii Research (Special Award for Research). Uznanie sędziów zyskało innowacyjne podejście do generowania zbiorów danych modeli 3D z wykorzystaniem technologii Gaussian splatting, zrealizowane na bazie autorskiej, studenckiej konstrukcji.</p>\n<p>Realizacja projektu oraz udział w zawodach w USA były możliwe dzięki wsparciu partnerów biznesowych i akademickich. Głównym partnerem wyjazdu została Grupa WB. Projekt wsparły również firma Creotech Geo, Fundacja Universitatis Varsoviensis oraz Uniwersytet Warszawski, w tym Wydział Fizyki, Wydział Matematyki, Informatyki i Mechaniki oraz Wydział Zarządzania.</p>\n<p>Więcej informacji o projekcie i zdjęcia z prac zespołu znajdziesz na stronie: <a href=\"https://knspa.mimuw.edu.pl/projekty/bluespark\" target=\"_blank\" rel=\"noopener noreferrer\">BlueSpark</a>.</p>",
+      "gallery": [
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770945/kn-spa-i-blsps/test/bcf84749bbf9d383baa403a8102b06a1bb476c1f71ce621b16fee41ce8b064a7.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770946/kn-spa-i-blsps/test/4eb40db083d324a85635c1a2c4fc8fead97a8dc77be889f574f3756c6e848291.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770945/kn-spa-i-blsps/test/5803c09de78feba297069f9794669e60c0467d8faf59f352532c95b930d3534b.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770944/kn-spa-i-blsps/test/6af2a22d18a42df7789df1f8759bc9834f46b567f47cc6ecb90df3537b136d7a.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770944/kn-spa-i-blsps/test/8b60ae80f0eabcaf7be05cc9234e995b03736bf404fb28f7ea3fb3356bec2831.jpg"
+      ],
+      "links": [
+        {
+          "label": "Projekt BlueSpark",
+          "url": "https://knspa.mimuw.edu.pl/projekty/bluespark"
+        },
+        {
+          "label": "RoboSub 2026",
+          "url": "https://robosub.org/"
+        }
+      ],
+      "en": {
+        "t": "BlueSpark Project Awarded at RoboSub 2026 in California",
+        "x": "The team behind the BlueSpark autonomous underwater vehicle participated in the international RoboSub 2026 competition in California. As the only European team in attendance, the University of Warsaw students presented a custom vehicle built over the past year. The team achieved scientific recognition by winning the Special Award for Research for applying Gaussian splatting to 3D model generation, alongside completing planned pool tests. The initiative was supported by WB Group, Creotech Geo, Fundacja Universitatis Varsoviensis, and the University of Warsaw (Faculty of Physics, Faculty of MIM, and Faculty of Management).",
+        "html": "<p>In July 2026, the team representing the University of Warsaw participated in the RoboSub 2026 international underwater robotics competition in California, USA. The BlueSpark project—an autonomous underwater vehicle (AUV) developed over the past year—was the sole representative from Europe in this year&#x27;s competition.</p>\n<p>For the rookie team, the event provided an opportunity to validate hardware and software systems under operational pool conditions. The technical data collected during testing will form the foundation for future platform development. A key outcome of the event was the evaluation of the project&#x27;s research and development component by the judging panel.</p>\n<p>The team received the Special Award for Research. The judges recognized the innovative approach to generating 3D model datasets using Gaussian splatting, implemented within a student-developed robotic platform.</p>\n<p>The execution of the project and participation in the US event were supported by industry and academic partners. WB Group served as the Key Partner for the expedition. Additional support was provided by Creotech Geo, Fundacja Universitatis Varsoviensis, and the University of Warsaw, including the Faculty of Physics, the Faculty of Mathematics, Informatics and Mechanics, and the Faculty of Management.</p>\n<p>The full report with a photo gallery is available on the project page: <a href=\"https://knspa.mimuw.edu.pl/bluespark/en/competitions/robosub-2026/\" target=\"_blank\" rel=\"noopener noreferrer\">BlueSpark – RoboSub 2026</a>.</p>",
+        "links": [
+          {
+            "label": "BlueSpark project",
+            "url": "https://knspa.mimuw.edu.pl/projekty/bluespark"
+          },
+          {
+            "label": "RoboSub 2026",
+            "url": "https://robosub.org/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "konferencja-mlodzi-dzialaja-2026",
+      "p": "kn",
+      "date": "2026-06-23",
+      "big": false,
+      "img": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770960/kn-spa-i-blsps/test/ade0a7683e763c0ca7188206c55faec5379bd93eee4538f13a058e608a20e813.jpg",
+      "t": "Udział w konferencji „Młodzi działają” oraz grant na warsztaty w liceach – relacja",
+      "x": "Wzięliśmy udział w konferencji „Młodzi działają. Konferencja Aktywizacji Młodzieży w Życiu Publicznym 2026”. Wydarzenie było dla nas wyjątkowo udane, ponieważ oficjalnie odebraliśmy tam mini grant na realizację naszego projektu społecznego „Warsztaty kompetencji inżynierskich”, które będziemy przeprowadzać w liceach.",
+      "html": "Wzięliśmy udział w konferencji „Młodzi działają. Konferencja Aktywizacji Młodzieży w Życiu Publicznym 2026”, skupiającej młodych aktywistów, organizacje społeczne oraz przedstawicieli sektora publicznego. Dla naszego koła ten dzień przyniósł przede wszystkim ogromny sukces – podczas oficjalnej części wydarzenia odebraliśmy mini grant przeznaczony na realizację naszego autorskiego projektu społecznego „Warsztaty kompetencji inżynierskich”. Przyznane nam dofinansowanie pozwoli na sfinansowanie i organizację cyklu zajęć praktycznych, które przeprowadzimy w szkołach średnich. Naszym celem jest wsparcie licealistów w rozwijaniu technicznego myślenia i przybliżenie im realiów pracy nad projektami inżynierskimi jeszcze przed rozpoczęciem studiów. Udział w samej konferencji był też okazją do dyskusji o roli młodych ludzi w życiu publicznym, wymiany doświadczeń z innymi zespołami oraz zebrania uwag od praktyków zajmujących się wspieraniem oddolnych inicjatyw w Polsce. Wracamy z pełnym budżetem i gotowością do startu z pracami organizacyjnymi w szkołach.",
+      "gallery": [
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770953/kn-spa-i-blsps/test/718111cd4a58c7f61ca62f0e0bb7682a57075efbd2d6c558743eeef66ebd5c98.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770953/kn-spa-i-blsps/test/ff502a47f4e906be5907f738cfb366ee4055d865ac601ec2659bb11690e377d7.jpg"
+      ],
+      "links": [],
+      "en": {
+        "t": "Participation in the \"Youth in Action\" conference and a grant for high school workshops – report",
+        "x": "We participated in the conference \"Youth in Action. Conference on Youth Activation in Public Life 2026.\" The event proved highly successful for us, as we officially secured a mini-grant to fund our social project, \"Engineering Competence Workshops\", which we will be conducting in high schools.",
+        "html": "We participated in the conference &quot;Youth in Action&quot;. Conference on Youth Activation in Public Life 2026&quot;, which brought together young activists, social organizations, and public sector representatives. For our scientific club, this day turned out to be a major financial and operational milestone – during the official ceremony, we formally received a mini-grant dedicated to executing our proprietary social project, &quot;Engineering Competence Workshops&quot;. The awarded funding will allow us to finance and organize a series of practical classes that we plan to conduct in secondary schools. Our main objective is to support high school students in developing technical thinking and to introduce them to the realities of working on engineering projects even before they enter university. Attending the conference itself also provided an platform for discussing the impact of young individuals on public life, exchanging ideas with other teams driving their own initiatives, and gathering insights from professionals skilled in supporting grassroots projects in Poland. We are heading back with a fully secured budget and complete readiness to launch the organizational work in schools.",
+        "links": []
+      }
+    },
+    {
+      "id": "gala-finalowa-uprp-2026",
+      "p": "kn",
+      "date": "2026-06-22",
+      "big": false,
+      "img": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770960/kn-spa-i-blsps/test/b087c285ba6226b58744041e9bbdbf179f901dbdc9c1badabe7ecef593a78d76.jpg",
+      "t": "Nasza historia na 10. Jubileuszowej Gali w Urzędzie Patentowym RP – relacja",
+      "x": "Zostaliśmy zaproszeni przez Urząd Patentowy RP na 10. Jubileuszową Galę Finałową konkursu „Ambasador Szkolnej Wynalazczości”. Urząd wskazał historię naszego koła jako przykład dla nowego pokolenia twórców, dzięki czemu mogliśmy zaprezentować nasze projekty i udowodnić, że działalność wynalazczą oraz innowacyjne projekty można z powodzeniem realizować już w wieku studenckim.",
+      "html": "Wzięliśmy udział w 10. Jubileuszowej Gali Finałowej konkursu „Ambasador Szkolnej Wynalazczości”, która odbyła się w siedzibie Urzędu Patentowego Rzeczypospolitej Polskiej. Trafiliśmy tam na oficjalne zaproszenie ze strony samego urzędu, który uznał naszą historię za świetny wzór do naśladowania dla młodych twórców. Dostaliśmy idealną przestrzeń, aby opowiedzieć o tym, jak rozwijaliśmy nasze koło, jak wyglądają realia pracy nad technologiami w środowisku studenckim oraz z czym wiąże się to w praktyce. Pokazaliśmy strukturę naszej działalności oraz nasze projekty, nad którymi regularnie pracujemy, chcąc bez zbędnego dystansu i prosto z mostu udowodnić rówieśnikom oraz zaproszonym gościom, że status studenta w żaden sposób nie ogranicza możliwości technologicznych. Na własnym przykładzie pokazaliśmy, że świeże podejście, pasja i zgrany zespół to kapitał, który w zupełności wystarcza do opracowywania autorskich rozwiązań technicznych. Całe wydarzenie i rozmowy z młodymi innowatorami dały nam mnóstwo energii do dalszego działania, a sam wyjazd pozwolił nam mocniej zakorzenić się w środowisku związanszym z nowoczesnymi technologiami i innowacjami.",
+      "gallery": [
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770952/kn-spa-i-blsps/test/929d79ba19ad2dd2402f1b514a49b5d8e8190085eebcce750ab9c9528dc6589a.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770953/kn-spa-i-blsps/test/4c34a3c61d80f2705137c104a2f3a597bdc610afda484a364a470e517e8917fc.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770953/kn-spa-i-blsps/test/a2f47e1925593a4e8430fe899c234745e75123dd7ee46734ee6e2f2b7e11e10c.jpg"
+      ],
+      "links": [],
+      "en": {
+        "t": "Our story at the 10th Anniversary Gala of the Patent Office of the Republic of Poland – report",
+        "x": "We were invited by the Patent Office of the Republic of Poland to participate in the 10th Anniversary Final Gala of the \"School Invention Ambassador\" competition. The office highlighted our club's history as a model for the new generation of creators, allowing us to showcase our projects and prove that inventive activity and innovative projects can be successfully achieved at a student age.",
+        "html": "We participated in the 10th Anniversary Final Gala of the &quot;School Invention Ambassador&quot; competition, held at the headquarters of the Patent Office of the Republic of Poland. We attended upon an official invitation from the office itself, which recognized our story as an excellent blueprint for young creators. We were given the perfect platform to share how we developed our scientific club, what the realities of working on technologies within a student environment look like, and what it entails in practice. We presented our operational structure and our projects that we regularly work on, aiming to prove directly and without unnecessary distance to both peers and guests that student status in no way limits technological capabilities. Using our own journey, we demonstrated that a fresh perspective, passion, and a tight-knit team provide more than enough capital to develop proprietary technical solutions. The whole event and the discussions with young innovators gave us a ton of energy for our next steps, and the trip allowed us to strengthen our roots within the community connected with modern technologies and innovation.",
+        "links": []
+      }
+    },
+    {
+      "id": "sanya-oceans-2026",
+      "p": "kn",
+      "date": "2026-05-25",
+      "big": false,
+      "img": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770959/kn-spa-i-blsps/test/5d8af6234bd2f6e54f4730b2e298e89a6fed17e67c48c0aa08c84282462b46c4.jpg",
+      "t": "Sanya OCEANS 2026 – relacja z udziału w konferencji",
+      "x": "W maju wzięliśmy udział w konferencji IEEE OCEANS 2026 w Sanya, gdzie mieliśmy zaszczyt zaprezentować własną pracę naukową „Joint Optimization of Fleet Size, Localization Infrastructure, and Trajectories for Multi-AUV Persistent Monitoring\". Udział w wydarzeniu pozwolił nam skonfrontować nasze wyniki z pracami zespołów z całego świata, śledzić aktualne trendy w robotyce podwodnej i nawiązać wartościowe kontakty z przedstawicielami uczelni i instytutów badawczych. Wracamy z nowymi inspiracjami i motywacją do dalszego rozwoju.",
+      "html": "W maju mieliśmy okazję wziąć udział w konferencji IEEE OCEANS 2026 w Sanya, jednym z najważniejszych wydarzeń naukowych poświęconych technologiom morskim i podwodnym, gromadzącym co roku badaczy, inżynierów oraz zespoły studenckie z całego świata. Wyjazd był dla nas przede wszystkim szansą na zaprezentowanie efektów własnej pracy badawczej, mieliśmy zaszczyt przedstawić pracę naukową „Joint Optimization of Fleet Size, Localization Infrastructure, and Trajectories for Multi-AUV Persistent Monitoring&quot;.\n        Udział w konferencji umożliwił nam bezpośrednie zetknięcie się z aktualnymi kierunkami rozwoju robotyki podwodnej, systemów pomiarowych oraz technologii autonomicznych na poziomie międzynarodowym. Wśród prezentowanych badań szczególną uwagę zwracały innowacje w zakresie nawigacji podwodnej, integracji systemów sensorycznych oraz zastosowań autonomicznych pojazdów podwodnych w środowiskach ekstremalnych. Tego rodzaju konfrontacja z pracami innych zespołów badawczych daje perspektywę, której nie sposób uzyskać wyłącznie w oparciu o literaturę naukową.\n        Równie wartościowy okazał się wymiar networkingowy wyjazdu, rozmowy z przedstawicielami uczelni i instytutów badawczych z różnych krajów pozwoliły nam lepiej zrozumieć, w jakim miejscu jako koło się znajdujemy i w jakim kierunku warto się rozwijać. Udział w IEEE OCEANS był też okazją do spojrzenia na naszą pracę z zewnątrz, z perspektywy środowiska oceniającego ją na tle globalnych standardów. Wracamy z Sanya z nowymi kontaktami, inspiracjami oraz motywacją do dalszego rozwijania projektów badawczych i pogłębiania kompetencji w obszarze systemów pomiarowych i automatyki.",
+      "gallery": [
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770955/kn-spa-i-blsps/test/8a40702010ebdd84723c51bd2b5d3c943424f2213013eb23fb194050bd56469d.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770955/kn-spa-i-blsps/test/309b21e294572d78f40f8755355e4e7824aad2ce0352d7550d5b7a8ea63e9bc9.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770955/kn-spa-i-blsps/test/8d0e5756fbb881568d86009d9a50061c8ff75b2ef49884fb1ae791d6b76e23a4.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770956/kn-spa-i-blsps/test/067fbc2332a4577af56cde76320cc777919144b907d91ca48f391179b748ec79.jpg"
+      ],
+      "links": [],
+      "en": {
+        "t": "Sanya OCEANS 2026 – conference recap",
+        "x": "In May, we attended IEEE OCEANS 2026 in Sanya, where we had the honour of presenting our research paper „Joint Optimization of Fleet Size, Localization Infrastructure, and Trajectories for Multi-AUV Persistent Monitoring\". The conference gave us the chance to benchmark our work against teams from around the world, follow the latest trends in underwater robotics, and connect with representatives of universities and research institutes. We're returning with new inspiration and motivation to keep moving forward.",
+        "html": "In May, we had the opportunity to attend IEEE OCEANS 2026 in Sanya, one of the most important scientific events dedicated to marine and underwater technologies, gathering researchers, engineers, and student teams from around the world every year. The trip was above all a chance to present the results of our own research, we had the honour of presenting our paper „Joint Optimization of Fleet Size, Localization Infrastructure, and Trajectories for Multi-AUV Persistent Monitoring&quot;. \n        Attending the conference allowed us to engage directly with the latest directions in underwater robotics, measurement systems, and autonomous technologies at an international level. Among the presented research, we were particularly drawn to innovations in underwater navigation, sensor system integration, and AUV applications in extreme environments. This kind of confrontation with the work of other research teams offers a perspective that simply cannot be gained through literature alone. The networking aspect of the trip proved equally valuable, conversations with representatives of universities and research institutes from various countries helped us better understand where we stand as a student organisation and which direction is worth pursuing. IEEE OCEANS was also an opportunity to look at our work from the outside, through the lens of a community evaluating it against global standards. We&#x27;re returning from Sanya with new contacts, fresh inspiration, and motivation to continue developing our research projects and deepening our competencies in the field of measurement systems and automation.",
+        "links": []
+      }
+    },
+    {
+      "id": "solidexpert-2026",
+      "p": "kn",
+      "date": "2026-05-23",
+      "big": false,
+      "img": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770960/kn-spa-i-blsps/test/091e5705218f1176975b0b1c84dba7df917ad266fc9300d2ecef7ebd2125b13f.jpg",
+      "t": "Od pomysłu do modelu!  Współpraca z SolidExpert. ",
+      "x": "Nasze koło naukowe nawiązało współpracę z firmą SolidExpert - oficjalnym dystrybutorem oprogramowania SOLIDWORKS w Polsce. To dla nas ogromna szansa na rozwój umiejętności inżynierskich i realizację jeszcze bardziej zaawansowanych projektów technicznych ",
+      "html": "Z ogromną radością ogłaszamy nawiązanie oficjalnej współpracy pomiędzy naszym kołem naukowym a firmą SolidExpert - oficjalnym dystrybutorem rozwiązań SOLIDWORKS na Polskę. To dla nas wyjątkowe wydarzenie, które otwiera przed naszym zespołem zupełnie nowe możliwości w zakresie projektowania inżynierskiego. SolidExpert chętnie wspiera młodych inżynierów i pasjonatów w niekomercyjnych projektach, dostarczając kołom naukowym wsparcie informatyczne, techniczne oraz merytoryczne z zakresu rozwiązań SOLIDWORKS.  \n        Dzięki tej współpracy nasi członkowie uzyskają dostęp do profesjonalnego oprogramowania CAD/CAE/CAM klasy przemysłowej, które pozwoli nam tworzyć zaawansowane modele 3D, przeprowadzać symulacje oraz sprawnie zarządzać dokumentacją projektową. Współpraca z SolidExpert to także możliwość nawiązania nowych relacji z inżynierami oraz firmami z całej Polski, co daje szansę na zbudowanie sieci kontaktów i pozyskanie potencjalnych pracodawców w przyszłości. Zachęcamy do śledzenia naszych działań i odwiedzenia strony partnera pod adresem solidexpert.com. \n        ",
+      "gallery": [],
+      "links": [
+        {
+          "label": "SolidExpert",
+          "url": "https://solidexpert.com"
+        }
+      ],
+      "en": {
+        "t": "From concept to 3D model! Our new partnership with SolidExpert",
+        "x": "Our scientific club has established a partnership with SolidExpert - the official distributor of SOLIDWORKS software in Poland. This is a tremendous opportunity for us to advance our engineering skills and take on even more sophisticated technical projects.",
+        "html": "We are thrilled to announce an official partnership between our scientific club and SolidExpert - the official distributor of SOLIDWORKS solutions in Poland, operating in the market since 2002. This is a milestone event for our team, opening up entirely new possibilities in the field of engineering design. SolidExpert actively supports young engineers and enthusiasts in non-commercial projects, providing student scientific clubs with technical, IT, and substantive support within the SOLIDWORKS ecosystem.\n        Through this collaboration, our members will gain access to professional CAD/CAE/CAM software of industrial grade, enabling us to create advanced 3D models, run simulations, and efficiently manage project documentation. The partnership with SolidExpert also presents an invaluable networking opportunity, connecting us with engineers and companies from across Poland, opening doors to future sponsors and potential employers. We encourage you to follow our progress and visit our partner&#x27;s website at solidexpert.com.\n        ",
+        "links": [
+          {
+            "label": "SolidExpert",
+            "url": "https://solidexpert.com"
+          }
+        ]
+      }
+    },
+    {
+      "id": "noc-muzeow-2026",
+      "p": "kn",
+      "date": "2026-05-16",
+      "big": false,
+      "img": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770960/kn-spa-i-blsps/test/f4e3cf9ca68079b6ef719d293229b9798b686463fcc4d7438d9d7b4042fe7fe5.jpg",
+      "t": "Noc Muzeów w Urzędzie Patentowym i Ministerstwie Rozwoju i Technologii",
+      "x": "Dwa stanowiska, dwie lokalizacje i setki ciekawskich odwiedzających – tak wyglądała tegoroczna Noc Muzeów dla naszego koła naukowego. Dzięki współpracy z Urzędem Patentowym RP mieliśmy okazję zaprezentować naszą działalność w dwóch wyjątkowych miejscach w sercu Warszawy, stając się częścią jednego z największych wydarzeń kulturalnych w stolicy.",
+      "html": "W tym roku Noc Muzeów nabrała dla nas wyjątkowego wymiaru. Nasze koło naukowe miało zaszczyt wziąć w niej udział jako wystawca zaproszony przez Urząd Patentowy RP, i to od razu w dwóch miejscach: w samym Urzędzie Patentowym oraz w gmachu Ministerstwa Rozwoju i Technologii. To właśnie dzięki zaproszeniu Urzędu Patentowego mogliśmy zaprezentować się w tym prestiżowym miejscu, gdzie na co dzień tworzy się historia polskiej innowacyjności. Tegoroczna edycja zgromadziła w Warszawie ponad 300 instytucji i przyciągnęła setki tysięcy zwiedzających. \n        Przez całą noc prowadziliśmy dwa stanowiska jednocześnie, prezentując nasze projekty i badania ramię w ramię z ekspertami Urzędu Patentowego. Odwiedzający mogli dowiedzieć się, czym zajmuje się nasze koło, porozmawiać z nami bezpośrednio i zobaczyć, jak młodzi naukowcy podchodzą do rozwiązywania realnych problemów. Wiele osób zatrzymywało się na dłużej, zadając pytania i dzieląc się własnymi doświadczeniami. Atmosfera w obu miejscach była pełna ciekawości, inspirujących rozmów i spotkań z ludźmi, którzy na co dzień stykają się ze światem wynalazków i nowych technologii.\n        Udział w Nocy Muzeów to dla nas nie tylko powód do dumy, ale też cenne doświadczenie, które pokazało, jak wiele można zyskać na otwartym dialogu z mieszkańcami miasta. Przekonaliśmy się, że nauka nie musi być zamknięta w murach uczelni, może wychodzić do ludzi, angażować i zachwycać. Serdecznie dziękujemy Urzędowi Patentowemu za zaproszenie i zaufanie, a wszystkim odwiedzającym za rozmowy i zainteresowanie naszą działalnością. Do zobaczenia za rok!\n        ",
+      "gallery": [
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770954/kn-spa-i-blsps/test/e64c17413d10b67fc347400528d01a72371cdeeb34105d766279ec8869f0871c.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770954/kn-spa-i-blsps/test/b2424e71e3f1ec8321ec9a727b2873be7b201a4d89e7a1b11c71106150de367e.jpg"
+      ],
+      "links": [],
+      "en": {
+        "t": "Museum Night at the Patent Office and the Ministry of Economic Development and Technology",
+        "x": "Two stands, two venues, and hundreds of curious visitors – that was this year's Museum Night for our student research group. Thanks to our collaboration with the Patent Office of the Republic of Poland, we had the opportunity to showcase our work at two remarkable locations in the heart of Warsaw, becoming part of one of the city's biggest cultural events.",
+        "html": "This year&#x27;s Museum Night took on a truly special meaning for us. Our student research group had the honour of taking part as exhibitors, invited by the Patent Office of the Republic of Poland, and at two locations at once: at the Patent Office itself and at the seat of the Ministry of Economic Development and Technology. It was precisely thanks to the Patent Office&#x27;s invitation that we were able to present ourselves at such a prestigious venue, where the history of Polish innovation is shaped every day. This year&#x27;s edition brought together over 300 institutions across Warsaw and attracted hundreds of thousands of visitors, and we are proud to have been part of it.\n        Throughout the night, we ran two stands simultaneously, presenting our projects and research side by side with experts from the Patent Office. Visitors had the chance to learn about our group&#x27;s work, speak with us directly, and see first-hand how young researchers approach real-world problems. Many people stopped for longer conversations, asking questions and sharing their own experiences. The atmosphere at both venues was brimming with curiosity, stimulating conversations, and encounters with people who work at the forefront of invention and emerging technology.\n        Participating in Museum Night is not only a source of immense pride for us, but also an invaluable experience that showed us how much can be gained from an open dialogue with the local community. We were reminded that science need not be confined to lecture halls and laboratories, it can reach out to people, engage them, and inspire wonder. We extend our heartfelt thanks to the Patent Office for their invitation and trust, and to every visitor who stopped by for a conversation and showed interest in what we do. See you next year!\n        ",
+        "links": []
+      }
+    },
+    {
+      "id": "aero-2026",
+      "p": "kn",
+      "date": "2026-04-22",
+      "big": false,
+      "img": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770957/kn-spa-i-blsps/test/af594638662c68e50f4cf5a6984fa28db382e35e9027a0ae5da72158f46a8fd7.jpg",
+      "t": "AERO Friedrichshafen 2026 – relacja z jednego z kluczowych wydarzeń branży lotniczej",
+      "x": "Jak naprawdę wygląda przyszłość lotnictwa i jakie kierunki dziś wyznaczają jej rozwój? Podczas AERO Friedrichshafen 2026 mieliśmy okazję zobaczyć to z bliska — od innowacyjnych technologii po nowe modele funkcjonowania branży aviation. To doświadczenie pozwoliło nam lepiej zrozumieć, jak teoria łączy się z praktyką w dynamicznie zmieniającym się sektorze.",
+      "html": "W dniach targowych mieliśmy okazję uczestniczyć w AERO Friedrichshafen 2026 — jednym z najważniejszych wydarzeń europejskiego sektora lotniczego, które co roku gromadzi setki wystawców oraz tysiące uczestników z całego świata.\n\n        Obecność na targach była dla nas przede wszystkim szansą na bezpośrednie zetknięcie się z aktualnymi trendami w branży aviation. Wśród prezentowanych rozwiązań szczególną uwagę zwracały innowacje technologiczne, rozwój zrównoważonego lotnictwa oraz rosnące znaczenie integracji nowych modeli biznesowych w sektorze.\n\n        Udział w wydarzeniu umożliwił nam również nawiązanie wartościowych kontaktów z przedstawicielami branży — od firm technologicznych, przez operatorów, aż po organizacje rozwijające rozwiązania przyszłości dla lotnictwa. Tego typu networking stanowi istotny element budowania kompetencji i zrozumienia realiów rynku już na etapie studiów.\n\n        Nie bez znaczenia była także możliwość obserwacji, w jaki sposób teoria przekazywana w trakcie zajęć akademickich znajduje swoje odzwierciedlenie w praktyce rynkowej. Udział w AERO pozwolił nam spojrzeć szerzej na wyzwania i kierunki rozwoju współczesnego lotnictwa.\n\n        Wracamy z nową wiedzą, inspiracjami oraz motywacją do dalszego rozwoju w obszarze aviation i business.",
+      "gallery": [
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770948/kn-spa-i-blsps/test/677ca584a82b6c96a766f7a3b819f57eb318d0e3e1e39b91a943920dbe1fb3d9.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770947/kn-spa-i-blsps/test/9b0bdff4e130e5db9eaaf0b312b5c011198a9756997d97a5d3217704ecbc9f15.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770948/kn-spa-i-blsps/test/317276bd0732b3601cca308669103a273f09c80d5d0e8eaad1dc3aa4be0ae6d6.jpg"
+      ],
+      "links": [],
+      "en": {
+        "t": "AERO Friedrichshafen 2026 – Insights from One of Europe’s Key Aviation Events",
+        "x": "What does the future of aviation really look like, and what are the trends shaping its development today? At AERO Friedrichshafen 2026, we had the opportunity to see it up close — from cutting-edge technologies to new models shaping the aviation industry. This experience helped us better understand how theory translates into practice in a rapidly evolving sector.",
+        "html": "During this year’s edition of AERO Friedrichshafen 2026, we had the opportunity to take part in one of the most important events in the European aviation industry, bringing together hundreds of exhibitors and thousands of participants from around the world.\n\n        Our presence at the event was, above all, a chance to directly engage with current trends shaping the aviation sector. Among the showcased solutions, particular attention was drawn to technological innovation, the development of sustainable aviation, and the growing importance of new business models within the industry.\n\n        Participating in AERO also enabled us to establish valuable connections with industry representatives — from technology companies and operators to organizations working on future-oriented aviation solutions. This type of networking plays a key role in building practical understanding of the market already at the academic stage.\n\n        Equally important was the opportunity to observe how academic knowledge translates into real-world applications. Attending AERO allowed us to gain a broader perspective on the challenges and future directions of modern aviation.\n\n        We return with new insights, inspiration, and strong motivation to further develop in the field of aviation and business.",
+        "links": []
+      }
+    },
+    {
+      "id": "world-of-hydrogen-expo-2026",
+      "p": "kn",
+      "date": "2026-04-14",
+      "big": false,
+      "img": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770961/kn-spa-i-blsps/test/3e888a6aaf20c89ecaddc701a0c85452305c88c02c372632e5292b9dffd898be.jpg",
+      "t": "World of Hydrogen Expo 2026 – relacja z targów",
+      "x": "World of Hydrogen Expo 2026 za nami i był to dla naszego koła wyjątkowy udział. Wystąpiliśmy w roli partnera merytorycznego targów, zaprezentowaliśmy własne stoisko, a dwoje naszych członków stanęło na scenie jako prelegenci przed ekspertami z całej Europy. Relacjonujemy, jak przebiegło jedno z najważniejszych wydarzeń wodorowych w Polsce.",
+      "html": "Wzięliśmy udział w World of Hydrogen Expo 2026 – jednym z najważniejszych w Polsce wydarzeń poświęconych nowoczesnym technologiom energetycznym, gromadzącym ekspertów, przedstawicieli przemysłu oraz środowiska akademickiego. Tegoroczna edycja była dla nas wyjątkowa, ponieważ uczestniczyliśmy w niej nie tylko jako goście, ale również jako partner merytoryczny targów, aktywnie współtworząc ich ekspercki charakter. Zaprezentowaliśmy się również na własnym stoisku, które stało się miejscem spotkań z przedstawicielami branży i przestrzenią do rozmów o naszej działalności.\n        Program targów oraz towarzyszącego im Hydrogen Solutions Summit skupiał się na praktycznych aspektach wdrażania technologii wodorowych i ich rosnącej roli w przemyśle oraz energetyce. Wydarzenie stworzyło wyjątkową platformę do wymiany doświadczeń między środowiskiem naukowym a rynkiem. Szczególnym wyróżnieniem dla całego koła był udział dwojga naszych członków w roli prelegentów: Jana Mikołajczyka oraz Jakuba Bałenkowskiego którzy podzielili się swoją wiedzą i doświadczeniem przed gronem specjalistów z całej Europy.\n        Udział w targach przyniósł nam wiele cennych doświadczeń – bezpośredni kontakt z aktualnymi trendami, rozmowy z firmami, instytucjami i ośrodkami badawczymi, a przede wszystkim nowe znajomości, które mogą zaowocować w przyszłych projektach. \n        ",
+      "gallery": [
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770957/kn-spa-i-blsps/test/97d4c1db4ee277d6dd8b6389e43f1dba0a7f831b62fdef87a66396930337e9df.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770957/kn-spa-i-blsps/test/1647f06aa272916ed1f5ae8161c1f96cd6e7def5076da3971aa01cc519cc9547.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770957/kn-spa-i-blsps/test/4b781567dd870817fb4d882ecb088552f689e1dd8d2ee1fd4f1a78ee2a5f99b6.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770958/kn-spa-i-blsps/test/f542be28112a9c4b530e1793bd6209ebe89653097b21ac8258b8d1d64a8833b8.jpg"
+      ],
+      "links": [],
+      "en": {
+        "t": "World of Hydrogen Expo 2026 – Event Report\n        ",
+        "x": "World of Hydrogen Expo 2026 is behind us and it was an extraordinary edition for our organisation. We took on the role of substantive partner of the expo, presented our own stand, and two of our members took to the stage as speakers before an audience of experts from across Europe. Here is our account of one of the most significant hydrogen-focused events in Poland.",
+        "html": "Our student research group attended World of Hydrogen Expo 2026 – one of Poland&#x27;s most prominent events dedicated to cutting-edge energy technologies, bringing together experts, industry professionals, and members of the academic community. This year&#x27;s edition proved particularly significant for us: we participated not merely as attendees, but as a substantive partner of the expo, actively contributing to its expert-driven character. We also hosted our own stand, which served as a meeting point for industry representatives and an opportunity for in-depth conversations about our work.\n        The programme of the expo and the accompanying Hydrogen Solutions Summit centred on the practical implementation of hydrogen technologies and their growing relevance within industry and the energy sector. The event provided an exceptional platform for the exchange of experience between the academic world and the market – an opportunity we embraced to the fullest. A particular distinction for our organisation was the participation of two of our members as speakers: Jan Mikołajczyk and Jakub Bałenkowski, who shared their expertise and insights with an audience of specialists from across Europe.\n        Our involvement in the expo proved immensely rewarding – affording us direct exposure to the latest industry trends, meaningful conversations with companies, institutions, and research centres, and above all, new connections that may well bear fruit in future projects. \n        ",
+        "links": []
+      }
+    },
+    {
+      "id": "botland-2026",
+      "p": "kn",
+      "date": "2026-04-10",
+      "big": false,
+      "img": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770958/kn-spa-i-blsps/test/944f8a0fb0b9ddaf930f73ed1646e87e0f72bb8dbb8ae2292119d331738654a4.jpg",
+      "t": "Wspólnie dla innowacji: Partnerstwo naszego Koła Naukowego z firmą Botland",
+      "x": "Z ogromną radością ogłaszamy nawiązanie współpracy partnerskiej pomiędzy naszym kołem a firmą Botland. Jako czołowy polski dystrybutor drukarek 3D, elektroniki i technologii dla pasjonatów, Botland wesprze nasze koło w realizacji najbardziej ambitnych projektów inżynierskich. Zapraszamy do zapoznania się ze szczegółami tego technologicznego partnerstwa oraz ofertą naszego partnera na stronie https://botland.com.pl/.",
+      "html": "Z wielką przyjemnością ogłaszamy nawiązanie oficjalnej współpracy pomiędzy naszym kołem naukowym a firmą Botland. Jest to dla nas wyjątkowe wydarzenie, ponieważ łączymy siły z uznanym, polskim dystrybutorem drukarek 3D, elektroniki i nowoczesnych technologii stworzonych z myślą o pasjonatach. Wsparcie tak doświadczonego partnera otwiera przed nami zupełnie nowe możliwości w zakresie realizacji zaawansowanych projektów technicznych oraz prototypowania innowacyjnych rozwiązań.\n        Współpraca z Botland to przede wszystkim dostęp do najwyższej jakości komponentów i narzędzi, które są niezbędne w codziennej pracy naszych konstruktorów. Jako marka silnie zakorzeniona w środowisku twórców i inżynierów, nasz nowy partner doskonale rozumie potrzeby ambitnych projektów studenckich. Jesteśmy przekonani, że ta współpraca zaowocuje wieloma ciekawymi konstrukcjami, które już niedługo zaprezentujemy szerszej publiczności. Zachęcamy wszystkich do odwiedzenia strony internetowej naszego partnera pod adresem https://botland.com.pl/ i śledzenia efektów naszych wspólnych działań technologicznych.\n        ",
+      "gallery": [],
+      "links": [
+        {
+          "label": "BOTLAND",
+          "url": "https://botland.com.pl/"
+        }
+      ],
+      "en": {
+        "t": "Powering Innovation: Our Student Research Group Partners with Botland",
+        "x": "We are thrilled to announce a strategic partnership between our student research group and Botland. As a premier Polish distributor of 3D printers, electronics, and cutting-edge technology for enthusiasts, Botland will support our most ambitious engineering endeavors. We invite you to explore the details of this technological alliance and browse our partner's extensive portfolio at https://botland.com.pl/ ",
+        "html": "It is with great pleasure that we announce the commencement of an official partnership between our student research group and Botland. This collaboration marks a significant milestone for us, as we join forces with a renowned Polish distributor of 3D printers, electronic components, and cutting-edge technologies specifically designed for tech enthusiasts. Securing the support of such an experienced partner unlocks a wealth of new opportunities for us, particularly in executing advanced technical projects and prototyping innovative solutions.\n        Our collaboration with Botland primarily ensures seamless access to high-fidelity components and specialized tools, which are indispensable for the day-to-day operations of our engineers and designers. As a brand deeply rooted in the maker and engineering communities, our new partner possesses a profound understanding of the requirements inherent in ambitious student-led initiatives. We are confident that this synergy will result in numerous sophisticated constructions, which we look forward to unveiling to a wider audience in the near future. We encourage everyone to visit our partner’s website at https://botland.com.pl/  and follow the progress of our collaborative technological ventures.\n        ",
+        "links": [
+          {
+            "label": "BOTLAND",
+            "url": "https://botland.com.pl/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "european-drone-forum-2026",
+      "p": "kn",
+      "date": "2026-03-24",
+      "big": false,
+      "img": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770959/kn-spa-i-blsps/test/a55d7bf7f4db6460e8402642624742e35e53be5967e55ca8ca9c55840e0e1c35.jpg",
+      "t": "W centrum europejskiej debaty o dronach: Relacja z European Drone Forum",
+      "x": "Reprezentant naszego koła naukowego wizytował European Drone Forum, kluczowe wydarzenie skupiające liderów branży i organów regulacyjnych z całej Europy. Udział w prelekcjach dotyczących certyfikacji oraz integracji systemów bezzałogowych w cywilnej przestrzeni powietrznej pozwolił nam na konfrontację naszych działań z najnowszymi światowymi standardami. Zdobyta wiedza merytoryczna oraz wgląd w procesy standaryzacji technicznej stanowią dla nas strategiczny fundament do dalszej optymalizacji realizowanych projektów inżynieryjnych.",
+      "html": "Niedawno przedstawiciel naszego koła naukowego miał okazję uczestniczyć w European Drone Forum – jednym z najbardziej prestiżowych wydarzeń branżowych w Europie, skupiającym kluczowych ekspertów, liderów przemysłu oraz przedstawicieli organów regulacyjnych. Udział w forum w roli wizytującego zapewnił nam bezpośredni wgląd w najnowsze trendy i priorytety rozwojowe, które obecnie kształtują rynek systemów autonomicznych. Podczas licznych prelekcji nasz reprezentant analizował zagadnienia dotyczące ewoluujących przepisów bezpieczeństwa, certyfikacji oraz integracji bezzałogowców w cywilnej przestrzeni powietrznej, co stanowi obecnie jedno z największych wyzwań dla inżynierów i operatorów na całym świecie.\n        Wizyta ta była niezwykle cennym doświadczeniem merytorycznym, pozwalającym skonfrontować naszą wiedzę z wizjami największych graczy technologicznych. Obserwacja prezentowanych innowacji oraz kierunków, w jakich zmierzają europejskie regulacje, utwierdziła nas w przekonaniu, że nasza codzienna praca badawczo-rozwojowa trafnie wpisuje się w nowoczesne standardy i odpowiada na realne potrzeby rynku. Możliwość przyjrzenia się z bliska procesom standaryzacji oraz wymiana doświadczeń z praktykami z całej Europy dostarczyły nam strategicznych informacji, które realnie wpłyną na optymalizację naszych procesów projektowych i podniesienie jakości realizowanych inicjatyw.\n        Udział w tak znaczącym międzynarodowym wydarzeniu to kolejny krok w stronę budowania profesjonalnego zaplecza wiedzy, niezbędnego do operowania w dynamicznym środowisku wysokich technologii. Wyjazd ten traktujemy jako kluczowy element rozwoju, dzięki któremu jesteśmy w stanie jeszcze precyzyjniej definiować nasze cele inżynieryjne i naukowe. Wracamy z forum z nowym spojrzeniem na przyszłość technologii autonomicznych oraz solidnym przygotowaniem teoretycznym, które pozwoli nam dbać o to, by każda podejmowana przez nas inicjatywa była zawsze w pełni zgodna z najbardziej aktualnymi wymogami panującymi w branży bezzałogowej.\n        ",
+      "gallery": [
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770951/kn-spa-i-blsps/test/63b2ba64e754532d1cea133b924b6b0d92f24aa8e1667feb8233751dccb36e59.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770951/kn-spa-i-blsps/test/9bea8456b9aeffe9068a2ec253077895c07793d97c0cb4fdff0357601f097a29.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770952/kn-spa-i-blsps/test/e54110a8b99d808e5f03feac463421d22f706fc5d331e20c7ea982e9f832cd3a.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770952/kn-spa-i-blsps/test/1ddbdd7e5f22cc42bc47fe0e336d13d945ee6e7202ee4d436ac44fcf547bd6fa.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770952/kn-spa-i-blsps/test/e4c0fab8bb4909010e22e029d5830c28fc57003b28d920e8ce350d092e109c8a.jpg"
+      ],
+      "links": [],
+      "en": {
+        "t": "At the Forefront of UAS Innovation: Insights from the European Drone Forum",
+        "x": "A representative of our science club recently attended the European Drone Forum, a premier event gathering industry leaders and regulatory bodies from across Europe. Engaging in high-level discussions on certification and the integration of unmanned systems into civil airspace allowed us to align our current initiatives with the latest global benchmarks. The technical insights and firsthand exposure to standardization processes will serve as a strategic foundation for the further optimization of our ongoing engineering projects.",
+        "html": "A representative of our science club recently had the privilege of attending the European Drone Forum, one of the most prestigious industry events in Europe, bringing together key experts, industry leaders, and regulatory representatives. Participating in the forum as a visiting observer provided us with direct insight into the emerging trends and developmental priorities currently shaping the autonomous systems market. Throughout numerous presentations, our representative analysed critical issues surrounding evolving safety regulations, certification, and the integration of Unmanned Aircraft Systems (UAS) into civil airspace – one of the foremost challenges currently facing engineers and operators worldwide.\n        This visit proved to be an invaluable scholarly experience, allowing us to benchmark our expertise against the visions of major technological stakeholders. Observing the showcased innovations and the trajectory of European regulations reinforced our confidence that our daily research and development efforts are firmly aligned with modern global standards and effectively address real-world market demands. Gaining a closer look at technical standardization processes and exchanging experiences with practitioners from across Europe provided us with strategic data that will tangibly influence the optimization of our design workflows and enhance the quality of our initiatives.\n        Participating in such a significant international event marks another milestone in building the professional knowledge base essential for operating within the dynamic high-tech landscape. We view this involvement as a pivotal element of our development, enabling us to define our engineering and scientific objectives with even greater precision. We return from the forum with a renewed perspective on the future of autonomous technologies and a robust theoretical foundation, ensuring that every initiative we undertake remains fully compliant with the most current requirements and trends prevailing in the global unmanned industry.\n        ",
+        "links": []
+      }
+    },
+    {
+      "id": "tvp3-2026",
+      "p": "hawk-eye",
+      "date": "2026-03-23",
+      "big": false,
+      "img": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770960/kn-spa-i-blsps/test/2e4f2ac5f3ba09d90ca633e5848c6cadc08e15ea593d579ce415aac854ceec92.jpg",
+      "t": "Nasze koło naukowe gościem programu „Dobrego dnia” w TVP3 Warszawa!",
+      "x": "Członkowie naszego koła naukowego byli gośćmi programu \"Dobrego dnia\" w TVP3 Warszawa, gdzie zaprezentowali nasze najnowsze osiągnięcia w dziedzinie technologii bezzałogowych. Podczas rozmowy przybliżyliśmy kulisy prac nad dronem stratosferycznym Hawk Eye oraz podwodnym systemem Blue Spark, podkreślając ich realny potencjał wdrożeniowy w nauce i przemyśle. To wystąpienie było doskonałą okazją do pokazania, jak w ramach ogólnopolskiej współpracy studenckiej skutecznie przekuwamy innowacyjne idee w działające rozwiązania technologiczne.",
+      "html": "Członkowie naszego koła naukowego – Jan Mikołajczyk (prezes koła i lider projektu), Stanisław Świecki (lider zespołu konstrukcyjnego) oraz Maciej Domagalski (główny inżynier projektu) – niedawno wystąpili w programie „Dobrego dnia” w TVP3 Warszawa, gdzie opowiedzieli o naszej codziennej działalności oraz kierunkach rozwoju technologii bezzałogowych. Podczas rozmowy nasi reprezentanci podkreślili, że z powodzeniem zrzeszamy ambitne osoby z różnych uczelni w całej Polsce, które wspólnie z nami chcą rozwijać swoje kompetencje poprzez pracę nad nowoczesnymi rozwiązaniami technologicznymi. Jednym z głównych tematów wystąpienia był projekt Hawk Eye, czyli zaawansowany dron stratosferyczny, nad którym obecnie pracujemy. Zaprezentowaliśmy zarówno ambitne założenia tego systemu, jak i jego aktualny stan rozwoju oparty na już działającym prototypie, który stanowi dla nas fundament dalszych prac badawczych w zakresie monitoringu środowiska i wsparcia nauki.\n                Duże zainteresowanie widzów wzbudził również Blue Spark – nasz autonomiczny dron podwodny, którego potencjał w badaniach akwenów, przemyśle oraz misjach eksploracyjnych udowadnia, że rozwijane przez nas technologie nie ograniczają się wyłącznie do przestrzeni powietrznej. W trakcie programu mocno zaznaczyliśmy nasze nadrzędne założenie, wedle którego tworzone przez nas rozwiązania nie są jedynie akademickimi koncepcjami, lecz dążymy do tego, aby posiadały realny potencjał wdrożeniowy poza murami uczelni. Katalog prezentowanych inicjatyw uzupełniliśmy o inne projekty, takie jak MUSC oparty na technologii roju dronów, FlySearch oraz system Snow’s Eye, które wspólnie budują spójny i wszechstronny kierunek rozwoju technologii bezzałogowych o szerokim spektrum zastosowań.\n                Udział w programie był dla nas nie tylko szansą na zaprezentowanie efektów naszej pracy szerszej publiczności, ale również ważnym krokiem w budowaniu świadomości na temat roli nowoczesnych systemów autonomicznych w nauce i przemyśle. Całe wystąpienie stało się dla nas doskonałym potwierdzeniem tego, jak skutecznie potrafimy przekładać śmiałe idee na konkretne rozwiązania technologiczne, które wkrótce mogą realnie wpłynąć na oblicze współczesnej techniki. Udział w programie był dla nas ważnym doświadczeniem, które motywuje do dalszego rozwoju naszych systemów oraz podejmowania kolejnych wyzwań inżynieryjnych.\n        ",
+      "gallery": [
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770956/kn-spa-i-blsps/test/53fc395b931cefad1a8a2b3012321cc759f1608468b2fc0f2f8fc3c1468c066c.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770956/kn-spa-i-blsps/test/709e77f850f9cda0a96f07a264e3f870fdeadc953e7655ad2e523d905f9f7cc4.jpg"
+      ],
+      "links": [],
+      "en": {
+        "t": "Our Science Club Featured on TVP3 Warsaw",
+        "x": "Members of our science club appeared on TVP3 Warsaw’s \"Dobrego dnia\" to showcase our latest advancements in unmanned technology. During the interview, they shared insights into the development of the Hawk Eye stratospheric drone and the Blue Spark underwater system, emphasizing their real-world application potential in both science and industry. This broadcast served as a perfect platform to demonstrate how our nationwide student collaboration effectively transforms innovative ideas into functional technological solutions.",
+        "html": "Members of our science club – Jan Mikołajczyk (President and Project Leader), Stanisław Świecki (Construction Team Lead), and Maciej Domagalski (Chief Project Engineer) – were recently invited to the &quot;Dobrego dnia&quot; program on TVP3 Warsaw, where they discussed our daily operations and the strategic directions of unmanned technology development. During the interview, our representatives emphasized that we successfully unite ambitious individuals from various universities across Poland who wish to enhance their competencies by working on cutting-edge technological solutions. A central theme of the appearance was the Hawk Eye project – an advanced stratospheric drone currently under development. We presented both the ambitious objectives of this system and its current stage of development, centred around a fully functional prototype that serves as the foundation for our ongoing research into environmental monitoring and scientific support.\n                The audience also showed significant interest in Blue Spark – our autonomous underwater vehicle (AUV). Its potential applications in aquatic research, industrial inspections, and exploration missions demonstrate that our technological innovations extend far beyond the aerial domain. Throughout the broadcast, we firmly highlighted our core principle: the solutions we develop are not merely academic concepts. Instead, we strive to ensure they possess genuine implementation potential outside the university environment. Our portfolio of initiatives was further supplemented by other projects, such as MUSC, based on drone swarm technology, as well as FlySearch and the Snow’s Eye system, which together form a cohesive and versatile trajectory for unmanned systems across a broad spectrum of applications.\n                Participating in the program was not only an opportunity to showcase the results of our work to a wider audience but also a vital step in raising awareness regarding the role of modern autonomous systems in science and industry. The appearance served as a powerful testament to our ability to translate bold ideas into tangible technological solutions that could soon have a profound impact on the landscape of modern engineering. Our involvement in the broadcast was a significant milestone, further motivating us to refine our systems and tackle the next generation of engineering challenges.\n        ",
+        "links": []
+      }
+    },
+    {
+      "id": "drone-world-expo-2026",
+      "p": "kn",
+      "date": "2026-03-03",
+      "big": false,
+      "img": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770959/kn-spa-i-blsps/test/e8b42351c208912eca0cc54af3ed2ba12c162b86f923f8ae764460214b5ec400.jpg",
+      "t": "Relacja z DroneWorld Expo 2026",
+      "x": "Drone World Expo 2026 było okazją do zaprezentowania projektów rozwijanych w naszym kole naukowym. Wydarzenie zgromadziło przedstawicieli branży technologii bezzałogowych z całego świata. Spotkania i rozmowy podczas targów pozwoliły na nawiązanie nowych kontaktów oraz poznanie najnowszych rozwiązań technologicznych.",
+      "html": "W marcu 2026 roku nasze Koło Naukowe uczestniczyło w Drone World Expo – jednym z ważniejszych wydarzeń poświęconych technologiom bezzałogowych systemów powietrznych oraz rozwojowi systemów autonomicznych. Wydarzenie zgromadziło firmy technologiczne, instytucje badawcze oraz zespoły projektowe zajmujące się tworzeniem nowoczesnych rozwiązań w obszarze dronów i technologii UAV.\n        Podczas targów prezentowaliśmy projekty rozwijane w naszym kole, przedstawiając rezultaty pracy naszych zespołów oraz kierunki badań, nad którymi obecnie pracujemy. Była to także okazja do bezpośrednich rozmów z przedstawicielami branży technologicznej, naukowcami oraz innymi zespołami badawczymi zainteresowanymi rozwojem systemów bezzałogowych.\n        Udział w wydarzeniu pozwolił nam zapoznać się z najnowszymi trendami w technologii UAV, w tym z nowymi rozwiązaniami sprzętowymi, systemami sensorów oraz innowacyjnymi podejściami do projektowania i wykorzystania systemów autonomicznych. Targi stworzyły przestrzeń do wymiany doświadczeń, inspirujących dyskusji oraz prezentacji pomysłów rozwijanych w środowisku akademickim.\n        Dla naszego zespołu udział w Drone World Expo był również ważną okazją do promocji działalności koła oraz prezentacji projektów realizowanych przez naszych studentów. Spotkania z przedstawicielami branży i środowiska naukowego umożliwiły nawiązanie nowych kontaktów oraz stworzyły potencjał do przyszłej współpracy badawczej i technologicznej.",
+      "gallery": [
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770951/kn-spa-i-blsps/test/50b7cd54e304b54e5eca363479a5d417b030b1937f7a8e5d7b0830238f7b4c4f.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770950/kn-spa-i-blsps/test/0043dd51dee7805b16d6f40dbc7a006074a9e4b673f5a0cd805c19ff98093865.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770950/kn-spa-i-blsps/test/afa6b6630fe940ab66699d874b561a42ecbfbaca7a7cbed151a4b317191ddff0.jpg"
+      ],
+      "links": [],
+      "en": {
+        "t": "DroneWorld Expo 2026 Report",
+        "x": "Drone World Expo 2026 provided an opportunity to present the projects developed within our student scientific club. The event brought together representatives of the unmanned technologies industry from around the world. Meetings and discussions held during the expo enabled us to establish new connections and explore the latest technological solutions in the field.",
+        "html": "In March 2026 our student scientific club participated in Drone World Expo, an international event dedicated to the development and application of unmanned aerial systems and emerging drone technologies. The expo brought together technology companies, research institutions, engineers and innovators working at the forefront of autonomous and unmanned systems.\n        During the event we presented projects developed within our club, showcasing the outcomes of our student-led research and engineering activities. The exhibition provided an opportunity to highlight the scope of our work and the technological solutions currently being developed by our teams.\n        Drone World Expo also created a valuable space for discussions with industry professionals, researchers and representatives of organizations involved in the development of UAV technologies. These interactions enabled us to exchange ideas, gain insights into current technological trends and learn more about innovative approaches to the design and operation of unmanned systems.\n        For our team, participation in the event was not only an opportunity to present our projects but also to promote the activities of our scientific club and demonstrate the potential of student-driven research initiatives. The meetings and discussions held during the expo opened the door to new connections and potential future collaborations within the broader drone technology community.",
+        "links": []
+      }
+    },
+    {
+      "id": "siemens-tech-2026",
+      "p": "hawk-eye",
+      "date": "2026-02-27",
+      "big": false,
+      "img": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770960/kn-spa-i-blsps/test/4f550f92ecd4fd4d210d3c2b3342e8a38501c9f36471260e495d827692ea14cd.jpg",
+      "t": "Wyróżnienie nagrodą Siemens – projekt Hawk Eye",
+      "x": "Zostaliśmy wyróżnieni nagrodą firmy Siemens w postaci produktów o wartości 10 000 zł na rozwój projektu Hawk Eye. Projekt dotyczy wielofunkcyjnego drona stratosferycznego rozwijanego w naszym kole naukowym. Wsparcie pozwoli nam kontynuować prace nad rozwojem tej platformy.",
+      "html": "Nasze Koło Naukowe zostało wyróżnione nagrodą firmy Siemens w postaci produktów o łącznej wartości 10 000 zł, które zostały przeznaczone na rozwój projektu Hawk Eye. Wsparcie to stanowi ważny krok w dalszym rozwijaniu naszej działalności badawczej oraz realizacji projektów związanych z nowoczesnymi technologiami bezzałogowymi.\n        Hawk Eye to projekt wielofunkcyjnego drona stratosferycznego, którego celem jest stworzenie platformy zdolnej do długotrwałego lotu nad wybranym obszarem. Koncepcja ta łączy wybrane zalety systemów satelitarnych z elastycznością operacyjną bezzałogowych platform latających działających na niższych wysokościach.\n        Tego typu rozwiązania mogą w przyszłości znaleźć zastosowanie w wielu obszarach, takich jak obserwacja Ziemi, monitoring środowiska, wczesne wykrywanie pożarów, monitoring granic czy zapewnianie łączności w regionach dotkniętych klęskami żywiołowymi. Rozwijane w projekcie technologie mają na celu zwiększenie możliwości prowadzenia badań i monitoringu w trudno dostępnych regionach.\n        Otrzymane wsparcie pozwoli nam kontynuować rozwój kluczowych elementów platformy, testować nowe rozwiązania technologiczne oraz prowadzić dalsze prace badawcze w ramach działalności naszego koła. Wyróżnienie ze strony firmy Siemens stanowi dla naszego zespołu istotne docenienie pracy studentów zaangażowanych w rozwój projektu oraz potwierdzenie potencjału prowadzonych przez nas działań badawczych.\n        ",
+      "gallery": [],
+      "links": [],
+      "en": {
+        "t": "Hawk Eye Project Recognized with a Siemens Award",
+        "x": "Our scientific club received an award from Siemens in the form of products worth 10,000 PLN to support the development of the Hawk Eye project. The project focuses on a multifunctional stratospheric drone developed by our team. This support will allow us to continue advancing the platform.",
+        "html": "Our student scientific club has been recognized with an award from Siemens in the form of products worth 10,000 PLN, supporting the further development of the Hawk Eye project. This distinction represents an important milestone for our team and highlights the potential of the technologies being developed within our research activities.\n        Hawk Eye is a project focused on the development of a multifunctional stratospheric drone designed for long-endurance missions over selected areas. The concept aims to combine certain advantages of satellite-based observation with the flexibility and accessibility of lower-altitude unmanned aerial platforms.\n        Such systems have the potential to support a wide range of applications, including Earth observation, environmental monitoring, early detection of wildfires, border surveillance and the provision of communication support in areas affected by natural disasters. By exploring these possibilities, the project seeks to contribute to the development of innovative aerial monitoring solutions.\n        The support provided by Siemens will allow our team to continue developing key components of the platform, test new technological solutions and further expand the research conducted within our scientific club. Receiving this award is also a significant recognition of the dedication and work of the students involved in the project.\n        ",
+        "links": []
+      }
+    },
+    {
+      "id": "arctic-frontiers-2026",
+      "p": "snows-eye",
+      "date": "2026-02-02",
+      "big": false,
+      "img": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770958/kn-spa-i-blsps/test/c97eba23e98b86d7d5a1206223e22d23d82c3c8ae28350e5114bf8b18833f077.jpg",
+      "t": "Arctic Frontiers 2026",
+      "x": "W lutym 2026 roku wzięliśmy udział w konferencji Arctic Frontiers w Tromsø, prezentując projekt Snow’s Eye. Wydarzenie zgromadziło naukowców, przedstawicieli przemysłu oraz decydentów zajmujących się tematyką regionów arktycznych. Była to doskonała okazja do zaprezentowania naszych badań i wymiany doświadczeń.",
+      "html": "W lutym 2026 roku braliśmy udział w międzynarodowej konferencji Arctic Frontiers, która odbyła się w Tromsø w Norwegii. Jest to jedno z najważniejszych wydarzeń poświęconych badaniom Arktyki, skupiające naukowców, przedstawicieli instytucji badawczych, przemysłu oraz administracji publicznej z całego świata. Konferencja stanowi platformę do dyskusji na temat zmian klimatycznych, nowych technologii wykorzystywanych w badaniach polarnych oraz wyzwań związanych z funkcjonowaniem w ekstremalnych warunkach środowiskowych.\n        Podczas wydarzenia zaprezentowaliśmy projekt Snow’s Eye – autonomiczną platformę UAV zaprojektowaną do pracy w trudnych warunkach arktycznych. Projekt koncentruje się na wykorzystaniu technologii bezzałogowych do wspierania badań naukowych w regionach o ograniczonym dostępie do infrastruktury oraz w miejscach, gdzie prowadzenie tradycyjnych pomiarów jest szczególnie wymagające.\n        Udział w konferencji był dla nas ważną okazją do zaprezentowania efektów naszej pracy międzynarodowej społeczności naukowej. Prezentacja projektu pozwoliła również na wymianę doświadczeń z badaczami zajmującymi się tematyką systemów autonomicznych, technologii pomiarowych oraz badań środowiskowych w regionach polarnych.\n        Konferencja Arctic Frontiers stworzyła przestrzeń do rozmów o przyszłości badań arktycznych oraz o roli nowoczesnych technologii w monitorowaniu zmian zachodzących w tych wyjątkowo wrażliwych ekosystemach. Udział w wydarzeniu umożliwił nam także nawiązanie nowych kontaktów naukowych i potencjalnych współprac badawczych.\n        Szczegółowy opis projektu Snow’s Eye można znaleźć w sekcji projektów na naszej stronie.\n        ",
+      "gallery": [
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770949/kn-spa-i-blsps/test/4e1d74de97e3c51753124d7d4d4eff88ef683de3082727b4c4288ff15c161384.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770950/kn-spa-i-blsps/test/69a1488242ba2f0f011ed5c30c8f95627753b53431e2c95820126a11d876eb29.jpg"
+      ],
+      "links": [],
+      "en": {
+        "t": "Arctic Frontiers 2026",
+        "x": "In February 2026 we took part in the Arctic Frontiers conference in Tromsø, where we presented the Snow’s Eye project. The event brought together scientists, industry representatives and policymakers focused on Arctic research and development. \n        It provided an excellent opportunity to showcase our work and exchange insights with experts from around the world.\n        ",
+        "html": "In February 2026 we participated in the international Arctic Frontiers conference held in Tromsø, Norway. The conference is widely regarded as one of the leading platforms dedicated to Arctic research, bringing together scientists, research institutions, industry representatives and policymakers from across the globe. It serves as an important forum for discussing climate change, technological innovation and the challenges associated with conducting research and operations in polar environments.\n        During the event we presented the Snow’s Eye project – an autonomous UAV platform designed to operate in demanding Arctic conditions. The project explores the potential of unmanned aerial technologies to support scientific research in remote regions where access to infrastructure is limited, and environmental conditions make traditional measurement campaigns particularly challenging.\n        Presenting our work at Arctic Frontiers allowed us to share the outcomes of our research with the international scientific community. It also created valuable opportunities to exchange perspectives with researchers working on autonomous systems, environmental monitoring technologies and field research in polar regions.\n        The conference further emphasized the growing importance of advanced technologies in studying climate processes and monitoring environmental change in the Arctic. Our participation enabled us to establish new professional connections and explore potential future collaborations with research groups and institutions engaged in polar science.\n        A detailed description of the Snow’s Eye project can be found in the projects section of our website.\n        ",
+        "links": []
+      }
+    },
+    {
+      "id": "bit-ai-2026",
+      "p": "kn",
+      "date": "2026-01-03",
+      "big": false,
+      "img": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770958/kn-spa-i-blsps/test/be48a92b47933ba8ece643e46fb6601485b45f7e4ae8295b759c5a3377075461.jpg",
+      "t": "Udział w programie naukowym o AI w Chinach ",
+      "x": "W styczniu 2026 jeden z naszych członków wziął udział w programie naukowym o sztucznej inteligencji w Chinach, na campusie Beijing Institute of Technology w Zhuhai. Była to okazja, aby poznać podstawowe zagadnienia związane z tą dziedziną, jak również poznać lepiej ten kraj poprzez liczne wycieczki i warsztaty kulturalne. Podczas finałowej prezentacji o zastosowaniu sztucznej inteligencji w Polsce nie zabrakło okazji do promowania działalności Koła.",
+      "html": "W styczniu 2026 jeden z członków naszego Koła, student Politechniki Gdańskiej Jan Matusiak, wziął udział w dwutygodniowym &quot;Study in BIT&quot; Artificial Intelligence Winter Program na campusie Beijing Institute of Technology w Zhuhai. Otrzymał on nominację do stypendium z Wydziału Elektroniki, Telekomunikacji i Informatyki swojej uczelni, dzięki czemu mógł w pełni korzystać w oferty programu.\n        Główną część programu stanowiły codzienne wykłady o podstawach sztucznej inteligencji - jej zastosowaniach, etyce, a także agentach AI i uczeniu przez wzmacnianie. Nie brakowało również zajęć kulturowych, podczas których mogliśmy spróbować tradycyjnej kaligrafii oraz wycinanek.\n        Była to również okazja by pozwiedzać - nie tylko Zhuhai, ale również Shenzen i Guanghzou, wiodące miasta regionu GBA i jedne z największych miast nie tylko Chin, ale i na całym świecie. \n        Zwieńczeniem programu była prezentacja końcowa, podczas której cały zespół z Politechniki Gdańskiej opowiedział o zastosowaniach w sztucznej inteligencji w Polsce. Janek opowiadał między innymi o swoim udziale w projekcie FlySearch w naszym Kole, w którym bada wpływ sztucznej inteligencji na nawigację dronem.",
+      "gallery": [
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770949/kn-spa-i-blsps/test/0f2ff28c6efc62f177c9a367b070062c72db88b6993b27cf0f2bcc35e877ab6b.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770948/kn-spa-i-blsps/test/3486359cd838ef6b1d09c1b7d65ba55af4d56d1b9714cfd614ceed81f17e6c7d.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770950/kn-spa-i-blsps/test/1fef6dbfdb96dfcd5b09e133a49ad3f234cd75cc7477229584e70f8576874483.jpg",
+        "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770948/kn-spa-i-blsps/test/61fd2a8f84514cfd2bc876f3e3e9d2c35cba0a6c55d0bcc2a7e7077eb13c29cf.jpg"
+      ],
+      "links": [],
+      "en": {
+        "t": "Participation in the AI academic program in China",
+        "x": "In January 2026, one of our members attended an AI scientific program at the Beijing Institute of Technology in Zhuhai, China. The experience combined deep dives into AI fundamentals with rich cultural workshops and tours. The final presentation on AI in Poland provided a perfect platform to showcase our Research Club's latest projects to an international audience.",
+        "html": "In January 2026, Jan Matusiak, a member of our Research Club and a student at Gdańsk University of Technology, participated in the two-week &#x27;Study in BIT&#x27; Artificial Intelligence Winter Program at the Beijing Institute of Technology campus in Zhuhai. Having received a scholarship nomination from the Faculty of Electronics, Telecommunications, and Informatics, he was able to fully engage in the program&#x27;s offerings.\n\n                The core of the program consisted of daily lectures on AI fundamentals – including its applications, ethics, AI agents, and reinforcement learning. The experience was enriched by cultural workshops where participants practiced traditional calligraphy and paper-cutting.\n\n                The trip also provided an opportunity to explore Zhuhai, Shenzhen, and Guangzhou – leading cities of the Greater Bay Area and some of the largest metropolises in the world. The program culminated in a final presentation, where the team from Gdańsk University of Technology discussed AI applications in Poland. Jan highlighted his involvement in our FlySearch project, focusing on the impact of AI on autonomous drone navigation.",
+        "links": []
+      }
+    },
+    {
+      "id": "orlen-foundation-2025",
+      "p": "hawk-eye",
+      "date": "2025-12-01",
+      "big": false,
+      "img": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770959/kn-spa-i-blsps/test/bc2d2934a190ae6e5d44601b0092678b3a87838ff0a1e565c4763be31a8a1a53.jpg",
+      "t": "Grant Fundacji ORLEN dla projektu Hawk Eye Stratospheric Drone",
+      "x": "Nasze koło naukowe otrzymało grant Fundacji ORLEN w ramach programu „Od cząsteczki do galaktyki”. Wsparcie zostało przyznane na rozwój projektu Hawk Eye Stratospheric Drone – autonomicznej platformy stratosferycznej typu HAPS. Projekt koncentruje się na opracowaniu wielokrotnego użytku systemu do badań atmosfery, monitoringu środowiska oraz zapewniania łączności w trudno dostępnych regionach.",
+      "html": "Nasze koło naukowe działające na Wydziale Mechaniki, Energetyki i Lotnictwa Politechniki Warszawskiej zostało laureatem programu grantowego Fundacji ORLEN „Od cząsteczki do galaktyki”. Program ten wspiera działalność studenckich kół naukowych prowadzących projekty badawcze z zakresu chemii, fizyki oraz nauk pokrewnych, umożliwiając rozwój innowacyjnych inicjatyw naukowych i technologicznych.\n        Nagrodzony projekt, realizowany pod opieką dr hab. inż. Elżbiety Jarzębowskiej, prof. PW, nosi nazwę „Hawk Eye Stratospheric Drone” i koncentruje się na opracowaniu autonomicznego drona stratosferycznego typu HAPS (High Altitude Pseudo-Satellite). Planowana platforma ma operować na wysokościach od 10 do 30 km, stanowiąc elastyczną i bardziej ekonomiczną alternatywę dla tradycyjnych systemów satelitarnych.\n        Jednym z kluczowych celów projektu jest ograniczenie problemu elektroodpadów powstających w wyniku wykorzystywania jednorazowych radiosond meteorologicznych. W odpowiedzi na to wyzwanie opracowywany jest system wielokrotnego użytku, zdolny do bezpiecznego powrotu i lądowania po zakończeniu misji.\n        Innowacyjność projektu opiera się między innymi na wykorzystaniu ogniw fotowoltaicznych oraz zdolności platformy do długotrwałego, autonomicznego lotu, który może trwać co najmniej 24 godziny. Dron ma pełnić funkcję stratosferycznej stacji bazowej SMBS, zapewniając łączność w promieniu do 100 km, zwłaszcza w regionach o ograniczonej infrastrukturze komunikacyjnej. Platforma może także wspierać działania ratownicze typu SAR oraz monitoring klęsk żywiołowych dzięki zastosowaniu kamer wielospektralnych.\n        Realizacja projektu została zaplanowana w kilku etapach, obejmujących budowę prototypu testowego, przeprowadzenie testów sterowania w warunkach stratosferycznych oraz stworzenie pełnej platformy zdolnej do pracy z zerowym bilansem energetycznym. Projekt rozwijany jest we współpracy z ekspertami z Creotech Instruments S.A. oraz Instytutu Geofizyki Polskiej Akademii Nauk.\n        Otrzymany grant stanowi istotne wsparcie dla dalszego rozwoju projektu oraz umożliwia realizację kolejnych etapów badań nad autonomicznymi platformami stratosferycznymi rozwijanymi w naszym kole naukowym.\n        ",
+      "gallery": [],
+      "links": [],
+      "en": {
+        "t": "ORLEN Foundation Grant for the Hawk Eye Stratospheric Drone Project",
+        "x": "Our student scientific club has been awarded a grant from the ORLEN Foundation as part of the “From Molecule to Galaxy” program. The funding supports the development of the Hawk Eye Stratospheric Drone project – an autonomous high-altitude platform of the HAPS type. The project focuses on creating a reusable system for atmospheric research, environmental monitoring, and communication in hard-to-reach areas.",
+        "html": "Our student research club operating at the Faculty of Power and Aeronautical Engineering of the Warsaw University of Technology has been awarded a grant from the ORLEN Foundation under the “From Molecule to Galaxy” program. The initiative supports student research groups working in the fields of chemistry, physics, and related scientific disciplines, promoting innovative academic and technological projects.\n        The awarded project, supervised by Professor Elżbieta Jarzębowska, is titled “Hawk Eye Stratospheric Drone” and focuses on the development of an autonomous stratospheric UAV platform of the HAPS (High Altitude Pseudo-Satellite) type. The system is designed to operate at altitudes between 10 and 30 km, offering a flexible and cost-effective alternative to traditional satellite systems.\n        One of the key objectives of the project is to address the environmental issue associated with disposable meteorological radiosondes, which generate electronic waste after a single use. The proposed solution involves the development of a reusable platform capable of safely returning and landing after completing its mission.\n        The innovative character of the system is based on the integration of photovoltaic cells and the platform’s capability to perform long-endurance autonomous flights lasting at least 24 hours. The platform is intended to function as a stratospheric mobile base station (SMBS), providing communication coverage within a radius of up to 100 km, particularly in regions with limited communication infrastructure. Additionally, the system may support search-and-rescue (SAR) operations and disaster monitoring through the use of multispectral imaging systems.\n        The implementation of the project includes several development stages, including the construction of a test prototype, control system testing in stratospheric conditions, and the development of a full platform capable of operating with a zero-energy balance. The project is being developed in collaboration with experts from Creotech Instruments S.A. and the Institute of Geophysics of the Polish Academy of Sciences.\n        The grant awarded by the ORLEN Foundation provides significant support for the continued development of the project and enables further research on autonomous stratospheric platforms conducted within our student scientific club.\n        ",
+        "links": []
+      }
+    },
+    {
+      "id": "stypendium-ncn",
+      "p": "flysearch",
+      "date": "-",
+      "big": false,
+      "img": "",
+      "t": "Stypendium NCN dla członków naszego koła",
+      "x": "Z przyjemnością informujemy, że trzech przedstawicieli naszego koła pracujących nad projektem FlySearch otrzymało stypendium naukowe w ramach projektu badawczego NCN SONATA BIS „Uniwersalny robot - rozwijanie uczenia robotów poprzez uczenie ze wzmocnieniem i modele VLA\", kierowanego przez prof. Marka Cygana. To wyróżnienie potwierdza realny wkład naszych członków w badania naukowe i stanowi dla nich wyjątkową szansę na rozwój w bezpośrednim kontakcie z doświadczoną kadrą akademicką. Serdecznie gratulujemy stypendystom!",
+      "html": "Z przyjemnością informujemy, że trzech przedstawicieli naszego koła pracujących nad projektem FlySearch otrzymało stypendium naukowe w ramach projektu badawczego NCN SONATA BIS „Uniwersalny robot - rozwijanie uczenia robotów poprzez uczenie ze wzmocnieniem i modele VLA&quot;, kierowanego przez prof. Marka Cygana. To dla nas powód do ogromnej dumy i potwierdzenie, że praca wykonywana w ramach koła przekłada się na realne osiągnięcia naukowe.\n        Przyznane stypendia są wyrazem uznania komisji konkursowej dla zaangażowania i kompetencji naszych członków. Udział w projekcie NCN SONATA BIS to dla stypendystów nie tylko prestiż, ale przede wszystkim wyjątkowa szansa na rozwój, możliwość czynnego uczestnictwa w badaniach na wysokim poziomie, bezpośredni kontakt z doświadczoną kadrą akademicką oraz praca w środowisku stawiającym konkretne, niebanalne wyzwania badawcze. Projekt ten wpisuje się w szerszy nurt badań nad autonomicznymi systemami uczącymi się, a jego interdyscyplinarny charakter stwarza przestrzeń do rozwijania kompetencji wykraczających daleko poza ramy standardowej ścieżki akademickiej. Tego rodzaju doświadczenie, zdobywane już na etapie studiów, ma trudną do przecenienia wartość zarówno naukową, jak i zawodową.\n        Serdecznie gratulujemy stypendystom i życzymy owocnej współpracy w nadchodzących miesiącach, jesteśmy przekonani, że to dopiero początek wielu wspólnych sukcesów.",
+      "gallery": [],
+      "links": [],
+      "en": {
+        "t": "NCN Scholarship for Our Members",
+        "x": "We are pleased to announce that three members of our circle working on the FlySearch project have been awarded a scientific scholarship as part of the NCN SONATA BIS research project „Universal Robot - Advancing Robot Learning through Reinforcement Learning and VLA Models\", led by Prof. Marek Cygan. This honour confirms the real contribution our members make to scientific research and gives them an exceptional opportunity to grow in direct collaboration with experienced academics. Congratulations!",
+        "html": "We are delighted to announce that three members of our circle working on the FlySearch project have been awarded a scientific scholarship as part of the NCN SONATA BIS research project „Universal Robot -  Advancing Robot Learning through Reinforcement Learning and VLA Models&quot;, led by Prof. Marek Cygan. This is a source of great pride for us and a confirmation that the work carried out within our circle translates into real scientific achievements.\n        The scholarships reflect the jury&#x27;s recognition of our members&#x27; dedication and competence. Participation in the NCN SONATA BIS project is not only a distinction, but above all an exceptional opportunity for growth, a chance to actively contribute to high-level research, work in direct contact with experienced academics, and engage with a environment that poses concrete, non-trivial scientific challenges. The project itself sits within the broader field of autonomous learning systems, and its interdisciplinary nature creates space for developing competencies that go well beyond the standard academic path. This kind of experience, gained already during one&#x27;s studies, carries immense value, both scientifically and professionally.\n        We extend our warmest congratulations to the scholarship recipients and wish them a fruitful collaboration in the months ahead, we are certain this is just the beginning of many shared successes.",
+        "links": []
+      }
+    }
+  ],
+  "photos": {},
+  "partners": [
+    {
+      "id": 20,
+      "name": "Politechnika Warszawska",
+      "url": "https://www.pw.edu.pl/",
+      "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770965/kn-spa-i-blsps/test/da6390d13e3f95c314a5d2713de51cabe47295984f3bfe52a8cf9ad5da3db96c.png",
+      "category": "partner",
+      "sort_order": 0
+    },
+    {
+      "id": 21,
+      "name": "Uniwersytet Warszawski",
+      "url": "https://www.uw.edu.pl/",
+      "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770961/kn-spa-i-blsps/test/9699e53e6ae9dc04906921bf91e620c43e3d286ff701ff2bf97f61d2ae33772f.png",
+      "category": "partner",
+      "sort_order": 1
+    },
+    {
+      "id": 22,
+      "name": "Creotech GEO",
+      "url": "https://creotech.pl/",
+      "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770961/kn-spa-i-blsps/test/66004172a115b6447616435fbc3a72cb52c3afb055dd4e7d713ac4bb29ceb5be.png",
+      "category": "partner",
+      "sort_order": 2
+    },
+    {
+      "id": 23,
+      "name": "Inkubator UW",
+      "url": "https://iuw.edu.pl/",
+      "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770962/kn-spa-i-blsps/test/771dbfd0c643a03bd096c13cbdff99fc87606c19f8418b185436ce1b1c83e03c.svg",
+      "category": "partner",
+      "sort_order": 3
+    },
+    {
+      "id": 24,
+      "name": "Botland",
+      "url": "https://botland.com.pl",
+      "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770961/kn-spa-i-blsps/test/49958b6264c37c6f0fe1d6df9e1fd1ef3debaae671d3049dd2d32d4e09f7b2cd.png",
+      "category": "partner",
+      "sort_order": 4
+    },
+    {
+      "id": 25,
+      "name": "Urząd Patentowy RP",
+      "url": "https://uprp.gov.pl/pl",
+      "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770963/kn-spa-i-blsps/test/a740c68ef481075c718e4d125aadba73997795273a38742a05d69f55569983d0.png",
+      "category": "partner",
+      "sort_order": 5
+    },
+    {
+      "id": 26,
+      "name": "Solidexpert",
+      "url": "https://solidexpert.com/",
+      "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770964/kn-spa-i-blsps/test/a25e46c4603ed3da82fa0e679a4879f72c91aaedee8a3aad5deab96e5f93cb45.webp",
+      "category": "partner",
+      "sort_order": 6
+    },
+    {
+      "id": 27,
+      "name": "WB Group",
+      "url": "https://www.wbgroup.pl/",
+      "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770964/kn-spa-i-blsps/test/bec9e601cb3f616077794b81b7262d8693d05a1226c7f3253e56a38313102452.png",
+      "category": "partner",
+      "sort_order": 7
+    },
+    {
+      "id": 28,
+      "name": "Siemens",
+      "url": "https://www.siemens.com/en-us/",
+      "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770965/kn-spa-i-blsps/test/15e94796aa5b26bdf767ad581cfa156727d6a2d68a488371a6c25b87d3c3b285.png",
+      "category": "partner",
+      "sort_order": 8
+    },
+    {
+      "id": 29,
+      "name": "Fundacja Orlen",
+      "url": "https://fundacja.orlen.pl/pl",
+      "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770962/kn-spa-i-blsps/test/5a52ca9a5022c1899f2a24b8e313ca294a06d51136f005d28d8f7a5d772a34cc.png",
+      "category": "partner",
+      "sort_order": 9
+    },
+    {
+      "id": 30,
+      "name": "Our Future Foundation",
+      "url": "https://off.org.pl/",
+      "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770962/kn-spa-i-blsps/test/10b2b65fc9eb9b56e6c59d777cddcac8586e485891a27d3082022e021e927c66.png",
+      "category": "partner",
+      "sort_order": 10
+    },
+    {
+      "id": 31,
+      "name": "Instytut Geofizyki PAN",
+      "url": "https://www.igf.edu.pl/",
+      "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770964/kn-spa-i-blsps/test/039dac3906a683cdf16ca4f0f2ac572a718e0cea2cf36fa526a3d6b6ede6e874.png",
+      "category": "partner",
+      "sort_order": 11
+    },
+    {
+      "id": 32,
+      "name": "IDUB",
+      "url": "https://inicjatywadoskonalosci.uw.edu.pl/en/",
+      "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770962/kn-spa-i-blsps/test/d3e27c86853ff46ea8c945fd863c26f1e697191e069c680bcbdc248e2af4e3d1.svg",
+      "category": "partner",
+      "sort_order": 12
+    },
+    {
+      "id": 33,
+      "name": "NCBR",
+      "url": "https://www.gov.pl/web/ncbr",
+      "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770965/kn-spa-i-blsps/test/75a4c8c3af290832b10f7e2b97661d2d2d396091d03d7618bf4c9359699e5772.svg",
+      "category": "partner",
+      "sort_order": 13
+    },
+    {
+      "id": 34,
+      "name": "Uczelnie przyszłości",
+      "url": "https://www.gov.pl/web/ncbr/projekt-uczelnie-przyszlosci",
+      "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770963/kn-spa-i-blsps/test/c7582e3b3180ea9cbe90e40edd0aee8c2d383e3e4dd91aa77148947168de0f94.png",
+      "category": "partner",
+      "sort_order": 14
+    },
+    {
+      "id": 35,
+      "name": "PTAK Warsaw Expo",
+      "url": "https://warsawexpo.eu/",
+      "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770962/kn-spa-i-blsps/test/7af20fc52e308c2e6e78c20376aca244dbf3082fae913af37b1b2be5d5230737.png",
+      "category": "partner",
+      "sort_order": 15
+    },
+    {
+      "id": 36,
+      "name": "Ministerstwo Nauki i Szkolnictwa Wyższego",
+      "url": "https://www.gov.pl/web/nauka",
+      "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770965/kn-spa-i-blsps/test/b9f0478d6ca2b697c981270ee5a4c6a0de5574049fa9253594e1f404b3b0edf2.png",
+      "category": "partner",
+      "sort_order": 16
+    },
+    {
+      "id": 37,
+      "name": "Fundacja UV",
+      "url": "https://fundacjauv.org.pl/",
+      "logo": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770964/kn-spa-i-blsps/test/bc5b79ccf00d03ed02a2a3e1fcf4a36d2aa217657411ea074805bfee464d175b.png",
+      "category": "partner",
+      "sort_order": 17
+    }
+  ],
+  "site": {
+    "texts": [
+      {
+        "id": "copy-0",
+        "label": "Koło Naukowe Systemów Pomiarowych i Automatyki · UW",
+        "pl": "Koło Naukowe Systemów Pomiarowych i Automatyki · UW",
+        "en": "Student Research Group for Measurement Systems and Automation · UW"
+      },
+      {
+        "id": "copy-1",
+        "label": "Od oceanów po stratosferę",
+        "pl": "Od oceanów <em>po stratosferę</em>",
+        "en": "From the oceans <em>to the stratosphere</em>"
+      },
+      {
+        "id": "copy-2",
+        "label": "Pięć projektów, jeden cel: autonomiczne systemy, które zbierają d",
+        "pl": "Pięć projektów, jeden cel: autonomiczne systemy, które zbierają dane tam, gdzie człowiekowi trudno dotrzeć.",
+        "en": "Five projects, one goal: autonomous systems that collect data where people cannot easily reach."
+      },
+      {
+        "id": "copy-3",
+        "label": "Pięć misji, pięć środowisk",
+        "pl": "Pięć misji, pięć środowisk",
+        "en": "Five missions, five environments"
+      },
+      {
+        "id": "copy-4",
+        "label": "Kim jesteśmy",
+        "pl": "Kim jesteśmy",
+        "en": "Who we are"
+      },
+      {
+        "id": "copy-5",
+        "label": "Studenci, którzy budują sprzęt od zera",
+        "pl": "Studenci, którzy budują sprzęt od zera",
+        "en": "Students building hardware from scratch"
+      },
+      {
+        "id": "copy-6",
+        "label": "Jesteśmy kołem naukowym Uniwersytetu Warszawskiego. Projektujemy ",
+        "pl": "Jesteśmy kołem naukowym Uniwersytetu Warszawskiego. Projektujemy elektronikę, piszemy oprogramowanie i testujemy nasze systemy w terenie: od basenu po lodowce Svalbardu.",
+        "en": "We are a student research group at the University of Warsaw. We design electronics, write software and test our systems in the field: from swimming pools to the glaciers of Svalbard."
+      },
+      {
+        "id": "copy-7",
+        "label": "Każda misja ma swoją załogę",
+        "pl": "Każda misja ma swoją załogę",
+        "en": "Every mission has its crew"
+      },
+      {
+        "id": "copy-8",
+        "label": "Studenci informatyki, matematyki, fizyki, inżynierii, zarządzania",
+        "pl": "Studenci informatyki, matematyki, fizyki, inżynierii, zarządzania i finansów. Każdy projekt prowadzi własny zespół, a zarząd dba o to, żeby wszystko działało razem.",
+        "en": "Students of computer science, mathematics, physics, engineering, management and finance. Each project has its own team, while the board keeps everything working together."
+      },
+      {
+        "id": "copy-9",
+        "label": "Razem dolatujemy dalej",
+        "pl": "Razem dolatujemy dalej",
+        "en": "Together, we go further"
+      },
+      {
+        "id": "copy-10",
+        "label": "Dziękujemy instytucjom i firmom, które wspierają nasze projekty s",
+        "pl": "Dziękujemy instytucjom i firmom, które wspierają nasze projekty sprzętem, wiedzą i finansowaniem.",
+        "en": "We thank the institutions and companies supporting our projects with equipment, expertise and funding."
+      },
+      {
+        "id": "copy-11",
+        "label": "Porozmawiajmy",
+        "pl": "Porozmawiajmy",
+        "en": "Let’s talk"
+      },
+      {
+        "id": "copy-12",
+        "label": "Pytania o projekty, współpracę albo media? Najszybciej złapiesz n",
+        "pl": "Pytania o projekty, współpracę albo media? Najszybciej złapiesz nas mailowo lub na Instagramie.",
+        "en": "Questions about projects, partnerships or media? The quickest way to reach us is by email or Instagram."
+      },
+      {
+        "id": "copy-13",
+        "label": "Koło Naukowe Systemów Pomiarowych i Automatyki, Uniwersytet Warsz",
+        "pl": "Koło Naukowe Systemów Pomiarowych i Automatyki, Uniwersytet Warszawski. Od oceanów po stratosferę.",
+        "en": "Student Research Group for Measurement Systems and Automation, University of Warsaw. From the oceans to the stratosphere."
+      }
+    ],
+    "homeGallery": [
+      {
+        "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770937/kn-spa-i-blsps/test/ead9362291a808676472b2eddec522442bdb4faa504da835945721be055a29ee.jpg",
+        "caption_pl": "Zespół BlueSpark na zawodach RoboSub 2026 w Kalifornii",
+        "caption_en": "The BlueSpark team at RoboSub 2026 in California",
+        "layout": "w2 h2"
+      },
+      {
+        "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770940/kn-spa-i-blsps/test/fbdaaad29d4ce57d91cd193d13a67c2bb8d8c8958513875cf4389bbb9ca21710.jpg",
+        "caption_pl": "Dron Snow’s Eye na śniegu na Svalbardzie",
+        "caption_en": "The Snow’s Eye drone on the snow in Svalbard",
+        "layout": "h2"
+      },
+      {
+        "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770938/kn-spa-i-blsps/test/6054ab9ee6588f8f5f9f08651801d7ce5f80bd083c79d08b746e74e60301369f.jpg",
+        "caption_pl": "Prezentacja koła na scenie Kongresu Nowej Mobilności",
+        "caption_en": "Presenting our research group at the New Mobility Congress",
+        "layout": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770934/kn-spa-i-blsps/test/3c17db7fb2545f937f2a67c402e793abda82fd3069e079a60cc9166479941fea.jpg",
+        "caption_pl": "Zespół MUSC przy pracy nad dronami",
+        "caption_en": "The MUSC team working on drones",
+        "layout": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770943/kn-spa-i-blsps/test/0334d6bb0326658c6cc93a2cc73773080e03ffdba78e7f9b9efb3543834ad985.jpg",
+        "caption_pl": "Nasz zespół na konferencji OCEANS 2026 w Sanyi",
+        "caption_en": "Our team at the OCEANS 2026 conference in Sanya",
+        "layout": "w2"
+      },
+      {
+        "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770943/kn-spa-i-blsps/test/40f21ea7ab6df4786f1b102c84d4ff5f65099c4d7f5634cbf90108e2f7d44dca.jpg",
+        "caption_pl": "Dron FlySearch przed gmachem Politechniki Warszawskiej",
+        "caption_en": "The FlySearch drone outside Warsaw University of Technology",
+        "layout": "h2"
+      },
+      {
+        "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770933/kn-spa-i-blsps/test/a2cfe0589f4bcdf64e88bd352293cd768cc33d74be930c20573f12cd148f5d78.jpg",
+        "caption_pl": "Zespół Hawk Eye z płatowcem drona stratosferycznego",
+        "caption_en": "The Hawk Eye team with the stratospheric drone airframe",
+        "layout": ""
+      },
+      {
+        "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770940/kn-spa-i-blsps/test/08238cee8f9ec2306176535b7ae7ae64667ae8cbc0fbcd3d4d87d6295763b8c6.jpg",
+        "caption_pl": "Członkowie koła w studiu telewizyjnym",
+        "caption_en": "Club members in a television studio",
+        "layout": "w2"
+      },
+      {
+        "url": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770938/kn-spa-i-blsps/test/3fc611cef432884dbe3c9de8fac62ef477bb0554f11de123fd8c6759bad67fe5.jpg",
+        "caption_pl": "Warsztaty lutowania dla licealistów",
+        "caption_en": "Soldering workshops for secondary school students",
+        "layout": ""
+      }
+    ],
+    "homeAboutImage": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794770930/kn-spa-i-blsps/test/f69c7e19f48b2e1eb0894a74052a20a421069d88afb5e0c2261d87651c919a75.jpg",
+    "contact": {
+      "email": "kontakt@knspa.mimuw.edu.pl",
+      "address": "Wydział Matematyki, Informatyki i Mechaniki UW<br>ul. Banacha 2, 02-097 Warszawa"
+    },
+    "socials": [
+      {
+        "name": "Instagram",
+        "handle": "@knspa_official",
+        "url": "https://www.instagram.com/knspa_official"
+      },
+      {
+        "name": "LinkedIn",
+        "handle": "KN SPA i BLSPS",
+        "url": "https://www.linkedin.com/company/ko%C5%82o-naukowe-badawczych-lotniczych-system%C3%B3w-pomiarowych-i-sterowania"
+      },
+      {
+        "name": "Facebook",
+        "handle": "KN SPA i BLSPS",
+        "url": "https://www.facebook.com/profile.php?id=61570312228298"
+      },
+      {
+        "name": "GitHub",
+        "handle": "kn-spa-i-blsps",
+        "url": "https://github.com/kn-spa-i-blsps"
+      }
+    ],
+    "researchVideo": "https://res.cloudinary.com/dsrdp5vrr/video/upload/v1794771434/kn-spa-i-blsps/test/749fe30653e330e6dbd476c64eb4222ebffa8bc001668ee7bc6dd8fe602d4034.mp4",
+    "groups": [
+      {
+        "g": "Zarząd",
+        "id": "zarzad",
+        "c": "var(--kn)",
+        "cols": 5
+      },
+      {
+        "g": "BlueSpark",
+        "id": "bluespark",
+        "c": "var(--bs)"
+      },
+      {
+        "g": "Research",
+        "parent": "BlueSpark",
+        "id": "bluespark-research",
+        "c": "var(--bs)",
+        "sub": "Sekcja badawcza BlueSparka"
+      },
+      {
+        "g": "Snow’s Eye",
+        "id": "snows-eye",
+        "c": "var(--se)"
+      },
+      {
+        "g": "MUSC",
+        "id": "musc",
+        "c": "var(--mu)"
+      },
+      {
+        "g": "FlySearch",
+        "id": "flysearch",
+        "c": "var(--fs)"
+      },
+      {
+        "g": "Hawk Eye",
+        "id": "hawk-eye",
+        "c": "var(--he)"
+      },
+      {
+        "g": "Business Team",
+        "id": "business",
+        "c": "#C2CCD8",
+        "sub": "Marketing, partnerstwa, finanse i komunikacja koła"
+      }
+    ],
+    "icons": {
+      "club": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794771428/kn-spa-i-blsps/test/2e3779bbfe3a600e658d0aedbbe7ce034215b93b8a85a4531427522815807c96.svg",
+      "bluespark": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794771428/kn-spa-i-blsps/test/fbf81b5bc4ccc3ddc5861354619e8ba77cee26c0f8c22b87d7c5d9b83208cac1.svg",
+      "snows-eye": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794771428/kn-spa-i-blsps/test/ee3c0e28ff1a0edf63a8ce2787c1568eac0cb75e00ed6123e5aa2140a9d1f280.svg",
+      "musc": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794771430/kn-spa-i-blsps/test/c35de655281c289852e220361fed1227e87490a605fcc1995c3738eb6e0bbcd4.svg",
+      "flysearch": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794771430/kn-spa-i-blsps/test/2035f7a8daed0dfb801d5af594bb8e228a11823826483204c21aededa4bf7662.svg",
+      "hawk-eye": "https://res.cloudinary.com/dsrdp5vrr/image/upload/v1794771430/kn-spa-i-blsps/test/f5eba778bdc8deddbc480327abdaf6f6e710977d01b5bb9df767aa1f2ec2cf5b.svg"
+    }
+  },
+  "translations": {
+    "KN SPA, strona główna": "KN SPA, home",
+    "Projekty": "Projects",
+    "Zespół": "Team",
+    "Partnerzy": "Partners",
+    "Kontakt": "Contact",
+    "Język artykułów: polski. Przełącz na angielski": "Website language: Polish. Switch to English",
+    "Koło Naukowe Systemów Pomiarowych i Automatyki · UW": "Student Research Group for Measurement Systems and Automation · UW",
+    "Od oceanów": "From the oceans",
+    "po stratosferę": "to the stratosphere",
+    "Pięć projektów, jeden cel: autonomiczne systemy, które zbierają dane tam, gdzie człowiekowi trudno dotrzeć.": "Five projects, one goal: autonomous systems that collect data where people cannot easily reach.",
+    "Poznaj projekty": "Explore our projects",
+    "Co u nas słychać": "Our latest news",
+    "Projekty według wysokości pracy": "Projects by operating altitude",
+    "PRZEWIŃ ↓": "SCROLL ↓",
+    "Pięć misji, pięć środowisk": "Five missions, five environments",
+    "Każdy projekt ma własny zespół, własną kolorystykę i własną zakładkę.": "Each project has its own team, colour scheme and dedicated page.",
+    "Kim jesteśmy": "Who we are",
+    "Studenci, którzy budują sprzęt od zera": "Students building hardware from scratch",
+    "Jesteśmy kołem naukowym Uniwersytetu Warszawskiego. Projektujemy elektronikę, piszemy oprogramowanie i testujemy nasze systemy w terenie: od basenu po lodowce Svalbardu.": "We are a student research group at the University of Warsaw. We design electronics, write software and test our systems in the field: from swimming pools to the glaciers of Svalbard.",
+    "projektów badawczych": "research projects",
+    "najdalej na północ": "our northernmost fieldwork",
+    "pułap drona stratosferycznego": "stratospheric drone operating altitude",
+    "Członkowie koła pracują razem przy laptopach": "Club members working together on laptops",
+    "Galeria": "Gallery",
+    "Z warsztatu i z terenu": "In the workshop and in the field",
+    "Zespół BlueSpark na zawodach RoboSub 2026 w Kalifornii": "The BlueSpark team at RoboSub 2026 in California",
+    "Dron Snow’s Eye na śniegu na Svalbardzie": "The Snow’s Eye drone on the snow in Svalbard",
+    "Prezentacja koła na scenie Kongresu Nowej Mobilności": "Presenting our research group at the New Mobility Congress",
+    "Zespół MUSC przy pracy nad dronami": "The MUSC team working on drones",
+    "Nasz zespół na konferencji OCEANS 2026 w Sanyi": "Our team at the OCEANS 2026 conference in Sanya",
+    "Dron FlySearch przed gmachem Politechniki Warszawskiej": "The FlySearch drone outside Warsaw University of Technology",
+    "Zespół Hawk Eye z płatowcem drona stratosferycznego": "The Hawk Eye team with the stratospheric drone airframe",
+    "Członkowie koła w studiu telewizyjnym": "Club members in a television studio",
+    "Warsztaty lutowania dla licealistów": "Soldering workshops for secondary school students",
+    "Filtruj wpisy": "Filter posts",
+    "Każda misja ma swoją załogę": "Every mission has its crew",
+    "Studenci informatyki, matematyki, fizyki, inżynierii, zarządzania i finansów. Każdy projekt prowadzi własny zespół, a zarząd dba o to, żeby wszystko działało razem.": "Students of computer science, mathematics, physics, engineering, management and finance. Each project has its own team, while the board keeps everything working together.",
+    "Razem dolatujemy dalej": "Together, we go further",
+    "Dziękujemy instytucjom i firmom, które wspierają nasze projekty sprzętem, wiedzą i finansowaniem.": "We thank the institutions and companies supporting our projects with equipment, expertise and funding.",
+    "Politechnika Warszawska": "Warsaw University of Technology",
+    "Uniwersytet Warszawski": "University of Warsaw",
+    "Inkubator UW": "University of Warsaw Incubator",
+    "Urząd Patentowy RP": "Patent Office of the Republic of Poland",
+    "Wsparcie": "Supporters",
+    "Fundacja Orlen": "ORLEN Foundation",
+    "Instytut Geofizyki PAN": "Institute of Geophysics, Polish Academy of Sciences",
+    "Uczelnie przyszłości": "Universities of the Future",
+    "Ministerstwo Nauki i Szkolnictwa Wyższego": "Ministry of Science and Higher Education",
+    "Fundacja UV": "Universitatis Varsoviensis Foundation",
+    "Współpraca": "Partnerships",
+    "Chcesz wspierać studenckie badania?": "Would you like to support student research?",
+    "Oferujemy widoczność na zawodach i targach, wspólne projekty badawcze i kontakt z utalentowanymi studentami.": "We offer visibility at competitions and trade fairs, joint research projects and access to talented students.",
+    "Napisz do nas": "Get in touch",
+    "Porozmawiajmy": "Let’s talk",
+    "Pytania o projekty, współpracę albo media? Najszybciej złapiesz nas mailowo lub na Instagramie.": "Questions about projects, partnerships or media? The quickest way to reach us is by email or Instagram.",
+    "Kopiuj": "Copy",
+    "Adres": "Address",
+    "Wydział Matematyki, Informatyki i Mechaniki UW": "Faculty of Mathematics, Informatics and Mechanics, University of Warsaw",
+    "ul. Banacha 2, 02-097 Warszawa": "2 Banacha Street, 02-097 Warsaw, Poland",
+    "Formularz": "Contact form",
+    "Imię i nazwisko": "Full name",
+    "Temat": "Subject",
+    "Współpraca / sponsoring": "Partnerships / sponsorship",
+    "Pytanie o projekt": "Project enquiry",
+    "Inne": "Other",
+    "Wiadomość": "Message",
+    "Wyślij wiadomość": "Send message",
+    "Koło Naukowe Systemów Pomiarowych i Automatyki, Uniwersytet Warszawski. Od oceanów po stratosferę.": "Student Research Group for Measurement Systems and Automation, University of Warsaw. From the oceans to the stratosphere.",
+    "PROJEKTY": "PROJECTS",
+    "KOŁO": "ABOUT US",
+    "OBSERWUJ": "FOLLOW US",
+    "Symbol projektu BlueSpark": "BlueSpark project symbol",
+    "POD WODĄ": "UNDERWATER",
+    "Robot podwodny, który nawiguje wzrokiem": "An underwater robot that navigates by sight",
+    "BlueSpark to autonomiczny dron podwodny (AUV), który docelowo stanie się częścią roju, czyli systemu wielu współpracujących ze sobą robotów.": "BlueSpark is an autonomous underwater vehicle (AUV) designed to become part of a swarm: a system of multiple cooperating robots.",
+    "Sekcje projektu": "Project sections",
+    "O projekcie": "About the project",
+    "Stan projektu": "Project status",
+    "Aktualności": "News",
+    "Opis": "Overview",
+    "Głównym celem projektu jest dziś udział w renomowanych międzynarodowych zawodach robotów podwodnych, takich jak RoboSub i SAUVC. Rywalizujemy tam z czołowymi uczelniami świata, m.in. MIT, Stanfordem i NUS, choć nasze rozwiązanie kosztuje wielokrotnie mniej. Przygotowania do zawodów pozwalają dopracować szczegóły przed budową systemu wielu robotów, a same zawody są rzetelnym sprawdzianem naszych możliwości.": "Our main goal today is to compete in renowned international underwater robotics competitions, including RoboSub and SAUVC. We compete with leading universities such as MIT, Stanford and NUS, while our solution costs many times less. Preparing for competitions helps us refine the details before building a multi-robot system, and the competitions provide a rigorous test of our capabilities.",
+    "Jak to działa": "How it works",
+    "Obecna wersja BlueSparka to sześciosilnikowy dron podwodny, którego konstrukcję w całości zaprojektował nasz zespół. Większość obudowy wydrukowaliśmy w technologii 3D. Zamiast drogich czujników powszechnie stosowanych w nawigacji podwodnej (np. DVL, akustycznego czujnika prędkości względem dna) dron nawiguje przede wszystkim dzięki algorytmom wizji komputerowej.": "The current BlueSpark is a six-thruster underwater drone designed entirely by our team. Most of its housing is 3D-printed. Instead of expensive sensors commonly used in underwater navigation, such as a DVL (an acoustic sensor measuring velocity relative to the seabed), the drone navigates primarily using computer vision algorithms.",
+    "Zastosowanie": "Applications",
+    "Tańsza alternatywa dla rozwiązań dostępnych na rynku pozwoli usprawnić lub zautomatyzować wiele zadań: od mapowania dna morskiego, przez monitorowanie infrastruktury krytycznej, po poszukiwanie złóż metali ziem rzadkich.": "As a more affordable alternative to existing solutions, it can streamline or automate tasks ranging from seabed mapping and critical infrastructure monitoring to searching for rare-earth mineral deposits.",
+    "Niesamowita metoda, która pozwala tworzyć modele 3D całych scen z zaledwie kilku zdjęć.": "A remarkable technique that reconstructs entire 3D scenes from just a few photographs.",
+    "W naszym zespole badamy zastosowanie podwodnego Gaussian Splattingu do trenowania modeli wizji komputerowej. Z modelu 3D sceny generujemy „sztuczne” zdjęcia, na których robot uczy się rozpoznawać obiekty.": "Our team studies underwater Gaussian Splatting for training computer vision models. We generate synthetic images from a 3D scene, allowing a robot to learn to recognise objects.",
+    "Za tę pracę BlueSpark otrzymał Research Award na RoboSub 2026.": "This research earned BlueSpark the Research Award at RoboSub 2026.",
+    "Prezentacja badań BlueSparka na konferencji OCEANS 2026 w Sanyi": "Presenting BlueSpark research at OCEANS 2026 in Sanya",
+    "Przelot kamery przez scenę odtworzoną metodą Gaussian Splatting": "A camera fly-through of a scene reconstructed using Gaussian Splatting",
+    "Przelot kamery przez scenę odtworzoną metodą Gaussian Splatting.": "A camera fly-through of a scene reconstructed using Gaussian Splatting.",
+    "Od kilku zdjęć do danych treningowych": "From photographs to training data",
+    "Zdjęcia": "Photos",
+    "kilkadziesiąt ujęć sceny z basenu": "dozens of views of a pool scene",
+    "Pozycje kamer": "Camera poses",
+    "COLMAP sam ustala, skąd zrobiono zdjęcia": "COLMAP automatically estimates where each photo was taken",
+    "Model 3D": "3D model",
+    "Gaussian Splatting odtwarza scenę razem z wodą": "Gaussian Splatting reconstructs the scene, including the water",
+    "Sztuczne zdjęcia": "Synthetic images",
+    "nowe ujęcia z automatycznie zaznaczonymi obiektami": "new views with automatically annotated objects",
+    "Trening AI": "AI training",
+    "YOLO na zawody i wykrywanie anomalii": "YOLO for competitions and anomaly detection",
+    "Dla dociekliwych: jak to działa od strony technicznej": "A closer look: the technical details",
+    "Gaussian Splatting to bardzo sprytna metoda rekonstrukcji sceny z pojedynczych zdjęć. Dzięki programowi COLMAP nie potrzebujemy nawet danych o miejscach, z których robiono zdjęcia: na podstawie wspólnych punktów na zdjęciach program sam wyznacza względne pozycje kamer (tzw. camera poses).": "Gaussian Splatting is an ingenious technique for reconstructing scenes from individual photographs. With COLMAP, we do not even need to know where the photographs were taken: the software estimates the relative camera positions, known as camera poses, from points shared across the images.",
+    "Znając te pozycje, algorytm optymalizuje ułożenie gaussianów na scenie: tworzy je lub usuwa i dostosowuje ich parametry tak, aby rendery z tych samych miejsc, z których robiono zdjęcia, jak najbardziej przypominały oryginały.": "Using these poses, the algorithm optimises the Gaussians in the scene: it creates or removes them and adjusts their parameters so that renders from the same viewpoints match the original photographs as closely as possible.",
+    "Gaussian Splatting jest często ponad 100 razy szybszy niż wcześniejsze metody, takie jak NeRF. Efektem są bardzo przekonujące modele 3D.": "Gaussian Splatting is often more than 100 times faster than earlier methods such as NeRF. It produces highly convincing 3D reconstructions.",
+    "Ponieważ gaussiany mają swoją fizyczną pozycję w przestrzeni, obiekty na scenie można łatwo zaznaczyć, oznaczając należące do nich gaussiany. Dzięki temu pomijamy żmudne ręczne oznaczanie danych na zdjęciach: pozycję szukanego obiektu na sztucznym zdjęciu generujemy automatycznie.": "Because Gaussians have physical positions in space, objects in the scene can be annotated by selecting the Gaussians that belong to them. This removes the need for laborious manual image annotation: the position of an object in a synthetic image is generated automatically.",
+    "Używamy podwodnego Gaussian Splattingu, który wzbogaca model o reprezentację medium. W naszym przypadku jest to woda, ale może to być też na przykład mgła. Pracujemy nad zastosowaniem tej metody do skutecznego trenowania modeli wizji komputerowej: wykrywania anomalii oraz dotrenowywania modelu YOLO na zawody.": "We use underwater Gaussian Splatting, which extends the model with a representation of the surrounding medium. In our case this is water, but it could also be fog, for example. We are exploring how this technique can improve computer vision training, including anomaly detection and fine-tuning YOLO for competitions.",
+    "Gdzie jesteśmy": "Where we are",
+    "Koncepcja": "Concept",
+    "Prototyp": "Prototype",
+    "Testy": "Testing",
+    "teraz": "now",
+    "Testy terenowe": "Field testing",
+    "BlueSpark w drodze do basenu na zawodach RoboSub 2026 w Kalifornii.": "BlueSpark on its way to the pool at RoboSub 2026 in California.",
+    "Co już działa": "What already works",
+    "Poprzednia wersja drona przeszła test w rzeczywistych warunkach na zawodach RoboSub 2026 w Kalifornii. Choć debiutowaliśmy, jury doceniło nasze prace badawcze nagrodą. Równolegle rozwijamy zaawansowaną symulację, w której regularnie testujemy strategie i kod, zanim trafią na sprzęt. Wyniki badań prezentowaliśmy na konferencjach OCEANS w Sanyi i ECCV w Malmö. Obecnie budujemy trzecią wersję drona.": "The previous version of our drone was tested in real-world conditions at RoboSub 2026 in California. Although it was our debut, the judges recognised our research with an award. In parallel, we are developing an advanced simulator where we regularly test strategies and code before deploying them on hardware. We presented our research at OCEANS in Sanya and ECCV in Malmö. We are now building the third version of the drone.",
+    "Co dalej": "What’s next",
+    "W tym roku zaczynamy prace nad systemem wielu współpracujących robotów i zmierzymy się z problemem komunikacji między nimi pod wodą. Chcemy też umocnić naszą pozycję na arenie międzynarodowej i powtórzyć sukces na zawodach.": "This year we are starting work on a system of multiple cooperating robots and tackling the challenge of underwater communication. We also aim to strengthen our international presence and repeat our competition success.",
+    "Kto tworzy BlueSpark": "The people behind BlueSpark",
+    "Cały zespół koła": "Meet the whole team",
+    "Zdjęcie": "Photo",
+    "Lider projektu · Konstrukcja": "Project Lead · Mechanical Design",
+    "Lider projektu · Software": "Project Lead · Software",
+    "Konstruktor": "Mechanical Designer",
+    "Konstruktor · Administrator Strony": "Mechanical Designer · Website Administrator",
+    "· Sekcja badawcza BlueSparka": "· BlueSpark research section",
+    "Lider projektu · Research": "Project Lead · Research",
+    "BlueSpark w obiektywie": "BlueSpark in pictures",
+    "Z prac, testów, konferencji i zawodów.": "From development, testing, conferences and competitions.",
+    "Zdjęcie z projektu BlueSpark": "Photo from the BlueSpark project",
+    "Aktualności z projektu": "Project news",
+    "Wszystkie wpisy": "All posts",
+    "Następny projekt": "Next project",
+    "Symbol projektu Snow’s Eye": "Snow’s Eye project symbol",
+    "W ARKTYCE": "IN THE ARCTIC",
+    "Autonomiczny lot tam, gdzie zawodzi GPS": "Autonomous flight where GPS fails",
+    "Snow’s Eye to autonomiczna platforma UAV zaprojektowana do operacji w warunkach polarnych i tam, gdzie sygnał GNSS jest ograniczony. Projekt zakończyliśmy kampanią terenową na Svalbardzie i pracą naukową zaprezentowaną na konferencji Arctic Frontiers 2026 w Tromsø.": "Snow’s Eye is an autonomous UAV platform designed for polar operations and environments with limited GNSS availability. We completed the project with a field campaign in Svalbard and a research paper presented at Arctic Frontiers 2026 in Tromsø.",
+    "Regiony polarne to jedne z najtrudniejszych miejsc dla dronów: zakłócenia elektromagnetyczne, niskie temperatury, silne wiatry i brak infrastruktury wsparcia. Snow’s Eye odpowiada na te wyzwania wielowarstwową architekturą lokalizacji, która łączy GNSS, VIO/SLAM i awaryjny system oparty na UWB. Dzięki niemu dron może bezpiecznie wrócić do punktu startu, nawet gdy zawiedzie nawigacja lub łączność.": "Polar regions are among the most demanding environments for drones: electromagnetic interference, low temperatures, strong winds and limited support infrastructure. Snow’s Eye addresses these challenges with a multi-layer positioning architecture combining GNSS, VIO/SLAM and a UWB-based backup system. This enables the drone to return safely to its starting point even if navigation or communication fails.",
+    "Platforma jest zoptymalizowana pod autonomiczne misje na niskim pułapie. Precyzyjne dalmierze i algorytmy kontroli lotu pozwalają na stabilne pomiary w trudnym terenie. Zintegrowany system planowania misji odciąża operatora i umożliwia powtarzalne kampanie badawcze. Architektura nie jest przywiązana do jednego modelu drona, więc można ją zintegrować z różnymi klasami UAV i dopasować do konkretnych zadań naukowych.": "The platform is optimised for autonomous low-altitude missions. Precision rangefinders and flight control algorithms enable stable measurements in difficult terrain. Integrated mission planning reduces the operator’s workload and supports repeatable research campaigns. The architecture is not tied to a single drone model, so it can be integrated with different UAV classes and adapted to specific scientific tasks.",
+    "Autonomiczne misje badawcze w Arktyce i innych miejscach, gdzie GPS i łączność są zawodne. Platforma może przenosić różne specjalistyczne ładunki naukowe, np. sonar do pomiaru pokrywy śnieżnej.": "Autonomous research missions in the Arctic and other environments where GPS and communications are unreliable. The platform can carry specialist scientific payloads, such as a sonar for measuring snow cover.",
+    "Projekt zakończony": "Project completed",
+    "zakończony": "completed",
+    "Jan Mikołajczyk z posterem o Snow’s Eye na konferencji Arctic Frontiers 2026 w Tromsø.": "Jan Mikołajczyk with the Snow’s Eye poster at Arctic Frontiers 2026 in Tromsø.",
+    "Wyniki": "Results",
+    "W maju 2025 roku przeprowadziliśmy kampanię terenową na Svalbardzie, na lodowcu i polach śnieżnych, w ujemnych temperaturach i przy silnym wietrze. Dron wykonywał autonomiczne misje po zaplanowanych punktach i mierzył pokrywę śnieżną z wysokości ok. 0,5 m nad powierzchnią, a wyniki porównywaliśmy z pomiarami referencyjnymi. Wyniki opisaliśmy w pracy „Snow’s Eye – UAV based acoustic system for measuring snow water equivalent in polar region”, którą zaprezentowaliśmy w formie posteru na konferencji Arctic Frontiers 2026 w Tromsø. Praca została zakwalifikowana do konkursu Arctic Frontiers–PeerJ Early Career Scientist Award.": "In May 2025, we conducted a field campaign in Svalbard, on a glacier and snowfields, in sub-zero temperatures and strong winds. The drone flew autonomous waypoint missions and measured snow cover from about 0.5 m above the surface, with results compared against reference measurements. We described the findings in “Snow’s Eye – UAV based acoustic system for measuring snow water equivalent in polar region”, presented as a poster at Arctic Frontiers 2026 in Tromsø. The paper was selected for the Arctic Frontiers–PeerJ Early Career Scientist Award competition.",
+    "Podsumowanie": "Summary",
+    "Snow’s Eye to zakończony projekt. Pomiary na Svalbardzie potwierdziły, że akustyczny pomiar pokrywy śnieżnej z drona jest wykonalny w warunkach polarnych. Pokazaliśmy też, że uniwersalna platforma autonomiczna może przenosić specjalistyczne ładunki naukowe i bezpiecznie pracować tam, gdzie zawodzą GPS i łączność.": "Snow’s Eye is a completed project. Measurements in Svalbard confirmed that acoustic snow-cover measurement from a drone is feasible in polar conditions. We also demonstrated that a general-purpose autonomous platform can carry specialist scientific payloads and operate safely where GPS and communications fail.",
+    "Kto tworzy Snow’s Eye": "The people behind Snow’s Eye",
+    "Lider projektu": "Project Lead",
+    "Inżynier · Programista": "Engineer · Developer",
+    "Snow’s Eye w obiektywie": "Snow’s Eye in pictures",
+    "Zdjęcie z projektu Snow’s Eye": "Photo from the Snow’s Eye project",
+    "Symbol projektu MUSC": "MUSC project symbol",
+    "NA LĄDZIE": "ON LAND",
+    "Rój dronów bez dowódcy": "A drone swarm without a commander",
+    "MUSC to rozproszony system autonomicznego roju dronów, który działa bez stacji naziemnej i zewnętrznych systemów nawigacyjnych. Projekt realizujemy we współpracy z Uniwersytetem Wrocławskim i Politechniką Wrocławską.": "MUSC is a distributed autonomous drone swarm system that operates without a ground station or external navigation systems. We are developing the project with the University of Wrocław and Wrocław University of Science and Technology.",
+    "MUSC to modułowy system autonomii dla dronów. Rozwiązuje problem uzależnienia rojów od zewnętrznej infrastruktury nawigacyjnej i ich podatności na zakłócenia łączności radiowej. Dane są przetwarzane bezpośrednio na pokładzie, a drony wymieniają tylko minimum informacji, dzięki czemu mogą bezpiecznie współpracować i utrzymywać formację w trudnych warunkach, bez stałego nadzoru człowieka.": "MUSC is a modular drone autonomy system. It addresses the dependence of swarms on external navigation infrastructure and their vulnerability to radio interference. Data is processed on board and the drones exchange only essential information, enabling safe cooperation and formation flight in demanding conditions without constant human supervision.",
+    "Architektura jest modułowa, więc czujniki i elementy wykonawcze można dodawać bez przebudowy całego systemu. Drony określają wzajemne położenie dzięki systemom wizyjnym i radiowym pomiarom odległości UWB. Algorytmy zachowania roju, sterowania formacją i unikania kolizji rozwijamy i sprawdzamy w symulacji, a docelowe oprogramowanie uruchomimy na komputerze pokładowym połączonym z kontrolerem lotu.": "The architecture is modular, allowing sensors and actuators to be added without rebuilding the whole system. Drones determine their relative positions using vision systems and UWB radio ranging. We develop and test swarm behaviour, formation control and collision avoidance algorithms in simulation, with the target software running on an onboard computer connected to the flight controller.",
+    "Autonomiczne misje w wymagającym otoczeniu lub przy ograniczonej łączności radiowej, np. we wnętrzach budynków czy w trudnym terenie. System może też służyć zespołom badawczym, studentom i twórcom dronów jako elastyczna baza do testowania własnych czujników i algorytmów sterowania.": "Autonomous missions in challenging environments or with limited radio connectivity, such as inside buildings or in difficult terrain. The system can also serve researchers, students and drone developers as a flexible platform for testing their own sensors and control algorithms.",
+    "Skuteczność bezkolizyjnego przelotu roju 100–200 dronów z opóźnieniami komunikacji (po lewej) i bez nich (po prawej). Wykres pokazuje, jak ważny jest niezależny system unikania kolizji.": "Collision-free flight success rates for swarms of 100–200 drones, with communication delays on the left and without them on the right. The chart shows why an independent collision avoidance system matters.",
+    "Stworzyliśmy środowisko symulacyjne, które sprawdza zachowanie roju przy opóźnieniach i szumach. Potwierdziliśmy w nim stabilność formacji i skuteczne omijanie przeszkód. Na stanowisku sprzętowym uruchomiliśmy komunikację z kontrolerem lotu: telemetria płynie stabilnie w czasie rzeczywistym, a komendy sterujące są poprawnie przyjmowane i potwierdzane. Trwają testy algorytmów wizyjnych i konfiguracja komputera pokładowego.": "We have built a simulation environment for testing swarm behaviour under delays and noise. It has confirmed stable formations and effective obstacle avoidance. On our hardware test bench, we have established communication with the flight controller: telemetry is streamed reliably in real time, and control commands are correctly received and acknowledged. We are now testing vision algorithms and configuring the onboard computer.",
+    "Celem jest w pełni autonomiczny, skalowalny rój dronów, który realizuje zadania bez nadrzędnego systemu sterowania i zewnętrznej infrastruktury. Najbliższe kroki: uruchomienie oprogramowania na komputerze pokładowym, integracja podsystemu wizyjnego i pierwsze testy modułów UWB do lokalnego pozycjonowania dronów.": "Our goal is a fully autonomous, scalable drone swarm that performs tasks without a central controller or external infrastructure. Next steps include deploying the software on the onboard computer, integrating the vision subsystem and conducting the first UWB module tests for local drone positioning.",
+    "Kto tworzy MUSC": "The people behind MUSC",
+    "Lider projektu · Lider sekcji elektroniki": "Project Lead · Electronics Lead",
+    "Lider sekcji architektury systemów i algorytmów sterowania": "Systems Architecture and Control Algorithms Lead",
+    "Lider sekcji algorytmów sterowania · Research": "Control Algorithms Lead · Research",
+    "Lider sekcji wizji komputerowej · Software Engineer": "Computer Vision Lead · Software Engineer",
+    "Elektronika": "Electronics",
+    "Wizja komputerowa · Software Engineer": "Computer Vision · Software Engineer",
+    "Architektura systemów · Software Engineer": "Systems Architecture · Software Engineer",
+    "Algorytmy sterowania · Research": "Control Algorithms · Research",
+    "MUSC w obiektywie": "MUSC in pictures",
+    "Zdjęcie z projektu MUSC": "Photo from the MUSC project",
+    "Brak opublikowanych aktualności.": "No news has been published yet.",
+    "Symbol projektu FlySearch": "FlySearch project symbol",
+    "W POWIETRZU": "IN THE AIR",
+    "Dron, któremu misję zlecasz słowami": "A drone you can task with words",
+    "Badamy, jak modele językowo-wizyjne (VLM) radzą sobie ze sterowaniem prawdziwym dronem i jak wykorzystują rozumowanie do szukania i rozpoznawania celów.": "We study how vision-language models (VLMs) control a real drone and use reasoning to find and recognise targets.",
+    "Modele językowe potrafią już prawie wszystko, więc sprawdzamy, jak poradzą sobie z nawigacją dronem, szczególnie w nieznanym terenie. FlySearch rozwija pracę naukową współtworzoną m.in. przez opiekuna koła, Marka Cygana, w której analizowano, jak modele językowe sterują dronem w misjach poszukiwawczo-ratowniczych w symulacji. My przenosimy te badania do prawdziwego świata.": "Language models can already do almost anything, so we are exploring how they handle drone navigation, particularly in unfamiliar terrain. FlySearch builds on research co-authored by our academic supervisor, Marek Cygan, which studied language-model control of drones in simulated search-and-rescue missions. We are taking that research into the real world.",
+    "Projekt sprawdza, jak modele językowe rozumieją przestrzeń i jak wyniki z symulacji przekładają się na rzeczywiste środowisko. Działamy na dwóch frontach. Trenujemy model w symulacji w Unreal Engine, na trójwymiarowych modelach terenu przygotowanych metodą Gaussian Splatting. Równolegle testujemy go na prawdziwym dronie z komputerem pokładowym, który przez sieć GSM łączy się z modelem przez nasze API. Model dostaje opis zadania, szukany obiekt i granice obszaru. Potem w pętli: dron wysyła zdjęcie i wysokość, model analizuje obraz, zwraca swoje rozumowanie i proponowany ruch, a dron go wykonuje.": "The project explores how language models understand space and how simulation results transfer to real environments. We work on two fronts. We train the model in Unreal Engine using 3D terrain models reconstructed with Gaussian Splatting. At the same time, we test it on a real drone whose onboard computer connects to the model through our API over a cellular network. The model receives a task description, the target object and the search area boundaries. The process then repeats: the drone sends an image and its altitude, the model analyses the scene and returns its reasoning and a proposed movement, and the drone carries it out.",
+    "Misję można zlecić zwykłym językiem, więc przygotować i przeprowadzić ją może nawet osoba, która nie zna się na sterowaniu dronami. To szczególnie obiecujące w poszukiwaniu osób i obiektów w terenie.": "Missions can be described in ordinary language, allowing even someone unfamiliar with drone control to prepare and run them. This is particularly promising for finding people and objects in the field.",
+    "Hubert Zientara, Jan Mikołajczyk i Jan Matusiak z posterem pracy FlyLLM na konferencji ML in PL 2026.": "Hubert Zientara, Jan Mikołajczyk and Jan Matusiak with the FlyLLM poster at ML in PL 2026.",
+    "Mamy działający system. Dron z komputerem pokładowym łączy się przez sieć GSM z modelem przez nasze API, wysyła zdjęcia i wysokość, a następnie wykonuje ruchy, które model wybiera na podstawie obrazu. Model trenujemy metodą uczenia ze wzmocnieniem w trójwymiarowych rekonstrukcjach prawdziwych miejsc wykonanych metodą Gaussian Splatting. Dotrenowany przez nas model Qwen3.5-9B osiągnął 51,72% skuteczności w benchmarku FlySearch FS-1 (60,88% w lesie i 42,55% w mieście), czyli o 22,41 pkt proc. więcej niż model bazowy. Wyniki zaprezentowaliśmy w pracy „FlyLLM: training VLMs with RL in Gaussian-splat environments to explore 3D spaces and navigate in the real world” na konferencji ML in PL 2026. Trwa finalna kampania testowa w prawdziwym świecie.": "We have a working system. A drone with an onboard computer connects to the model through our API over a cellular network, sends images and altitude, and then executes the movements selected by the model. We train the model through reinforcement learning in 3D reconstructions of real places created with Gaussian Splatting. Our fine-tuned Qwen3.5-9B model achieved a 51.72% success rate on the FlySearch FS-1 benchmark (60.88% in forests and 42.55% in urban environments), an improvement of 22.41 percentage points over the base model. We presented these results in “FlyLLM: training VLMs with RL in Gaussian-splat environments to explore 3D spaces and navigate in the real world” at ML in PL 2026. The final real-world testing campaign is under way.",
+    "Celem jest opublikowanie wraz z zespołem pracy naukowej, która pokaże, jak modele językowo-wizyjne radzą sobie z prawdziwym dronem i jak wyniki z symulacji przekładają się na rzeczywisty świat. Najbliższy krok to zakończenie kampanii testowej i opracowanie jej wyników.": "Our goal is to publish a research paper with the team showing how vision-language models perform on a real drone and how simulation results transfer to the real world. The next step is to complete the testing campaign and analyse its results.",
+    "Kto tworzy FlySearch": "The people behind FlySearch",
+    "Lider projektu · Elektronika": "Project Lead · Electronics",
+    "Lider zespołu software": "Software Team Lead",
+    "FlySearch w obiektywie": "FlySearch in pictures",
+    "Zdjęcie z projektu FlySearch": "Photo from the FlySearch project",
+    "Symbol projektu Hawk Eye": "Hawk Eye project symbol",
+    "W STRATOSFERZE": "IN THE STRATOSPHERE",
+    "Pseudosatelita, który wraca na ziemię": "A pseudo-satellite that returns to Earth",
+    "Budujemy stratosferycznego drona typu HAPS. Wynosi go balon meteorologiczny, w stratosferze mierzy parametry atmosfery, a potem autonomicznie wraca na ziemię. Lata wyżej niż drony, a kosztuje mniej niż satelity.": "We are building a stratospheric HAPS drone. A weather balloon carries it aloft, it measures atmospheric conditions in the stratosphere, and then it returns to Earth autonomously. It flies higher than conventional drones and costs less than a satellite.",
+    "Hawk Eye to pseudosatelita, czyli HAPS (High Altitude Platform Station): bezzałogowa platforma działająca w stratosferze. Dziś profile atmosfery mierzy się głównie radiosondami, które są jednorazowe i przepadają po każdym starcie. Nasz dron po pomiarach wraca na ziemię i może polecieć ponownie, co wyraźnie obniża koszt codziennego zbierania danych meteorologicznych. Jest też znacznie tańszy od satelity.": "Hawk Eye is a pseudo-satellite, or HAPS (High Altitude Platform Station): an unmanned platform operating in the stratosphere. Today, atmospheric profiles are mostly measured using disposable radiosondes that are lost after each launch. Our drone returns to Earth after collecting measurements and can fly again, significantly reducing the cost of daily meteorological data collection. It is also much cheaper than a satellite.",
+    "Balon meteorologiczny wynosi drona na wysokość 20–25 km. Podczas wznoszenia czujniki zbierają profil atmosfery. Po odczepieniu od balonu dron wykonuje autonomiczny, kontrolowany lot powrotny. Kluczowa jest konstrukcja płatowca: duża rozpiętość skrzydeł pozwala zachować sterowność w bardzo rozrzedzonym powietrzu. Skrzydła pokrywamy powłokami przeciwoblodzeniowymi, a elektronika odpowiada za nawigację, autopilota i komunikację.": "A weather balloon carries the drone to an altitude of 20–25 km. During ascent, its sensors collect an atmospheric profile. After separating from the balloon, the drone performs an autonomous, controlled return flight. Airframe design is crucial: a large wingspan provides controllability in the thin air. The wings are treated with anti-icing coatings, while the electronics handle navigation, autopilot functions and communication.",
+    "Platforma może zastąpić jednorazowe radiosondy w codziennym profilowaniu atmosfery, wspierać monitoring infrastruktury krytycznej i pomagać we wczesnym wykrywaniu skutków katastrof naturalnych. Skorzystają z niej służby meteorologiczne, instytucje naukowe, operatorzy infrastruktury i zarządzanie kryzysowe.": "The platform could replace disposable radiosondes in daily atmospheric profiling, support critical infrastructure monitoring and help detect the effects of natural disasters early. Potential users include weather services, scientific institutions, infrastructure operators and emergency management teams.",
+    "Zespół Hawk Eye z pierwszym płatowcem o rozpiętości skrzydeł 3 m.": "The Hawk Eye team with its first airframe, with a wingspan of 3 m.",
+    "Zbudowaliśmy pierwszy płatowiec o rozpiętości skrzydeł 3 m i testujemy go w locie: elektronikę, autonomię lotu i powłoki przeciwoblodzeniowe. Dotychczasowe loty zakończyły się sukcesem. Gondolę z elektroniką pomiarową przebadaliśmy w kriogenicznym tunelu aerodynamicznym w −30°C: zasilanie działało bez zarzutu, czujniki dawały poprawne odczyty, a system odczepiania od balonu zadziałał we wszystkich trzech próbach. Drugi prototyp płatowca jest w budowie.": "We have built our first airframe with a 3 m wingspan and are flight-testing its electronics, autonomous control and anti-icing coatings. Flights so far have been successful. We tested the measurement electronics gondola in a cryogenic wind tunnel at −30°C: the power supply worked reliably, the sensors returned correct readings and the balloon release system worked in all three trials. A second airframe prototype is under construction.",
+    "Celem jest w pełni autonomiczna platforma HAPS, która po wyniesieniu balonem prowadzi pomiary w stratosferze, dzięki panelom fotowoltaicznym zostaje w powietrzu jak najdłużej i bezpiecznie wraca na ziemię. Najbliższy krok: lot gondoli do stratosfery, w którym sprawdzimy elektronikę, zasięg łączności i profilowanie atmosfery. Równolegle budujemy kolejny płatowiec i system autonomicznego lotu.": "Our goal is a fully autonomous HAPS platform that takes measurements in the stratosphere after balloon launch, uses photovoltaic panels to stay airborne for as long as possible, and returns safely to Earth. The next step is a stratospheric gondola flight to test the electronics, communication range and atmospheric profiling. In parallel, we are building the next airframe and the autonomous flight system.",
+    "Kto tworzy Hawk Eye": "The people behind Hawk Eye",
+    "Lider zespołu konstrukcyjnego": "Airframe Design Team Lead",
+    "Lider zespołu elektroniki": "Electronics Team Lead",
+    "Elektronik": "Electronics Engineer",
+    "Programistka": "Developer",
+    "Programista": "Developer",
+    "Hawk Eye w obiektywie": "Hawk Eye in pictures",
+    "Zdjęcie z projektu Hawk Eye": "Photo from the Hawk Eye project",
+    "← Zespół": "← Team",
+    "Zdjęcie profilowe": "Profile photo",
+    "Zarząd": "Board",
+    "Zarząd:": "Board:",
+    "Prezes": "President",
+    "Zobacz też: Zarząd": "See also: Board",
+    "Wiceprezes": "Vice President",
+    "Członek zarządu": "Board Member",
+    "Zobacz też: BlueSpark": "See also: BlueSpark",
+    "Zobacz też: BlueSpark · Research": "See also: BlueSpark · Research",
+    "Zobacz też: MUSC": "See also: MUSC",
+    "Zobacz też: Hawk Eye": "See also: Hawk Eye",
+    "Zobacz też: Business Team": "See also: Business Team",
+    "Autonomiczny dron podwodny, który nawiguje dzięki wizji komputerowej.": "An autonomous underwater drone that navigates using computer vision.",
+    "pod wodą": "underwater",
+    "Zakończony projekt autonomicznego drona do misji w Arktyce.": "A completed autonomous drone project for Arctic missions.",
+    "nad lodowcem": "above the glacier",
+    "Rój dronów bez stacji naziemnej i zewnętrznej nawigacji.": "A drone swarm without a ground station or external navigation.",
+    "rój nisko nad ziemią": "a swarm close to the ground",
+    "Dron sterowany przez model AI, któremu misję zlecasz słowami.": "An AI-controlled drone you can task with words.",
+    "w powietrzu": "in the air",
+    "Pseudosatelita wynoszony balonem, który sam wraca na ziemię.": "A balloon-launched pseudo-satellite that returns to Earth on its own.",
+    "w stratosferze": "in the stratosphere",
+    "Sekcja badawcza BlueSparka": "BlueSpark research section",
+    "Marketing, partnerstwa, finanse i komunikacja koła": "Club marketing, partnerships, finance and communications",
+    "Wszystko": "All",
+    "Brak wpisów w tej kategorii.": "No posts in this category.",
+    "Kopiowano": "Copied",
+    "Skopiowano": "Copied",
+    "Wysyłanie wiadomości...": "Sending your message...",
+    "Wiadomość została wysłana. Dziękujemy!": "Your message has been sent. Thank you!",
+    "Nie udało się wysłać wiadomości. Spróbuj ponownie lub napisz na podany adres e-mail.": "Your message could not be sent. Please try again or contact us at the email address provided.",
+    "Strona główna": "Home",
+    "Zespół koła": "Club team",
+    "Do pobrania": "Downloads",
+    "Materiały o kole": "Club materials",
+    "Dla partnerów i sponsorów, którzy chcą poznać nas bliżej.": "For partners and sponsors who would like to get to know us better.",
+    "PDF · 1 strona": "PDF · 1 page",
+    "One-pager KN SPA": "KN SPA one-pager",
+    "Kim jesteśmy, nasze projekty i osiągnięcia na jednej stronie.": "Who we are, our projects and achievements on one page.",
+    "Oferta partnerska": "Partnership offer",
+    "Pakiety współpracy i to, co możemy zaoferować partnerom.": "Partnership packages and what we can offer our supporters.",
+    "Pobierz ↓": "Download ↓",
+    "AI W POWIETRZU": "AI IN THE AIR",
+    "Zbyt wiele wiadomości. Spróbuj ponownie za kilka minut.": "Too many messages. Please try again in a few minutes.",
+    "Sprawdź dane formularza i spróbuj ponownie.": "Please check the form fields and try again.",
+    "Zdjęcie projektu BlueSpark": "Project photo: BlueSpark",
+    "Zdjęcie projektu Snow’s Eye": "Project photo: Snow’s Eye",
+    "Zdjęcie projektu MUSC": "Project photo: MUSC",
+    "Zdjęcie projektu FlySearch": "Project photo: FlySearch",
+    "Zdjęcie projektu Hawk Eye": "Project photo: Hawk Eye",
+    "Software Engineer": "Software Engineer",
+    "Software Engineer & Research": "Software Engineer & Research",
+    "Business Team Lead": "Business Team Lead",
+    "Operations Coordinator": "Operations Coordinator",
+    "Finance Manager": "Finance Manager",
+    "PR Manager": "PR Manager",
+    "Social Media Manager": "Social Media Manager",
+    "Visual Designer": "Visual Designer"
+  }
+}

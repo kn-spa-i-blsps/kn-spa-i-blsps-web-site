@@ -1,3 +1,5 @@
+import { getWebsite } from './website.js';
+import { setSetting } from './db.js';
 import { randomBytes } from 'node:crypto';
 import { Router } from 'express';
 import db, { getSetting } from './db.js';
@@ -11,7 +13,7 @@ import {
   emergencyResetPassword,
 } from './auth.js';
 import { getAllContent, formatMember, formatProject, formatNews, formatPartner, slugify } from './content.js';
-import { upload, persistImage, isCloudinaryConfigured } from './upload.js';
+import { upload, persistImage, isCloudinaryConfigured, mediaUpload, persistVideo } from './upload.js';
 
 const router = Router();
 
@@ -23,12 +25,14 @@ router.get('/content', async (_req, res) => {
 });
 
 router.get('/members', (_req, res) => {
-  const rows = db.prepare('SELECT * FROM members ORDER BY sort_order, name').all();
+  res.set('Cache-Control', 'no-store');
+  const rows = db.prepare('SELECT * FROM members WHERE is_active=1 ORDER BY sort_order, name').all();
   res.json(rows.map(formatMember));
 });
 
 router.get('/members/:id', (req, res) => {
-  const row = db.prepare('SELECT * FROM members WHERE id = ?').get(req.params.id);
+  res.set('Cache-Control', 'no-store');
+  const row = db.prepare('SELECT * FROM members WHERE id = ? AND is_active=1').get(req.params.id);
   if (!row) return res.status(404).json({ error: 'Not found' });
   res.json(formatMember(row));
 });
@@ -50,7 +54,7 @@ router.get('/news', (_req, res) => {
 });
 
 router.get('/news/:id', (req, res) => {
-  const row = db.prepare('SELECT * FROM news WHERE id = ?').get(req.params.id);
+  const row = db.prepare('SELECT * FROM news WHERE id = ? AND published=1').get(req.params.id);
   if (!row) return res.status(404).json({ error: 'Not found' });
   res.json(formatNews(row));
 });
@@ -129,85 +133,86 @@ router.post('/admin/members', authMiddleware, (req, res) => {
   if (!b.name) return res.status(400).json({ error: 'Imię jest wymagane' });
 
   db.prepare(`
-    INSERT INTO members (id, name, role_pl, role_en, bio_pl, bio_en, custom_tags, socials, photo_url, sort_order, updated_at)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
+    INSERT INTO members (id, name, role_pl, role_en, bio_pl, bio_en, custom_tags, socials, photo_url, sort_order, assignments, is_active, show_photo, updated_at)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
   `).run(
     id, b.name, b.role_pl || '', b.role_en || '', b.bio_pl || '', b.bio_en || '',
     JSON.stringify(parseBodyJson(b.custom_tags, [])),
     JSON.stringify(parseBodyJson(b.socials, [])),
     b.photo_url || '',
-    b.sort_order ?? 999
+    b.sort_order ?? 999, JSON.stringify(parseBodyJson(b.assignments, [])), b.is_active === false ? 0 : 1, b.show_photo === false ? 0 : 1
   );
+  syncTeamIds();
   res.status(201).json({ id });
 });
 
 router.put('/admin/members/:id', authMiddleware, (req, res) => {
   const b = req.body;
   const result = db.prepare(`
-    UPDATE members SET name=?, role_pl=?, role_en=?, bio_pl=?, bio_en=?, custom_tags=?, socials=?, photo_url=?, sort_order=?, updated_at=datetime('now')
+    UPDATE members SET name=?, role_pl=?, role_en=?, bio_pl=?, bio_en=?, custom_tags=?, socials=?, photo_url=?, sort_order=?, assignments=?, is_active=?, show_photo=?, updated_at=datetime('now')
     WHERE id=?
   `).run(
     b.name, b.role_pl || '', b.role_en || '', b.bio_pl || '', b.bio_en || '',
     JSON.stringify(parseBodyJson(b.custom_tags, [])),
     JSON.stringify(parseBodyJson(b.socials, [])),
     b.photo_url || '',
-    b.sort_order ?? 999,
+    b.sort_order ?? 999, JSON.stringify(parseBodyJson(b.assignments, [])), b.is_active === false ? 0 : 1, b.show_photo === false ? 0 : 1,
     req.params.id
   );
   if (result.changes === 0) return res.status(404).json({ error: 'Not found' });
+  syncTeamIds();
   res.json({ ok: true });
 });
 
 router.delete('/admin/members/:id', authMiddleware, (req, res) => {
   const result = db.prepare('DELETE FROM members WHERE id = ?').run(req.params.id);
   if (result.changes === 0) return res.status(404).json({ error: 'Not found' });
+  syncTeamIds();
   res.json({ ok: true });
 });
 
-// Projects
-router.get('/admin/projects', authMiddleware, (_req, res) => {
-  res.json(db.prepare('SELECT * FROM projects ORDER BY ordering, title').all());
-});
-
-router.post('/admin/projects', authMiddleware, (req, res) => {
-  const b = req.body;
-  const id = b.id || slugify(b.title);
-  if (!b.title) return res.status(400).json({ error: 'Tytuł jest wymagany' });
-
-  db.prepare(`
-    INSERT INTO projects (id, title, full_title, ordering, short_desc_pl, short_desc_en, full_desc_pl, full_desc_en, team_ids, spec, image_url, external_url, updated_at)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
-  `).run(
-    id, b.title, b.full_title || '', b.ordering ?? 999,
-    b.short_desc_pl || '', b.short_desc_en || '', b.full_desc_pl || '', b.full_desc_en || '',
-    JSON.stringify(parseBodyJson(b.team_ids, [])),
-    JSON.stringify(parseBodyJson(b.spec, [])),
-    b.image_url || '', b.external_url || ''
-  );
-  res.status(201).json({ id });
-});
-
-router.put('/admin/projects/:id', authMiddleware, (req, res) => {
-  const b = req.body;
-  const result = db.prepare(`
-    UPDATE projects SET title=?, full_title=?, ordering=?, short_desc_pl=?, short_desc_en=?, full_desc_pl=?, full_desc_en=?, team_ids=?, spec=?, image_url=?, external_url=?, updated_at=datetime('now')
-    WHERE id=?
-  `).run(
-    b.title, b.full_title || '', b.ordering ?? 999,
-    b.short_desc_pl || '', b.short_desc_en || '', b.full_desc_pl || '', b.full_desc_en || '',
-    JSON.stringify(parseBodyJson(b.team_ids, [])),
-    JSON.stringify(parseBodyJson(b.spec, [])),
-    b.image_url || '', b.external_url || '',
-    req.params.id
-  );
-  if (result.changes === 0) return res.status(404).json({ error: 'Not found' });
-  res.json({ ok: true });
-});
-
-router.delete('/admin/projects/:id', authMiddleware, (req, res) => {
-  const result = db.prepare('DELETE FROM projects WHERE id = ?').run(req.params.id);
-  if (result.changes === 0) return res.status(404).json({ error: 'Not found' });
-  res.json({ ok: true });
+// Projects: one source of truth for the redesigned public site.
+function syncTeamIds(){
+ const members=db.prepare('SELECT id,assignments FROM members WHERE is_active=1').all();
+ for(const project of db.prepare('SELECT id FROM projects').all()){
+  const ids=members.filter(m=>parseBodyJson(m.assignments,[]).some(a=>a.group===project.id||a.group===project.id+'-research')).map(m=>m.id);
+  db.prepare('UPDATE projects SET team_ids=? WHERE id=?').run(JSON.stringify(ids),project.id);
+ }
+}
+function applyProjectTeam(id,ids){
+ for(const member of db.prepare('SELECT id,role_pl,role_en,assignments FROM members').all()){
+  let roles=parseBodyJson(member.assignments,[]);
+  if(ids.includes(member.id)){
+   if(!roles.some(r=>r.group===id||r.group===id+'-research'))roles.push({group:id,role_pl:member.role_pl,role_en:member.role_en});
+  }else roles=roles.filter(r=>r.group!==id&&r.group!==id+'-research');
+  db.prepare('UPDATE members SET assignments=? WHERE id=?').run(JSON.stringify(roles),member.id);
+ }
+ syncTeamIds();
+}
+router.get('/admin/projects',authMiddleware,(_req,res)=>res.json(db.prepare('SELECT * FROM projects ORDER BY ordering,title').all()));
+function saveProject(req,res,create){
+ const b=req.body||{},id=create?(b.id||slugify(b.title||'')):req.params.id;
+ if(!/^[a-z0-9][a-z0-9-]{0,100}$/.test(id)||typeof b.title!=='string'||!b.title.trim())return res.status(400).json({error:'Podaj nazwę i poprawne ID projektu'});
+ const current=db.prepare('SELECT * FROM projects WHERE id=?').get(id);
+ if(!create&&!current)return res.status(404).json({error:'Not found'});
+ if(create&&current)return res.status(409).json({error:'Projekt o takim ID już istnieje'});
+ const w=typeof b.website==='string'?parseBodyJson(b.website,null):b.website;
+ if(!w||typeof w!=='object'||Array.isArray(w)||!Array.isArray(w.about)||!Array.isArray(w.gallery))return res.status(400).json({error:'Niepoprawne sekcje projektu'});
+ if(!/^(#[0-9a-fA-F]{6}|var\(--[a-z]+\))$/.test(w.color||'var(--kn)'))return res.status(400).json({error:'Niepoprawny kolor'});
+ if(w.gallery.some(p=>!p||typeof p.url!=='string')||w.about.some(p=>!p||typeof p.text_pl!=='string'))return res.status(400).json({error:'Niepoprawna galeria lub opis'});
+ const team=parseBodyJson(b.team_ids,[]);if(!Array.isArray(team))return res.status(400).json({error:'Niepoprawny zespół'});
+ db.transaction(()=>{
+  db.prepare(`INSERT INTO projects(id,title,full_title,ordering,short_desc_pl,short_desc_en,full_desc_pl,full_desc_en,team_ids,spec,image_url,external_url,website) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET title=excluded.title,full_title=excluded.full_title,ordering=excluded.ordering,short_desc_pl=excluded.short_desc_pl,short_desc_en=excluded.short_desc_en,full_desc_pl=excluded.full_desc_pl,full_desc_en=excluded.full_desc_en,team_ids=excluded.team_ids,image_url=excluded.image_url,website=excluded.website,updated_at=datetime('now')`).run(id,b.title,b.full_title||w.title_pl||'',b.ordering??999,b.short_desc_pl||'',b.short_desc_en||'',w.about.map(p=>p.text_pl).join('\n\n'),w.about.map(p=>p.text_en||p.text_pl).join('\n\n'),JSON.stringify(team),current?.spec||'[]',b.image_url||'',current?.external_url||'',JSON.stringify(w));
+  applyProjectTeam(id,team);
+ })();
+ res.status(create?201:200).json({id,ok:true});
+}
+router.post('/admin/projects',authMiddleware,(req,res)=>saveProject(req,res,true));
+router.put('/admin/projects/:id',authMiddleware,(req,res)=>saveProject(req,res,false));
+router.delete('/admin/projects/:id',authMiddleware,(req,res)=>{
+ const result=db.prepare('DELETE FROM projects WHERE id=?').run(req.params.id);
+ if(!result.changes)return res.status(404).json({error:'Not found'});
+ db.prepare("UPDATE news SET project_id='kn' WHERE project_id=?").run(req.params.id);applyProjectTeam(req.params.id,[]);res.json({ok:true});
 });
 
 router.get('/admin/config', authMiddleware, (_req, res) => {
@@ -218,7 +223,7 @@ router.get('/admin/config', authMiddleware, (_req, res) => {
   });
 });
 
-router.post('/admin/upload', authMiddleware, upload.single('file'), async (req, res) => {
+router.post('/admin/upload', authMiddleware, mediaUpload.single('file'), async (req, res) => {
   try {
     if (!req.file) return res.status(400).json({ error: 'Brak pliku' });
 
@@ -229,7 +234,8 @@ router.post('/admin/upload', authMiddleware, upload.single('file'), async (req, 
     const role = req.body.role || req.body.type || 'cover';
     const index = req.body.index ? parseInt(req.body.index, 10) : undefined;
 
-    const url = await persistImage(req.file.buffer, req.file.mimetype, {
+    const persist=req.file.mimetype.startsWith('video/')?persistVideo:persistImage;
+    const url = await persist(req.file.buffer, req.file.mimetype, {
       category,
       entityId,
       role,
@@ -253,8 +259,8 @@ router.post('/admin/news', authMiddleware, (req, res) => {
   if (!b.date || !b.title_pl) return res.status(400).json({ error: 'Data i tytuł PL są wymagane' });
 
   db.prepare(`
-    INSERT INTO news (id, date, title_pl, title_en, short_desc_pl, short_desc_en, full_desc_pl, full_desc_en, content_format, cover_image, gallery, links, published, featured, updated_at)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
+    INSERT INTO news (id, date, title_pl, title_en, short_desc_pl, short_desc_en, full_desc_pl, full_desc_en, content_format, cover_image, gallery, links, published, featured, project_id, updated_at)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
   `).run(
     id, b.date, b.title_pl, b.title_en || '',
     b.short_desc_pl || '', b.short_desc_en || '',
@@ -264,7 +270,7 @@ router.post('/admin/news', authMiddleware, (req, res) => {
     JSON.stringify(parseBodyJson(b.gallery, [])),
     JSON.stringify(parseBodyJson(b.links, [])),
     b.published !== undefined ? (b.published ? 1 : 0) : 1,
-    b.featured ? 1 : 0
+    b.featured ? 1 : 0, b.project_id || 'kn'
   );
   res.status(201).json({ id });
 });
@@ -272,7 +278,7 @@ router.post('/admin/news', authMiddleware, (req, res) => {
 router.put('/admin/news/:id', authMiddleware, (req, res) => {
   const b = req.body;
   const result = db.prepare(`
-    UPDATE news SET date=?, title_pl=?, title_en=?, short_desc_pl=?, short_desc_en=?, full_desc_pl=?, full_desc_en=?, content_format=?, cover_image=?, gallery=?, links=?, published=?, featured=?, updated_at=datetime('now')
+    UPDATE news SET date=?, title_pl=?, title_en=?, short_desc_pl=?, short_desc_en=?, full_desc_pl=?, full_desc_en=?, content_format=?, cover_image=?, gallery=?, links=?, published=?, featured=?, project_id=?, updated_at=datetime('now')
     WHERE id=?
   `).run(
     b.date, b.title_pl, b.title_en || '',
@@ -283,7 +289,7 @@ router.put('/admin/news/:id', authMiddleware, (req, res) => {
     JSON.stringify(parseBodyJson(b.gallery, [])),
     JSON.stringify(parseBodyJson(b.links, [])),
     b.published !== undefined ? (b.published ? 1 : 0) : 1,
-    b.featured ? 1 : 0,
+    b.featured ? 1 : 0, b.project_id || 'kn',
     req.params.id
   );
   if (result.changes === 0) return res.status(404).json({ error: 'Not found' });
@@ -398,6 +404,15 @@ router.delete('/admin/messages/:id', authMiddleware, (req, res) => {
   const result = db.prepare('DELETE FROM contact_messages WHERE id=?').run(req.params.id);
   if (!result.changes) return res.status(404).json({ error: 'Not found' });
   res.json({ ok: true });
+});
+
+
+router.get('/website',(_req,res)=>{res.set('Cache-Control','no-store');res.json(getWebsite());});
+router.get('/admin/site',authMiddleware,(_req,res)=>{res.set('Cache-Control','no-store');res.json(JSON.parse(getSetting('public_site')||'{}'));});
+router.put('/admin/site',authMiddleware,(req,res)=>{
+ const b=req.body;
+ if(!b||!Array.isArray(b.texts)||!Array.isArray(b.homeGallery)||!b.contact||typeof b.contact.email!=='string'||!b.contact.email.includes('@')||!b.icons||!b.groups)return res.status(400).json({error:'Niepoprawne ustawienia strony'});
+ setSetting('public_site',JSON.stringify(b));res.json({ok:true});
 });
 
 export default router;

@@ -1,9 +1,5 @@
-# Current MIMUW deployment
+# KN SPA redesigned production website
 
-Snapshot of the running website, including the protected /test preview.
+The redesigned website is served at the domain root. The former /test route redirects to /. Admin edits are saved in SQLite and rendered into the public website. All public media are stored in Cloudinary.
 
-The root contains the Node application and public assets. Apache uses .htaccess, gateway.cgi and test-gate.cgi to proxy the application at 127.0.0.1:31847 and protect all /test files with the existing admin session. CGI files must be executable.
-
-content-snapshot contains public API content only. It is an archival export, not an automatic database import. Database files, credentials, environment files, sessions, dependencies and server backups are excluded.
-
-Operational recovery scripts and service configuration are backed up under ops/. Private environment configuration is intentionally excluded. Current admin cookies last for the browser session. Detail pages validate identifiers and return HTTP 404 for unavailable content.
+Private environment configuration, credentials, database files and contact messages are deliberately excluded from GitHub backups. For a full private recovery use the protected server database backup. Public website data is exported in content-snapshot/website.json.
